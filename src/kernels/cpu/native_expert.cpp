@@ -1,15 +1,18 @@
 // src/kernels/cpu/native_expert.cpp - plan v0.3 P6: native (GGUF-form) experts on the CPU through ggml-cpu.
-// See the header.  Nothing here is Strata arithmetic: the activation quantizers and the row dot products are
-// ggml-cpu's, so an IQ expert computes what llama.cpp's CPU backend computes for it.
+// Standard types use ggml-cpu's activation quantizers and row dots. IK's KT
+// extensions use the independent row decoder with Q8_0 activations; their AVX2
+// adapter preserves the scalar KT arithmetic while sharing decode across tokens.
 #include "strata/kernels/cpu/native_expert.hpp"
 #include "strata/kernels/cpu/expert.hpp"
 #include "strata/kernels/cpu/iq_avx512.hpp"
 #include "strata/kernels/cpu/iq_avx2.hpp"
 #include "strata/kernels/cpu/kq_avx2.hpp"
+#include "strata/kernels/cpu/kt_avx2.hpp"
 #include "strata/kernels/cpu/expert_layout.hpp"
 
 #include "ggml.h"
 #include "ggml-cpu.h"
+#include "strata/artifact/kt.hpp"
 
 #include <cmath>
 #include <cstdlib>
@@ -18,7 +21,23 @@
 namespace strata::kernels::cpu {
 namespace {
 
-const ggml_type_traits_cpu* traits(int type) { return ggml_get_type_traits_cpu((ggml_type) type); }
+const ggml_type_traits_cpu* traits(int type) {
+    return type >= 0 && type < GGML_TYPE_COUNT ? ggml_get_type_traits_cpu((ggml_type) type) : nullptr;
+}
+
+// KT uses Q8_0 activations on this adapter's CPU path. The integer trellis and
+// row scales are unchanged; this is not IK's Q8_2_X4 activation/rounding contract.
+float kt_dot(int type, const uint8_t* w, const void* activation, int n) {
+    const auto* a = (const uint8_t*)activation;
+    float sum = 0;
+    for (int b = 0; b < n / 32; ++b) {
+        int8_t q[32]; const float d = kt::decode32(type,w,n,b,q);
+        int v = 0;
+        for (int j = 0; j < 32; ++j) v += int(q[j]) * int((int8_t)a[34*b+2+j]);
+        sum += d * ggml_fp16_to_fp32((ggml_fp16_t)kt::u16(a+34*b)) * v;
+    }
+    return sum;
+}
 
 void init_once() {
     static std::once_flag once;
@@ -31,6 +50,17 @@ bool native_experts_available() noexcept { return true; }
 
 bool native_fmt(int gu_type, int d_type, int64_t n_embd, int64_t n_ff, NativeFmt& f, std::string& err) {
     init_once();
+    if (kt::supported(gu_type) || kt::supported(d_type)) {
+        if (!kt::row_bytes(gu_type,n_embd) || !kt::row_bytes(d_type,n_ff) || n_embd > 2560 || n_ff > 640) {
+            err = "KT native experts require KT gate/up and down with 32-aligned widths <= 2560/640"; return false;
+        }
+        f.gu_type=gu_type; f.d_type=d_type; f.gu_act=f.d_act=GGML_TYPE_Q8_0;
+        f.n_embd=n_embd; f.n_ff=n_ff;
+        f.gu_row=kt::row_bytes(gu_type,n_embd); f.d_row=kt::row_bytes(d_type,n_ff);
+        f.up_off=f.gu_row*n_ff; f.down_off=2*f.up_off; f.bytes=f.down_off+f.d_row*n_embd;
+        f.act_bytes=(size_t)(n_embd/32)*34; f.h_bytes=(size_t)(n_ff/32)*34;
+        return true;
+    }
     const ggml_type_traits_cpu* tg = traits(gu_type);
     const ggml_type_traits_cpu* td = traits(d_type);
     if (tg == nullptr || tg->vec_dot == nullptr || td == nullptr || td->vec_dot == nullptr) {
@@ -97,6 +127,16 @@ int native_gu_mt_min(int gu_type) {
 
 void native_gu_rows(const NativeFmt& f, const uint8_t* blob, const void* const* act, int nt, float* const* ff,
                     int r0, int r1) {
+    if (kt::supported(f.gu_type)) {
+        static const bool fast = cpu_avx2_ok() && std::getenv("STRATA_KT_SCALAR") == nullptr;
+        if (fast) { kt256_gu_rows(f,blob,act,nt,ff,r0,r1); return; }
+        for (int r=r0;r<r1;++r) for (int t=0;t<nt;++t) {
+            const float g=kt_dot(f.gu_type,blob+r*f.gu_row,act[t],(int)f.n_embd);
+            const float u=kt_dot(f.gu_type,blob+f.up_off+r*f.gu_row,act[t],(int)f.n_embd);
+            ff[t][r]=(g/(1.f+std::exp(-g)))*u;
+        }
+        return;
+    }
     // the multi-token kernels decode the weights once for all tokens: 2.0-2.4x ggml-cpu at three tokens, no faster
     // at one (all are bound by the codebook lookups, ~5 GB/s per core), measured by native_expert_parity.  AVX-512
     // first, then the AVX-2 one (Zen 2/3, Intel 12th-14th gen).  STRATA_NO_IQ512 drops an AVX-512 CPU to the
@@ -150,6 +190,13 @@ void native_gu_rows(const NativeFmt& f, const uint8_t* blob, const void* const* 
 
 void native_down_rows(const NativeFmt& f, const uint8_t* blob, const void* const* hq, int nt, float* const* out,
                       int r0, int r1) {
+    if (kt::supported(f.d_type)) {
+        static const bool fast = cpu_avx2_ok() && std::getenv("STRATA_KT_SCALAR") == nullptr;
+        if (fast) { kt256_down_rows(f,blob,hq,nt,out,r0,r1); return; }
+        for (int r=r0;r<r1;++r) for (int t=0;t<nt;++t)
+            out[t][r]=kt_dot(f.d_type,blob+f.down_off+r*f.d_row,hq[t],(int)f.n_ff);
+        return;
+    }
     // IQ4_NL down rows: the AVX-2 multi-token kernel decodes the nibbles and absolutises the weights once per
     // block instead of once per token; ggml-cpu's dot is single-token.  STRATA_NO_IQ4NL falls back to it.
     static const bool iq4nl_mt = std::getenv("STRATA_NO_IQ4NL") == nullptr;

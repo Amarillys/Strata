@@ -18,6 +18,7 @@
 //     are simply overwritten when their positions are processed again;
 //   * all 512 routed experts live in VRAM (708 MB) and run through the grouped hit kernels.
 #pragma once
+#include "strata/kernels/iq_kernels.hpp"
 
 #include "strata/core/layer.hpp"
 #include "strata/core/session.hpp"
@@ -225,6 +226,7 @@ private:
     std::vector<Tensor> tensors_;
     uint8_t* dense_ = nullptr;
     uint8_t* experts_ = nullptr;
+    strata::kernels::NativeExpertLayout kt_experts_{}; // nonzero bytes: native IK KT MTP pack
     // Slot drafters borrow immutable weights and head; each still owns its state and scratch.
     bool owns_weights_ = true;
     bool owns_draft_head_ = true;

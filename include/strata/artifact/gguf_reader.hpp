@@ -33,6 +33,7 @@
 #include <algorithm>
 
 #include "strata/artifact/gguf_split.hpp"
+#include "strata/artifact/kt.hpp"
 
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
@@ -51,6 +52,8 @@ namespace strata {
 
 // ---- ggml type ids we care about. 42 = Q2_0, the PrismML ternary 2-bit encoding this engine targets.
 inline const char* ggml_type_name(uint32_t t) {
+    if (t == kt::IQ3) return "IQ3_KT";
+    if (t == kt::IQ4) return "IQ4_KT";
     switch (t) {
     case 0:
         return "F32";
@@ -475,6 +478,15 @@ private:
 // Bytes of a tensor's payload from its shape and block geometry; 0 when the type is unknown, a row is not whole
 // blocks, or the count overflows.
 inline uint64_t tensor_payload_bytes(const TensorInfo& t) {
+    if (kt::supported(t.type)) {
+        if (t.shape.empty() || t.shape[0] > uint64_t(INT64_MAX)) return 0;
+        uint64_t bytes = kt::row_bytes(t.type, (int64_t)t.shape[0]);
+        for (size_t i = 1; i < t.shape.size(); ++i) {
+            if (!t.shape[i] || bytes > (std::numeric_limits<uint64_t>::max)() / t.shape[i]) return 0;
+            bytes *= t.shape[i];
+        }
+        return bytes;
+    }
     int be = 0, bb = 0;
     if (t.shape.empty() || !block_geometry(t.type, be, bb) || t.shape[0] % (uint64_t) be) return 0;
     uint64_t elements = 1;

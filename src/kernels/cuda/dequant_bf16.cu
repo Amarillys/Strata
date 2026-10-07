@@ -4,6 +4,7 @@
 // The ggml authors): dequantize_row_q2_0/q4_0/q5_0/q8_0/q3_K/q4_K/q5_K/q6_K/iq4_nl/iq4_xs.
 #include "strata/kernels/dequant_bf16.hpp"
 #include "strata/kernels/iq_kernels.hpp"
+#include "strata/kernels/kt_kernels.hpp"
 
 #include <cuda_fp16.h>
 #include <cuda_runtime.h>
@@ -227,6 +228,7 @@ void launch(int type, const void* blocks, int64_t row0, int64_t rows, int64_t co
 }  // namespace
 
 bool dequant_bf16_supported(int ggml_type) noexcept {
+    if (kt::supported(ggml_type)) return true;
     int a, b;
     return geometry(ggml_type, a, b);
 }
@@ -238,11 +240,13 @@ bool iq_only(int t) { return t == 16 || t == 17 || t == 18 || t == 21 || t == 22
 
 void dequant_bf16(int ggml_type, const void* blocks, int64_t row0, int64_t rows, int64_t cols, uint16_t* out,
                   void* stream) {
+    if (kt::supported(ggml_type)) { kt_dequant_rows(ggml_type,(const uint8_t*)blocks+row0*kt::row_bytes(ggml_type,cols),cols,rows,out,30,stream); return; }
     launch<uint16_t>(ggml_type, blocks, row0, rows, cols, out, stream);
 }
 
 void dequant_f16(int ggml_type, const void* blocks, int64_t row0, int64_t rows, int64_t cols, uint16_t* out,
                  void* stream) {
+    if (kt::supported(ggml_type)) { kt_dequant_rows(ggml_type,(const uint8_t*)blocks+row0*kt::row_bytes(ggml_type,cols),cols,rows,out,1,stream); return; }
     if (iq_only(ggml_type)) {
         iq_dequant_f16(ggml_type, (const uint8_t*) blocks + (size_t) row0 * iq_row_bytes(ggml_type, cols), rows * cols,
                        out, stream);
@@ -253,6 +257,7 @@ void dequant_f16(int ggml_type, const void* blocks, int64_t row0, int64_t rows, 
 
 bool dequant_f16_ld(int ggml_type, const void* blocks, int64_t row0, int64_t rows, int64_t cols, int64_t ld,
                     uint16_t* out, void* stream) {
+    if (kt::supported(ggml_type)) { kt_dequant_rows(ggml_type,(const uint8_t*)blocks+row0*kt::row_bytes(ggml_type,cols),cols,rows,out,1,stream,ld); return true; }
     int be = 0, bb = 0;
     if (iq_only(ggml_type) || !geometry(ggml_type, be, bb) || cols % be != 0 || rows <= 0 || ld < cols || ld % 8 != 0)
         return false;
@@ -261,6 +266,7 @@ bool dequant_f16_ld(int ggml_type, const void* blocks, int64_t row0, int64_t row
 }
 
 void dequant_f32(int ggml_type, const void* blocks, int64_t row0, int64_t rows, int64_t cols, float* out, void* stream) {
+    if (kt::supported(ggml_type)) { kt_dequant_rows(ggml_type,(const uint8_t*)blocks+row0*kt::row_bytes(ggml_type,cols),cols,rows,out,0,stream); return; }
     if (iq_only(ggml_type)) {
         iq_dequant_f32(ggml_type, (const uint8_t*) blocks + (size_t) row0 * iq_row_bytes(ggml_type, cols), rows * cols,
                        out, stream);

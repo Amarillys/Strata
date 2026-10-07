@@ -4,6 +4,7 @@
 #include "strata/kernels/ngram.hpp"
 #include "strata/artifact/gguf_reader.hpp"
 #include "strata/artifact/dequant.hpp"
+#include "strata/artifact/kt.hpp"
 #include "strata/kernels/f16_bits.hpp"
 #include "strata/ngram/ple_reader.hpp"
 
@@ -161,6 +162,8 @@ void dequant_blocks(const uint8_t* row, float /*scale*/, float* out160) {
 void dequant_iq4_nl(const uint8_t* row, float, float* out160) { iq4nl_dequant_row(row, out160); }
 void dequant_fp8(const uint8_t* row, float scale, float* out160) { fp8_e4m3_dequant_row(row, scale, out160); }
 void dequant_bf16(const uint8_t* row, float, float* out160) { bf16_dequant_row(row, out160); }
+void dequant_iq4_kt(const uint8_t* row, float, float* out160) { kt::dequantize_row(kt::IQ4,row,160,out160); }
+void dequant_iq3_kt(const uint8_t* row, float, float* out160) { kt::dequantize_row(kt::IQ3,row,160,out160); }
 
 const PleFormatInfo kPleFormats[] = {
     {PleFormat::IQ4_NL, "IQ4_NL", "IQ4_NL", PLE_ROW_BYTES, false, dequant_iq4_nl},
@@ -174,6 +177,8 @@ const PleFormatInfo kPleFormats[] = {
     // BF16 (#586): the checkpoint's own table at full precision, 320-byte rows; self-describing, so no scale and no
     // metadata to trust (tools/ple_fp8_pack.py writes the FP8 form of the same table)
     {PleFormat::BF16, "BF16", "BF16", PLE_ROW_BYTES_BF16, false, dequant_bf16},
+    {PleFormat::IQ4_KT, "IQ4_KT", "IQ4_KT", 84, false, dequant_iq4_kt},
+    {PleFormat::IQ3_KT, "IQ3_KT", "IQ3_KT", 68, false, dequant_iq3_kt},
 };
 constexpr int kPleFormatCount = (int) (sizeof kPleFormats / sizeof kPleFormats[0]);
 }  // namespace

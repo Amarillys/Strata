@@ -5,6 +5,7 @@
 // MIT license, third_party/ggml/LICENSE).  The block structs and codebook grids come from its ggml-common.h,
 // included unchanged.
 #include "strata/kernels/iq_kernels.hpp"
+#include "strata/kernels/kt_kernels.hpp"
 #include "strata/kernels/dp4a.hpp"
 #include "strata/kernels/q8_1_finite.hpp"
 #include "s26_tsum.cuh"
@@ -1914,6 +1915,7 @@ __global__ void dequant_gu_kernel(int ty, const void* __restrict__ gate, const v
 
 // the types dq_dispatch dequantizes
 bool is_iq(int t) {
+    if (kt::supported(t)) return true;
     return t == 16 || t == 17 || t == 18 || t == 20 || t == 21 || t == 22 || t == 23 || t == 29 || t == 42 || t == 11 ||
 #ifdef STRATA_Q6K_EXPERTS
            t == 12 || t == 13 || t == 14 || t == 7 || t == 6 || t == 2 || t == 3 || t == 8;
@@ -2701,6 +2703,7 @@ bool iq_supported(int t) noexcept { return is_iq(t); }
 bool embed_type_supported(int t) noexcept { return is_iq(t) || t == 30; }
 
 size_t iq_row_bytes(int t, int64_t n) noexcept {
+    if (kt::supported(t)) return kt::row_bytes(t, n);
     switch (t) {
         case 16: return (size_t) (n / 256) * sizeof(block_iq2_xxs);
         case 17: return (size_t) (n / 256) * sizeof(block_iq2_xs);
@@ -2733,6 +2736,7 @@ void quantize_q8_1_rows(const float* x, int64_t n_rows, int64_t n_cols, void* y,
 }
 
 void iq_mmvq(int t, const void* w, const void* x_q8_1, float* y, int n_in, int n_out, int ncols, void* stream) {
+    if (kt::supported(t)) { kt_mmvq(t,w,x_q8_1,y,n_in,n_out,ncols,stream); return; }
     const size_t rb = iq_row_bytes(t, n_in);
     cudaStream_t s = (cudaStream_t) stream;
     const auto* W = (const uint8_t*) w;
@@ -2747,6 +2751,7 @@ void iq_mmvq(int t, const void* w, const void* x_q8_1, float* y, int n_in, int n
 }
 
 void iq_dequant_f16(int t, const void* src, int64_t n, uint16_t* dst, void* stream) {
+    if (kt::supported(t)) { kt_dequant_rows(t,src,n,1,dst,1,stream); return; }
     if (n % 256 != 0 || !is_iq(t)) { std::fprintf(stderr, "iq_dequant_f16: bad arguments\n"); std::exit(1); }
     dequant_flat_kernel<__half><<<(unsigned) (n / 256), 32, 0, (cudaStream_t) stream>>>(t, src, (__half*) dst);
     check("iq_dequant_f16");
@@ -2764,6 +2769,7 @@ __global__ void embed_rows_kernel(int ty, const uint8_t* __restrict__ table, siz
 
 void iq_embed_rows(int t, const void* table, size_t row_bytes, const int32_t* tokens, int64_t n_tok, int64_t n_embd,
                    float* out, void* stream) {
+    if (kt::supported(t)) { kt_dequant_rows(t,table,n_embd,n_tok,out,0,stream,0,1,tokens); return; }
     if (n_tok <= 0) return;
     if (n_embd % 256 != 0 || !embed_type_supported(t)) { std::fprintf(stderr, "iq_embed_rows: bad arguments\n"); std::exit(1); }
     embed_rows_kernel<<<dim3((unsigned) (n_embd / 256), (unsigned) n_tok), 32, 0, (cudaStream_t) stream>>>(
@@ -2772,12 +2778,18 @@ void iq_embed_rows(int t, const void* table, size_t row_bytes, const int32_t* to
 }
 
 void iq_dequant_f32(int t, const void* src, int64_t n, float* dst, void* stream) {
+    if (kt::supported(t)) { kt_dequant_rows(t,src,n,1,dst,0,stream); return; }
     if (n % 256 != 0 || !embed_type_supported(t)) { std::fprintf(stderr, "iq_dequant_f32: bad arguments\n"); std::exit(1); }
     dequant_flat_kernel<float><<<(unsigned) (n / 256), 32, 0, (cudaStream_t) stream>>>(t, src, dst);
     check("iq_dequant_f32");
 }
 
 void iq_dequant_gu_f16(int t, const void* gate, const void* up, int64_t n_ff, int64_t n_embd, uint16_t* dst, void* stream) {
+    if (kt::supported(t)) {
+        kt_dequant_rows(t,gate,n_embd,n_ff,dst,1,stream,0,2);
+        kt_dequant_rows(t,up,n_embd,n_ff,dst+n_embd,1,stream,0,2);
+        return;
+    }
     // checked like the other entry points: an unknown type used to leave `dst` unwritten, a wrong prompt and no error
     if (n_embd % 256 != 0 || !is_iq(t)) { std::fprintf(stderr, "iq_dequant_gu_f16: type %d / %lld\n", t, (long long) n_embd); std::exit(1); }
     const int64_t per_row = n_embd / 256;
@@ -2787,6 +2799,8 @@ void iq_dequant_gu_f16(int t, const void* gate, const void* up, int64_t n_ff, in
 }
 
 bool native_expert_supported(int gu_type, int d_type, int64_t n_embd, int64_t n_ff) noexcept {
+    if (kt::supported(gu_type) || kt::supported(d_type))
+        return kt::row_bytes(gu_type,n_embd) && kt::row_bytes(d_type,n_ff);
     const int qg = gu_qk(gu_type), qd = d_qk(d_type);
     return qg > 0 && qd > 0 && is_iq(gu_type) && is_iq(d_type) && n_embd % qg == 0 && n_ff % qd == 0 &&
            n_embd % 256 == 0 && (n_ff * n_embd) % 256 == 0;
@@ -3375,6 +3389,11 @@ void native_expert_grouped(const NativeExpertLayout& L, const unsigned long long
                            const int32_t* n_groups, const int32_t* ent_dst, const int32_t* ent_tok, int64_t cap_groups,
                            int64_t cap_entries, const void* x_q8_1, void* scratch, float* out, void* stream,
                            int64_t grid_groups) {
+    if (kt::supported(L.gu_type) && kt::supported(L.d_type)) {
+        kt_expert_grouped(L,grp_ptr,grp_start,n_groups,ent_dst,ent_tok,
+                          grid_groups > 0 ? grid_groups : cap_groups,cap_entries,x_q8_1,scratch,out,stream);
+        return;
+    }
     if (cap_groups <= 0 || cap_entries <= 0) return;
     if (L.n_ff % 32 != 0) { std::fprintf(stderr, "native_expert_grouped: n_ff %lld\n", (long long) L.n_ff); std::exit(1); }
     cudaStream_t s = (cudaStream_t) stream;

@@ -306,7 +306,7 @@ if(STRATA_ENABLE_CUDA OR STRATA_ENABLE_HIP)
   # Naive first, each with a parity test against a reference that was itself validated against ggml.  The
   # kernels link `strata_artifact` for the scalar dequantizers, because using the VALIDATED scalar path as the
   # reference is the whole point - a kernel checked against another copy of itself proves nothing.
-  add_library(strata_kernels STATIC src/kernels/cuda/dequant_s2.cu src/kernels/cuda/s2_gemv.cu
+  add_library(strata_kernels STATIC src/kernels/cuda/kt_kernels.cu src/kernels/cuda/dequant_s2.cu src/kernels/cuda/s2_gemv.cu
                           src/kernels/cuda/s_gemv.cu
                           src/kernels/cuda/s2_gemv_quads.cu
                           src/kernels/cuda/s2_gemv_fast.cu
@@ -380,6 +380,12 @@ if(STRATA_ENABLE_CUDA OR STRATA_ENABLE_HIP)
   endif()
   # plan v0.3 P6: llama.cpp's block layouts and codebook grids for the i-quant formats (MIT, third_party/ggml)
   target_include_directories(strata_kernels PRIVATE third_party/ggml)
+  if(STRATA_ENABLE_CUDA AND NOT STRATA_HIP_GFX906)
+    add_executable(kt_parity EXCLUDE_FROM_ALL src/kernels/kt_parity.cpp)
+    target_link_libraries(kt_parity PRIVATE strata_kernels strata_kernels_cpu strata_artifact CUDA::cudart)
+    add_executable(kt_cpu_parity EXCLUDE_FROM_ALL src/kernels/kt_cpu_parity.cpp)
+    target_link_libraries(kt_cpu_parity PRIVATE strata_kernels_cpu strata_artifact)
+  endif()
   # Match the pinned llama.cpp CUDA arithmetic contract for this adapter only.
   if(STRATA_ENABLE_CUDA)
     set_source_files_properties(src/kernels/cuda/native_mmvq.cu src/kernels/cuda/native_bf16.cu
@@ -1134,12 +1140,14 @@ if(STRATA_NATIVE_EXPERTS)
   # one-pass static linking has no cycle to resolve)
   target_sources(strata_kernels_cpu PRIVATE src/kernels/cpu/native_expert.cpp src/kernels/cpu/iq_avx512.cpp
                                            src/kernels/cpu/iq_avx2.cpp src/kernels/cpu/kq_avx2.cpp
+                                           src/kernels/cpu/kt_avx2.cpp
                                            src/kernels/cpu/kq_avx1.cpp)
   target_include_directories(strata_kernels_cpu PRIVATE third_party/ggml)
   if(MSVC)
     set_source_files_properties(src/kernels/cpu/iq_avx512.cpp PROPERTIES COMPILE_OPTIONS "/arch:AVX512")
     set_source_files_properties(src/kernels/cpu/iq_avx2.cpp PROPERTIES COMPILE_OPTIONS "/arch:AVX2")
     set_source_files_properties(src/kernels/cpu/kq_avx2.cpp PROPERTIES COMPILE_OPTIONS "/arch:AVX2")
+    set_source_files_properties(src/kernels/cpu/kt_avx2.cpp PROPERTIES COMPILE_OPTIONS "/arch:AVX2;/fp:precise")
     # the router lookahead's AVX1 dot (older CPUs; called behind cpu_avx1_ok): no FMA, no 256-bit integer ops
     set_source_files_properties(src/kernels/cpu/kq_avx1.cpp PROPERTIES COMPILE_OPTIONS "/arch:AVX")
   else()
@@ -1147,6 +1155,7 @@ if(STRATA_NATIVE_EXPERTS)
                                 "-mavx512f;-mavx512bw;-mavx512vl;-mavx512dq;-mavx512vnni;-mavx512vbmi;-mf16c;-mfma")
     set_source_files_properties(src/kernels/cpu/iq_avx2.cpp PROPERTIES COMPILE_OPTIONS "-mavx2;-mfma;-mf16c")
     set_source_files_properties(src/kernels/cpu/kq_avx2.cpp PROPERTIES COMPILE_OPTIONS "-mavx2;-mfma;-mf16c")
+    set_source_files_properties(src/kernels/cpu/kt_avx2.cpp PROPERTIES COMPILE_OPTIONS "-mavx2;-mf16c;-ffp-contract=off")
     set_source_files_properties(src/kernels/cpu/kq_avx1.cpp PROPERTIES COMPILE_OPTIONS "-mavx")
   endif()
   set_property(SOURCE src/kernels/cpu/iq_avx2.cpp APPEND PROPERTY COMPILE_DEFINITIONS ${_strata_avxvnni})

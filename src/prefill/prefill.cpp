@@ -14,6 +14,7 @@
 #include "strata/kernels/ple.hpp"
 #include "strata/kernels/native_ple_postops.hpp"
 #include "strata/kernels/iq_kernels.hpp"
+#include "strata/kernels/kt_kernels.hpp"
 #include "strata/kernels/cpu/expert_layout.hpp"
 #include "strata/kernels/qsa.hpp"
 #include "strata/kernels/kv_stream.hpp"
@@ -3040,7 +3041,9 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                                 const auto& f = lay.fmt[(size_t) l];
                                 strata::kernels::iq_dequant_gu_f16(f.gu_type, blob_dev, blob_dev + f.up_off, f.n_ff, f.n_embd,
                                                                    m.dq_gu[q], m.cs);
-                                strata::kernels::iq_dequant_f16(f.d_type, blob_dev + f.down_off, f.n_embd * f.n_ff, m.dq_d[q], m.cs);
+                                if (strata::kt::supported(f.d_type))
+                                    strata::kernels::kt_dequant_rows(f.d_type,blob_dev+f.down_off,f.n_ff,f.n_embd,m.dq_d[q],1,m.cs);
+                                else strata::kernels::iq_dequant_f16(f.d_type, blob_dev + f.down_off, f.n_embd * f.n_ff, m.dq_d[q], m.cs);
                             } else {
                                 blob_dequant_f16(blob_dev, m.dq_gu[q], m.dq_d[q], m.cs);
                             }
