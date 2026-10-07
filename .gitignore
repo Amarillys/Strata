@@ -34,8 +34,10 @@ td.log
 /mtp/
 /run-*.bat
 /run-*.sh
+/run-*.ps1
 /strata-*.json
 /strata-*.log
+/strata-vision-api-key.txt
 /build-strata.bat
 /build-strata-cuda12.bat
 /build-cuda12/
