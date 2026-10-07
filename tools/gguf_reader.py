@@ -25,6 +25,7 @@ GGML_TYPES: dict[int, str] = {
     28: "F64", 29: "IQ1_M", 30: "BF16", 31: "Q4_0_4_4", 32: "Q4_0_4_8", 33: "Q4_0_8_8",
     34: "TQ1_0", 35: "TQ2_0", 36: "IQ4_NL_4_4", 37: "IQ4_NL_4_8", 38: "IQ4_NL_8_8",
     39: "MXFP4", 40: "NVFP4", 41: "Q4_0_8_8", 42: "Q2_0",
+    154: "IQ3_KT", 155: "IQ4_KT",
 }
 
 # GGUF metadata value type ids
@@ -64,6 +65,11 @@ class TensorInfo:
         return n
 
     def expected_bytes(self) -> int | None:
+        if self.type_id in (154, 155):
+            from kt_quants import row_bytes
+            if not self.shape or any(d <= 0 for d in self.shape) or self.shape[0] % 32:
+                return None
+            return self.elements // self.shape[0] * row_bytes(self.type_id, self.shape[0])
         geom = BLOCK_GEOMETRY.get(self.type_name)
         if geom is None:
             return None

@@ -101,8 +101,13 @@ def needs_bf16(name: str, type_name: str) -> bool:
     return form_of(name) == "BF16"
 
 
-def dequantize(raw: np.ndarray, type_name: str) -> np.ndarray:
+def dequantize(raw: np.ndarray, type_name: str, row_width=None) -> np.ndarray:
     """The tensor's values as float32 (float types exactly, quantized ones through gguf-py's dequantizer)."""
+    if type_name in ("IQ3_KT", "IQ4_KT"):
+        if row_width is None:
+            raise ValueError("KT dequantization requires the tensor's row width")
+        from kt_quants import dequantize as dequantize_kt
+        return dequantize_kt(raw, 154 if type_name == "IQ3_KT" else 155, row_width).reshape(-1)
     if type_name == "F32":
         return raw.view(np.float32)
     if type_name == "F16":
@@ -115,11 +120,11 @@ def dequantize(raw: np.ndarray, type_name: str) -> np.ndarray:
     return quants.dequantize(raw, Q[type_name]).astype(np.float32).reshape(-1)
 
 
-def bf16_bytes(raw: np.ndarray, type_name: str) -> bytes:
+def bf16_bytes(raw: np.ndarray, type_name: str, row_width=None) -> bytes:
     from _paths import add_gguf_py
     add_gguf_py()
     from gguf import GGMLQuantizationType as Q, quants
-    values = quants.dequantize(raw, Q[type_name])
+    values = dequantize(raw, type_name, row_width)
     if not np.isfinite(values).all():
         raise ValueError("cannot convert non-finite weights to BF16")
     # ggml's round-to-nearest-even conversion, including correct halfway rounding.
@@ -223,13 +228,13 @@ def is_expert(name: str) -> bool:
     return name.startswith("blk.") and name.endswith(("_exps.weight",))
 
 
-def convert(name: str, type_name: str, raw: np.ndarray, compat_bf16: bool):
+def convert(name: str, type_name: str, raw: np.ndarray, compat_bf16: bool, row_width=None):
     """The pack form of one tensor the engine reads from dense.bin: (kind, stored bytes, destination bytes,
     record or None), or an error string.  `record` describes a conversion for conversions.json."""
     form = form_of(name)
     if form is None or form == type_name:
         return KIND[type_name], raw.tobytes(), raw.nbytes, None
-    values = dequantize(raw, type_name)
+    values = dequantize(raw, type_name, row_width)
     rec = {"src_type": type_name, "dst_type": form}
     if form == "BF16":
         u = values.view(np.uint32) if type_name == "F32" else None
@@ -242,7 +247,7 @@ def convert(name: str, type_name: str, raw: np.ndarray, compat_bf16: bool):
         if not compat_bf16:
             what = "F32 with values that are not BF16" if type_name == "F32" else type_name
             return f"{name} is {what}, but the engine requires BF16; use --compat-bf16 (rounds to nearest-even)"
-        data = bf16_bytes(raw, type_name)
+        data = bf16_bytes(raw, type_name, row_width)
         got = (np.frombuffer(data, dtype="<u2").astype(np.uint32) << 16).view(np.float32)
         rec.update(method="dequantize->bf16 round-to-nearest-even (--compat-bf16)" if type_name not in FLOAT else
                    "%s->bf16 round-to-nearest-even (--compat-bf16)" % type_name.lower())
@@ -309,7 +314,7 @@ def index_standalone(src, out, model: Model, compat_bf16: bool = False) -> int:
                 continue
             raw = tensor_bytes(mm, g, t)
             try:
-                got = convert(name, t.type_name, raw, compat_bf16)
+                got = convert(name, t.type_name, raw, compat_bf16, ne0)
             except ValueError as e:
                 got = str(e)
             if isinstance(got, str):
