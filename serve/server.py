@@ -1620,6 +1620,8 @@ class Vision:
         args = [absolute(cfg["exe"]), "--mmproj", absolute(cfg["mmproj"]), "--model", absolute(cfg["model"])]
         if cfg.get("gpu"):
             args.append("--gpu")
+        if cfg.get("device"):
+            args += ["--device", str(cfg["device"])]
         if cfg.get("threads"):
             args += ["--threads", str(cfg["threads"])]
         if cfg.get("max_tokens"):
@@ -1965,18 +1967,24 @@ def child_env(cfg: dict) -> dict:
 
 
 def vision_env(cfg: dict, env: dict) -> dict:
-    """The image encoder's environment: the engine's, unless the config's vision section names its own "cuda_device"
-    (numbered like nvidia-smi) - then the encoder runs on that card alone, so a spare GPU can hold it while the engine
-    keeps all of its own cards' VRAM (#408, Efs-O).  Without it, nothing changes."""
-    dev = (cfg.get("vision") or {}).get("cuda_device")
-    if dev is None:
+    """The engine's environment with encoder-only device selection and optional vision.env overrides.
+    cuda_device selects one CUDA/HIP card (#408); env can instead select a Vulkan iGPU without changing
+    the text engine's visibility. Explicit env values take precedence over cuda_device."""
+    vision = cfg.get("vision") or {}
+    dev = vision.get("cuda_device")
+    overrides = vision.get("env") or {}
+    if dev is None and not overrides:
         return env
     env = dict(env)
-    if cfg.get("backend") == "hip":
-        env["HIP_VISIBLE_DEVICES"] = str(dev)
-    else:
-        env["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-        env["CUDA_VISIBLE_DEVICES"] = str(dev)
+    if dev is not None:
+        if cfg.get("backend") == "hip":
+            env["HIP_VISIBLE_DEVICES"] = str(dev)
+        else:
+            env["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+            env["CUDA_VISIBLE_DEVICES"] = str(dev)
+    # An encoder may use a different backend (e.g. Vulkan on an Intel iGPU).
+    # Keep its device visibility and tuning separate from the text engine.
+    env.update({str(k): str(v) for k, v in overrides.items()})
     return env
 
 

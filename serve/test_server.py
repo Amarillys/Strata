@@ -1303,6 +1303,20 @@ class GpuChoice(unittest.TestCase):
         plain = child_env({"backend": "hip"})
         self.assertEqual(plain.get("HIP_VISIBLE_DEVICES"), os.environ.get("HIP_VISIBLE_DEVICES"))
 
+    def test_vision_vulkan_env_is_isolated(self):
+        from serve.server import child_env, vision_env
+        cfg = {"gpu": [0, 1], "vision": {"cuda_device": 2, "env": {
+            "GGML_VK_VISIBLE_DEVICES": 1, "CUDA_VISIBLE_DEVICES": "-1"}}}
+        env = child_env(cfg)
+        before = dict(env)
+        venv = vision_env(cfg, env)
+        self.assertEqual(venv["GGML_VK_VISIBLE_DEVICES"], "1")
+        self.assertEqual(venv["CUDA_VISIBLE_DEVICES"], "-1")
+        self.assertEqual(env, before)
+        hip = vision_env({"backend": "hip", "vision": {"cuda_device": 3}}, env)
+        self.assertEqual(hip["HIP_VISIBLE_DEVICES"], "3")
+        self.assertEqual(env, before)
+
 
 class RecordingPrompt(MockEngine):
     def generate(self, ids, max_new, sampling, cancel, embeddings=None):
@@ -3862,6 +3876,11 @@ class VisionArgs(unittest.TestCase):
         self.assertNotIn("--min-tokens", base)
         self.assertEqual(self.args_for({"max_tokens": 1024, "min_tokens": 768})[-4:],
                          ["--max-tokens", "1024", "--min-tokens", "768"])
+
+    def test_explicit_backend_device(self):
+        args = self.args_for({"device": "Vulkan0", "max_tokens": 768})
+        self.assertEqual(args[args.index("--device") + 1], "Vulkan0")
+        self.assertNotIn("--device", self.args_for({"gpu": True}))
 
 
 class VisionShutdown(unittest.TestCase):

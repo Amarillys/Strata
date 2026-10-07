@@ -5,7 +5,8 @@
 // rows at the image's pad tokens and gives them their 2-D M-RoPE positions (see --serve GENI in generate.cpp).
 //
 //   strata-vision --mmproj <mmproj.gguf> --model <text model .gguf, first split> [--gpu] [--threads N]
-//                 [--max-tokens N] [--min-tokens N] [--flash-attn on|off|auto]
+//                 [--device NAME] [--max-tokens N] [--min-tokens N] [--flash-attn on|off|auto]
+//   strata-vision --list-devices
 //
 // Resident: prints "READY <n_embd>", then per stdin line
 //   ENC <image path> <output path>   ->  "OK <n_tokens> <nx> <ny> <ms>"  or  "ERR <message>"
@@ -13,6 +14,7 @@
 // The output file is  int32 {0x31455653 'SVE1', n_tokens, nx, ny, n_embd}  then float32 [n_tokens][n_embd],
 // row i at grid position (x = i % nx, y = i / nx).  The text model is opened vocab-only (no weights).
 #include "gguf.h"
+#include "ggml-backend.h"
 #include "llama.h"
 #include "mtmd.h"
 #include "mtmd-helper.h"
@@ -53,8 +55,8 @@ bool parse_enc(const std::string& line, std::string& img, std::string& out) {
 }  // namespace
 
 int main(int argc, char** argv) {
-    std::string mmproj, model;
-    bool gpu = false;
+    std::string mmproj, model, device;
+    bool gpu = false, list_devices = false;
     int threads = 0, max_tokens = 0, min_tokens = 0;
     llama_flash_attn_type fa = LLAMA_FLASH_ATTN_TYPE_AUTO;
     for (int i = 1; i < argc; ++i) {
@@ -66,6 +68,8 @@ int main(int argc, char** argv) {
         if (a == "--mmproj") mmproj = next();
         else if (a == "--model") model = next();
         else if (a == "--gpu") gpu = true;
+        else if (a == "--device") { device = next(); gpu = true; }
+        else if (a == "--list-devices") list_devices = true;
         else if (a == "--threads") threads = std::atoi(next().c_str());
         else if (a == "--max-tokens") max_tokens = std::atoi(next().c_str());
         else if (a == "--min-tokens") min_tokens = std::atoi(next().c_str());   // mtmd image_min_tokens (#767)
@@ -76,14 +80,15 @@ int main(int argc, char** argv) {
         }
         else { std::fprintf(stderr, "unknown argument %s\n", a.c_str()); return 2; }
     }
-    if (mmproj.empty() || model.empty()) {
+    if (!list_devices && (mmproj.empty() || model.empty())) {
         std::fprintf(stderr, "usage: strata-vision --mmproj <mmproj.gguf> --model <model.gguf> [--gpu] [--threads N] "
-                             "[--max-tokens N] [--min-tokens N] [--flash-attn on|off|auto]\n");
+                             "[--device NAME] [--max-tokens N] [--min-tokens N] [--flash-attn on|off|auto]\n"
+                             "       strata-vision --list-devices\n");
         return 2;
     }
     // On the CPU the GPU stays unseen: a CUDA build otherwise opens a context there (measured: 0.4-0.7 GB of VRAM,
     // 150-260 expert slots less for the engine beside it).  Before anything reaches the CUDA runtime.
-    if (!gpu) {
+    if (!gpu && !list_devices) {
 #ifdef _WIN32
         _putenv_s("CUDA_VISIBLE_DEVICES", "-1");
 #else
@@ -93,6 +98,35 @@ int main(int argc, char** argv) {
     llama_log_set(quiet_log, nullptr);
     mtmd_helper_log_set(quiet_log, nullptr);
     llama_backend_init();
+    ggml_backend_load_all();
+    if (list_devices) {
+        for (size_t i = 0; i < ggml_backend_dev_count(); ++i) {
+            const auto dev = ggml_backend_dev_get(i);
+            std::printf("%s: %s\n", ggml_backend_dev_name(dev), ggml_backend_dev_description(dev));
+        }
+        llama_backend_free();
+        return 0;
+    }
+    ggml_backend_dev_t selected = nullptr;
+    if (!device.empty()) {
+        selected = ggml_backend_dev_by_name(device.c_str());
+        // Exact descriptions let a preset require its intended GPU even if Vulkan
+        // ordinals change (e.g. Intel Iris Xe versus an NVIDIA card).
+        if (!selected) {
+            for (size_t i = 0; i < ggml_backend_dev_count(); ++i) {
+                const auto dev = ggml_backend_dev_get(i);
+                if (device == ggml_backend_dev_description(dev)) { selected = dev; break; }
+            }
+        }
+        if (!selected) {
+            std::fprintf(stderr, "strata-vision: requested device '%s' is unavailable; use --list-devices\n", device.c_str());
+            std::printf("ERR requested vision device is unavailable\n");
+            std::fflush(stdout);
+            return 1;
+        }
+        std::fprintf(stderr, "strata-vision: selected %s (%s)\n", ggml_backend_dev_name(selected),
+                     ggml_backend_dev_description(selected));
+    }
 
     const auto load_t0 = std::chrono::steady_clock::now();
 #if !defined(_WIN32)
@@ -115,6 +149,7 @@ int main(int argc, char** argv) {
 
     mtmd_context_params cp = mtmd_context_params_default();
     cp.use_gpu = gpu;
+    cp.device = selected;
     cp.print_timings = false;
     cp.warmup = false;
     cp.flash_attn_type = fa;
