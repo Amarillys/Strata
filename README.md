@@ -79,7 +79,21 @@ v4 提高了部分专家和稠密权重的精度，不能沿用 v2 全驻留和�
 
 ## 构建与使用
 
-**KT 模型目前需要手动构建和打包，尚未接入上游一键安装菜单。**
+**Windows 已提供 [CUDA 13 预编译包](https://github.com/Amarillys/Strata/releases/tag/v0.1.41-iqkt.1)**，
+包含 Python、运行库、Web/API 和可选 Vulkan 视觉程序。下载 release 的
+`windows-x64-cuda13.zip`，不要选择 `Source code`。
+
+解压后运行 **CONFIGURE.bat**，填写 v4 IQ3_KT 第一分片路径，再运行 **START.bat**。
+API key 位于 `local/API_KEY.txt`，Web/API 默认 **8080**。RTX 5080 16 GiB / 64 GiB RAM /
+13900HX 起步模板使用 **64K、K8V8、prefill 1024、前缀缓存 6、MTP 关闭**；专家缓存自动分配。
+只需显卡驱动和模型文件，无需另装 CUDA Toolkit 或编译工具。
+[依赖、配置调整和核显视觉说明](docs/WINDOWS_PREBUILT.zh-CN.md)包含验证范围：包内有 sm120 原生代码，
+尚未在 RTX 5080 实机测量；本页双卡速度不能套用到 16 GiB 单卡。
+
+### 从源码构建
+
+KT 尚未接入上游一键安装菜单；`setup.py` 下载的上游引擎不包含本分支的 KT 扩展。
+源码构建使用本分支：
 
 ```powershell
 git clone --branch feat/iqkt-vulkan-vision https://github.com/Amarillys/Strata.git
@@ -115,6 +129,7 @@ cd Strata
 | 文档 | 内容 |
 | --- | --- |
 | [工作总结](docs/IQ_KT_SUMMARY.zh-CN.md) | 实现、性能来源、配置与验证边界 |
+| [Windows 预编译包](docs/WINDOWS_PREBUILT.zh-CN.md) | 随包依赖、5080 16G 模板、8080/API key、可选核显视觉 |
 | [KT 技术文档](docs/IQ_KT.md) | 格式布局、构建、打包、数值对照和 MTP 侧车 |
 | [Decode 性能](docs/IQ_KT_PERFORMANCE.md) / [Prefill](docs/IQ_KT_PREFILL.md) | 算子优化、GPU 频率、分块和历史对照 |
 | [Vulkan 视觉](docs/IQ_KT_VISION.md) | 核显编码、词表兼容与服务接入 |

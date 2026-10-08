@@ -1,0 +1,51 @@
+[
+  {
+    "component": "cuda_nvcc",
+    "version": "13.0.88",
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvcc/windows-x86_64/cuda_nvcc-windows-x86_64-13.0.88-archive.zip",
+    "sha256": "61760e24a44937c6c29a20ddea69067b4d3860ccd6a9a0564573f840d96e6c5f",
+    "filename": "cuda_nvcc-windows-x86_64-13.0.88-archive.zip"
+  },
+  {
+    "component": "cuda_cudart",
+    "version": "13.0.96",
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_cudart/windows-x86_64/cuda_cudart-windows-x86_64-13.0.96-archive.zip",
+    "sha256": "a2ed875f9997aa24904fb70cc9db3acd9308433cde99bc8e63ec1271c9da31b4",
+    "filename": "cuda_cudart-windows-x86_64-13.0.96-archive.zip"
+  },
+  {
+    "component": "cuda_cccl",
+    "version": "13.0.85",
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_cccl/windows-x86_64/cuda_cccl-windows-x86_64-13.0.85-archive.zip",
+    "sha256": "f4f5187f7976d8057d76e1e04e72c8b7d0a2a22793107a671ad709b1d8d3408d",
+    "filename": "cuda_cccl-windows-x86_64-13.0.85-archive.zip"
+  },
+  {
+    "component": "cuda_crt",
+    "version": "13.0.88",
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_crt/windows-x86_64/cuda_crt-windows-x86_64-13.0.88-archive.zip",
+    "sha256": "ff413c89dbd96ed3b3dcfac923437de78acea32fb90309277197c8a127588112",
+    "filename": "cuda_crt-windows-x86_64-13.0.88-archive.zip"
+  },
+  {
+    "component": "libnvvm",
+    "version": "13.0.88",
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/libnvvm/windows-x86_64/libnvvm-windows-x86_64-13.0.88-archive.zip",
+    "sha256": "6dda4a82d22a2c173a65c66b4b4c933e3424a56ce845e2864bdca9cc66e6c524",
+    "filename": "libnvvm-windows-x86_64-13.0.88-archive.zip"
+  },
+  {
+    "component": "libcublas",
+    "version": "13.1.0.3",
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/libcublas/windows-x86_64/libcublas-windows-x86_64-13.1.0.3-archive.zip",
+    "sha256": "4ac4847bbe4f7709b244956fcfc32197a2954ee70b155cb67eebd9ee26f7e339",
+    "filename": "libcublas-windows-x86_64-13.1.0.3-archive.zip"
+  },
+  {
+    "component": "cuda_cuobjdump",
+    "version": "13.0.85",
+    "url": "https://developer.download.nvidia.com/compute/cuda/redist/cuda_cuobjdump/windows-x86_64/cuda_cuobjdump-windows-x86_64-13.0.85-archive.zip",
+    "sha256": "cddbc524dc229c708cc989e4ff2d636ba342c695e0f60c1026a1b5f76de4b77b",
+    "filename": "cuda_cuobjdump-windows-x86_64-13.0.85-archive.zip"
+  }
+]

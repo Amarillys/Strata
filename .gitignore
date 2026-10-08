@@ -53,6 +53,7 @@ build-vision-cuda12.bat
 /engine-cuda12/
 /build-release*/
 /dist/
+/local/
 *.done
 /third_party/*.zip
 
