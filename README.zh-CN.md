@@ -1,6 +1,8 @@
 <h1 align="center">Strata</h1>
 
-[English](README.md) · **简体中文** · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md)
+> 这是上游 Strata 的中文说明。本分支的 IQ_KT、算子优化和 Vulkan 视觉改动见[本仓库首页](README.md)。
+
+[English](README_UPSTREAM.md) · **简体中文** · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md)
 
 <p align="center"><b>在你自己的游戏电脑上运行 1250 亿参数的 AI 模型</b><br>
 NVIDIA 或 AMD 显卡（12 GB 及以上）· Windows 或 Linux · 免费开源</p>

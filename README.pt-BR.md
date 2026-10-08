@@ -1,6 +1,8 @@
 <h1 align="center">Strata</h1>
 
-[English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · **Português**
+> Este é o guia original do Strata. As alterações deste fork estão no [README](README.md).
+
+[English](README_UPSTREAM.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · **Português**
 
 <p align="center"><b>Rode um modelo de IA de 125 bilhões de parâmetros no seu próprio PC gamer</b><br>
 Placa de vídeo NVIDIA ou AMD (12 GB ou mais) · Windows ou Linux · gratuito e de código aberto</p>
