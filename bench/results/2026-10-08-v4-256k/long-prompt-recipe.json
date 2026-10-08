@@ -1,0 +1,31 @@
+{
+  "target_tokens_before_http_template": 261600,
+  "head": "<|im_start|>user\nRead the diagnostic log below. Remember the exact access codes in records A, B and C.\n",
+  "filler": "The measurement log records temperature, pressure, and flow. Compare the measurements and explain how to identify anomalies.\n",
+  "tail": "\nEnd of the log. First give the exact access codes from records A, B and C, in that order. Then write a detailed technical manual of at least 1500 words, with numerical examples, calibration procedures and statistical anomaly detection methods. Explain each part fully.\n<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+  "placements": [
+    {
+      "record": "A",
+      "code": "amber-orchid-7391",
+      "token_offset": 52320
+    },
+    {
+      "record": "B",
+      "code": "cobalt-sparrow-5826",
+      "token_offset": 130800
+    },
+    {
+      "record": "C",
+      "code": "jade-harbor-4168",
+      "token_offset": 222360
+    }
+  ],
+  "system": "Follow the requested format. Be precise and keep the given codes unchanged.",
+  "user_text_sha256": "df529398c47c2a0606f5d3174ffdcb74892a69cb3aab4f61611fae3679b0031c",
+  "purpose": "Synthetic near-capacity retrieval and continued generation, not a task-quality benchmark.",
+  "max_tokens": 384,
+  "temperature": 0,
+  "enable_thinking": false,
+  "http_prompt_tokens": 261618,
+  "short_medium_messages": "../2026-10-08-iqkt-upstream-0.1.41/prompts.json"
+}
