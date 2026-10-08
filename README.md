@@ -13,6 +13,10 @@ Strata runs **[Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Nex
 large, smart AI model that usually needs a server. It chats, writes code, reads pictures and works with your apps
 and coding agents. Nothing leaves your PC.
 
+This branch adds IQ3_KT / IQ4_KT support and a separate Vulkan vision encoder. See the
+[work summary (中文)](docs/IQ_KT_SUMMARY.zh-CN.md) for the tested dual-GPU setup, performance analysis and current
+Web/API deployment, or [build and validation details](docs/IQ_KT.md). KT models currently require manual building and packing.
+
 ## How fast is it?
 
 We measured it on two ordinary gaming PCs. A token is about ¾ of a word.

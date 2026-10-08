@@ -4,6 +4,9 @@ This profile predates the packed KT CUDA optimization described in
 [IQ_KT_PERFORMANCE.md](IQ_KT_PERFORMANCE.md#packed-kt-cuda-row-dot-2026-10-08).
 Its stage percentages describe the earlier binary, not the faster replacement.
 
+The [work summary (中文)](IQ_KT_SUMMARY.zh-CN.md) connects this profile to the completed optimizations and
+remaining measurements.
+
 The all-resident, MTP-off configuration spends most of its measured GPU time on experts and dense projections.
 CPU expert fallback and expert-weight streaming are no longer the main target. On these short/3.6K prompts,
 attention/KV work is a relatively small share, so shrinking KV is not expected to transform decode throughput.

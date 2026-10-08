@@ -1,5 +1,9 @@
 # IQ3_KT and IQ4_KT (local CUDA implementation)
 
+The [work summary (中文)](IQ_KT_SUMMARY.zh-CN.md) collects the implementation, performance analysis, validation
+limits and current local deployment. The daily preset uses K8V8, prefill 2048, MTP off and Intel Vulkan vision;
+the configurations below also preserve earlier experiments. See [the vision guide](IQ_KT_VISION.md) for launching it.
+
 The optimized KT kernels measured 58-63 decode tok/s on the local 2080 Ti + 4080 SUPER configuration,
 with all experts resident and MTP off. See [the sustained comparisons](IQ_KT_PERFORMANCE.md) and
 [prefill measurements](IQ_KT_PREFILL.md) for workloads, numerical checks and limits. The actual 260K input

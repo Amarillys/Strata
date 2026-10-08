@@ -12,6 +12,10 @@ NVIDIA 或 AMD 显卡（12 GB 及以上）· Windows 或 Linux · 免费开源</
 Strata 能在普通电脑上运行 **[Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next)**。这是一个又大又聪明的
 AI 模型，通常要用服务器才能跑。它能聊天、写代码、看图片，还能配合你的应用和编程智能体一起工作。所有数据都留在你的电脑上。
 
+本分支新增 IQ3_KT / IQ4_KT 支持及独立 Vulkan 视觉编码器。
+[本次工作与分析总结](docs/IQ_KT_SUMMARY.zh-CN.md)汇总了双卡配置、性能对照、KV/ngram、核显视觉和当前 Web/API 入口；
+[构建与验证说明](docs/IQ_KT.md)提供复现步骤。这套 KT 配置目前需要手动构建和打包。
+
 ## 速度有多快？
 
 我们在两台普通的游戏电脑上做了测试。一个 token 大约相当于 ¾ 个英文单词。

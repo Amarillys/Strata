@@ -1,5 +1,8 @@
 # IQ3_KT text with Intel Iris Xe vision
 
+The [work summary (中文)](IQ_KT_SUMMARY.zh-CN.md) records the full implementation, performance analysis,
+KV/ngram placement and validation limits. This page describes the current local launch configuration.
+
 Verified on 2026-10-08: the existing F16 Qwen3.8-Flash-Next MMPROJ runs in a separate Vulkan process on
 Intel Iris Xe. Strata reads its image embeddings using the existing GENI/M-RoPE path. The text model uses
 2080 Ti + 4080 SUPER, layer split 19, K8V8, capacity 262144, 20480 resident KV cells, prefill 2048, and MTP off.

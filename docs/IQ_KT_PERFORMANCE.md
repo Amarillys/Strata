@@ -1,5 +1,8 @@
 # Local IQ_KT performance comparison, 2026-10-07/08
 
+See the [work summary (中文)](IQ_KT_SUMMARY.zh-CN.md) for the current deployment and conclusions across decode,
+prefill, KV and vision. The sections here retain the settings of each historical comparison.
+
 The current packed KT kernels reach 58-63 decode tok/s in the measurements below. The
 [packed-kernel comparison](#packed-kt-cuda-row-dot-2026-10-08) isolates that change; subsequent
 [prefill measurements](IQ_KT_PREFILL.md) cover the optimized row decoder and K8V8.

@@ -1,5 +1,8 @@
 # KT prefill measurements and optimization, 2026-10-08
 
+The daily [vision deployment](IQ_KT_VISION.md) uses chunk 2048 and K8V8. Chunk 4096 below is a separately tested
+long-input option. See the [work summary (中文)](IQ_KT_SUMMARY.zh-CN.md) for the combined results and current settings.
+
 The initial KT prefill adapter spent much of its GPU timeline expanding expert weights to FP16. Replacing its
 scalar decoder with a parallel packed decoder improves measured 2,048-chunk prefill from 413 to 642 tok/s at
 3,570 input tokens, and from 634 to 1,013 tok/s at 12,150 tokens. The existing FP16 matrix products are retained;
