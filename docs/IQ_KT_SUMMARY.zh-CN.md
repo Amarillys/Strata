@@ -12,6 +12,10 @@ IQ3_KT_v2 主模型；IQ4_KT 已接入并验证，但尚未测试完整 IQ4_KT �
 目前证据支持“短/中等输入 decode 明显加快，实际长输入可以运行”，尚不足以证明满上下文持续保持该速度，
 或任意任务都没有质量变化。
 
+随后已合入上游 0.1.40.3；同配置的新旧交替基准吞吐基本持平，KT 优化保留。
+合并及复测结果见 [上游合并记录](IQ_KT_UPSTREAM_MERGE.zh-CN.md)。下文的算子优化数字保留原始对照口径，
+不重复计算为本次上游合并收益。
+
 ## 文档入口
 
 | 文档 | 内容 |
@@ -21,6 +25,7 @@ IQ3_KT_v2 主模型；IQ4_KT 已接入并验证，但尚未测试完整 IQ4_KT �
 | [IQ_KT_DECODE_PROFILE.md](IQ_KT_DECODE_PROFILE.md) | **优化前版本**的 decode 分段计时及其局限 |
 | [IQ_KT_PREFILL.md](IQ_KT_PREFILL.md) | prefill 瓶颈、并行解码器、2048/4096 分块、实际 260K 输入 |
 | [IQ_KT_VISION.md](IQ_KT_VISION.md) | Vulkan 核显视觉、启动脚本、Web/API、设备选择和实测 |
+| [IQ_KT_UPSTREAM_MERGE.zh-CN.md](IQ_KT_UPSTREAM_MERGE.zh-CN.md) | 上游 0.1.40.3 合并、同配置 A/B、Windows PLE RAM 与功能复测 |
 
 各专题保留了历史配置和对照结果。日常部署以本页和视觉文档所列的 2048/K8V8 配置为准；
 4096 是另一个经过长输入测试的配置。
@@ -210,7 +215,9 @@ KT 数值对照、若干输出一致和检索成功，都不能扩展成全任�
 
 **Ngram/PLE 的约 25.03 GiB 原表仍在 SSD。** 当前配置未覆盖默认 `--ple-io direct`，所以按需进行无缓冲读取，
 并在 RAM 保存有上限的行缓存，默认 1,048,576 行。命中的行直接从缓存取，未命中再读 SSD。
-PLE 没有关闭，也没有把整张表常驻 RAM。当前 Windows 实现不支持 `--ple-io ram`；`mmap` 与整表锁定常驻也不同。
+PLE 没有关闭，也没有把整张表常驻 RAM。初次部署版本的 Windows 实现不支持 `--ple-io ram`；
+随后合入的 0.1.40.3 已增加 `VirtualLock` 支持，本机复测确认整表锁定成功。
+这是可选设置，当前日常配置仍为 `direct`；`mmap` 与整表锁定常驻也不同。
 
 ## 两种链路和更大的 IQ4_KT 模型
 
@@ -246,8 +253,8 @@ PLE 没有关闭，也没有把整张表常驻 RAM。当前 Windows 实现不支
 | API key | 本机配置的 `api_key` 字段，另存于 `strata-vision-api-key.txt`；在 Web 设置和 harness 中填写 |
 | 服务日志 | 本机 `strata-vision-igpu.log` |
 
-MMPROJ 已加载到独立的核显进程。编码器按 Intel 的完整设备名称校验，Vulkan 序号不一致时会报错；
-它自己的 `GGML_VK_VISIBLE_DEVICES` / `CUDA_VISIBLE_DEVICES` 不会改变文本引擎的设备选择。
+MMPROJ 已加载到独立的核显进程。编码器按 Intel 的完整设备名称选择设备，启动脚本清除容易随启动变化的
+Vulkan 数字过滤；编码器自己的 `CUDA_VISIBLE_DEVICES=-1` 不会改变文本引擎的设备选择。
 辅助进程单独测试期间，两张 NVIDIA 的显存读数未增加。新 1024×1024 图像编码约 11.5 s，
 重复图像命中 embedding cache 后可省去编码；文本 prefill 仍执行。768 上限按每张图计算。
 

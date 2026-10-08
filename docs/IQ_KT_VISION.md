@@ -31,21 +31,29 @@ The verification services were stopped after testing.
 
 ## Device selection and GPU wake
 
-This build enumerated unfiltered Vulkan devices as 2080 Ti = 0, 4080 SUPER = 1, Iris Xe = 2. The old IK
-script's `GGML_VK_VISIBLE_DEVICES=1` would select the 4080 here. The vision section therefore uses:
+Vulkan ordinals can change between launches. During the 0.1.40.3 merge check on 2026-10-08, Iris Xe was
+listed at ordinal 1 and later at ordinal 2. A numeric filter from the earlier enumeration hid the Intel
+device and prevented startup. The local preset now relies on the exact device description, with no numeric
+`GGML_VK_VISIBLE_DEVICES` filter:
 
 ```json
 {
   "gpu": true,
   "device": "Intel(R) Iris(R) Xe Graphics",
   "max_tokens": 768,
-  "env": {"GGML_VK_VISIBLE_DEVICES": "2", "CUDA_VISIBLE_DEVICES": "-1"}
+  "env": {"CUDA_VISIBLE_DEVICES": "-1"}
 }
 ```
 
-`device` accepts a backend name (such as Vulkan0) or its exact description. Requiring the Intel description
-also makes an ordinal mismatch fail before loading the projector. The helper logs its selected device.
-The encoder-only environment does not change the text engine's two CUDA UUIDs.
+`device` accepts a backend name (such as Vulkan0) or its exact description. The helper logs the selected
+device and passes it explicitly to the projector. The local launcher clears any inherited
+`GGML_VK_VISIBLE_DEVICES` for its child process and restores the shell's previous value on exit. When
+starting the server directly, unset that variable too: a description cannot select a device hidden by a
+filter. The encoder-only CUDA setting does not change the text engine's two CUDA UUIDs.
+
+The unfiltered, exact-name check loaded and warmed the new helper in 13.46 s and encoded a 512 chart in
+2.945 s. Its 256 × 2560 FP32 embedding was finite. The two NVIDIA cards' memory use remained unchanged
+before, after warm-up and after encoding; enumerating them did not put the projector on them.
 
 The launcher uses `tools/serve_gpu_wake.py` and the existing `B:/llama.cpp/proxy/gpu_monitor.py` class.
 It creates the retained Torch wake probe on the 4080 **after** engine READY, pulses before each generation,
@@ -61,9 +69,12 @@ text engine (`Strata-ggml-kt`, commit `3cf03257f219afbe7334045ff7c6a06ac68c627d`
 ```powershell
 cmake -S tools/vision -B build-vision-vulkan -G 'Visual Studio 17 2022' -A x64 `
   -DLLAMA_DIR=B:/llama.cpp/Strata-ggml-kt `
-  -DSTRATA_VISION_VULKAN=ON -DSTRATA_VISION_CUDA=OFF -DGGML_OPENMP=OFF
+  -DSTRATA_VISION_VULKAN=ON -DSTRATA_VISION_CUDA=OFF -DSTRATA_PORTABLE=ON -DGGML_OPENMP=OFF
 cmake --build build-vision-vulkan --config Release --target strata-vision -j 4
 ```
+
+The merged upstream vision build defaults to `STRATA_PORTABLE=ON`; the explicit setting above keeps
+the tested configuration clear. The main CUDA engine still uses its own non-portable build configuration.
 
 The existing projector is
 `B:/models/llm/Qwen/Qwen3.8-Flash-Next/mmproj-Qwen3.8-Flash-Next-Uncensored-F16.gguf` (907543296 bytes).
@@ -85,6 +96,9 @@ To inspect device numbering, remove `GGML_VK_VISIBLE_DEVICES` in that shell befo
 `build-vision-vulkan/bin/Release/strata-vision.exe --list-devices`.
 
 ## Measurements
+
+These are the original pre-merge measurements. The [0.1.40.3 merge report](IQ_KT_UPSTREAM_MERGE.zh-CN.md)
+records the later build and HTTP revalidation.
 
 Helper-only runs, with finite FP32 embeddings and verified SVE dimensions:
 

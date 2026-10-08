@@ -1,0 +1,4792 @@
+{
+  "date": "2026-10-08",
+  "baseline_commit": "a0b5b3b",
+  "upstream_commit": "d5ea7133741e67743c0e886bb426c0ce8d69cf6c",
+  "tested_merge_commit": "15743b6",
+  "build": {
+    "compiler": "MSVC 19.42",
+    "cuda": "12.8.61",
+    "architectures": [
+      75,
+      89
+    ],
+    "cuda_runtime": "Shared",
+    "portable": false,
+    "ggml_commit": "3cf03257f219afbe7334045ff7c6a06ac68c627d"
+  },
+  "hardware": {
+    "cpu": "Intel Core i9-12900HK",
+    "ram_gib": 64,
+    "gpus": [
+      "RTX 2080 Ti 22 GiB, PCIe 3.0 x8",
+      "RTX 4080 SUPER 32 GiB, USB4"
+    ]
+  },
+  "control": {
+    "model": "Qwen3.8-Flash-Next Uncensored IQ3_KT_v2",
+    "context": 262144,
+    "kv": "K8V8",
+    "resident_kv_cells": 20480,
+    "prefill_chunk": 2048,
+    "layer_split": [
+      19,
+      29
+    ],
+    "expert_slots": [
+      9728,
+      14848
+    ],
+    "reserves_mib": [
+      1536,
+      768
+    ],
+    "mtp": false,
+    "ple": "direct",
+    "prompt_cache": false,
+    "suffix_draft": false,
+    "lookup_chain": false,
+    "adaptive_swaps": false,
+    "request_gpu_wake": true,
+    "check_logits": true,
+    "trim_stage_weights": true,
+    "decode_timing": true,
+    "prefill_profiler": false
+  },
+  "limits": [
+    "Means are arithmetic means of per-request throughput, with first warm-up excluded.",
+    "Repeated synthetic inputs favor warm PLE row caching and are not a cold-document PLE benchmark.",
+    "Approximate decode telemetry windows use host request start plus engine prefill time; sampling is 0.5 s.",
+    "The 260K arm checks retrieval and capacity with a short answer, not sustained full-context decode.",
+    "The MTP arm uses a different split/prefill configuration and is functional validation only."
+  ],
+  "runs": [
+    {
+      "name": "upstream-before-a",
+      "fixed_core_mhz": [],
+      "settings": {
+        "prefill_chunk": 2048,
+        "layer_split": 19,
+        "context": 262144,
+        "kv": "int8",
+        "ple_io": "direct",
+        "mtp": false
+      },
+      "requests": [
+        {
+          "name": "warm-short",
+          "warmup": true,
+          "input_tokens": 72,
+          "output_tokens": 32,
+          "prefill_ms": 2101.2,
+          "decode_ms": 567.1,
+          "wall_s": 2.6691,
+          "prefill_tps": 34.26613363792119,
+          "decode_tps": 56.4274378416505,
+          "output_token_sha256": "e94175f31164a9af56778b94335f847726be0e93071a8bde7ef26d86ddd09d21",
+          "available_ram_gib_during_request": {
+            "n": 5,
+            "mean": 46.6787,
+            "median": 46.9299,
+            "min": 45.278,
+            "max": 47.5606,
+            "stdev": 0.9568
+          },
+          "decode_telemetry": {
+            "samples": 1,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 2805,
+                  "median": 2805,
+                  "min": 2805,
+                  "max": 2805,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 0,
+                  "median": 0,
+                  "min": 0,
+                  "max": 0,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 81.627,
+                  "median": 81.627,
+                  "min": 81.627,
+                  "max": 81.627,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 45,
+                  "median": 45,
+                  "min": 45,
+                  "max": 45,
+                  "stdev": 0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 13,
+                  "median": 13,
+                  "min": 13,
+                  "max": 13,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 76.844,
+                  "median": 76.844,
+                  "min": 76.844,
+                  "max": 76.844,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 39,
+                  "median": 39,
+                  "min": 39,
+                  "max": 39,
+                  "stdev": 0
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 1,
+              "mean": 38.2,
+              "median": 38.2,
+              "min": 38.2,
+              "max": 38.2,
+              "stdev": 0
+            }
+          }
+        },
+        {
+          "name": "short-1",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1309.2,
+          "decode_ms": 4311.5,
+          "wall_s": 5.6217,
+          "prefill_tps": 54.995417048579284,
+          "decode_tps": 59.376087208628086,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 11,
+            "mean": 44.6014,
+            "median": 44.5704,
+            "min": 44.2719,
+            "max": 45.041,
+            "stdev": 0.2609
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2801.25,
+                  "median": 2805.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 6.9437
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 35.5,
+                  "median": 38.0,
+                  "min": 11,
+                  "max": 45,
+                  "stdev": 10.24
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 142.8691,
+                  "median": 157.644,
+                  "min": 91.901,
+                  "max": 161.672,
+                  "stdev": 25.8101
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 55.375,
+                  "median": 56.0,
+                  "min": 47,
+                  "max": 58,
+                  "stdev": 3.4615
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 57.75,
+                  "median": 60.5,
+                  "min": 44,
+                  "max": 66,
+                  "stdev": 9.2079
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 116.3364,
+                  "median": 116.592,
+                  "min": 112.021,
+                  "max": 118.668,
+                  "stdev": 2.1227
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 41.125,
+                  "median": 41.0,
+                  "min": 40,
+                  "max": 42,
+                  "stdev": 0.6409
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 40.9875,
+              "median": 40.2,
+              "min": 34.2,
+              "max": 48.1,
+              "stdev": 6.0404
+            }
+          }
+        },
+        {
+          "name": "3k-1",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5538.2,
+          "decode_ms": 4233.7,
+          "wall_s": 9.7731,
+          "prefill_tps": 644.6137734281897,
+          "decode_tps": 60.46720362803222,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 19,
+            "mean": 43.0162,
+            "median": 42.8361,
+            "min": 42.7024,
+            "max": 44.0827,
+            "stdev": 0.3967
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.125,
+                  "median": 41.0,
+                  "min": 41,
+                  "max": 100,
+                  "stdev": 20.6082
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 146.962,
+                  "median": 165.154,
+                  "min": 97.631,
+                  "max": 167.597,
+                  "stdev": 30.028
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 56.875,
+                  "median": 58.0,
+                  "min": 48,
+                  "max": 59,
+                  "stdev": 3.6425
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 52.75,
+                  "median": 57.5,
+                  "min": 34,
+                  "max": 62,
+                  "stdev": 11.7443
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 120.1269,
+                  "median": 119.9535,
+                  "min": 118.151,
+                  "max": 122.568,
+                  "stdev": 1.564
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 42.875,
+                  "median": 43.0,
+                  "min": 42,
+                  "max": 43,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 22.9625,
+              "median": 21.25,
+              "min": 15.2,
+              "max": 30.5,
+              "stdev": 6.0719
+            }
+          }
+        },
+        {
+          "name": "12k-1",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11990.1,
+          "decode_ms": 4178.8,
+          "wall_s": 16.1711,
+          "prefill_tps": 1013.3360022018164,
+          "decode_tps": 61.261606202737624,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 30,
+            "mean": 43.2283,
+            "median": 43.2941,
+            "min": 42.7919,
+            "max": 43.3205,
+            "stdev": 0.1441
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 43.375,
+                  "median": 42.0,
+                  "min": 41,
+                  "max": 48,
+                  "stdev": 2.6152
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 156.475,
+                  "median": 170.0775,
+                  "min": 99.149,
+                  "max": 172.722,
+                  "stdev": 26.9444
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 59.875,
+                  "median": 60.5,
+                  "min": 56,
+                  "max": 62,
+                  "stdev": 1.8851
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.375,
+                  "median": 55.0,
+                  "min": 23,
+                  "max": 57,
+                  "stdev": 11.5997
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 121.6921,
+                  "median": 120.6275,
+                  "min": 119.373,
+                  "max": 126.273,
+                  "stdev": 2.3894
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 45.625,
+                  "median": 46.0,
+                  "min": 45,
+                  "max": 46,
+                  "stdev": 0.5175
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 15.65,
+              "median": 15.15,
+              "min": 10.8,
+              "max": 21.4,
+              "stdev": 3.2785
+            }
+          }
+        },
+        {
+          "name": "short-2",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1218.2,
+          "decode_ms": 3824.9,
+          "wall_s": 5.0437,
+          "prefill_tps": 59.10359546872434,
+          "decode_tps": 66.92985437527778,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 43.301,
+            "median": 43.2967,
+            "min": 43.2897,
+            "max": 43.336,
+            "stdev": 0.0129
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 41,
+                  "median": 45.5,
+                  "min": 12,
+                  "max": 47,
+                  "stdev": 11.9523
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 158.2915,
+                  "median": 177.5715,
+                  "min": 106.83,
+                  "max": 179.06,
+                  "stdev": 29.1731
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 60,
+                  "median": 61.0,
+                  "min": 56,
+                  "max": 62,
+                  "stdev": 2.0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 48.875,
+                  "median": 52.5,
+                  "min": 35,
+                  "max": 55,
+                  "stdev": 8.6427
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 124.4831,
+                  "median": 126.2135,
+                  "min": 110.542,
+                  "max": 127.91,
+                  "stdev": 5.8158
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 46.625,
+                  "median": 47.0,
+                  "min": 45,
+                  "max": 47,
+                  "stdev": 0.744
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 14.0375,
+              "median": 12.65,
+              "min": 8.3,
+              "max": 24.9,
+              "stdev": 5.3857
+            }
+          }
+        },
+        {
+          "name": "3k-2",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5131.9,
+          "decode_ms": 3874.9,
+          "wall_s": 9.0083,
+          "prefill_tps": 695.6487850503712,
+          "decode_tps": 66.06622106376939,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 17,
+            "mean": 43.2622,
+            "median": 43.2548,
+            "min": 43.2382,
+            "max": 43.3004,
+            "stdev": 0.02
+          },
+          "decode_telemetry": {
+            "samples": 7,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 7,
+                  "mean": 2790,
+                  "median": 2790,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 7,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 7,
+                  "mean": 45.7143,
+                  "median": 45,
+                  "min": 43,
+                  "max": 48,
+                  "stdev": 2.2887
+                },
+                "power_w": {
+                  "n": 7,
+                  "mean": 164.1851,
+                  "median": 180.129,
+                  "min": 104.288,
+                  "max": 180.649,
+                  "stdev": 29.745
+                },
+                "temperature_c": {
+                  "n": 7,
+                  "mean": 61.4286,
+                  "median": 61,
+                  "min": 60,
+                  "max": 63,
+                  "stdev": 0.9759
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 7,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 7,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 7,
+                  "mean": 41.7143,
+                  "median": 53,
+                  "min": 22,
+                  "max": 54,
+                  "stdev": 14.8404
+                },
+                "power_w": {
+                  "n": 7,
+                  "mean": 125.2624,
+                  "median": 124.047,
+                  "min": 122.534,
+                  "max": 128.793,
+                  "stdev": 2.5278
+                },
+                "temperature_c": {
+                  "n": 7,
+                  "mean": 47.1429,
+                  "median": 47,
+                  "min": 47,
+                  "max": 48,
+                  "stdev": 0.378
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 7,
+              "mean": 8.8,
+              "median": 8.6,
+              "min": 7.4,
+              "max": 11.3,
+              "stdev": 1.2636
+            }
+          }
+        },
+        {
+          "name": "12k-2",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11674.1,
+          "decode_ms": 4034.4,
+          "wall_s": 15.7104,
+          "prefill_tps": 1040.7654551528597,
+          "decode_tps": 63.45429307951616,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 30,
+            "mean": 43.2782,
+            "median": 43.275,
+            "min": 43.2192,
+            "max": 43.3458,
+            "stdev": 0.028
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 47.375,
+                  "median": 43.0,
+                  "min": 42,
+                  "max": 70,
+                  "stdev": 9.5758
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 160.0217,
+                  "median": 173.905,
+                  "min": 103.329,
+                  "max": 178.971,
+                  "stdev": 29.354
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 59.375,
+                  "median": 60.0,
+                  "min": 51,
+                  "max": 62,
+                  "stdev": 3.4615
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 45,
+                  "median": 51.5,
+                  "min": 22,
+                  "max": 54,
+                  "stdev": 14.2528
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 124.9278,
+                  "median": 125.787,
+                  "min": 119.368,
+                  "max": 129.795,
+                  "stdev": 3.196
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 48.75,
+                  "median": 49.0,
+                  "min": 48,
+                  "max": 49,
+                  "stdev": 0.4629
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 13.1125,
+              "median": 13.0,
+              "min": 8.1,
+              "max": 23.1,
+              "stdev": 4.8396
+            }
+          }
+        }
+      ],
+      "residency": true,
+      "ple_ram_locked": false,
+      "ple_ram_load_seconds": null,
+      "available_ram_gib_including_startup": {
+        "n": 273,
+        "mean": 38.8394,
+        "median": 43.2687,
+        "min": 6.1894,
+        "max": 56.0733,
+        "stdev": 11.8783
+      },
+      "decode_expert_counters_zero": true
+    },
+    {
+      "name": "upstream-after-a",
+      "fixed_core_mhz": [],
+      "settings": {
+        "prefill_chunk": 2048,
+        "layer_split": 19,
+        "context": 262144,
+        "kv": "int8",
+        "ple_io": "direct",
+        "mtp": false
+      },
+      "requests": [
+        {
+          "name": "warm-short",
+          "warmup": true,
+          "input_tokens": 72,
+          "output_tokens": 32,
+          "prefill_ms": 2166.8,
+          "decode_ms": 547.2,
+          "wall_s": 2.7149,
+          "prefill_tps": 33.228724386191615,
+          "decode_tps": 58.47953216374268,
+          "output_token_sha256": "e94175f31164a9af56778b94335f847726be0e93071a8bde7ef26d86ddd09d21",
+          "available_ram_gib_during_request": {
+            "n": 6,
+            "mean": 45.0874,
+            "median": 45.265,
+            "min": 44.3078,
+            "max": 45.6386,
+            "stdev": 0.5774
+          },
+          "decode_telemetry": {
+            "samples": 1,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 2805,
+                  "median": 2805,
+                  "min": 2805,
+                  "max": 2805,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 42,
+                  "median": 42,
+                  "min": 42,
+                  "max": 42,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 90.959,
+                  "median": 90.959,
+                  "min": 90.959,
+                  "max": 90.959,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 53,
+                  "median": 53,
+                  "min": 53,
+                  "max": 53,
+                  "stdev": 0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 7,
+                  "median": 7,
+                  "min": 7,
+                  "max": 7,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 118.853,
+                  "median": 118.853,
+                  "min": 118.853,
+                  "max": 118.853,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 42,
+                  "median": 42,
+                  "min": 42,
+                  "max": 42,
+                  "stdev": 0
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 1,
+              "mean": 13.3,
+              "median": 13.3,
+              "min": 13.3,
+              "max": 13.3,
+              "stdev": 0
+            }
+          }
+        },
+        {
+          "name": "short-1",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1222.9,
+          "decode_ms": 4089.2,
+          "wall_s": 5.3128,
+          "prefill_tps": 58.876441246218,
+          "decode_tps": 62.60393230949819,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 44.3418,
+            "median": 44.3458,
+            "min": 44.3186,
+            "max": 44.3749,
+            "stdev": 0.0169
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 47.25,
+                  "median": 40.0,
+                  "min": 40,
+                  "max": 93,
+                  "stdev": 18.5376
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 151.6129,
+                  "median": 165.937,
+                  "min": 93.328,
+                  "max": 167.914,
+                  "stdev": 27.1261
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 55.75,
+                  "median": 56.0,
+                  "min": 48,
+                  "max": 59,
+                  "stdev": 3.4538
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 51.75,
+                  "median": 52.0,
+                  "min": 45,
+                  "max": 58,
+                  "stdev": 6.6922
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 121.4849,
+                  "median": 121.7865,
+                  "min": 118.658,
+                  "max": 126.676,
+                  "stdev": 2.691
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 43.125,
+                  "median": 43.0,
+                  "min": 42,
+                  "max": 44,
+                  "stdev": 0.6409
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 12.0625,
+              "median": 11.45,
+              "min": 8.9,
+              "max": 16.8,
+              "stdev": 2.8799
+            }
+          }
+        },
+        {
+          "name": "3k-1",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5266.4,
+          "decode_ms": 4204.3,
+          "wall_s": 9.472,
+          "prefill_tps": 677.8824244265533,
+          "decode_tps": 60.89004114834812,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 43.0399,
+            "median": 42.8757,
+            "min": 42.8025,
+            "max": 44.0163,
+            "stdev": 0.3334
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 43.125,
+                  "median": 41.0,
+                  "min": 36,
+                  "max": 63,
+                  "stdev": 8.2883
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 150.4044,
+                  "median": 165.5245,
+                  "min": 90.964,
+                  "max": 167.056,
+                  "stdev": 29.225
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 57.25,
+                  "median": 58.0,
+                  "min": 49,
+                  "max": 60,
+                  "stdev": 3.4122
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 45.75,
+                  "median": 57.0,
+                  "min": 20,
+                  "max": 58,
+                  "stdev": 16.5939
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 122.1767,
+                  "median": 121.369,
+                  "min": 119.564,
+                  "max": 128.005,
+                  "stdev": 2.9301
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 44.625,
+                  "median": 45.0,
+                  "min": 44,
+                  "max": 45,
+                  "stdev": 0.5175
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 10.875,
+              "median": 10.0,
+              "min": 8.4,
+              "max": 15.9,
+              "stdev": 2.3987
+            }
+          }
+        },
+        {
+          "name": "12k-1",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11809.3,
+          "decode_ms": 4201.6,
+          "wall_s": 16.014,
+          "prefill_tps": 1028.850143530946,
+          "decode_tps": 60.92916984006092,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 31,
+            "mean": 43.0326,
+            "median": 43.0343,
+            "min": 42.9988,
+            "max": 43.0536,
+            "stdev": 0.0142
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 50.875,
+                  "median": 43.5,
+                  "min": 42,
+                  "max": 100,
+                  "stdev": 19.9817
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 151.6633,
+                  "median": 169.8815,
+                  "min": 105.254,
+                  "max": 170.345,
+                  "stdev": 29.1589
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 58.75,
+                  "median": 59.5,
+                  "min": 51,
+                  "max": 61,
+                  "stdev": 3.2404
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 48.375,
+                  "median": 56.5,
+                  "min": 16,
+                  "max": 57,
+                  "stdev": 15.8739
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 120.9077,
+                  "median": 120.6745,
+                  "min": 119.069,
+                  "max": 124.257,
+                  "stdev": 1.6127
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 46.875,
+                  "median": 47.0,
+                  "min": 46,
+                  "max": 47,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 9.475,
+              "median": 9.35,
+              "min": 7.6,
+              "max": 12.8,
+              "stdev": 1.8545
+            }
+          }
+        },
+        {
+          "name": "short-2",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1274.5,
+          "decode_ms": 3944.3,
+          "wall_s": 5.2193,
+          "prefill_tps": 56.492742251863476,
+          "decode_tps": 64.90378520903582,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 43.0283,
+            "median": 43.027,
+            "min": 43.0043,
+            "max": 43.0517,
+            "stdev": 0.0145
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.875,
+                  "median": 42.5,
+                  "min": 40,
+                  "max": 100,
+                  "stdev": 20.3991
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 156.9999,
+                  "median": 174.952,
+                  "min": 96.248,
+                  "max": 176.525,
+                  "stdev": 30.2394
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 59.75,
+                  "median": 60.5,
+                  "min": 52,
+                  "max": 63,
+                  "stdev": 3.2842
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 47.5,
+                  "median": 54.0,
+                  "min": 27,
+                  "max": 55,
+                  "stdev": 12.6829
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 117.8192,
+                  "median": 126.1255,
+                  "min": 63.606,
+                  "max": 128.069,
+                  "stdev": 22.0047
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 47.375,
+                  "median": 47.5,
+                  "min": 46,
+                  "max": 48,
+                  "stdev": 0.744
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 11.5625,
+              "median": 9.9,
+              "min": 7.6,
+              "max": 17.6,
+              "stdev": 3.525
+            }
+          }
+        },
+        {
+          "name": "3k-2",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5207.5,
+          "decode_ms": 4008.9,
+          "wall_s": 9.2171,
+          "prefill_tps": 685.549687950072,
+          "decode_tps": 63.857916136596074,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 43.0203,
+            "median": 43.0261,
+            "min": 42.9729,
+            "max": 43.0467,
+            "stdev": 0.02
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2793.75,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 6.9437
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 52.25,
+                  "median": 46.5,
+                  "min": 41,
+                  "max": 98,
+                  "stdev": 18.6222
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 154.1866,
+                  "median": 175.883,
+                  "min": 97.856,
+                  "max": 176.76,
+                  "stdev": 31.9728
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 60.5,
+                  "median": 62.0,
+                  "min": 52,
+                  "max": 63,
+                  "stdev": 3.6253
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 44,
+                  "median": 49.0,
+                  "min": 23,
+                  "max": 55,
+                  "stdev": 13.9796
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 118.7325,
+                  "median": 124.845,
+                  "min": 73.049,
+                  "max": 128.212,
+                  "stdev": 18.5603
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 47.875,
+                  "median": 48.0,
+                  "min": 47,
+                  "max": 48,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 11.5125,
+              "median": 10.6,
+              "min": 8.7,
+              "max": 14.8,
+              "stdev": 2.534
+            }
+          }
+        },
+        {
+          "name": "12k-2",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11713.0,
+          "decode_ms": 4025.4,
+          "wall_s": 15.7409,
+          "prefill_tps": 1037.308972936054,
+          "decode_tps": 63.596164356337255,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 31,
+            "mean": 43.0192,
+            "median": 43.0203,
+            "min": 43.0007,
+            "max": 43.0427,
+            "stdev": 0.0112
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 42.875,
+                  "median": 42.0,
+                  "min": 42,
+                  "max": 47,
+                  "stdev": 1.8077
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 162.8005,
+                  "median": 176.86,
+                  "min": 97.689,
+                  "max": 177.596,
+                  "stdev": 28.9134
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 61.125,
+                  "median": 61.0,
+                  "min": 61,
+                  "max": 62,
+                  "stdev": 0.3536
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 46.75,
+                  "median": 54.0,
+                  "min": 24,
+                  "max": 55,
+                  "stdev": 14.0484
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 123.7567,
+                  "median": 123.187,
+                  "min": 120.758,
+                  "max": 128.464,
+                  "stdev": 2.7958
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 49.375,
+                  "median": 49.0,
+                  "min": 49,
+                  "max": 50,
+                  "stdev": 0.5175
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 9.95,
+              "median": 9.5,
+              "min": 8.6,
+              "max": 12.1,
+              "stdev": 1.4303
+            }
+          }
+        }
+      ],
+      "residency": true,
+      "ple_ram_locked": false,
+      "ple_ram_load_seconds": null,
+      "available_ram_gib_including_startup": {
+        "n": 299,
+        "mean": 37.4864,
+        "median": 43.0177,
+        "min": 4.5694,
+        "max": 54.7254,
+        "stdev": 12.3509
+      },
+      "decode_expert_counters_zero": true
+    },
+    {
+      "name": "upstream-before-b",
+      "fixed_core_mhz": [],
+      "settings": {
+        "prefill_chunk": 2048,
+        "layer_split": 19,
+        "context": 262144,
+        "kv": "int8",
+        "ple_io": "direct",
+        "mtp": false
+      },
+      "requests": [
+        {
+          "name": "warm-short",
+          "warmup": true,
+          "input_tokens": 72,
+          "output_tokens": 32,
+          "prefill_ms": 2106.3,
+          "decode_ms": 539.5,
+          "wall_s": 2.6469,
+          "prefill_tps": 34.18316479134026,
+          "decode_tps": 59.31417979610751,
+          "output_token_sha256": "e94175f31164a9af56778b94335f847726be0e93071a8bde7ef26d86ddd09d21",
+          "available_ram_gib_during_request": {
+            "n": 5,
+            "mean": 45.766,
+            "median": 46.1752,
+            "min": 44.7365,
+            "max": 46.4555,
+            "stdev": 0.7581
+          },
+          "decode_telemetry": {
+            "samples": 1,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 2805,
+                  "median": 2805,
+                  "min": 2805,
+                  "max": 2805,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 40,
+                  "median": 40,
+                  "min": 40,
+                  "max": 40,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 92.484,
+                  "median": 92.484,
+                  "min": 92.484,
+                  "max": 92.484,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 53,
+                  "median": 53,
+                  "min": 53,
+                  "max": 53,
+                  "stdev": 0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 22,
+                  "median": 22,
+                  "min": 22,
+                  "max": 22,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 123.547,
+                  "median": 123.547,
+                  "min": 123.547,
+                  "max": 123.547,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 41,
+                  "median": 41,
+                  "min": 41,
+                  "max": 41,
+                  "stdev": 0
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 1,
+              "mean": 12.4,
+              "median": 12.4,
+              "min": 12.4,
+              "max": 12.4,
+              "stdev": 0
+            }
+          }
+        },
+        {
+          "name": "short-1",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1178.6,
+          "decode_ms": 4184.1,
+          "wall_s": 5.3635,
+          "prefill_tps": 61.089428135075515,
+          "decode_tps": 61.1840061184006,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 44.7784,
+            "median": 44.7646,
+            "min": 44.7245,
+            "max": 44.8614,
+            "stdev": 0.0541
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 46.625,
+                  "median": 40.0,
+                  "min": 28,
+                  "max": 99,
+                  "stdev": 21.712
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 149.2186,
+                  "median": 159.903,
+                  "min": 92.25,
+                  "max": 166.471,
+                  "stdev": 25.7127
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 55.625,
+                  "median": 56.5,
+                  "min": 47,
+                  "max": 58,
+                  "stdev": 3.5832
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 51.125,
+                  "median": 55.5,
+                  "min": 35,
+                  "max": 58,
+                  "stdev": 10.0205
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 112.5954,
+                  "median": 118.1225,
+                  "min": 66.088,
+                  "max": 123.32,
+                  "stdev": 18.9503
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 42.375,
+                  "median": 42.5,
+                  "min": 41,
+                  "max": 43,
+                  "stdev": 0.744
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 15.8625,
+              "median": 12.3,
+              "min": 10.1,
+              "max": 29.8,
+              "stdev": 7.2516
+            }
+          }
+        },
+        {
+          "name": "3k-1",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5182.1,
+          "decode_ms": 4202.1,
+          "wall_s": 9.3855,
+          "prefill_tps": 688.9099013913278,
+          "decode_tps": 60.92191999238475,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 43.2929,
+            "median": 43.1635,
+            "min": 43.0203,
+            "max": 44.2478,
+            "stdev": 0.3202
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 42.875,
+                  "median": 41.0,
+                  "min": 39,
+                  "max": 57,
+                  "stdev": 5.7678
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 150.8332,
+                  "median": 165.6175,
+                  "min": 92.154,
+                  "max": 167.031,
+                  "stdev": 28.8595
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 57,
+                  "median": 58.0,
+                  "min": 48,
+                  "max": 59,
+                  "stdev": 3.7033
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 50.25,
+                  "median": 57.0,
+                  "min": 29,
+                  "max": 58,
+                  "stdev": 13.123
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 119.6864,
+                  "median": 119.4995,
+                  "min": 118.552,
+                  "max": 121.69,
+                  "stdev": 1.0464
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 44.375,
+                  "median": 44.0,
+                  "min": 44,
+                  "max": 45,
+                  "stdev": 0.5175
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 12.025,
+              "median": 11.4,
+              "min": 7.6,
+              "max": 17.3,
+              "stdev": 4.0556
+            }
+          }
+        },
+        {
+          "name": "12k-1",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11797.0,
+          "decode_ms": 4197.2,
+          "wall_s": 15.9964,
+          "prefill_tps": 1029.9228617445112,
+          "decode_tps": 60.993042981034975,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 30,
+            "mean": 43.1607,
+            "median": 43.1669,
+            "min": 43.0294,
+            "max": 43.2004,
+            "stdev": 0.0312
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 50.5,
+                  "median": 43.5,
+                  "min": 42,
+                  "max": 100,
+                  "stdev": 20.0428
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 149.5356,
+                  "median": 168.5515,
+                  "min": 99.353,
+                  "max": 170.013,
+                  "stdev": 31.1506
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 58.75,
+                  "median": 59.5,
+                  "min": 50,
+                  "max": 62,
+                  "stdev": 3.8079
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 48.5,
+                  "median": 56.0,
+                  "min": 25,
+                  "max": 57,
+                  "stdev": 14.5111
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 122.0421,
+                  "median": 121.696,
+                  "min": 119.886,
+                  "max": 124.606,
+                  "stdev": 1.5523
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 46.375,
+                  "median": 46.0,
+                  "min": 46,
+                  "max": 47,
+                  "stdev": 0.5175
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 10.525,
+              "median": 10.15,
+              "min": 7.7,
+              "max": 16.4,
+              "stdev": 2.7896
+            }
+          }
+        },
+        {
+          "name": "short-2",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1184.7,
+          "decode_ms": 3947.6,
+          "wall_s": 5.1328,
+          "prefill_tps": 60.77487971638389,
+          "decode_tps": 64.84952882764212,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 43.1663,
+            "median": 43.1684,
+            "min": 43.1271,
+            "max": 43.1933,
+            "stdev": 0.0188
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 43,
+                  "median": 41.5,
+                  "min": 40,
+                  "max": 49,
+                  "stdev": 3.5456
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 161.5066,
+                  "median": 174.646,
+                  "min": 121.399,
+                  "max": 175.793,
+                  "stdev": 22.0571
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 60.25,
+                  "median": 61.0,
+                  "min": 57,
+                  "max": 61,
+                  "stdev": 1.3887
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 50.75,
+                  "median": 51.5,
+                  "min": 45,
+                  "max": 55,
+                  "stdev": 4.6828
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 119.8874,
+                  "median": 123.7155,
+                  "min": 89.477,
+                  "max": 127.085,
+                  "stdev": 12.4742
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 46.875,
+                  "median": 47.0,
+                  "min": 46,
+                  "max": 47,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 12.2875,
+              "median": 12.75,
+              "min": 8.2,
+              "max": 17.0,
+              "stdev": 3.1665
+            }
+          }
+        },
+        {
+          "name": "3k-2",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5168.6,
+          "decode_ms": 4007.5,
+          "wall_s": 9.1771,
+          "prefill_tps": 690.7092829779824,
+          "decode_tps": 63.880224578914536,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 43.2295,
+            "median": 43.2124,
+            "min": 43.1168,
+            "max": 43.3234,
+            "stdev": 0.0731
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 46.875,
+                  "median": 47.0,
+                  "min": 45,
+                  "max": 48,
+                  "stdev": 1.2464
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 162.7988,
+                  "median": 175.6065,
+                  "min": 101.73,
+                  "max": 176.174,
+                  "stdev": 26.7029
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 61.25,
+                  "median": 61.0,
+                  "min": 60,
+                  "max": 62,
+                  "stdev": 0.7071
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 45.25,
+                  "median": 54.0,
+                  "min": 23,
+                  "max": 55,
+                  "stdev": 13.2746
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 125.3067,
+                  "median": 125.752,
+                  "min": 120.587,
+                  "max": 128.816,
+                  "stdev": 3.1663
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 47.625,
+                  "median": 48.0,
+                  "min": 47,
+                  "max": 48,
+                  "stdev": 0.5175
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 9.9375,
+              "median": 10.1,
+              "min": 7.3,
+              "max": 12.1,
+              "stdev": 1.9026
+            }
+          }
+        },
+        {
+          "name": "12k-2",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11690.7,
+          "decode_ms": 4021.0,
+          "wall_s": 15.714,
+          "prefill_tps": 1039.2876388924528,
+          "decode_tps": 63.665754787366325,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 30,
+            "mean": 43.2968,
+            "median": 43.3,
+            "min": 43.2411,
+            "max": 43.3259,
+            "stdev": 0.0202
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.875,
+                  "median": 42.5,
+                  "min": 42,
+                  "max": 100,
+                  "stdev": 20.2727
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 157.153,
+                  "median": 176.327,
+                  "min": 98.482,
+                  "max": 176.695,
+                  "stdev": 32.079
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 61,
+                  "median": 62.0,
+                  "min": 54,
+                  "max": 63,
+                  "stdev": 2.8785
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49,
+                  "median": 55.0,
+                  "min": 23,
+                  "max": 55,
+                  "stdev": 11.1098
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 125.3178,
+                  "median": 126.1235,
+                  "min": 121.998,
+                  "max": 127.248,
+                  "stdev": 2.0288
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 48.875,
+                  "median": 49.0,
+                  "min": 48,
+                  "max": 49,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 10.0875,
+              "median": 10.15,
+              "min": 8.5,
+              "max": 12.3,
+              "stdev": 1.1051
+            }
+          }
+        }
+      ],
+      "residency": true,
+      "ple_ram_locked": false,
+      "ple_ram_load_seconds": null,
+      "available_ram_gib_including_startup": {
+        "n": 303,
+        "mean": 36.85,
+        "median": 43.1703,
+        "min": 4.6241,
+        "max": 54.5504,
+        "stdev": 13.2074
+      },
+      "decode_expert_counters_zero": true
+    },
+    {
+      "name": "upstream-after-b",
+      "fixed_core_mhz": [],
+      "settings": {
+        "prefill_chunk": 2048,
+        "layer_split": 19,
+        "context": 262144,
+        "kv": "int8",
+        "ple_io": "direct",
+        "mtp": false
+      },
+      "requests": [
+        {
+          "name": "warm-short",
+          "warmup": true,
+          "input_tokens": 72,
+          "output_tokens": 32,
+          "prefill_ms": 2122.0,
+          "decode_ms": 559.9,
+          "wall_s": 2.6834,
+          "prefill_tps": 33.93025447690858,
+          "decode_tps": 57.153063046972676,
+          "output_token_sha256": "e94175f31164a9af56778b94335f847726be0e93071a8bde7ef26d86ddd09d21",
+          "available_ram_gib_during_request": {
+            "n": 5,
+            "mean": 45.7276,
+            "median": 46.1175,
+            "min": 44.7126,
+            "max": 46.3514,
+            "stdev": 0.7283
+          },
+          "decode_telemetry": {
+            "samples": 1,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 2805,
+                  "median": 2805,
+                  "min": 2805,
+                  "max": 2805,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 16,
+                  "median": 16,
+                  "min": 16,
+                  "max": 16,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 83.263,
+                  "median": 83.263,
+                  "min": 83.263,
+                  "max": 83.263,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 46,
+                  "median": 46,
+                  "min": 46,
+                  "max": 46,
+                  "stdev": 0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 19,
+                  "median": 19,
+                  "min": 19,
+                  "max": 19,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 112.167,
+                  "median": 112.167,
+                  "min": 112.167,
+                  "max": 112.167,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 41,
+                  "median": 41,
+                  "min": 41,
+                  "max": 41,
+                  "stdev": 0
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 1,
+              "mean": 13.6,
+              "median": 13.6,
+              "min": 13.6,
+              "max": 13.6,
+              "stdev": 0
+            }
+          }
+        },
+        {
+          "name": "short-1",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1188.7,
+          "decode_ms": 4221.2,
+          "wall_s": 5.4106,
+          "prefill_tps": 60.57037099352233,
+          "decode_tps": 60.646261726523264,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 11,
+            "mean": 44.709,
+            "median": 44.7103,
+            "min": 44.6904,
+            "max": 44.7276,
+            "stdev": 0.0124
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 48.625,
+                  "median": 40.5,
+                  "min": 40,
+                  "max": 99,
+                  "stdev": 20.4935
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 149.5563,
+                  "median": 161.847,
+                  "min": 92.554,
+                  "max": 163.448,
+                  "stdev": 25.7126
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 55.25,
+                  "median": 56.0,
+                  "min": 49,
+                  "max": 57,
+                  "stdev": 2.6592
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 54,
+                  "median": 59.0,
+                  "min": 42,
+                  "max": 60,
+                  "stdev": 7.9642
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 119.8344,
+                  "median": 119.6975,
+                  "min": 118.265,
+                  "max": 121.289,
+                  "stdev": 1.2316
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 42.5,
+                  "median": 42.5,
+                  "min": 42,
+                  "max": 43,
+                  "stdev": 0.5345
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 11.0375,
+              "median": 10.3,
+              "min": 8.4,
+              "max": 15.5,
+              "stdev": 2.5895
+            }
+          }
+        },
+        {
+          "name": "3k-1",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5194.9,
+          "decode_ms": 4282.5,
+          "wall_s": 9.4789,
+          "prefill_tps": 687.2124583726347,
+          "decode_tps": 59.77816695855225,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 43.373,
+            "median": 43.251,
+            "min": 43.1582,
+            "max": 44.3189,
+            "stdev": 0.3179
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 47.375,
+                  "median": 41.0,
+                  "min": 38,
+                  "max": 100,
+                  "stdev": 21.3069
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 146.612,
+                  "median": 162.5505,
+                  "min": 95.75,
+                  "max": 165.499,
+                  "stdev": 28.6795
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 55.5,
+                  "median": 57.0,
+                  "min": 48,
+                  "max": 57,
+                  "stdev": 3.1168
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 50.75,
+                  "median": 57.0,
+                  "min": 31,
+                  "max": 58,
+                  "stdev": 12.2212
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 120.3854,
+                  "median": 120.2135,
+                  "min": 119.051,
+                  "max": 121.688,
+                  "stdev": 0.8287
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 43.875,
+                  "median": 44.0,
+                  "min": 43,
+                  "max": 44,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 13.3625,
+              "median": 13.25,
+              "min": 8.0,
+              "max": 22.0,
+              "stdev": 4.6715
+            }
+          }
+        },
+        {
+          "name": "12k-1",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11685.3,
+          "decode_ms": 4238.1,
+          "wall_s": 15.9254,
+          "prefill_tps": 1039.767913532387,
+          "decode_tps": 60.40442651188032,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 31,
+            "mean": 43.2459,
+            "median": 43.2908,
+            "min": 43.077,
+            "max": 43.3326,
+            "stdev": 0.0889
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.5,
+                  "median": 42.0,
+                  "min": 40,
+                  "max": 99,
+                  "stdev": 20.1424
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 159.0651,
+                  "median": 167.62,
+                  "min": 108.512,
+                  "max": 169.191,
+                  "stdev": 21.0209
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 58.5,
+                  "median": 59.5,
+                  "min": 50,
+                  "max": 61,
+                  "stdev": 3.5857
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 50.5,
+                  "median": 56.5,
+                  "min": 32,
+                  "max": 57,
+                  "stdev": 11.4268
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 121.8576,
+                  "median": 121.4865,
+                  "min": 118.982,
+                  "max": 125.433,
+                  "stdev": 2.2942
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 46.125,
+                  "median": 46.0,
+                  "min": 46,
+                  "max": 47,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 13.9625,
+              "median": 14.15,
+              "min": 10.0,
+              "max": 18.8,
+              "stdev": 3.3355
+            }
+          }
+        },
+        {
+          "name": "short-2",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1251.3,
+          "decode_ms": 3939.4,
+          "wall_s": 5.1916,
+          "prefill_tps": 57.54015823543515,
+          "decode_tps": 64.98451540843783,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 43.1482,
+            "median": 43.1469,
+            "min": 43.1309,
+            "max": 43.1712,
+            "stdev": 0.0136
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 45.375,
+                  "median": 43.5,
+                  "min": 40,
+                  "max": 62,
+                  "stdev": 7.4438
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 155.5532,
+                  "median": 173.9185,
+                  "min": 96.108,
+                  "max": 175.378,
+                  "stdev": 30.0923
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 58.875,
+                  "median": 60.0,
+                  "min": 51,
+                  "max": 61,
+                  "stdev": 3.2705
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.75,
+                  "median": 51.0,
+                  "min": 42,
+                  "max": 55,
+                  "stdev": 5.9221
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 117.4124,
+                  "median": 124.829,
+                  "min": 63.317,
+                  "max": 127.578,
+                  "stdev": 21.9011
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 46.625,
+                  "median": 47.0,
+                  "min": 45,
+                  "max": 47,
+                  "stdev": 0.744
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 11.4875,
+              "median": 11.4,
+              "min": 8.5,
+              "max": 15.5,
+              "stdev": 2.5682
+            }
+          }
+        },
+        {
+          "name": "3k-2",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5182.5,
+          "decode_ms": 4007.0,
+          "wall_s": 9.1903,
+          "prefill_tps": 688.8567293777135,
+          "decode_tps": 63.888195657599205,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 43.1531,
+            "median": 43.1517,
+            "min": 43.1266,
+            "max": 43.174,
+            "stdev": 0.0123
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 46.625,
+                  "median": 47.0,
+                  "min": 45,
+                  "max": 48,
+                  "stdev": 0.9161
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 160.7616,
+                  "median": 176.6805,
+                  "min": 93.016,
+                  "max": 176.95,
+                  "stdev": 31.3036
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 61.125,
+                  "median": 61.0,
+                  "min": 60,
+                  "max": 63,
+                  "stdev": 1.126
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 45.5,
+                  "median": 55.0,
+                  "min": 23,
+                  "max": 55,
+                  "stdev": 13.4695
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 124.6595,
+                  "median": 124.517,
+                  "min": 121.043,
+                  "max": 127.262,
+                  "stdev": 2.0122
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 47.375,
+                  "median": 47.0,
+                  "min": 47,
+                  "max": 48,
+                  "stdev": 0.5175
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 9.4,
+              "median": 8.95,
+              "min": 7.3,
+              "max": 14.0,
+              "stdev": 2.3003
+            }
+          }
+        },
+        {
+          "name": "12k-2",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11831.4,
+          "decode_ms": 4029.5,
+          "wall_s": 15.8634,
+          "prefill_tps": 1026.928343222273,
+          "decode_tps": 63.53145551557265,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 30,
+            "mean": 43.1837,
+            "median": 43.1565,
+            "min": 43.0855,
+            "max": 43.3142,
+            "stdev": 0.0677
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 44.375,
+                  "median": 45.0,
+                  "min": 42,
+                  "max": 46,
+                  "stdev": 1.3025
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 161.5203,
+                  "median": 176.532,
+                  "min": 99.318,
+                  "max": 177.876,
+                  "stdev": 29.3869
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 61.25,
+                  "median": 61.5,
+                  "min": 59,
+                  "max": 62,
+                  "stdev": 1.0351
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 47.5,
+                  "median": 55.0,
+                  "min": 23,
+                  "max": 55,
+                  "stdev": 11.7473
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 125.3265,
+                  "median": 125.82,
+                  "min": 122.237,
+                  "max": 127.873,
+                  "stdev": 2.3861
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 48.75,
+                  "median": 49.0,
+                  "min": 48,
+                  "max": 49,
+                  "stdev": 0.4629
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 10.575,
+              "median": 9.6,
+              "min": 7.3,
+              "max": 18.2,
+              "stdev": 3.4972
+            }
+          }
+        }
+      ],
+      "residency": true,
+      "ple_ram_locked": false,
+      "ple_ram_load_seconds": null,
+      "available_ram_gib_including_startup": {
+        "n": 308,
+        "mean": 36.8685,
+        "median": 43.1526,
+        "min": 4.6671,
+        "max": 54.6111,
+        "stdev": 13.2018
+      },
+      "decode_expert_counters_zero": true
+    },
+    {
+      "name": "upstream-after-ram",
+      "fixed_core_mhz": [],
+      "settings": {
+        "prefill_chunk": 2048,
+        "layer_split": 19,
+        "context": 262144,
+        "kv": "int8",
+        "ple_io": "ram",
+        "mtp": false
+      },
+      "requests": [
+        {
+          "name": "warm-short",
+          "warmup": true,
+          "input_tokens": 72,
+          "output_tokens": 32,
+          "prefill_ms": 2832.0,
+          "decode_ms": 523.1,
+          "wall_s": 3.3591,
+          "prefill_tps": 25.423728813559322,
+          "decode_tps": 61.17377174536417,
+          "output_token_sha256": "e94175f31164a9af56778b94335f847726be0e93071a8bde7ef26d86ddd09d21",
+          "available_ram_gib_during_request": {
+            "n": 6,
+            "mean": 24.2661,
+            "median": 24.4373,
+            "min": 23.264,
+            "max": 24.9069,
+            "stdev": 0.6312
+          },
+          "decode_telemetry": {
+            "samples": 1,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 2805,
+                  "median": 2805,
+                  "min": 2805,
+                  "max": 2805,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 0,
+                  "median": 0,
+                  "min": 0,
+                  "max": 0,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 72.348,
+                  "median": 72.348,
+                  "min": 72.348,
+                  "max": 72.348,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 43,
+                  "median": 43,
+                  "min": 43,
+                  "max": 43,
+                  "stdev": 0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 5000,
+                  "median": 5000,
+                  "min": 5000,
+                  "max": 5000,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 9,
+                  "median": 9,
+                  "min": 9,
+                  "max": 9,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 109.685,
+                  "median": 109.685,
+                  "min": 109.685,
+                  "max": 109.685,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 38,
+                  "median": 38,
+                  "min": 38,
+                  "max": 38,
+                  "stdev": 0
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 1,
+              "mean": 9.4,
+              "median": 9.4,
+              "min": 9.4,
+              "max": 9.4,
+              "stdev": 0
+            }
+          }
+        },
+        {
+          "name": "short-1",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1194.6,
+          "decode_ms": 3941.7,
+          "wall_s": 5.1371,
+          "prefill_tps": 60.27122049221497,
+          "decode_tps": 64.94659664611716,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 23.2377,
+            "median": 23.2382,
+            "min": 23.2132,
+            "max": 23.2593,
+            "stdev": 0.0165
+          },
+          "decode_telemetry": {
+            "samples": 7,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 7,
+                  "mean": 2792.1429,
+                  "median": 2790,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.6695
+                },
+                "mem_mhz": {
+                  "n": 7,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 7,
+                  "mean": 45,
+                  "median": 46,
+                  "min": 41,
+                  "max": 46,
+                  "stdev": 1.8257
+                },
+                "power_w": {
+                  "n": 7,
+                  "mean": 158.8889,
+                  "median": 168.371,
+                  "min": 123.577,
+                  "max": 169.337,
+                  "stdev": 17.7798
+                },
+                "temperature_c": {
+                  "n": 7,
+                  "mean": 55.2857,
+                  "median": 56,
+                  "min": 54,
+                  "max": 56,
+                  "stdev": 0.9512
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 7,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 7,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 7,
+                  "mean": 46.4286,
+                  "median": 55,
+                  "min": 25,
+                  "max": 55,
+                  "stdev": 14.6385
+                },
+                "power_w": {
+                  "n": 7,
+                  "mean": 122.281,
+                  "median": 122.219,
+                  "min": 119.063,
+                  "max": 125.096,
+                  "stdev": 2.1767
+                },
+                "temperature_c": {
+                  "n": 7,
+                  "mean": 40.7143,
+                  "median": 41,
+                  "min": 40,
+                  "max": 41,
+                  "stdev": 0.488
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 7,
+              "mean": 10.5,
+              "median": 10.0,
+              "min": 9.2,
+              "max": 12.4,
+              "stdev": 1.186
+            }
+          }
+        },
+        {
+          "name": "3k-1",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5239.3,
+          "decode_ms": 4015.0,
+          "wall_s": 9.2556,
+          "prefill_tps": 681.3887351363732,
+          "decode_tps": 63.760896637608965,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 21.9357,
+            "median": 21.7352,
+            "min": 21.707,
+            "max": 23.1882,
+            "stdev": 0.422
+          },
+          "decode_telemetry": {
+            "samples": 7,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 7,
+                  "mean": 2805,
+                  "median": 2805,
+                  "min": 2805,
+                  "max": 2805,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 7,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 7,
+                  "mean": 41.5714,
+                  "median": 41,
+                  "min": 41,
+                  "max": 44,
+                  "stdev": 1.1339
+                },
+                "power_w": {
+                  "n": 7,
+                  "mean": 152.487,
+                  "median": 170.312,
+                  "min": 92.658,
+                  "max": 170.448,
+                  "stdev": 31.5723
+                },
+                "temperature_c": {
+                  "n": 7,
+                  "mean": 55.5714,
+                  "median": 56,
+                  "min": 54,
+                  "max": 56,
+                  "stdev": 0.7868
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 7,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 7,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 7,
+                  "mean": 47.5714,
+                  "median": 55,
+                  "min": 29,
+                  "max": 55,
+                  "stdev": 12.6867
+                },
+                "power_w": {
+                  "n": 7,
+                  "mean": 122.5234,
+                  "median": 123.695,
+                  "min": 118.462,
+                  "max": 126.28,
+                  "stdev": 2.8457
+                },
+                "temperature_c": {
+                  "n": 7,
+                  "mean": 42.5714,
+                  "median": 43,
+                  "min": 42,
+                  "max": 43,
+                  "stdev": 0.5345
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 7,
+              "mean": 9.7429,
+              "median": 9.5,
+              "min": 7.9,
+              "max": 11.6,
+              "stdev": 1.1545
+            }
+          }
+        },
+        {
+          "name": "12k-1",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11765.1,
+          "decode_ms": 4019.4,
+          "wall_s": 15.7864,
+          "prefill_tps": 1032.715404033965,
+          "decode_tps": 63.691098173856794,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 30,
+            "mean": 21.6886,
+            "median": 21.6971,
+            "min": 21.6232,
+            "max": 21.7374,
+            "stdev": 0.0344
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 46.125,
+                  "median": 46.0,
+                  "min": 45,
+                  "max": 48,
+                  "stdev": 0.991
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 158.1086,
+                  "median": 173.623,
+                  "min": 89.849,
+                  "max": 173.759,
+                  "stdev": 30.9236
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 58.125,
+                  "median": 58.0,
+                  "min": 56,
+                  "max": 59,
+                  "stdev": 0.991
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.75,
+                  "median": 54.5,
+                  "min": 35,
+                  "max": 55,
+                  "stdev": 9.1144
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 124.1008,
+                  "median": 123.9675,
+                  "min": 121.251,
+                  "max": 127.674,
+                  "stdev": 2.2912
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 44.875,
+                  "median": 45.0,
+                  "min": 44,
+                  "max": 45,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 9.5625,
+              "median": 9.7,
+              "min": 7.8,
+              "max": 11.1,
+              "stdev": 1.0609
+            }
+          }
+        },
+        {
+          "name": "short-2",
+          "warmup": false,
+          "input_tokens": 72,
+          "output_tokens": 256,
+          "prefill_ms": 1251.7,
+          "decode_ms": 3963.3,
+          "wall_s": 5.2154,
+          "prefill_tps": 57.52177039226652,
+          "decode_tps": 64.59263744859082,
+          "output_token_sha256": "bc7d2aa1ce53727b578c33c494555e4918caa1625af00df4904885d6ef86368d",
+          "available_ram_gib_during_request": {
+            "n": 10,
+            "mean": 21.6493,
+            "median": 21.6558,
+            "min": 21.6004,
+            "max": 21.6698,
+            "stdev": 0.0222
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 49.75,
+                  "median": 43.0,
+                  "min": 40,
+                  "max": 100,
+                  "stdev": 20.4712
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 155.0536,
+                  "median": 172.0185,
+                  "min": 94.544,
+                  "max": 174.47,
+                  "stdev": 29.6385
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 57.125,
+                  "median": 58.0,
+                  "min": 49,
+                  "max": 60,
+                  "stdev": 3.4408
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 46.75,
+                  "median": 54.5,
+                  "min": 23,
+                  "max": 55,
+                  "stdev": 14.6653
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 123.7385,
+                  "median": 122.9835,
+                  "min": 120.524,
+                  "max": 127.94,
+                  "stdev": 2.7474
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 45.5,
+                  "median": 45.5,
+                  "min": 45,
+                  "max": 46,
+                  "stdev": 0.5345
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 9.775,
+              "median": 9.5,
+              "min": 8.3,
+              "max": 11.6,
+              "stdev": 1.2736
+            }
+          }
+        },
+        {
+          "name": "3k-2",
+          "warmup": false,
+          "input_tokens": 3570,
+          "output_tokens": 256,
+          "prefill_ms": 5208.7,
+          "decode_ms": 4015.1,
+          "wall_s": 9.2248,
+          "prefill_tps": 685.3917484209112,
+          "decode_tps": 63.75930860999726,
+          "output_token_sha256": "fe648eaf0efaf281bc9a5b9b6c7b358aebaa27d4d5fc73f443308d3189a3e82f",
+          "available_ram_gib_during_request": {
+            "n": 18,
+            "mean": 21.6271,
+            "median": 21.6238,
+            "min": 21.5907,
+            "max": 21.6614,
+            "stdev": 0.0219
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2790,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2790,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 46.75,
+                  "median": 46.5,
+                  "min": 45,
+                  "max": 48,
+                  "stdev": 1.165
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 158.3126,
+                  "median": 173.795,
+                  "min": 89.443,
+                  "max": 174.337,
+                  "stdev": 31.2123
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 60.75,
+                  "median": 61.0,
+                  "min": 59,
+                  "max": 62,
+                  "stdev": 0.8864
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 45.5,
+                  "median": 52.0,
+                  "min": 23,
+                  "max": 55,
+                  "stdev": 14.0306
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 123.6549,
+                  "median": 123.078,
+                  "min": 120.965,
+                  "max": 128.069,
+                  "stdev": 2.7681
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 46.25,
+                  "median": 46.0,
+                  "min": 46,
+                  "max": 47,
+                  "stdev": 0.4629
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 10.65,
+              "median": 9.85,
+              "min": 7.1,
+              "max": 15.2,
+              "stdev": 2.798
+            }
+          }
+        },
+        {
+          "name": "12k-2",
+          "warmup": false,
+          "input_tokens": 12150,
+          "output_tokens": 256,
+          "prefill_ms": 11812.4,
+          "decode_ms": 4022.0,
+          "wall_s": 15.8363,
+          "prefill_tps": 1028.5801361281365,
+          "decode_tps": 63.64992541024366,
+          "output_token_sha256": "f2fc4e7e71d23abe223aa266920a5a355299307d4d6b97d4b0fa5c27d4a94fa9",
+          "available_ram_gib_during_request": {
+            "n": 30,
+            "mean": 21.556,
+            "median": 21.5898,
+            "min": 21.4764,
+            "max": 21.63,
+            "stdev": 0.0583
+          },
+          "decode_telemetry": {
+            "samples": 8,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 2791.875,
+                  "median": 2790.0,
+                  "min": 2790,
+                  "max": 2805,
+                  "stdev": 5.3033
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 11251,
+                  "median": 11251.0,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 50.875,
+                  "median": 43.0,
+                  "min": 42,
+                  "max": 100,
+                  "stdev": 20.0031
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 154.59,
+                  "median": 175.995,
+                  "min": 99.715,
+                  "max": 176.731,
+                  "stdev": 32.6583
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 59.25,
+                  "median": 60.5,
+                  "min": 51,
+                  "max": 62,
+                  "stdev": 3.4949
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 8,
+                  "mean": 1500,
+                  "median": 1500.0,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0.0
+                },
+                "mem_mhz": {
+                  "n": 8,
+                  "mean": 6800,
+                  "median": 6800.0,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0.0
+                },
+                "gpu_util": {
+                  "n": 8,
+                  "mean": 47.75,
+                  "median": 55.0,
+                  "min": 26,
+                  "max": 55,
+                  "stdev": 13.4244
+                },
+                "power_w": {
+                  "n": 8,
+                  "mean": 124.5757,
+                  "median": 124.6,
+                  "min": 120.755,
+                  "max": 128.165,
+                  "stdev": 3.0083
+                },
+                "temperature_c": {
+                  "n": 8,
+                  "mean": 47.875,
+                  "median": 48.0,
+                  "min": 47,
+                  "max": 48,
+                  "stdev": 0.3536
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 8,
+              "mean": 9.7375,
+              "median": 9.45,
+              "min": 6.8,
+              "max": 15.7,
+              "stdev": 2.6651
+            }
+          }
+        }
+      ],
+      "residency": true,
+      "ple_ram_locked": true,
+      "ple_ram_load_seconds": 42.8,
+      "available_ram_gib_including_startup": {
+        "n": 466,
+        "mean": 20.0425,
+        "median": 21.6445,
+        "min": 0.1254,
+        "max": 56.7712,
+        "stdev": 14.7306
+      },
+      "decode_expert_counters_zero": true
+    },
+    {
+      "name": "upstream-after-260k",
+      "fixed_core_mhz": [],
+      "settings": {
+        "prefill_chunk": 2048,
+        "layer_split": 19,
+        "context": 262144,
+        "kv": "int8",
+        "ple_io": "direct",
+        "mtp": false
+      },
+      "requests": [
+        {
+          "name": "retrieval-260k",
+          "warmup": false,
+          "input_tokens": 260000,
+          "output_tokens": 8,
+          "prefill_ms": 270025.6,
+          "decode_ms": 203.2,
+          "wall_s": 270.2746,
+          "prefill_tps": 962.8716684640272,
+          "decode_tps": 39.37007874015748,
+          "output_token_sha256": "8afbce38963e10d54b5e652f5d022f94b21983bd940ccfb8d23f9f5768b41b6d",
+          "available_ram_gib_during_request": {
+            "n": 496,
+            "mean": 46.7219,
+            "median": 46.6716,
+            "min": 46.0545,
+            "max": 49.3517,
+            "stdev": 0.2435
+          },
+          "decode_telemetry": {
+            "samples": 0,
+            "gpus": {},
+            "cpu_percent": null
+          }
+        }
+      ],
+      "residency": true,
+      "ple_ram_locked": false,
+      "ple_ram_load_seconds": null,
+      "available_ram_gib_including_startup": {
+        "n": 705,
+        "mean": 44.1345,
+        "median": 46.6578,
+        "min": 7.8088,
+        "max": 57.3911,
+        "stdev": 8.6447
+      },
+      "decode_expert_counters_zero": true
+    },
+    {
+      "name": "upstream-after-mtp",
+      "fixed_core_mhz": [],
+      "settings": {
+        "prefill_chunk": 512,
+        "layer_split": 20,
+        "context": 262144,
+        "kv": "int8",
+        "ple_io": "direct",
+        "mtp": true
+      },
+      "requests": [
+        {
+          "name": "count",
+          "warmup": false,
+          "input_tokens": 26,
+          "output_tokens": 24,
+          "prefill_ms": 419.3,
+          "decode_ms": 573.5,
+          "wall_s": 0.9985,
+          "prefill_tps": 62.00810875268304,
+          "decode_tps": 41.84829991281604,
+          "output_token_sha256": "74e2dfd699562c11c945f1c558abd8ae9ae75cafc76467c1225212c7a5f58265",
+          "available_ram_gib_during_request": {
+            "n": 2,
+            "mean": 47.1414,
+            "median": 47.1414,
+            "min": 47.0891,
+            "max": 47.1937,
+            "stdev": 0.0739
+          },
+          "decode_telemetry": {
+            "samples": 1,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 2805,
+                  "median": 2805,
+                  "min": 2805,
+                  "max": 2805,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 48,
+                  "median": 48,
+                  "min": 48,
+                  "max": 48,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 98.664,
+                  "median": 98.664,
+                  "min": 98.664,
+                  "max": 98.664,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 52,
+                  "median": 52,
+                  "min": 52,
+                  "max": 52,
+                  "stdev": 0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 49,
+                  "median": 49,
+                  "min": 49,
+                  "max": 49,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 107.401,
+                  "median": 107.401,
+                  "min": 107.401,
+                  "max": 107.401,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 41,
+                  "median": 41,
+                  "min": 41,
+                  "max": 41,
+                  "stdev": 0
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 1,
+              "mean": 66.1,
+              "median": 66.1,
+              "min": 66.1,
+              "max": 66.1,
+              "stdev": 0
+            }
+          }
+        },
+        {
+          "name": "code",
+          "warmup": false,
+          "input_tokens": 33,
+          "output_tokens": 30,
+          "prefill_ms": 374.2,
+          "decode_ms": 573.2,
+          "wall_s": 0.9509,
+          "prefill_tps": 88.18813468733298,
+          "decode_tps": 52.337752965806,
+          "output_token_sha256": "dafc561d66789d7fc5f4e5c8d9a4b30a8e946234ae435975238a84712623eaf0",
+          "available_ram_gib_during_request": {
+            "n": 1,
+            "mean": 47.0787,
+            "median": 47.0787,
+            "min": 47.0787,
+            "max": 47.0787,
+            "stdev": 0
+          },
+          "decode_telemetry": {
+            "samples": 1,
+            "gpus": {
+              "NVIDIA GeForce RTX 4080 SUPER": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 2775,
+                  "median": 2775,
+                  "min": 2775,
+                  "max": 2775,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 11251,
+                  "median": 11251,
+                  "min": 11251,
+                  "max": 11251,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 33,
+                  "median": 33,
+                  "min": 33,
+                  "max": 33,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 123.493,
+                  "median": 123.493,
+                  "min": 123.493,
+                  "max": 123.493,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 52,
+                  "median": 52,
+                  "min": 52,
+                  "max": 52,
+                  "stdev": 0
+                }
+              },
+              "NVIDIA GeForce RTX 2080 Ti": {
+                "core_mhz": {
+                  "n": 1,
+                  "mean": 1500,
+                  "median": 1500,
+                  "min": 1500,
+                  "max": 1500,
+                  "stdev": 0
+                },
+                "mem_mhz": {
+                  "n": 1,
+                  "mean": 6800,
+                  "median": 6800,
+                  "min": 6800,
+                  "max": 6800,
+                  "stdev": 0
+                },
+                "gpu_util": {
+                  "n": 1,
+                  "mean": 49,
+                  "median": 49,
+                  "min": 49,
+                  "max": 49,
+                  "stdev": 0
+                },
+                "power_w": {
+                  "n": 1,
+                  "mean": 100.469,
+                  "median": 100.469,
+                  "min": 100.469,
+                  "max": 100.469,
+                  "stdev": 0
+                },
+                "temperature_c": {
+                  "n": 1,
+                  "mean": 42,
+                  "median": 42,
+                  "min": 42,
+                  "max": 42,
+                  "stdev": 0
+                }
+              }
+            },
+            "cpu_percent": {
+              "n": 1,
+              "mean": 53.8,
+              "median": 53.8,
+              "min": 53.8,
+              "max": 53.8,
+              "stdev": 0
+            }
+          }
+        }
+      ],
+      "residency": false,
+      "ple_ram_locked": false,
+      "ple_ram_load_seconds": null,
+      "available_ram_gib_including_startup": {
+        "n": 201,
+        "mean": 35.648,
+        "median": 38.9009,
+        "min": 9.2006,
+        "max": 57.1609,
+        "stdev": 14.838
+      },
+      "decode_expert_counters_zero": false
+    }
+  ],
+  "comparisons": [
+    {
+      "group": "dynamic",
+      "input_tokens": 72,
+      "all_output_tokens_identical": true,
+      "prefill_ms": {
+        "before": {
+          "n": 4,
+          "mean": 1222.675,
+          "median": 1201.45,
+          "min": 1178.6,
+          "max": 1309.2,
+          "stdev": 60.2531
+        },
+        "after": {
+          "n": 4,
+          "mean": 1234.35,
+          "median": 1237.1,
+          "min": 1188.7,
+          "max": 1274.5,
+          "stdev": 37.0331
+        },
+        "change_percent": 0.955
+      },
+      "prefill_tps": {
+        "before": {
+          "n": 4,
+          "mean": 58.9908,
+          "median": 59.9392,
+          "min": 54.9954,
+          "max": 61.0894,
+          "stdev": 2.8026
+        },
+        "after": {
+          "n": 4,
+          "mean": 58.3699,
+          "median": 58.2083,
+          "min": 56.4927,
+          "max": 60.5704,
+          "stdev": 1.7617
+        },
+        "change_percent": -1.053
+      },
+      "decode_tps": {
+        "before": {
+          "n": 4,
+          "mean": 63.0849,
+          "median": 63.0168,
+          "min": 59.3761,
+          "max": 66.9299,
+          "stdev": 3.4286
+        },
+        "after": {
+          "n": 4,
+          "mean": 63.2846,
+          "median": 63.7539,
+          "min": 60.6463,
+          "max": 64.9845,
+          "stdev": 2.0765
+        },
+        "change_percent": 0.317
+      }
+    },
+    {
+      "group": "dynamic",
+      "input_tokens": 3570,
+      "all_output_tokens_identical": true,
+      "prefill_ms": {
+        "before": {
+          "n": 4,
+          "mean": 5255.2,
+          "median": 5175.35,
+          "min": 5131.9,
+          "max": 5538.2,
+          "stdev": 189.8553
+        },
+        "after": {
+          "n": 4,
+          "mean": 5212.825,
+          "median": 5201.2,
+          "min": 5182.5,
+          "max": 5266.4,
+          "stdev": 37.1463
+        },
+        "change_percent": -0.806
+      },
+      "prefill_tps": {
+        "before": {
+          "n": 4,
+          "mean": 679.9704,
+          "median": 689.8096,
+          "min": 644.6138,
+          "max": 695.6488,
+          "stdev": 23.7427
+        },
+        "after": {
+          "n": 4,
+          "mean": 684.8753,
+          "median": 686.3811,
+          "min": 677.8824,
+          "max": 688.8567,
+          "stdev": 4.8535
+        },
+        "change_percent": 0.721
+      },
+      "decode_tps": {
+        "before": {
+          "n": 4,
+          "mean": 62.8339,
+          "median": 62.4011,
+          "min": 60.4672,
+          "max": 66.0662,
+          "stdev": 2.6331
+        },
+        "after": {
+          "n": 4,
+          "mean": 62.1036,
+          "median": 62.374,
+          "min": 59.7782,
+          "max": 63.8882,
+          "stdev": 2.0931
+        },
+        "change_percent": -1.162
+      }
+    },
+    {
+      "group": "dynamic",
+      "input_tokens": 12150,
+      "all_output_tokens_identical": true,
+      "prefill_ms": {
+        "before": {
+          "n": 4,
+          "mean": 11787.975,
+          "median": 11743.85,
+          "min": 11674.1,
+          "max": 11990.1,
+          "stdev": 145.334
+        },
+        "after": {
+          "n": 4,
+          "mean": 11759.75,
+          "median": 11761.15,
+          "min": 11685.3,
+          "max": 11831.4,
+          "stdev": 71.4546
+        },
+        "change_percent": -0.239
+      },
+      "prefill_tps": {
+        "before": {
+          "n": 4,
+          "mean": 1030.828,
+          "median": 1034.6053,
+          "min": 1013.336,
+          "max": 1040.7655,
+          "stdev": 12.6109
+        },
+        "after": {
+          "n": 4,
+          "mean": 1033.2138,
+          "median": 1033.0796,
+          "min": 1026.9283,
+          "max": 1039.7679,
+          "stdev": 6.2789
+        },
+        "change_percent": 0.231
+      },
+      "decode_tps": {
+        "before": {
+          "n": 4,
+          "mean": 62.3437,
+          "median": 62.3579,
+          "min": 60.993,
+          "max": 63.6658,
+          "stdev": 1.4114
+        },
+        "after": {
+          "n": 4,
+          "mean": 62.1153,
+          "median": 62.2303,
+          "min": 60.4044,
+          "max": 63.5962,
+          "stdev": 1.6865
+        },
+        "change_percent": -0.366
+      }
+    }
+  ],
+  "benchmark_binary_sha256": {
+    "before": "24cbd75f10d180f1dc723e8b719dbd8d45f75fa7e9d8a4b6bc01d452775d07b6",
+    "after": "5f94545c3b41f946faed3b238078a0d7a67c0f3ca3360950770f37b58d09800e"
+  }
+}

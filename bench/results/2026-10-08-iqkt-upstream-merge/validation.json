@@ -1,0 +1,287 @@
+{
+  "source_commit": "15743b6",
+  "numerical": {
+    "python_server": {
+      "total": 565,
+      "skipped": 6,
+      "failed": 0
+    },
+    "packing": 24,
+    "vocabulary_export": 1,
+    "gpu_wake_lifecycle": 3,
+    "ik_oracle": {
+      "row_cases": 37,
+      "real_tensor_spans": 829,
+      "max_relative_decode_error": 1.73e-07
+    },
+    "cuda": {
+      "devices": [
+        "sm75",
+        "sm89"
+      ],
+      "cases_each": 37,
+      "max_relative_decode_error": 1.73e-07,
+      "max_relative_gemv_error": 4.7e-07
+    },
+    "cpu": {
+      "cases": 37,
+      "tokens_per_case": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "avx2_scalar_exact": true
+    },
+    "mtp_data": {
+      "dense_tensors": 26,
+      "max_relative_rounding_error": 0.00393,
+      "f32_norms_unchanged": true,
+      "byte_exact_expert_blobs": 3
+    }
+  },
+  "long_context": {
+    "prompt_tokens": 260000,
+    "text": "cedar, cobalt, quartz<|im_end|>",
+    "done": "DONE 8 260000 270025.6 203.2 stop 0 0 0 0 0 0 0 0.0 260000 0",
+    "output_tokens": 8,
+    "kv": "K8V8",
+    "prefill_chunk": 2048,
+    "capacity": 262144,
+    "sustained_decode_benchmark": false
+  },
+  "mtp_smoke": {
+    "layer_split": 20,
+    "prefill_chunk": 512,
+    "kv": "K8V8",
+    "capacity": 262144,
+    "requests": [
+      {
+        "name": "count",
+        "prompt_tokens": 26,
+        "text": "1, 2, 3, 4, 5, 6, 7, 8, ",
+        "done": "DONE 24 26 419.3 573.5 length 16 16 0 11602 12000 452 0 0.0 26 0",
+        "output_tokens": 24,
+        "drafts_accepted": 16,
+        "drafts_proposed": 16
+      },
+      {
+        "name": "code",
+        "prompt_tokens": 33,
+        "text": "```python\ndef sum_even_numbers(lst):\n    return sum(x for x in lst if x % 2 == 0)\n```<|im_end|>",
+        "done": "DONE 30 33 374.2 573.2 stop 20 22 0 15993 16320 356 0 0.0 33 0",
+        "output_tokens": 30,
+        "drafts_accepted": 20,
+        "drafts_proposed": 22
+      }
+    ]
+  },
+  "vision_selection": {
+    "passed": true,
+    "device": "Intel(R) Iris(R) Xe Graphics",
+    "numeric_filter": false,
+    "ready": "READY 2560",
+    "sve_header": [
+      826627667,
+      256,
+      16,
+      16,
+      2560
+    ],
+    "load_seconds": 13.464013700024225,
+    "encode_response": "OK 256 16 16 2945",
+    "finite_embeddings": true,
+    "nvidia_memory_change_mib": {
+      "NVIDIA GeForce RTX 2080 Ti": {
+        "ready_mib": 0.0,
+        "encoded_mib": 0.0
+      },
+      "NVIDIA GeForce RTX 4080 SUPER": {
+        "ready_mib": 0.0,
+        "encoded_mib": 0.0
+      }
+    }
+  },
+  "vision_http": {
+    "passed": true,
+    "engine_info": {
+      "version": "0.1.40.3",
+      "context": 262144,
+      "kv": "int8",
+      "kv_resident": 20480,
+      "expert_slots": 24576,
+      "expert_slots_primary": 9728,
+      "mtp_max": 0
+    },
+    "requests": [
+      {
+        "name": "chart-512-0.png",
+        "answer": " TEST 421\nRed, Green, Blue",
+        "wall_s": 5.9966937999706715,
+        "ttft_s": 5.811388499918394,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 288,
+          "prompt_ms": 2734.6,
+          "prompt_per_token_ms": 9.495,
+          "prompt_per_second": 105.3,
+          "predicted_n": 12,
+          "predicted_ms": 218.5,
+          "predicted_per_token_ms": 18.208,
+          "predicted_per_second": 54.9,
+          "draft_n": 0,
+          "draft_n_accepted": 0,
+          "at": 1791445756
+        }
+      },
+      {
+        "name": "chart-1024-0.png",
+        "answer": "TEST 421: Red, Green, Blue",
+        "wall_s": 13.723738300031982,
+        "ttft_s": 13.548422000021674,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 761,
+          "prompt_ms": 2868.6,
+          "prompt_per_token_ms": 3.77,
+          "prompt_per_second": 265.3,
+          "predicted_n": 12,
+          "predicted_ms": 190.9,
+          "predicted_per_token_ms": 15.908,
+          "predicted_per_second": 62.9,
+          "draft_n": 0,
+          "draft_n_accepted": 0,
+          "at": 1791445770
+        }
+      },
+      {
+        "name": "chart-1024-0.png",
+        "answer": "TEST 421: Red, Green, Blue",
+        "wall_s": 2.977620300021954,
+        "ttft_s": 2.8107095999876037,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 761,
+          "prompt_ms": 2742.9,
+          "prompt_per_token_ms": 3.604,
+          "prompt_per_second": 277.4,
+          "predicted_n": 12,
+          "predicted_ms": 182.7,
+          "predicted_per_token_ms": 15.225,
+          "predicted_per_second": 65.7,
+          "draft_n": 0,
+          "draft_n_accepted": 0,
+          "at": 1791445772
+        }
+      },
+      {
+        "name": "two_images",
+        "answer": "1, 2",
+        "wall_s": 14.044887399999425,
+        "ttft_s": 13.968877000035718,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 1022,
+          "prompt_ms": 3253.4,
+          "prompt_per_token_ms": 3.183,
+          "prompt_per_second": 314.1,
+          "predicted_n": 5,
+          "predicted_ms": 92.1,
+          "predicted_per_token_ms": 18.42,
+          "predicted_per_second": 54.3,
+          "draft_n": 0,
+          "draft_n_accepted": 0,
+          "at": 1791445787
+        }
+      },
+      {
+        "name": "text_after_images",
+        "answer": "During language model inference, the CPU and GPU collaborate through a specialized pipeline designed to maximize throughput and minimize latency. The CPU acts as the orchestrator, managing system memory, loading model weights from storage, and handling pre-processing tasks like tokenization. It also oversees the overall execution flow, ensuring data is correctly formatted before being transferred to the GPU.\n\nThe GPU serves as the computational powerhouse, executing the heavy matrix multiplications and tensor operations inherent in transformer architectures. Its thousands of cores process these calculations in parallel, significantly accelerating the forward pass through the neural network layers. Once the GPU computes the logits (probability scores for the next token), it sends this data back to the CPU. The CPU then performs post-processing steps, such as sampling strategies (like temperature or top-k sampling) to select the final token, and manages the output stream. This division of labor leverages the CPU’s strength in sequential logic and memory management alongside the GPU’s superior parallel processing capabilities, creating an efficient system for generating coherent text rapidly.",
+        "wall_s": 3.7424451999831945,
+        "ttft_s": 0.4069988999981433,
+        "timings": {
+          "cache_n": 0,
+          "prompt_n": 33,
+          "prompt_ms": 373.1,
+          "prompt_per_token_ms": 11.306,
+          "prompt_per_second": 88.4,
+          "predicted_n": 204,
+          "predicted_ms": 3349.3,
+          "predicted_per_token_ms": 16.418,
+          "predicted_per_second": 60.9,
+          "draft_n": 0,
+          "draft_n_accepted": 0,
+          "at": 1791445790
+        }
+      }
+    ],
+    "encodes": [
+      {
+        "tokens": 256,
+        "wall_s": 3.009723600000143,
+        "cache_hit": false
+      },
+      {
+        "tokens": 729,
+        "wall_s": 10.616592400008813,
+        "cache_hit": false
+      },
+      {
+        "tokens": 729,
+        "wall_s": 5.549995694309473e-05,
+        "cache_hit": true
+      },
+      {
+        "tokens": 256,
+        "wall_s": 4.1199964471161366e-05,
+        "cache_hit": true
+      },
+      {
+        "tokens": 729,
+        "wall_s": 10.644729500054382,
+        "cache_hit": false
+      }
+    ]
+  },
+  "deployment": {
+    "commit": "15743b61874cad511be77a8f4a06fbf7a0c40ed3",
+    "version": "0.1.40.3",
+    "context": 262144,
+    "api_key_required": true,
+    "all_experts_resident": true,
+    "bind": "0.0.0.0:8080",
+    "web_ok": true,
+    "lan_health_ok": true,
+    "text_answer": "MERGE_OK",
+    "vision_answer": "421",
+    "vision_device": "Intel(R) Iris(R) Xe Graphics",
+    "intel_selected": true,
+    "binaries": [
+      {
+        "path": "build-kt/Release/strata.exe",
+        "old_sha256": "19824965c57233dd53b7e9d464c65536f8dc7ac202742e8f0a2e9f710f059489",
+        "new_sha256": "5f94545c3b41f946faed3b238078a0d7a67c0f3ca3360950770f37b58d09800e"
+      },
+      {
+        "path": "build-kt/Release/kt_parity.exe",
+        "old_sha256": "8989e545a0942d9ab4693250d44e0e54771e204a690626f3cda3b9f3c853cd06",
+        "new_sha256": "dd4a8503fee7f8182ad3f0aaf8f40ca4a3c95228cb07f96b8dfc769fdf74ded9"
+      },
+      {
+        "path": "build-kt/Release/kt_cpu_parity.exe",
+        "old_sha256": "05201aeefdebff5600883a80ad8126b49bdac8f8704bb5804f2b311f8df1ae6c",
+        "new_sha256": "22e0bde74353141daf0bb483bbfa7fb85448727f88c5eacf8c3aadd53a5f656b"
+      },
+      {
+        "path": "build-vision-vulkan/bin/Release/strata-vision.exe",
+        "old_sha256": "0e5ac527575a394499ef895de7c452fcfd0746418da241d69d5597cedbb09c17",
+        "new_sha256": "4db194cff39d3c0db7f3b95c0b1734fb4dc86c3f3538a8a025b2f9202bb79191"
+      }
+    ]
+  }
+}
