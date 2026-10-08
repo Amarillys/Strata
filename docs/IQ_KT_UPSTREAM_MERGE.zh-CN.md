@@ -1,5 +1,8 @@
 # IQ_KT 分支合并上游 0.1.40.3
 
+本文记录 0.1.40.3 合并当时的配置和测试。当前 v2/v4 部署见 [按需启动](IQ_KT_MODEL_SWITCH.zh-CN.md)；
+之后新增 128 个提交的 0.1.41 仅完成 [更新评估](IQ_KT_UPSTREAM_0.1.41_REVIEW.zh-CN.md)，尚未部署。
+
 2026-10-08，在独立工作树中把上游 `d5ea7133741e67743c0e886bb426c0ce8d69cf6c`
 （0.1.40.3）合入本机的 IQ_KT 分支。合并前为 `a0b5b3b`，包含此前的 packed KT decode、
 并行 prefill 解码器、CPU AVX2、MTP 侧车和 Vulkan 核显视觉支持。

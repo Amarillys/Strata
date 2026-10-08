@@ -2,19 +2,41 @@
 
 记录范围：2026-10-07 至 2026-10-08，Windows、Core i9-12900HK、64 GiB RAM、RTX 2080 Ti 22 GiB、
 RTX 4080 SUPER 32 GiB，以及 Intel Iris Xe 核显。以下结果针对本机的 Qwen3.8-Flash-Next Uncensored
-IQ3_KT_v2 主模型；IQ4_KT 已接入并验证，但尚未测试完整 IQ4_KT 主模型的吞吐。
+IQ3_KT_v2 主模型；后续 v4 的独立分析和基准见 [v4 显存与优化](IQ_KT_V4_ANALYSIS.zh-CN.md)。
+IQ4_KT 已接入并验证，但尚未测试完整 IQ4_KT 主模型的吞吐。
 
 本次完成了 KT 格式接入、CPU/CUDA 算子优化、双卡缓存与分层调整、长上下文验证、核显视觉接入和服务部署。
-当前短/中等输入下 decode 实测约 **58–63 tok/s**，MTP 关闭，全部 routed experts 在 decode 时驻留显存。
+v2 短/中等输入下 decode 实测约 **58–63 tok/s**，MTP 关闭，全部 routed experts 在 decode 时驻留显存。
 **262,144-token 容量**保留；实际 260,000-token 输入已完成检索测试。
 
 这两项结果的测试条件不同：260K 测试只生成了 8 个 token；58–63 tok/s 来自较短输入后的持续输出。
 目前证据支持“短/中等输入 decode 明显加快，实际长输入可以运行”，尚不足以证明满上下文持续保持该速度，
 或任意任务都没有质量变化。
 
-随后已合入上游 0.1.40.3；同配置的新旧交替基准吞吐基本持平，KT 优化保留。
+本机现在支持 v2 / v4 按需切换，共用 8080、原 API key、Web 和 Intel 核显视觉。
+当前保持 v4 在线：**200K / K8V8 / 21+27 层**、前缀缓存开启，预留 **1,024 / 128 MiB**。
+2080 驻留 9,142 个专家；4080 的 **13,824 / 13,824** 个专家全驻留，约 **3.04 GiB** 专家仍在 RAM。
+3,305-token 合成输入、两次各 256-token 输出的平均 decode 为 **42.55 tok/s**；
+同提示词 22+26 对照为 40.96，回切复测为 41.55，不能据这组小差距外推所有任务。
+两次各 1,024-token 持续输出为 **40.1 / 40.8 tok/s**。
+204,018-token 输入 prefill 为 **226.903 s**，256-token 输出为 **36.5 tok/s**，三个检索串均正确。
+长对话的独立续聊复用 **204,306** token，仅读入 **23** 个、prefill **0.484 s**。
+v4 不沿用上面的 v2 全模型专家驻留和约 60 tok/s 性能结论。
+使用方法见 [按需启动](IQ_KT_MODEL_SWITCH.zh-CN.md)。
+
+最初的 21＋27 在 4080 预留 768 / 512 MiB 时分别缺 268 / 139 个专家，短输入平均 decode
+为 39.70 / 40.36 tok/s。后来按用户要求实际装齐专家，较小预留下完成短、长和持续输出验证，
+因此采用当前配置。CUDA 图捕获最低空闲约 75 MiB，NVML 测试最低约 532 MiB。
+长输入首次续聊的缓存断言曾被另一客户端插入的请求打断；独立续聊通过，原始记录保留。
+完整对照和限制见 v4 分析文档。
+
+本机此前已合入上游 0.1.40.3；同配置的新旧交替基准吞吐基本持平，KT 优化保留。
 合并及复测结果见 [上游合并记录](IQ_KT_UPSTREAM_MERGE.zh-CN.md)。下文的算子优化数字保留原始对照口径，
 不重复计算为本次上游合并收益。
+
+之后的上游 **0.1.41 / `fb58e0d`** 又新增 128 个提交，本次已完成源码与合并可行性审查，
+**尚未合入或部署**。建议为服务修复和后续维护合入验证，不能直接套用其他多卡模式的翻倍数字。
+结论见 [0.1.41 更新评估](IQ_KT_UPSTREAM_0.1.41_REVIEW.zh-CN.md)。
 
 ## 文档入口
 
@@ -26,13 +48,18 @@ IQ3_KT_v2 主模型；IQ4_KT 已接入并验证，但尚未测试完整 IQ4_KT �
 | [IQ_KT_PREFILL.md](IQ_KT_PREFILL.md) | prefill 瓶颈、并行解码器、2048/4096 分块、实际 260K 输入 |
 | [IQ_KT_VISION.md](IQ_KT_VISION.md) | Vulkan 核显视觉、启动脚本、Web/API、设备选择和实测 |
 | [IQ_KT_UPSTREAM_MERGE.zh-CN.md](IQ_KT_UPSTREAM_MERGE.zh-CN.md) | 上游 0.1.40.3 合并、同配置 A/B、Windows PLE RAM 与功能复测 |
+| [IQ_KT_UPSTREAM_0.1.41_REVIEW.zh-CN.md](IQ_KT_UPSTREAM_0.1.41_REVIEW.zh-CN.md) | 新增 128 个提交的适用性、合并检查与待验证项目；未部署 |
+| [IQ_KT_MODEL_SWITCH.zh-CN.md](IQ_KT_MODEL_SWITCH.zh-CN.md) | v2/v4 按需启动、停止、模型别名、8080 和视觉验证 |
+| [IQ_KT_V4_ANALYSIS.zh-CN.md](IQ_KT_V4_ANALYSIS.zh-CN.md) | v4 权重变化、200K 基准、CPU/流送开销与优化优先级 |
 
-各专题保留了历史配置和对照结果。日常部署以本页和视觉文档所列的 2048/K8V8 配置为准；
-4096 是另一个经过长输入测试的配置。
+各专题保留了历史配置和对照结果。日常部署以按需启动文档的两套预设为准；
+本页后续的算子优化和 K8V8 数字主要是 v2，4096 是 v2 另一个经过长输入测试的配置。
 
 ## 当前部署配置
 
-截至 2026-10-08，本机启动入口为 `run-strata-vision-igpu.ps1`，配置文件为
+截至 2026-10-08，`run-strata-v2.bat` / `run-strata-v4.bat` 选择模型，
+`run-strata-stop.bat` 停止服务。下面是 v2 的详细配置，v4 的并列表见按需启动文档。
+原 `run-strata-vision-igpu.ps1` 仍选择 v2，对应
 `strata-iq3kt-dual19-int8-pf2048-vision-igpu.json`。
 
 | 项目 | 当前设置 |
@@ -46,13 +73,18 @@ IQ3_KT_v2 主模型；IQ4_KT 已接入并验证，但尚未测试完整 IQ4_KT �
 | 上下文 | `--max-context 262144` |
 | KV | `--kv int8`，即 K8V8；`--kv-resident 20480`，其余通过 RAM 中的完整 KV 池访问 |
 | Prefill | `--prefill 2048`；工作区临时借用专家缓存，结束后恢复 |
-| 其他对照设置 | prompt cache、suffix draft、lookup chain、adaptive expert swaps 关闭 |
+| 前缀缓存 | `--prompt-cache 6`，检查点位于 RAM；v2/v4 均已恢复开启 |
+| 其他对照设置 | suffix draft、lookup chain、adaptive expert swaps 关闭 |
 | Ngram / PLE | 保留原表，约 25.03 GiB，默认 `--ple-io direct`；SSD 按需读取，RAM 行缓存 |
 | 视觉 | 原 F16 MMPROJ，由独立 Vulkan 进程在 Intel Iris Xe 上编码；每图最多 768 个视觉 token |
 | 服务 | `0.0.0.0:8080`，保留 Web Chat/Monitor，API key 已启用 |
 
 两卡显存需要按层分别分配。54 GiB 是容量之和，不是任意一张卡都能直接使用的统一显存池。
 单序列 decode 依次执行两个阶段；prefill 可以让两卡处理不同分块形成流水线。
+
+前缀缓存于 2026-10-08 晚间开启并实测：5,767-token 续聊复用 5,741 token，只新读入 26，
+prefill 为 0.380 s；从旧消息分支也能复用。之前的吞吐对照保留关闭前缀缓存时的测量条件。
+检查点设置及验证见 [按需启动文档](IQ_KT_MODEL_SWITCH.zh-CN.md#前缀缓存)。
 
 ## 完成的实现
 
@@ -64,7 +96,7 @@ IQ3_KT_v2 主模型；IQ4_KT 已接入并验证，但尚未测试完整 IQ4_KT �
 3. **CUDA prefill。** 用多个 lane 并行重建相邻值，再以向量方式写出 FP16/BF16/FP32。
    继续使用已有矩阵乘法路径。专用 KT 量化 MMQ 和融合专家 prefill 尚未实现。
 4. **CPU 回退。** 使用共享 trellis 表和 AVX2 整数点积，跨 token 复用解码工作；保留标量回退及
-   `STRATA_KT_SCALAR=1` 对照。当前全驻留配置的 decode 无需 CPU 专家计算。
+   `STRATA_KT_SCALAR=1` 对照。v2 全驻留配置的 decode 无需 CPU 专家计算；v4 会使用此回退。
 5. **MTP 侧车。** 专家保持原始 KT 字节，必要的稠密投影转换为现有运行时要求的 Q8_0/BF16，F32 norm 保持原值。
    添加带布局信息的 `experts.kt` 完成标记及加载校验。功能可用，当前默认配置关闭 MTP。
 6. **视觉和电源处理。** 增加独立 Vulkan 编码器、按设备名称选择、编码器专用环境变量，以及只保留词表元数据的
@@ -206,7 +238,7 @@ Prefill 借用专家缓存后可以通过 streamed ring 提供权重；“decode
 | 两卡 resident K/V 池合计 | 247.5 MiB | 191.25 MiB |
 
 K8V4 节省 720 MiB host 池、56.25 MiB resident 池；还需另计页表、GDN 状态和 prefill 缓冲。
-当前专家已经全部放入显存，这 56.25 MiB 不会再增加专家数量。缩至 204,800 容量也不会缩小固定的
+v2 专家已经全部放入显存，这 56.25 MiB 不会再增加专家数量。缩至 204,800 容量也不会缩小固定的
 20,480-cell resident 池；目前没有必要为了本次已验证的分配放弃 256K 容量。
 
 K8V8 的 V 有更多精度余量，当前内存预算允许保留它。尚未做足够的质量评测来量化其相对 K8V4 的收益。
@@ -239,10 +271,10 @@ PLE 没有关闭，也没有把整张表常驻 RAM。初次部署版本的 Windo
 
 ## 视觉、Web 和 API 的使用入口
 
-本机 PowerShell 启动：
+本机 PowerShell 启动 v4：
 
 ```powershell
-& B:/llama.cpp/Strata/run-strata-vision-igpu.ps1
+& B:/llama.cpp/Strata/run-strata-v4.ps1
 ```
 
 | 用途 | 地址或位置 |
@@ -251,7 +283,7 @@ PLE 没有关闭，也没有把整张表常驻 RAM。初次部署版本的 Windo
 | 局域网 Web | `http://10.0.0.3:8080/` |
 | OpenAI 兼容 base URL | `http://10.0.0.3:8080/v1`；本机也可用 `127.0.0.1` |
 | API key | 本机配置的 `api_key` 字段，另存于 `strata-vision-api-key.txt`；在 Web 设置和 harness 中填写 |
-| 服务日志 | 本机 `strata-vision-igpu.log` |
+| 服务日志 | v2：`strata-vision-igpu.log`；v4：`strata-v4-vision-igpu.log` |
 
 MMPROJ 已加载到独立的核显进程。编码器按 Intel 的完整设备名称选择设备，启动脚本清除容易随启动变化的
 Vulkan 数字过滤；编码器自己的 `CUDA_VISIBLE_DEVICES=-1` 不会改变文本引擎的设备选择。
@@ -290,3 +322,18 @@ Vulkan 数字过滤；编码器自己的 `CUDA_VISIBLE_DEVICES=-1` 不会改变�
 本机复核日志在 `build-kt/commit-*.log`；性能与视觉原始记录在各专题列出的 `build-kt/` 文件中。
 这些日志和模型数据不随代码发布。为保留正在运行的服务，提交前复核构建写入 `build-kt/review-bin/`，
 未覆盖被占用的服务可执行文件；临时构建输出目录设置已恢复。
+
+## v2 / v4 按需启动（2026-10-08）
+
+本机已保留两套预设：v2 使用 256K / K8V8 / 19+29 层，v4 使用 200K / K8V8 / 21+27 层，
+MTP 都关闭。`run-strata-v2.bat` 和 `run-strata-v4.bat` 会等待当前请求结束后切换模型，
+共用 8080、原 API key、Web 和 Intel 核显视觉；`run-strata-stop.bat` 关闭服务。
+原 `run-strata-vision-igpu.ps1` 仍选择 v2。
+
+v4 已完成文本与图像 HTTP 验证，并保持在线供能力测试。启动方式、模型别名、缓存情况及
+验证边界见 [按需启动文档](IQ_KT_MODEL_SWITCH.zh-CN.md)。
+
+v4 全驻留所需 GPU 权重载荷比 v2 增加约 4.34 GiB；PLE 表缩小发生在 SSD，不能抵消显存增量。
+当前流送比例 0.5 在三个候选中最快，但缓存仍沿用通用 profile、动态交换关闭、CPU 默认使用全部物理核。
+这些是下一轮可验证的优化方向；进一步量化 KV 只能节省几十 MiB resident 数据池。
+详细测量口径、内存账目和源码核对见 [v4 显存与优化分析](IQ_KT_V4_ANALYSIS.zh-CN.md)。
