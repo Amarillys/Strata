@@ -200,7 +200,7 @@ class Slots(unittest.TestCase):
                 got = slot_save_dir("rel")
                 self.assertTrue(os.path.isabs(got))
                 # Windows may return the temporary directory through its 8.3 alias in getcwd().
-                self.assertEqual(os.path.realpath(got), os.path.join(os.path.realpath(base), "rel"))
+                self.assertEqual(os.path.realpath(got), os.path.realpath(os.path.join(base, "rel")))
             finally:
                 os.chdir(cwd)
             for bad in ("", "  ", None, 3, "a\nb"):
