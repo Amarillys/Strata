@@ -1,0 +1,766 @@
+[
+  {
+    "model": "hybrid19",
+    "passed": 10,
+    "total": 13,
+    "cases": [
+      {
+        "case": "inventory",
+        "passed": false,
+        "answer": "{\"remaining\": 126}",
+        "expected": {
+          "remaining": 181.5
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "chinese_extract",
+        "passed": true,
+        "answer": "{\n  \"confirmed\": [\n    \"王敏\",\n    \"张华\"\n  ],\n  \"total\": 204\n}",
+        "expected": {
+          "confirmed": [
+            "王敏",
+            "张华"
+          ],
+          "total": 204
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_defaults",
+        "passed": true,
+        "answer": "{\"r1\": [1], \"r2\": [1, 2], \"r3\": [3], \"r4\": [1, 2, 4]}",
+        "expected": {
+          "r1": [
+            1
+          ],
+          "r2": [
+            1,
+            2
+          ],
+          "r3": [
+            3
+          ],
+          "r4": [
+            1,
+            2,
+            4
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_closures",
+        "passed": true,
+        "answer": "{\"fs\": [2, 2, 2], \"gs\": [0, 1, 2]}",
+        "expected": {
+          "fs": [
+            2,
+            2,
+            2
+          ],
+          "gs": [
+            0,
+            1,
+            2
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "sql_null",
+        "passed": true,
+        "answer": "[4,3,2,2]",
+        "expected": [
+          4,
+          3,
+          2,
+          2
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "half_open_intervals",
+        "passed": false,
+        "answer": "{\"intervals\": [[1, 5], [10, 12]], \"length\": 6}",
+        "expected": {
+          "intervals": [
+            [
+              1,
+              7
+            ],
+            [
+              10,
+              12
+            ]
+          ],
+          "length": 8
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "percent",
+        "passed": true,
+        "answer": "{\"original\":200,\"net_change_percent\":-4}",
+        "expected": {
+          "original": 200,
+          "net_change_percent": -4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "network",
+        "passed": true,
+        "answer": "{\"network\":\"192.168.7.128\",\"broadcast\":\"192.168.7.191\",\"usable_hosts\":62}",
+        "expected": {
+          "network": "192.168.7.128",
+          "broadcast": "192.168.7.191",
+          "usable_hosts": 62
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "date_rollover",
+        "passed": true,
+        "answer": "{\"utc\":\"2026-10-09 16:30\"}",
+        "expected": {
+          "utc": "2026-10-09 16:30"
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "stable_unique",
+        "passed": true,
+        "answer": "[3,1,2,0,5]",
+        "expected": [
+          3,
+          1,
+          2,
+          0,
+          5
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "graph",
+        "passed": false,
+        "answer": "{\"path\":[\"A\",\"C\",\"B\",\"D\"],\"cost\":7}",
+        "expected": {
+          "path": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          "cost": 4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "json_types",
+        "passed": true,
+        "answer": "{\n  \"name\": \"Lin\",\n  \"active\": true,\n  \"count\": 0,\n  \"note\": null,\n  \"tags\": []\n}",
+        "expected": {
+          "name": "Lin",
+          "active": true,
+          "count": 0,
+          "note": null,
+          "tags": []
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "tool_arguments",
+        "passed": true,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_37aba8b130344f37bcd60d31",
+              "type": "function",
+              "function": {
+                "name": "get_weather",
+                "arguments": "{\"city\":\"\\u676d\\u5dde\",\"date\":\"2026-10-10\",\"unit\":\"celsius\"}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+  },
+  {
+    "model": "v2matched19",
+    "passed": 10,
+    "total": 13,
+    "cases": [
+      {
+        "case": "inventory",
+        "passed": false,
+        "answer": "{\n  \"remaining\": 162\n}",
+        "expected": {
+          "remaining": 181.5
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "chinese_extract",
+        "passed": true,
+        "answer": "{\"confirmed\": [\"王敏\", \"张华\"], \"total\": 204}",
+        "expected": {
+          "confirmed": [
+            "王敏",
+            "张华"
+          ],
+          "total": 204
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_defaults",
+        "passed": true,
+        "answer": "{\"r1\": [1], \"r2\": [1, 2], \"r3\": [3], \"r4\": [1, 2, 4]}",
+        "expected": {
+          "r1": [
+            1
+          ],
+          "r2": [
+            1,
+            2
+          ],
+          "r3": [
+            3
+          ],
+          "r4": [
+            1,
+            2,
+            4
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_closures",
+        "passed": true,
+        "answer": "{\"fs\": [2, 2, 2], \"gs\": [0, 1, 2]}",
+        "expected": {
+          "fs": [
+            2,
+            2,
+            2
+          ],
+          "gs": [
+            0,
+            1,
+            2
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "sql_null",
+        "passed": true,
+        "answer": "[4,3,2,2]",
+        "expected": [
+          4,
+          3,
+          2,
+          2
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "half_open_intervals",
+        "passed": false,
+        "answer": "{\"intervals\": [[1, 5], [10, 12]], \"length\": 6}",
+        "expected": {
+          "intervals": [
+            [
+              1,
+              7
+            ],
+            [
+              10,
+              12
+            ]
+          ],
+          "length": 8
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "percent",
+        "passed": true,
+        "answer": "{\"original\":200,\"net_change_percent\":-4}",
+        "expected": {
+          "original": 200,
+          "net_change_percent": -4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "network",
+        "passed": true,
+        "answer": "{\"network\":\"192.168.7.128\",\"broadcast\":\"192.168.7.191\",\"usable_hosts\":62}",
+        "expected": {
+          "network": "192.168.7.128",
+          "broadcast": "192.168.7.191",
+          "usable_hosts": 62
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "date_rollover",
+        "passed": true,
+        "answer": "{\"utc\":\"2026-10-09 16:30\"}",
+        "expected": {
+          "utc": "2026-10-09 16:30"
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "stable_unique",
+        "passed": true,
+        "answer": "[3,1,2,0,5]",
+        "expected": [
+          3,
+          1,
+          2,
+          0,
+          5
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "graph",
+        "passed": false,
+        "answer": "{\"path\":[\"A\",\"C\",\"B\",\"D\"],\"cost\":7}",
+        "expected": {
+          "path": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          "cost": 4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "json_types",
+        "passed": true,
+        "answer": "{\"name\":\"Lin\",\"active\":true,\"count\":0,\"note\":null,\"tags\":[]}",
+        "expected": {
+          "name": "Lin",
+          "active": true,
+          "count": 0,
+          "note": null,
+          "tags": []
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "tool_arguments",
+        "passed": true,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_480e4d8cec4141598f9814b0",
+              "type": "function",
+              "function": {
+                "name": "get_weather",
+                "arguments": "{\"city\":\"\\u676d\\u5dde\",\"date\":\"2026-10-10\",\"unit\":\"celsius\"}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+  },
+  {
+    "model": "v4current22",
+    "passed": 10,
+    "total": 13,
+    "cases": [
+      {
+        "case": "inventory",
+        "passed": false,
+        "answer": "{\"remaining\": 126}",
+        "expected": {
+          "remaining": 181.5
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "chinese_extract",
+        "passed": true,
+        "answer": "{\"confirmed\": [\"王敏\", \"张华\"], \"total\": 204}",
+        "expected": {
+          "confirmed": [
+            "王敏",
+            "张华"
+          ],
+          "total": 204
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_defaults",
+        "passed": true,
+        "answer": "{\"r1\": [1], \"r2\": [1, 2], \"r3\": [3], \"r4\": [1, 2, 4]}",
+        "expected": {
+          "r1": [
+            1
+          ],
+          "r2": [
+            1,
+            2
+          ],
+          "r3": [
+            3
+          ],
+          "r4": [
+            1,
+            2,
+            4
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_closures",
+        "passed": true,
+        "answer": "{\"fs\": [2, 2, 2], \"gs\": [0, 1, 2]}",
+        "expected": {
+          "fs": [
+            2,
+            2,
+            2
+          ],
+          "gs": [
+            0,
+            1,
+            2
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "sql_null",
+        "passed": true,
+        "answer": "[4,3,2,2]",
+        "expected": [
+          4,
+          3,
+          2,
+          2
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "half_open_intervals",
+        "passed": false,
+        "answer": "{\"intervals\": [[1, 5], [10, 12]], \"length\": 6}",
+        "expected": {
+          "intervals": [
+            [
+              1,
+              7
+            ],
+            [
+              10,
+              12
+            ]
+          ],
+          "length": 8
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "percent",
+        "passed": true,
+        "answer": "{\"original\":200,\"net_change_percent\":-4}",
+        "expected": {
+          "original": 200,
+          "net_change_percent": -4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "network",
+        "passed": true,
+        "answer": "{\"network\":\"192.168.7.128\",\"broadcast\":\"192.168.7.191\",\"usable_hosts\":62}",
+        "expected": {
+          "network": "192.168.7.128",
+          "broadcast": "192.168.7.191",
+          "usable_hosts": 62
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "date_rollover",
+        "passed": true,
+        "answer": "{\"utc\":\"2026-10-09 16:30\"}",
+        "expected": {
+          "utc": "2026-10-09 16:30"
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "stable_unique",
+        "passed": true,
+        "answer": "[3,1,2,0,5]",
+        "expected": [
+          3,
+          1,
+          2,
+          0,
+          5
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "graph",
+        "passed": false,
+        "answer": "{\"path\":[\"A\",\"C\",\"B\",\"D\"],\"cost\":7}",
+        "expected": {
+          "path": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          "cost": 4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "json_types",
+        "passed": true,
+        "answer": "{\n  \"name\": \"Lin\",\n  \"active\": true,\n  \"count\": 0,\n  \"note\": null,\n  \"tags\": []\n}",
+        "expected": {
+          "name": "Lin",
+          "active": true,
+          "count": 0,
+          "note": null,
+          "tags": []
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "tool_arguments",
+        "passed": true,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_5301fe0eabcd48a4a5fd829c",
+              "type": "function",
+              "function": {
+                "name": "get_weather",
+                "arguments": "{\"city\":\"\\u676d\\u5dde\",\"date\":\"2026-10-10\",\"unit\":\"celsius\"}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+  },
+  {
+    "model": "hybrid19r960l512",
+    "passed": 10,
+    "total": 13,
+    "cases": [
+      {
+        "case": "inventory",
+        "passed": false,
+        "answer": "{\"remaining\": 126}",
+        "expected": {
+          "remaining": 181.5
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "chinese_extract",
+        "passed": true,
+        "answer": "{\n  \"confirmed\": [\n    \"王敏\",\n    \"张华\"\n  ],\n  \"total\": 204\n}",
+        "expected": {
+          "confirmed": [
+            "王敏",
+            "张华"
+          ],
+          "total": 204
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_defaults",
+        "passed": true,
+        "answer": "{\"r1\": [1], \"r2\": [1, 2], \"r3\": [3], \"r4\": [1, 2, 4]}",
+        "expected": {
+          "r1": [
+            1
+          ],
+          "r2": [
+            1,
+            2
+          ],
+          "r3": [
+            3
+          ],
+          "r4": [
+            1,
+            2,
+            4
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "python_closures",
+        "passed": true,
+        "answer": "{\"fs\": [2, 2, 2], \"gs\": [0, 1, 2]}",
+        "expected": {
+          "fs": [
+            2,
+            2,
+            2
+          ],
+          "gs": [
+            0,
+            1,
+            2
+          ]
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "sql_null",
+        "passed": true,
+        "answer": "[4,3,2,2]",
+        "expected": [
+          4,
+          3,
+          2,
+          2
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "half_open_intervals",
+        "passed": false,
+        "answer": "{\"intervals\": [[1, 5], [10, 12]], \"length\": 6}",
+        "expected": {
+          "intervals": [
+            [
+              1,
+              7
+            ],
+            [
+              10,
+              12
+            ]
+          ],
+          "length": 8
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "percent",
+        "passed": true,
+        "answer": "{\"original\":200,\"net_change_percent\":-4}",
+        "expected": {
+          "original": 200,
+          "net_change_percent": -4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "network",
+        "passed": true,
+        "answer": "{\"network\":\"192.168.7.128\",\"broadcast\":\"192.168.7.191\",\"usable_hosts\":62}",
+        "expected": {
+          "network": "192.168.7.128",
+          "broadcast": "192.168.7.191",
+          "usable_hosts": 62
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "date_rollover",
+        "passed": true,
+        "answer": "{\"utc\":\"2026-10-09 16:30\"}",
+        "expected": {
+          "utc": "2026-10-09 16:30"
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "stable_unique",
+        "passed": true,
+        "answer": "[3,1,2,0,5]",
+        "expected": [
+          3,
+          1,
+          2,
+          0,
+          5
+        ],
+        "finish": "stop"
+      },
+      {
+        "case": "graph",
+        "passed": false,
+        "answer": "{\"path\":[\"A\",\"C\",\"B\",\"D\"],\"cost\":7}",
+        "expected": {
+          "path": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          "cost": 4
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "json_types",
+        "passed": true,
+        "answer": "{\n  \"name\": \"Lin\",\n  \"active\": true,\n  \"count\": 0,\n  \"note\": null,\n  \"tags\": []\n}",
+        "expected": {
+          "name": "Lin",
+          "active": true,
+          "count": 0,
+          "note": null,
+          "tags": []
+        },
+        "finish": "stop"
+      },
+      {
+        "case": "tool_arguments",
+        "passed": true,
+        "message": {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_ecaed3e2adac4d77b904006f",
+              "type": "function",
+              "function": {
+                "name": "get_weather",
+                "arguments": "{\"city\":\"\\u676d\\u5dde\",\"date\":\"2026-10-10\",\"unit\":\"celsius\"}"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+  }
+]

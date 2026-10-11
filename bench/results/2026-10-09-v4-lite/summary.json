@@ -1,0 +1,550 @@
+{
+  "throughput": [
+    {
+      "model": "hybrid19",
+      "case": "short",
+      "repetitions": 3,
+      "prompt_tokens": 3305,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 51.727621741766015,
+        "min": 51.72448629099064,
+        "max": 51.84075169089952
+      },
+      "prefill_tok_s": {
+        "median": 538.9143444159995,
+        "min": 536.4127700322983,
+        "max": 539.4773354226858
+      },
+      "ttft_s": {
+        "median": 6.195039399899542,
+        "min": 6.164375299937092,
+        "max": 6.2045592000940815
+      },
+      "client_total_s": {
+        "median": 11.127055699937046,
+        "min": 11.085524900001474,
+        "max": 11.132102600065991
+      }
+    },
+    {
+      "model": "hybrid19",
+      "case": "medium",
+      "repetitions": 3,
+      "prompt_tokens": 9769,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 49.89864338063309,
+        "min": 49.86171165907055,
+        "max": 50.91487669053301
+      },
+      "prefill_tok_s": {
+        "median": 817.9002009377093,
+        "min": 814.2936925372388,
+        "max": 818.2016147944654
+      },
+      "ttft_s": {
+        "median": 12.006292000063695,
+        "min": 11.996323799947277,
+        "max": 12.051295300014317
+      },
+      "client_total_s": {
+        "median": 17.118946600006893,
+        "min": 17.006865399889648,
+        "max": 17.16777619998902
+      }
+    },
+    {
+      "model": "hybrid19",
+      "case": "long32k",
+      "repetitions": 2,
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 48.189584210418175,
+        "min": 47.278704268011154,
+        "max": 49.10046415282519
+      },
+      "prefill_tok_s": {
+        "median": 997.4379380964601,
+        "min": 995.0986048941068,
+        "max": 999.7772712988134
+      },
+      "ttft_s": {
+        "median": 32.947160849987995,
+        "min": 32.86306180001702,
+        "max": 33.03125989995897
+      },
+      "client_total_s": {
+        "median": 38.24161184998229,
+        "min": 38.22322519996669,
+        "max": 38.25999849999789
+      }
+    },
+    {
+      "model": "hybrid19",
+      "case": "long128k",
+      "repetitions": 1,
+      "prompt_tokens": 128000,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 45.41986764366694,
+        "min": 45.41986764366694,
+        "max": 45.41986764366694
+      },
+      "prefill_tok_s": {
+        "median": 994.7209846494346,
+        "min": 994.7209846494346,
+        "max": 994.7209846494346
+      },
+      "ttft_s": {
+        "median": 128.8285721000284,
+        "min": 128.8285721000284,
+        "max": 128.8285721000284
+      },
+      "client_total_s": {
+        "median": 134.44855319999624,
+        "min": 134.44855319999624,
+        "max": 134.44855319999624
+      }
+    },
+    {
+      "model": "v2matched19",
+      "case": "short",
+      "repetitions": 3,
+      "prompt_tokens": 3305,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 63.78472654790083,
+        "min": 63.71329019412643,
+        "max": 63.904143784323516
+      },
+      "prefill_tok_s": {
+        "median": 564.7931370371003,
+        "min": 561.0157695506781,
+        "max": 565.7890231793748
+      },
+      "ttft_s": {
+        "median": 5.905633399961516,
+        "min": 5.874172299983911,
+        "max": 5.919942400068976
+      },
+      "client_total_s": {
+        "median": 9.909532299963757,
+        "min": 9.873260400025174,
+        "max": 9.91173220006749
+      }
+    },
+    {
+      "model": "v2matched19",
+      "case": "medium",
+      "repetitions": 3,
+      "prompt_tokens": 9769,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 63.729151107791886,
+        "min": 60.21262583497977,
+        "max": 63.96481934935785
+      },
+      "prefill_tok_s": {
+        "median": 867.0992251227111,
+        "min": 866.8222433207038,
+        "max": 870.3282997015457
+      },
+      "ttft_s": {
+        "median": 11.353406900074333,
+        "min": 11.304060299997218,
+        "max": 11.362475199974142
+      },
+      "client_total_s": {
+        "median": 15.355758400051855,
+        "min": 15.346050000051036,
+        "max": 15.54112890001852
+      }
+    },
+    {
+      "model": "v2matched19",
+      "case": "long32k",
+      "repetitions": 2,
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 60.80122636818184,
+        "min": 58.30505386384859,
+        "max": 63.29739887251508
+      },
+      "prefill_tok_s": {
+        "median": 1100.6957346184727,
+        "min": 1096.0150380969583,
+        "max": 1105.3764311399868
+      },
+      "ttft_s": {
+        "median": 29.887617899978068,
+        "min": 29.77297169994563,
+        "max": 30.002264100010507
+      },
+      "client_total_s": {
+        "median": 34.09031184995547,
+        "min": 34.03190239996184,
+        "max": 34.1487212999491
+      }
+    },
+    {
+      "model": "v2matched19",
+      "case": "long128k",
+      "repetitions": 1,
+      "prompt_tokens": 128000,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 55.012356290963794,
+        "min": 55.012356290963794,
+        "max": 55.012356290963794
+      },
+      "prefill_tok_s": {
+        "median": 1086.7461123355872,
+        "min": 1086.7461123355872,
+        "max": 1086.7461123355872
+      },
+      "ttft_s": {
+        "median": 117.95434150006622,
+        "min": 117.95434150006622,
+        "max": 117.95434150006622
+      },
+      "client_total_s": {
+        "median": 122.592109200079,
+        "min": 122.592109200079,
+        "max": 122.592109200079
+      }
+    },
+    {
+      "model": "v4current22",
+      "case": "short",
+      "repetitions": 3,
+      "prompt_tokens": 3305,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 41.63684861102075,
+        "min": 41.53147306943543,
+        "max": 42.19061588410765
+      },
+      "prefill_tok_s": {
+        "median": 491.91795909862174,
+        "min": 469.306902574443,
+        "max": 492.3209843440437
+      },
+      "ttft_s": {
+        "median": 6.784385500010103,
+        "min": 6.75313600001391,
+        "max": 7.07999859994743
+      },
+      "client_total_s": {
+        "median": 12.883659500046633,
+        "min": 12.829763500019908,
+        "max": 13.225755600025877
+      }
+    },
+    {
+      "model": "v4current22",
+      "case": "medium",
+      "repetitions": 3,
+      "prompt_tokens": 9769,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 40.62524795683567,
+        "min": 39.82142579370635,
+        "max": 40.678827941269944
+      },
+      "prefill_tok_s": {
+        "median": 721.4119558394565,
+        "min": 704.275106336962,
+        "max": 723.2278363871923
+      },
+      "ttft_s": {
+        "median": 13.609894099994563,
+        "min": 13.579732999904081,
+        "max": 13.92136749997735
+      },
+      "client_total_s": {
+        "median": 19.98967589996755,
+        "min": 19.893090300029144,
+        "max": 20.196397399995476
+      }
+    },
+    {
+      "model": "v4current22",
+      "case": "long32k",
+      "repetitions": 2,
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 39.54594317502769,
+        "min": 38.53100541842264,
+        "max": 40.56088093163273
+      },
+      "prefill_tok_s": {
+        "median": 879.7075984039651,
+        "min": 877.6210384789473,
+        "max": 881.7941583289829
+      },
+      "ttft_s": {
+        "median": 37.33629230002407,
+        "min": 37.24551540007815,
+        "max": 37.42706919996999
+      },
+      "client_total_s": {
+        "median": 43.79165585001465,
+        "min": 43.71673710003961,
+        "max": 43.86657459998969
+      }
+    },
+    {
+      "model": "v4current22",
+      "case": "long128k",
+      "repetitions": 1,
+      "prompt_tokens": 128000,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 37.854703003238356,
+        "min": 37.854703003238356,
+        "max": 37.854703003238356
+      },
+      "prefill_tok_s": {
+        "median": 867.6595493728788,
+        "min": 867.6595493728788,
+        "max": 867.6595493728788
+      },
+      "ttft_s": {
+        "median": 147.67432749993168,
+        "min": 147.67432749993168,
+        "max": 147.67432749993168
+      },
+      "client_total_s": {
+        "median": 154.41730520001147,
+        "min": 154.41730520001147,
+        "max": 154.41730520001147
+      }
+    },
+    {
+      "model": "hybrid19r960l512",
+      "case": "short",
+      "repetitions": 3,
+      "prompt_tokens": 3305,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 53.23352048242878,
+        "min": 52.795479387077485,
+        "max": 53.333333333333336
+      },
+      "prefill_tok_s": {
+        "median": 522.7445273946603,
+        "min": 520.1120483444543,
+        "max": 523.0589054537397
+      },
+      "ttft_s": {
+        "median": 6.358386099920608,
+        "min": 6.356628500041552,
+        "max": 6.419056700076908
+      },
+      "client_total_s": {
+        "median": 11.14909980003722,
+        "min": 11.137930099968798,
+        "max": 11.251413500052877
+      }
+    },
+    {
+      "model": "hybrid19r960l512",
+      "case": "medium",
+      "repetitions": 3,
+      "prompt_tokens": 9769,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 52.69658295594895,
+        "min": 51.744350567975104,
+        "max": 52.918802712088635
+      },
+      "prefill_tok_s": {
+        "median": 785.8326495809,
+        "min": 780.5708258757351,
+        "max": 785.8769015421497
+      },
+      "ttft_s": {
+        "median": 12.544153099996038,
+        "min": 12.479465699987486,
+        "max": 12.572657199925743
+      },
+      "client_total_s": {
+        "median": 17.409518699976616,
+        "min": 17.300171499955468,
+        "max": 17.47458070004359
+      }
+    },
+    {
+      "model": "hybrid19r960l512",
+      "case": "long32k",
+      "repetitions": 2,
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 49.71766258411047,
+        "min": 48.24453950963948,
+        "max": 51.19078565858146
+      },
+      "prefill_tok_s": {
+        "median": 954.3590086596133,
+        "min": 951.7198514099499,
+        "max": 956.9981659092767
+      },
+      "ttft_s": {
+        "median": 34.42317595001077,
+        "min": 34.327933899941854,
+        "max": 34.51841800007969
+      },
+      "client_total_s": {
+        "median": 39.559344150009565,
+        "min": 39.501847900100984,
+        "max": 39.616840399918146
+      }
+    },
+    {
+      "model": "hybrid19r960l512",
+      "case": "long128k",
+      "repetitions": 1,
+      "prompt_tokens": 128000,
+      "completion_tokens": 256,
+      "decode_tok_s": {
+        "median": 47.55535740823302,
+        "min": 47.55535740823302,
+        "max": 47.55535740823302
+      },
+      "prefill_tok_s": {
+        "median": 950.3727243028125,
+        "min": 950.3727243028125,
+        "max": 950.3727243028125
+      },
+      "ttft_s": {
+        "median": 134.87126569997054,
+        "min": 134.87126569997054,
+        "max": 134.87126569997054
+      },
+      "client_total_s": {
+        "median": 140.23630290001165,
+        "min": 140.23630290001165,
+        "max": 140.23630290001165
+      }
+    }
+  ],
+  "residency": [
+    {
+      "model": "hybrid19",
+      "expert_slots": 24353,
+      "expert_slots_primary": 9718,
+      "expert_total": 24576,
+      "expert_cache_mib": 45066,
+      "expert_ram_mib": 412,
+      "gpus": [
+        {
+          "index": 0,
+          "peak_used_mib": 21381.5625,
+          "min_free_mib": 1146.4375
+        },
+        {
+          "index": 1,
+          "peak_used_mib": 32327.640625,
+          "min_free_mib": 432.359375
+        }
+      ]
+    },
+    {
+      "model": "v2matched19",
+      "expert_slots": 24576,
+      "expert_slots_primary": 9728,
+      "expert_total": 24576,
+      "expert_cache_mib": 45479,
+      "expert_ram_mib": 0,
+      "gpus": [
+        {
+          "index": 0,
+          "peak_used_mib": 20807.3125,
+          "min_free_mib": 1720.6875
+        },
+        {
+          "index": 1,
+          "peak_used_mib": 31669.640625,
+          "min_free_mib": 1090.359375
+        }
+      ]
+    },
+    {
+      "model": "v4current22",
+      "expert_slots": 22381,
+      "expert_slots_primary": 9069,
+      "expert_total": 24576,
+      "expert_cache_mib": 44029,
+      "expert_ram_mib": 4250,
+      "gpus": [
+        {
+          "index": 0,
+          "peak_used_mib": 21386.625,
+          "min_free_mib": 1141.375
+        },
+        {
+          "index": 1,
+          "peak_used_mib": 31285.640625,
+          "min_free_mib": 1474.359375
+        }
+      ]
+    },
+    {
+      "model": "hybrid19r960l512",
+      "expert_slots": 24156,
+      "expert_slots_primary": 9728,
+      "expert_total": 24576,
+      "expert_cache_mib": 44702,
+      "expert_ram_mib": 777,
+      "gpus": [
+        {
+          "index": 0,
+          "peak_used_mib": 21397.3125,
+          "min_free_mib": 1130.6875
+        },
+        {
+          "index": 1,
+          "peak_used_mib": 31945.640625,
+          "min_free_mib": 814.359375
+        }
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "model": "hybrid19",
+      "passed": 10,
+      "total": 13,
+      "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+    },
+    {
+      "model": "v2matched19",
+      "passed": 10,
+      "total": 13,
+      "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+    },
+    {
+      "model": "v4current22",
+      "passed": 10,
+      "total": 13,
+      "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+    },
+    {
+      "model": "hybrid19r960l512",
+      "passed": 10,
+      "total": 13,
+      "scope": "Small synthetic correctness smoke set, not a model quality ranking."
+    }
+  ],
+  "method": "Median of fresh, fixed-input, 256-token requests; warmups excluded.",
+  "limits": [
+    "Synthetic correctness/recall probes do not establish overall quality superiority.",
+    "No BF16 reference NLL/KLD, full 300K request, or 512K pool stress test.",
+    "Current v4 uses split22; v2 and hybrid use split19; see each runtime config."
+  ]
+}

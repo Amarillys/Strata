@@ -1,0 +1,62 @@
+{
+  "variant_completion": {
+    "completed_at": "2026-10-09T20:28:56.158142+08:00",
+    "requests": 136,
+    "restored": true,
+    "reference_reused": true
+  },
+  "load": {
+    "load_seconds": 101.51333430001978,
+    "preset": "kld-v2dense-v4experts-iq3ple",
+    "launcher_pid": 25880,
+    "port": 18080,
+    "health": {
+      "status": "ok",
+      "loaded": true,
+      "model": "kld-v2dense-v4experts-iq3ple",
+      "max_context": 307200
+    }
+  },
+  "final_restore": {
+    "preset": "v4-lite",
+    "launcher_pid": 26188,
+    "port": 8080,
+    "health": {
+      "status": "ok",
+      "loaded": true,
+      "model": "qwen3.8-flash-next-v4-lite-iq3kt",
+      "max_context": 307200
+    },
+    "launcher_argv_preserved": true,
+    "launcher_cwd_preserved": true,
+    "production_files_unchanged": true,
+    "catalog_unchanged": true,
+    "warmup_completion_tokens": 2
+  },
+  "final_live_check": {
+    "checked_at": "2026-10-09T20:38:35.613094+08:00",
+    "preset": "v4-lite",
+    "managed_service_count": 1,
+    "launcher_pid": 26188,
+    "port": 8080,
+    "health": {
+      "status": "ok",
+      "loaded": true,
+      "model": "qwen3.8-flash-next-v4-lite-iq3kt",
+      "max_context": 307200
+    },
+    "engine_pid": 23944,
+    "engine_exe": "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+    "binary_sha256": "2947bb7c8f50e86cd1ae1b36aedb63527d3802c59800f8b90fc5ac72ef8c52c6",
+    "script_hash_matches": true,
+    "baseline_manifest_unchanged": true,
+    "baseline_summary_unchanged": true,
+    "baseline_samples_match": true,
+    "candidate_samples_match": true,
+    "production_configs_unchanged": true,
+    "catalog_unchanged": true,
+    "actual_binary_path_matches": true,
+    "binary_hash_matches": true,
+    "original_iq4_ple_matches": true
+  }
+}

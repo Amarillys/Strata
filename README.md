@@ -19,7 +19,7 @@ For the original Strata introduction and installer, see [the upstream README](RE
 | **KT prefill** | 多 lane 并行解码，向量写出 FP16 / BF16 / FP32，再接入现有矩阵乘法路径。 |
 | **KT MTP 侧车** | 专家保留原始 KT 字节；转换运行时需要的 Q8_0 / BF16 投影，并校验格式、尺寸和完成标记。 |
 | **Vulkan 视觉** | 独立编码进程、按设备名称选择 GPU、视觉词表导出和独立环境配置；本机由 Intel Iris Xe 处理原 F16 MMPROJ。 |
-| **部署工具** | 请求触发 GPU 唤醒包装器，解决本机 eGPU 低频问题；v2 / v4 预设切换工具等待请求结束、检查进程归属，并在启动失败时恢复旧预设。 |
+| **部署工具** | 请求触发 GPU 唤醒包装器，解决本机 eGPU 低频问题，空闲 120 秒释放锁频（[实测与说明](docs/IQ_KT_GPU_POWER.zh-CN.md)）；v2 / v4 预设切换工具等待请求结束、检查进程归属，并在启动失败时恢复旧预设。 |
 
 专家缓存、RAM KV 流送、按层多卡分工、前缀缓存和 Web/API 服务来自上游 Strata。
 本分支在这些机制上接入 KT，并记录异构双卡的分层、缓存、MTP 和长上下文对照。

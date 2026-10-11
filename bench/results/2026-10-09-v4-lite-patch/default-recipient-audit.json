@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "default_ple": "iq3",
+  "optional_ple_absent_from_bundle": true,
+  "original_v2_accessed": false,
+  "optional_iq4_ple_accessed": false,
+  "python_without_site_packages": true,
+  "opened_ggufs": [
+    "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+    "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+    "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\strata-v4-lite-patch-20261009\\v2-experts-iq3kt.gguf"
+  ],
+  "manifest_sha256": "c70cf512e0fbc5248730f903700d9668be8235703c2c883ae815b1b020e70000",
+  "script_sha256": "18e723dd8adc083f684f9009494531edf39bd0109df22e039f0d2440c2e4f088"
+}

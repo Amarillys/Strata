@@ -57,9 +57,15 @@ before, after warm-up and after encoding; enumerating them did not put the proje
 
 The launcher uses `tools/serve_gpu_wake.py` and the existing `B:/llama.cpp/proxy/gpu_monitor.py` class.
 It creates the retained Torch wake probe on the 4080 **after** engine READY, pulses before each generation,
-and releases clocks after 120 seconds without a generation or on normal shutdown. The probe includes a
-CUDA/Torch context; its total VRAM footprint is larger than its 512 KiB tensor. Starting the Python server
-directly with the JSON preset bypasses this wake wrapper.
+and releases clock locks 120 seconds after READY or the last generation finishes. Unloading the model and
+normal shutdown also release the locks. The October 9 fix arms the startup timer even if no request arrives;
+the earlier wrapper only armed it after a generation, leaving a fresh, unused server boosted indefinitely.
+Cancelled timer callbacks cannot relax clocks during a newer request or shorten its idle interval.
+
+The probe includes a CUDA/Torch context; its total VRAM footprint is larger than its 512 KiB tensor. Clock
+release keeps the model and caches loaded; the NVIDIA driver chooses the resulting P-state. Starting the
+Python server directly with the JSON preset, including the portable package, bypasses this wake wrapper.
+See the [power-management notes](IQ_KT_GPU_POWER.zh-CN.md) for the local measurements.
 
 ## Build and tokenizer compatibility
 

@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "short": {
+      "prompt_tokens": 3305,
+      "render_sha256": "6f2cb271f42b20a05d398eeb1833a143b46248f8eeda01fc82ee46ada9a3f9e3",
+      "token_ids_sha256": "e8afa27fc60f37620ebd9a1cd345d364ece293fae482e0c94a7af476e2d86e40",
+      "identical_render_between_models": true
+    },
+    "medium": {
+      "prompt_tokens": 9769,
+      "render_sha256": "1c39e94e5025de0ee1e93eb41ca415c5630ccaab415329895e8c8349a4492ae4",
+      "token_ids_sha256": "f39ca3d9e7433a84fd094bc65783358530636d296cc5b8665056ccb171013d04",
+      "identical_render_between_models": true
+    },
+    "long32k": {
+      "prompt_tokens": 32768,
+      "render_sha256": "0148e10dfbe8e58269baf5701cd281947406a7b04933164c60079ee05c5364e4",
+      "token_ids_sha256": "e7ffeb5440bcba5b0e7cb123097d318c570933ec5d348f46c06eba75dd8f7abf",
+      "identical_render_between_models": true
+    },
+    "long128k": {
+      "prompt_tokens": 128000,
+      "render_sha256": "a909eadf95a907362b3a0b86e256af60cfb59a0297e4ac5f7504d95c37464b82",
+      "token_ids_sha256": "74d4af20342ae962086131cb6f6c2813d833231d5b79f784ba4eec8d1ee25c80",
+      "identical_render_between_models": true
+    }
+  },
+  "long": {
+    "long32k": {
+      "target_http_tokens": 32768,
+      "user_tokens": 32738,
+      "head": "Read the diagnostic log below. Remember the exact access codes in records A, B and C.\n",
+      "tail": "\nEnd of the log. First give the exact access codes from records A, B and C, in that order. Then write a detailed technical manual of at least 1500 words, with numerical examples, calibration procedures and statistical anomaly detection methods. Explain each part fully.\n",
+      "filler": "The measurement log records temperature, pressure, and flow. Compare the measurements and explain how to identify anomalies.\n",
+      "placements": [
+        {
+          "record": "A",
+          "code": "amber-orchid-7391",
+          "user_token_offset": 6547
+        },
+        {
+          "record": "B",
+          "code": "cobalt-sparrow-5826",
+          "user_token_offset": 16369
+        },
+        {
+          "record": "C",
+          "code": "jade-harbor-4168",
+          "user_token_offset": 27827
+        }
+      ]
+    },
+    "long128k": {
+      "target_http_tokens": 128000,
+      "user_tokens": 127970,
+      "head": "Read the diagnostic log below. Remember the exact access codes in records A, B and C.\n",
+      "tail": "\nEnd of the log. First give the exact access codes from records A, B and C, in that order. Then write a detailed technical manual of at least 1500 words, with numerical examples, calibration procedures and statistical anomaly detection methods. Explain each part fully.\n",
+      "filler": "The measurement log records temperature, pressure, and flow. Compare the measurements and explain how to identify anomalies.\n",
+      "placements": [
+        {
+          "record": "A",
+          "code": "amber-orchid-7391",
+          "user_token_offset": 25594
+        },
+        {
+          "record": "B",
+          "code": "cobalt-sparrow-5826",
+          "user_token_offset": 63985
+        },
+        {
+          "record": "C",
+          "code": "jade-harbor-4168",
+          "user_token_offset": 108774
+        }
+      ]
+    }
+  },
+  "base_prompts": "bench\\results\\2026-10-08-iqkt-upstream-0.1.41\\prompts.json",
+  "sampling": {
+    "temperature": 0,
+    "top_p": 1,
+    "top_k": 1,
+    "seed": 424242,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  }
+}

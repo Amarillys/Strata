@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "gguf_open_audit": "only the two exported GGUFs permitted; child processes forbidden",
+  "opened_ggufs": [
+    "Qwen3.8-Flash-Next-V4-Lite-IQ3_KT-IQ4PLE-00001-of-00002.gguf",
+    "Qwen3.8-Flash-Next-V4-Lite-IQ3_KT-IQ4PLE-00002-of-00002.gguf"
+  ],
+  "original_models_required": false,
+  "gguf_files": [
+    {
+      "filename": "Qwen3.8-Flash-Next-V4-Lite-IQ3_KT-IQ4PLE-00001-of-00002.gguf",
+      "bytes": 53168222432,
+      "sha256": "a0fb2c07459cadae37ca150402d1650312b2af4eb2f8e7281eb0ad8957ec0b1a"
+    },
+    {
+      "filename": "Qwen3.8-Flash-Next-V4-Lite-IQ3_KT-IQ4PLE-00002-of-00002.gguf",
+      "bytes": 26880129376,
+      "sha256": "65326a4b018c7c3be580a81ade6cae95b0dc88f071eadb01a179fc34b23a4782"
+    }
+  ],
+  "canonical_v4_files": [
+    {
+      "filename": "dense.bin",
+      "bytes": 1485606400,
+      "sha256": "5b897f416728fcba4a24c8937a7fad71299d026c6c86dc6c77c922dad22cf7b0"
+    }
+  ],
+  "canonical_v4_index_rows_sha256": "eaf5cb335b96d2ad4c88736c0ab115493f282758b0978009cb3056ce136050a1",
+  "v4_tokenizer_files": [
+    {
+      "filename": "tokenizer/chat_template.jinja",
+      "sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "bytes": 8952
+    },
+    {
+      "filename": "tokenizer/merges.txt",
+      "sha256": "080cf95432173729d160346b7882bd2a644b07f7a3813a3eb73f4e66787bfde9",
+      "bytes": 3600844
+    },
+    {
+      "filename": "tokenizer/token_type.json",
+      "sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "bytes": 744960
+    },
+    {
+      "filename": "tokenizer/tokenizer.json",
+      "sha256": "87be2ac47d8bc7393b7435df6ccd276740019a393941a2585d5edce59f450c54",
+      "bytes": 554
+    },
+    {
+      "filename": "tokenizer/vocab.json",
+      "sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4",
+      "bytes": 5737005
+    }
+  ],
+  "native_experts": {
+    "layers": 48,
+    "tensors": 144,
+    "experts_per_layer": 512,
+    "type": "IQ3_KT",
+    "bytes": 47689236480,
+    "all_offsets_match_export": true,
+    "all_in_first_shard": true,
+    "index_sha256": "966bcdc8134fbc5fdcb111831847905c530b49b22cba56fa2ff647c353490440"
+  },
+  "experts_bin_required": false,
+  "pack_bytes": 1496017231,
+  "gpu_inference_tested_with_new_files": false
+}

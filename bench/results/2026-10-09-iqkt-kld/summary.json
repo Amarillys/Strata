@@ -1,0 +1,4555 @@
+{
+  "reference": "v4",
+  "units": "nats",
+  "positions": 128,
+  "by_category": {
+    "all": {
+      "positions": 128,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": {
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 1.238877921795338,
+          "exp_mean_sampled_nll": 3.4517381708081727,
+          "delta_nll_vs_v4": 0.0
+        },
+        "v2": {
+          "kl_v4_to_model": {
+            "mean": 0.0800845946674601,
+            "median": 0.04041835207235826,
+            "p95": 0.21919703559158474,
+            "max": 1.1636497340110996
+          },
+          "top1_agreement_v4": 0.890625,
+          "mean_nll_nats": 1.2813156480715464,
+          "exp_mean_sampled_nll": 3.6013747518193515,
+          "delta_nll_vs_v4": 0.04243772627620834
+        },
+        "v4-lite": {
+          "kl_v4_to_model": {
+            "mean": 0.03733985040006135,
+            "median": 0.009889475750132317,
+            "p95": 0.07552789660093316,
+            "max": 1.2475987434954872
+          },
+          "top1_agreement_v4": 0.9375,
+          "mean_nll_nats": 1.2621755511579544,
+          "exp_mean_sampled_nll": 3.5330995711681727,
+          "delta_nll_vs_v4": 0.023297629362616368
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": {
+            "mean": 0.031594624915509455,
+            "median": 0.009410801116866922,
+            "p95": 0.06550207951467589,
+            "max": 1.4274323172134156
+          },
+          "top1_agreement_v4": 0.921875,
+          "mean_nll_nats": 1.2663212923846925,
+          "exp_mean_sampled_nll": 3.547777291711754,
+          "delta_nll_vs_v4": 0.02744337058935442
+        }
+      },
+      "lite_kl_below_v2_fraction": 0.9140625,
+      "iq3_ple_kl_below_v2_fraction": 0.8671875,
+      "iq3_minus_iq4_ple_mean_nll": 0.00414574122673828
+    },
+    "Chinese": {
+      "positions": 32,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": {
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 1.8896170582708398,
+          "exp_mean_sampled_nll": 6.616834333839031,
+          "delta_nll_vs_v4": 0.0
+        },
+        "v2": {
+          "kl_v4_to_model": {
+            "mean": 0.07891624887860663,
+            "median": 0.05553055252574023,
+            "p95": 0.21501088463037882,
+            "max": 0.4411500384536569
+          },
+          "top1_agreement_v4": 0.75,
+          "mean_nll_nats": 1.9824166361915059,
+          "exp_mean_sampled_nll": 7.260267226313773,
+          "delta_nll_vs_v4": 0.09279957792066607
+        },
+        "v4-lite": {
+          "kl_v4_to_model": {
+            "mean": 0.029570438846567015,
+            "median": 0.02084136575316604,
+            "p95": 0.08193422813964245,
+            "max": 0.09205399826981644
+          },
+          "top1_agreement_v4": 0.875,
+          "mean_nll_nats": 1.9173376018123187,
+          "exp_mean_sampled_nll": 6.802822515102495,
+          "delta_nll_vs_v4": 0.027720543541478904
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": {
+            "mean": 0.02705480543047914,
+            "median": 0.02087375675485669,
+            "p95": 0.0642035510422134,
+            "max": 0.07607157928991923
+          },
+          "top1_agreement_v4": 0.875,
+          "mean_nll_nats": 1.9001646323509864,
+          "exp_mean_sampled_nll": 6.686995247411331,
+          "delta_nll_vs_v4": 0.010547574080146616
+        }
+      },
+      "lite_kl_below_v2_fraction": 0.90625,
+      "iq3_ple_kl_below_v2_fraction": 0.875,
+      "iq3_minus_iq4_ple_mean_nll": -0.01717296946133244
+    },
+    "Code": {
+      "positions": 32,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": {
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 0.4580248165028185,
+          "exp_mean_sampled_nll": 1.5809482361809624,
+          "delta_nll_vs_v4": 0.0
+        },
+        "v2": {
+          "kl_v4_to_model": {
+            "mean": 0.03404402223543415,
+            "median": 0.003560560002248381,
+            "p95": 0.17591742667488688,
+            "max": 0.30113900158234586
+          },
+          "top1_agreement_v4": 0.9375,
+          "mean_nll_nats": 0.4502178959110674,
+          "exp_mean_sampled_nll": 1.568653951536024,
+          "delta_nll_vs_v4": -0.0078069205917510875
+        },
+        "v4-lite": {
+          "kl_v4_to_model": {
+            "mean": 0.010398926762760486,
+            "median": 0.001318134016982943,
+            "p95": 0.05631336204488497,
+            "max": 0.0901326201939442
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 0.4656314783886208,
+          "exp_mean_sampled_nll": 1.5930198289283195,
+          "delta_nll_vs_v4": 0.007606661885802279
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": {
+            "mean": 0.008468023613676956,
+            "median": 0.00045945085605147875,
+            "p95": 0.0356594311692777,
+            "max": 0.09288563690624374
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 0.47798641365111794,
+          "exp_mean_sampled_nll": 1.612823570851049,
+          "delta_nll_vs_v4": 0.019961597148299426
+        }
+      },
+      "lite_kl_below_v2_fraction": 0.875,
+      "iq3_ple_kl_below_v2_fraction": 0.90625,
+      "iq3_minus_iq4_ple_mean_nll": 0.01235493526249716
+    },
+    "English": {
+      "positions": 32,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": {
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 1.6729607491012755,
+          "exp_mean_sampled_nll": 5.327919099533266,
+          "delta_nll_vs_v4": 0.0
+        },
+        "v2": {
+          "kl_v4_to_model": {
+            "mean": 0.07994056045219963,
+            "median": 0.06930742533105255,
+            "p95": 0.17905434902062511,
+            "max": 0.2542809104784813
+          },
+          "top1_agreement_v4": 0.875,
+          "mean_nll_nats": 1.7201717258931748,
+          "exp_mean_sampled_nll": 5.58548755476252,
+          "delta_nll_vs_v4": 0.04721097679189934
+        },
+        "v4-lite": {
+          "kl_v4_to_model": {
+            "mean": 0.0250713371924441,
+            "median": 0.02244683984474551,
+            "p95": 0.06392541805147947,
+            "max": 0.06976349056440564
+          },
+          "top1_agreement_v4": 0.9375,
+          "mean_nll_nats": 1.719302325494948,
+          "exp_mean_sampled_nll": 5.580633639961588,
+          "delta_nll_vs_v4": 0.046341576393672534
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": {
+            "mean": 0.026149339676790846,
+            "median": 0.021752101526983855,
+            "p95": 0.06357832843842927,
+            "max": 0.09564611164761096
+          },
+          "top1_agreement_v4": 0.90625,
+          "mean_nll_nats": 1.7081003511986137,
+          "exp_mean_sampled_nll": 5.518468362352561,
+          "delta_nll_vs_v4": 0.03513960209733824
+        }
+      },
+      "lite_kl_below_v2_fraction": 0.96875,
+      "iq3_ple_kl_below_v2_fraction": 0.90625,
+      "iq3_minus_iq4_ple_mean_nll": -0.011201974296334117
+    },
+    "Tool_JSON": {
+      "positions": 32,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": {
+            "mean": 0.0,
+            "median": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 0.9349090633064184,
+          "exp_mean_sampled_nll": 2.5469818331010634,
+          "delta_nll_vs_v4": 0.0
+        },
+        "v2": {
+          "kl_v4_to_model": {
+            "mean": 0.12743754710359995,
+            "median": 0.0271201664223224,
+            "p95": 0.9263507213149638,
+            "max": 1.1636497340110996
+          },
+          "top1_agreement_v4": 1.0,
+          "mean_nll_nats": 0.972456334290438,
+          "exp_mean_sampled_nll": 2.644432097427895,
+          "delta_nll_vs_v4": 0.037547270984019554
+        },
+        "v4-lite": {
+          "kl_v4_to_model": {
+            "mean": 0.08431869879847378,
+            "median": 0.006623481427495947,
+            "p95": 0.5783761292475711,
+            "max": 1.2475987434954872
+          },
+          "top1_agreement_v4": 0.9375,
+          "mean_nll_nats": 0.9464307989359299,
+          "exp_mean_sampled_nll": 2.5764971920024586,
+          "delta_nll_vs_v4": 0.01152173562951142
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": {
+            "mean": 0.06470633094109088,
+            "median": 0.003395805360566175,
+            "p95": 0.221293305341382,
+            "max": 1.4274323172134156
+          },
+          "top1_agreement_v4": 0.90625,
+          "mean_nll_nats": 0.9790337723380524,
+          "exp_mean_sampled_nll": 2.6618830139666314,
+          "delta_nll_vs_v4": 0.04412470903163401
+        }
+      },
+      "lite_kl_below_v2_fraction": 0.90625,
+      "iq3_ple_kl_below_v2_fraction": 0.78125,
+      "iq3_minus_iq4_ple_mean_nll": 0.03260297340212251
+    }
+  },
+  "repeatability": {
+    "v4": {
+      "positions": 8,
+      "kl": {
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "top1_agreement": 1.0
+    },
+    "v2": {
+      "positions": 8,
+      "kl": {
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "top1_agreement": 1.0
+    },
+    "v4-lite": {
+      "positions": 8,
+      "kl": {
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "top1_agreement": 1.0
+    },
+    "v4-lite-iq3ple": {
+      "positions": 8,
+      "kl": {
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "top1_agreement": 1.0
+    }
+  },
+  "rows": [
+    {
+      "id": "zh_measurement:61",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 61,
+      "target": 96725,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 4.484633448740379,
+          "top1_token": 97199
+        },
+        "v2": {
+          "kl_v4_to_model": 0.20559204496766517,
+          "top1_matches_v4": true,
+          "nll": 4.739201793696497,
+          "top1_token": 97199
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.09205399826981644,
+          "top1_matches_v4": true,
+          "nll": 4.584205221669501,
+          "top1_token": 97199
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.055836384396539596,
+          "top1_matches_v4": true,
+          "nll": 4.466875861710538,
+          "top1_token": 97199
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:62",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 62,
+      "target": 97963,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.15280424054575145,
+          "top1_token": 97963
+        },
+        "v2": {
+          "kl_v4_to_model": 0.021164962433839578,
+          "top1_matches_v4": true,
+          "nll": 0.16942305355915646,
+          "top1_token": 97963
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.007652749293864505,
+          "top1_matches_v4": true,
+          "nll": 0.12728835095670113,
+          "top1_token": 97963
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.006907151739552232,
+          "top1_matches_v4": true,
+          "nll": 0.14503243577298996,
+          "top1_token": 97963
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:74",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 74,
+      "target": 198,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 4.965885184934897,
+          "top1_token": 271
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06398793915120263,
+          "top1_matches_v4": true,
+          "nll": 3.7688658123458705,
+          "top1_token": 271
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.018448471217227765,
+          "top1_matches_v4": true,
+          "nll": 4.64713629719585,
+          "top1_token": 271
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.023672036703055576,
+          "top1_matches_v4": true,
+          "nll": 4.429611977345162,
+          "top1_token": 271
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:77",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 77,
+      "target": 97032,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 5.249329386995692,
+          "top1_token": 102038
+        },
+        "v2": {
+          "kl_v4_to_model": 0.05581570439470652,
+          "top1_matches_v4": true,
+          "nll": 5.627536419660559,
+          "top1_token": 102038
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.043712295649242124,
+          "top1_matches_v4": true,
+          "nll": 5.253625049267985,
+          "top1_token": 102038
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.06220707526822918,
+          "top1_matches_v4": true,
+          "nll": 5.200240675156279,
+          "top1_token": 102038
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:87",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 87,
+      "target": 100650,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 3.6181432334366734,
+          "top1_token": 97423
+        },
+        "v2": {
+          "kl_v4_to_model": 0.05524540065677395,
+          "top1_matches_v4": true,
+          "nll": 4.366957718150338,
+          "top1_token": 97423
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03275451471347132,
+          "top1_matches_v4": true,
+          "nll": 3.952299277543164,
+          "top1_token": 97423
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.018075476806657807,
+          "top1_matches_v4": true,
+          "nll": 3.813472859689271,
+          "top1_token": 97423
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:91",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 91,
+      "target": 96172,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.589049208149304,
+          "top1_token": 96390
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06469335914952429,
+          "top1_matches_v4": true,
+          "nll": 2.0896218395826516,
+          "top1_token": 96390
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.027374853065175113,
+          "top1_matches_v4": true,
+          "nll": 2.34571347430543,
+          "top1_token": 96390
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.02590312044371921,
+          "top1_matches_v4": true,
+          "nll": 2.3617822362513037,
+          "top1_token": 96390
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:93",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 93,
+      "target": 103769,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.8287395695495033,
+          "top1_token": 103769
+        },
+        "v2": {
+          "kl_v4_to_model": 0.03575128581478858,
+          "top1_matches_v4": false,
+          "nll": 0.9472037183351678,
+          "top1_token": 108562
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.014140499093082482,
+          "top1_matches_v4": false,
+          "nll": 0.9374169302517744,
+          "top1_token": 108562
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.013585391218618062,
+          "top1_matches_v4": false,
+          "nll": 0.9598204575637523,
+          "top1_token": 108562
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:99",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 99,
+      "target": 104159,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.0977714015466091,
+          "top1_token": 104159
+        },
+        "v2": {
+          "kl_v4_to_model": 0.16142924666048486,
+          "top1_matches_v4": false,
+          "nll": 1.6009250048321193,
+          "top1_token": 109822
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.07052801709632722,
+          "top1_matches_v4": false,
+          "nll": 1.500378660414087,
+          "top1_token": 109822
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.05567411849428217,
+          "top1_matches_v4": false,
+          "nll": 1.429591708324469,
+          "top1_token": 109822
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:109",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 109,
+      "target": 1710,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.06397101592732467,
+          "top1_token": 1710
+        },
+        "v2": {
+          "kl_v4_to_model": 0.001841778691099823,
+          "top1_matches_v4": true,
+          "nll": 0.0777111130597051,
+          "top1_token": 1710
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0004771343051953285,
+          "top1_matches_v4": true,
+          "nll": 0.061325871390192424,
+          "top1_token": 1710
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0002886853320830041,
+          "top1_matches_v4": true,
+          "nll": 0.06578467267843013,
+          "top1_token": 1710
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:122",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 122,
+      "target": 1710,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.12812268379527247,
+          "top1_token": 1710
+        },
+        "v2": {
+          "kl_v4_to_model": 0.01571510264337918,
+          "top1_matches_v4": true,
+          "nll": 0.2012516324772615,
+          "top1_token": 1710
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0012631908396309747,
+          "top1_matches_v4": true,
+          "nll": 0.14683786015529915,
+          "top1_token": 1710
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00568511213540006,
+          "top1_matches_v4": true,
+          "nll": 0.15984403306514858,
+          "top1_token": 1710
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:123",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 123,
+      "target": 96604,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.8864525914649213,
+          "top1_token": 96604
+        },
+        "v2": {
+          "kl_v4_to_model": 0.14065830520205191,
+          "top1_matches_v4": true,
+          "nll": 1.2224490244660613,
+          "top1_token": 96604
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03590123027449939,
+          "top1_matches_v4": true,
+          "nll": 0.8705301883707518,
+          "top1_token": 96604
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.028884054232819884,
+          "top1_matches_v4": true,
+          "nll": 0.8714819286750844,
+          "top1_token": 96604
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:125",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 125,
+      "target": 134277,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.03304995595621519,
+          "top1_token": 134277
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0049214438508220736,
+          "top1_matches_v4": true,
+          "nll": 0.041336834781273306,
+          "top1_token": 134277
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0018851461474396324,
+          "top1_matches_v4": true,
+          "nll": 0.028030370832707756,
+          "top1_token": 134277
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0009770964583696088,
+          "top1_matches_v4": true,
+          "nll": 0.027896402870084224,
+          "top1_token": 134277
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:164",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 164,
+      "target": 109037,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.9993751085225648,
+          "top1_token": 96442
+        },
+        "v2": {
+          "kl_v4_to_model": 0.03479217235288261,
+          "top1_matches_v4": true,
+          "nll": 2.301077289074266,
+          "top1_token": 96442
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.047230286991531936,
+          "top1_matches_v4": true,
+          "nll": 1.7922531527977914,
+          "top1_token": 96442
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.03382028790092593,
+          "top1_matches_v4": true,
+          "nll": 1.746900723639158,
+          "top1_token": 96442
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:166",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 166,
+      "target": 105760,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.6532010742821425,
+          "top1_token": 105760
+        },
+        "v2": {
+          "kl_v4_to_model": 0.059796319155416056,
+          "top1_matches_v4": false,
+          "nll": 1.0146815285416526,
+          "top1_token": 122025
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.026804079276231074,
+          "top1_matches_v4": true,
+          "nll": 0.5738195079410624,
+          "top1_token": 105760
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.011507570537438602,
+          "top1_matches_v4": true,
+          "nll": 0.6590580047305404,
+          "top1_token": 105760
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:174",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 174,
+      "target": 99474,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.31805211974151665,
+          "top1_token": 99474
+        },
+        "v2": {
+          "kl_v4_to_model": 0.01298162959157225,
+          "top1_matches_v4": true,
+          "nll": 0.37092391425298604,
+          "top1_token": 99474
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.014624643698205847,
+          "top1_matches_v4": true,
+          "nll": 0.43123333482338866,
+          "top1_token": 99474
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.017681642907262055,
+          "top1_matches_v4": true,
+          "nll": 0.4427926901391136,
+          "top1_token": 99474
+        }
+      }
+    },
+    {
+      "id": "zh_measurement:175",
+      "document": "zh_measurement",
+      "category": "Chinese",
+      "position": 175,
+      "target": 5205,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.004112432547099639,
+          "top1_token": 5205
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0007629062246151108,
+          "top1_matches_v4": true,
+          "nll": 0.0028821648267680485,
+          "top1_token": 5205
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 9.739975672053788e-05,
+          "top1_matches_v4": true,
+          "nll": 0.004091705631774151,
+          "top1_token": 5205
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0001588682817714143,
+          "top1_matches_v4": true,
+          "nll": 0.003968970063856413,
+          "top1_token": 5205
+        }
+      }
+    },
+    {
+      "id": "zh_database:37",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 37,
+      "target": 96604,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.1782034028635613,
+          "top1_token": 96604
+        },
+        "v2": {
+          "kl_v4_to_model": 0.08510965138491969,
+          "top1_matches_v4": true,
+          "nll": 1.2626713302816333,
+          "top1_token": 96604
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.07460274557882948,
+          "top1_matches_v4": true,
+          "nll": 1.6369727620733616,
+          "top1_token": 96604
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.06287990212719555,
+          "top1_matches_v4": true,
+          "nll": 1.6175623547651858,
+          "top1_token": 96604
+        }
+      }
+    },
+    {
+      "id": "zh_database:43",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 43,
+      "target": 97850,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.3539199318195134,
+          "top1_token": 97850
+        },
+        "v2": {
+          "kl_v4_to_model": 0.07982164025632138,
+          "top1_matches_v4": false,
+          "nll": 1.7567548162999786,
+          "top1_token": 97240
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.021594543248880264,
+          "top1_matches_v4": true,
+          "nll": 1.2419575200294617,
+          "top1_token": 97850
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.030102411300953605,
+          "top1_matches_v4": true,
+          "nll": 1.5155781426339217,
+          "top1_token": 97850
+        }
+      }
+    },
+    {
+      "id": "zh_database:66",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 66,
+      "target": 97797,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.9158768270563569,
+          "top1_token": 97797
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04559288201767949,
+          "top1_matches_v4": true,
+          "nll": 1.1222361861011425,
+          "top1_token": 97797
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.08915532883480008,
+          "top1_matches_v4": true,
+          "nll": 1.418570213030782,
+          "top1_token": 97797
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.06582134416056856,
+          "top1_matches_v4": true,
+          "nll": 1.3160259053230843,
+          "top1_token": 97797
+        }
+      }
+    },
+    {
+      "id": "zh_database:88",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 88,
+      "target": 101719,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.45330856266167974,
+          "top1_token": 101719
+        },
+        "v2": {
+          "kl_v4_to_model": 0.05713350838817754,
+          "top1_matches_v4": true,
+          "nll": 0.3737794857433257,
+          "top1_token": 101719
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.020088188257451817,
+          "top1_matches_v4": true,
+          "nll": 0.3913184889469038,
+          "top1_token": 101719
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.01507422151582674,
+          "top1_matches_v4": true,
+          "nll": 0.382186389223447,
+          "top1_token": 101719
+        }
+      }
+    },
+    {
+      "id": "zh_database:109",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 109,
+      "target": 96961,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.9521537648311327,
+          "top1_token": 99157
+        },
+        "v2": {
+          "kl_v4_to_model": 0.05462597190034512,
+          "top1_matches_v4": true,
+          "nll": 2.078666586381308,
+          "top1_token": 99157
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.009822371496512133,
+          "top1_matches_v4": true,
+          "nll": 2.9609604160172123,
+          "top1_token": 99157
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.006272041306466267,
+          "top1_matches_v4": true,
+          "nll": 2.754164199890819,
+          "top1_token": 99157
+        }
+      }
+    },
+    {
+      "id": "zh_database:110",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 110,
+      "target": 24178,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 4.925957618391034,
+          "top1_token": 100861
+        },
+        "v2": {
+          "kl_v4_to_model": 0.018674376329850705,
+          "top1_matches_v4": true,
+          "nll": 4.471579468014181,
+          "top1_token": 100861
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.007565436564270879,
+          "top1_matches_v4": true,
+          "nll": 4.898949948250909,
+          "top1_token": 100861
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0022630740194511554,
+          "top1_matches_v4": true,
+          "nll": 4.720794928501553,
+          "top1_token": 100861
+        }
+      }
+    },
+    {
+      "id": "zh_database:122",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 122,
+      "target": 97625,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.7837126946649826,
+          "top1_token": 111212
+        },
+        "v2": {
+          "kl_v4_to_model": 0.11816198429720383,
+          "top1_matches_v4": false,
+          "nll": 1.4930369395125487,
+          "top1_token": 97625
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.05614997014992758,
+          "top1_matches_v4": false,
+          "nll": 1.6058498293276056,
+          "top1_token": 96264
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.04535926824382239,
+          "top1_matches_v4": false,
+          "nll": 1.7570824109791607,
+          "top1_token": 96264
+        }
+      }
+    },
+    {
+      "id": "zh_database:135",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 135,
+      "target": 115152,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 9.479387585405458,
+          "top1_token": 96442
+        },
+        "v2": {
+          "kl_v4_to_model": 0.22652279977369555,
+          "top1_matches_v4": false,
+          "nll": 10.488451626258819,
+          "top1_token": 100669
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.07602605484360439,
+          "top1_matches_v4": false,
+          "nll": 9.24849583524465,
+          "top1_token": 100669
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0377008101985334,
+          "top1_matches_v4": true,
+          "nll": 9.321417243804659,
+          "top1_token": 96442
+        }
+      }
+    },
+    {
+      "id": "zh_database:149",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 149,
+      "target": 96790,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.20703881024615375,
+          "top1_token": 96790
+        },
+        "v2": {
+          "kl_v4_to_model": 0.03830911032496113,
+          "top1_matches_v4": true,
+          "nll": 0.12601374084449482,
+          "top1_token": 96790
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.034808847888381435,
+          "top1_matches_v4": true,
+          "nll": 0.11776342659591357,
+          "top1_token": 96790
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.04611279077982846,
+          "top1_matches_v4": true,
+          "nll": 0.11141749989658735,
+          "top1_token": 96790
+        }
+      }
+    },
+    {
+      "id": "zh_database:152",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 152,
+      "target": 96982,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 4.5357632511942265,
+          "top1_token": 96604
+        },
+        "v2": {
+          "kl_v4_to_model": 0.09889099039680435,
+          "top1_matches_v4": true,
+          "nll": 5.48320579222109,
+          "top1_token": 96604
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.031826492398416256,
+          "top1_matches_v4": true,
+          "nll": 5.072403019469124,
+          "top1_token": 96604
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.03094404189817449,
+          "top1_matches_v4": true,
+          "nll": 4.7253036937790736,
+          "top1_token": 96604
+        }
+      }
+    },
+    {
+      "id": "zh_database:167",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 167,
+      "target": 98134,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.1825853210664565,
+          "top1_token": 96200
+        },
+        "v2": {
+          "kl_v4_to_model": 0.4411500384536569,
+          "top1_matches_v4": false,
+          "nll": 2.500676737507162,
+          "top1_token": 97789
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.04905622671227032,
+          "top1_matches_v4": true,
+          "nll": 2.1300075005568013,
+          "top1_token": 96200
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0455644423186516,
+          "top1_matches_v4": true,
+          "nll": 1.9967815273410603,
+          "top1_token": 96200
+        }
+      }
+    },
+    {
+      "id": "zh_database:173",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 173,
+      "target": 96342,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.537118776564284,
+          "top1_token": 96342
+        },
+        "v2": {
+          "kl_v4_to_model": 0.018636703406254784,
+          "top1_matches_v4": true,
+          "nll": 0.4302515424079478,
+          "top1_token": 96342
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.009956580003752501,
+          "top1_matches_v4": true,
+          "nll": 0.44226538783729247,
+          "top1_token": 96342
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.016651065411985255,
+          "top1_matches_v4": true,
+          "nll": 0.4260115344658958,
+          "top1_token": 96342
+        }
+      }
+    },
+    {
+      "id": "zh_database:192",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 192,
+      "target": 108620,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.17947557725455657,
+          "top1_token": 108620
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04555511784838861,
+          "top1_matches_v4": true,
+          "nll": 0.10270330089800365,
+          "top1_token": 108620
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.007706056841335352,
+          "top1_matches_v4": true,
+          "nll": 0.2142923693601094,
+          "top1_token": 108620
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.014078490041939697,
+          "top1_matches_v4": true,
+          "nll": 0.17727577245655474,
+          "top1_token": 108620
+        }
+      }
+    },
+    {
+      "id": "zh_database:203",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 203,
+      "target": 3709,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.08461885210887507,
+          "top1_token": 3709
+        },
+        "v2": {
+          "kl_v4_to_model": 0.009505614783061136,
+          "top1_matches_v4": true,
+          "nll": 0.05343234504481812,
+          "top1_token": 3709
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0005671567247692381,
+          "top1_matches_v4": true,
+          "nll": 0.08728715303752398,
+          "top1_token": 3709
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0006492651676765317,
+          "top1_matches_v4": true,
+          "nll": 0.09071714211913154,
+          "top1_token": 3709
+        }
+      }
+    },
+    {
+      "id": "zh_database:205",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 205,
+      "target": 101754,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.543154315125822,
+          "top1_token": 98151
+        },
+        "v2": {
+          "kl_v4_to_model": 0.16325351911992617,
+          "top1_matches_v4": false,
+          "nll": 3.1256999767490226,
+          "top1_token": 96988
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.016425834571974298,
+          "top1_matches_v4": true,
+          "nll": 2.5628700715772053,
+          "top1_token": 98151
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.07607157928991923,
+          "top1_matches_v4": false,
+          "nll": 3.047520135491924,
+          "top1_token": 96373
+        }
+      }
+    },
+    {
+      "id": "zh_database:209",
+      "document": "zh_database",
+      "category": "Chinese",
+      "position": 209,
+      "target": 100862,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.08277791727691541,
+          "top1_token": 100862
+        },
+        "v2": {
+          "kl_v4_to_model": 0.08922645449334128,
+          "top1_matches_v4": true,
+          "nll": 0.026123622220381334,
+          "top1_token": 100862
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.005953699287306797,
+          "top1_matches_v4": true,
+          "nll": 0.0686540630918864,
+          "top1_token": 100862
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.009344953137615188,
+          "top1_matches_v4": true,
+          "nll": 0.061273716884326736,
+          "top1_token": 100862
+        }
+      }
+    },
+    {
+      "id": "en_cache:33",
+      "document": "en_cache",
+      "category": "English",
+      "position": 33,
+      "target": 6297,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.900122780170754,
+          "top1_token": 1560
+        },
+        "v2": {
+          "kl_v4_to_model": 0.09309653326203123,
+          "top1_matches_v4": true,
+          "nll": 2.1530394014940564,
+          "top1_token": 1560
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03934686456436833,
+          "top1_matches_v4": true,
+          "nll": 2.9865701151377397,
+          "top1_token": 1560
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.047395349451376016,
+          "top1_matches_v4": true,
+          "nll": 3.260764333090369,
+          "top1_token": 1560
+        }
+      }
+    },
+    {
+      "id": "en_cache:47",
+      "document": "en_cache",
+      "category": "English",
+      "position": 47,
+      "target": 13402,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.5268131090866252,
+          "top1_token": 13402
+        },
+        "v2": {
+          "kl_v4_to_model": 0.08082035829795461,
+          "top1_matches_v4": true,
+          "nll": 0.7747569596504918,
+          "top1_token": 13402
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.010961359008269358,
+          "top1_matches_v4": true,
+          "nll": 0.5461695617889487,
+          "top1_token": 13402
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.013353205796500229,
+          "top1_matches_v4": true,
+          "nll": 0.5617803567028837,
+          "top1_token": 13402
+        }
+      }
+    },
+    {
+      "id": "en_cache:56",
+      "document": "en_cache",
+      "category": "English",
+      "position": 56,
+      "target": 3955,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 4.581433848615164,
+          "top1_token": 11085
+        },
+        "v2": {
+          "kl_v4_to_model": 0.11500321525887328,
+          "top1_matches_v4": true,
+          "nll": 4.218446174037695,
+          "top1_token": 11085
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.04831076661026597,
+          "top1_matches_v4": true,
+          "nll": 4.350548218273259,
+          "top1_token": 11085
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.02892863130752094,
+          "top1_matches_v4": true,
+          "nll": 4.489199491191987,
+          "top1_token": 11085
+        }
+      }
+    },
+    {
+      "id": "en_cache:82",
+      "document": "en_cache",
+      "category": "English",
+      "position": 82,
+      "target": 4202,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.4766366334281766,
+          "top1_token": 4202
+        },
+        "v2": {
+          "kl_v4_to_model": 0.10054277675436864,
+          "top1_matches_v4": true,
+          "nll": 0.25541332392286464,
+          "top1_token": 4202
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.038208361892350606,
+          "top1_matches_v4": true,
+          "nll": 0.48299662011155575,
+          "top1_token": 4202
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.023505733512824672,
+          "top1_matches_v4": true,
+          "nll": 0.4054035549900465,
+          "top1_token": 4202
+        }
+      }
+    },
+    {
+      "id": "en_cache:104",
+      "document": "en_cache",
+      "category": "English",
+      "position": 104,
+      "target": 264,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.220995240712377,
+          "top1_token": 264
+        },
+        "v2": {
+          "kl_v4_to_model": 0.18389559954239654,
+          "top1_matches_v4": true,
+          "nll": 1.6697126885186688,
+          "top1_token": 264
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03025942286052592,
+          "top1_matches_v4": false,
+          "nll": 1.4231344146595286,
+          "top1_token": 421
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.015404497251272683,
+          "top1_matches_v4": false,
+          "nll": 1.3448838885736565,
+          "top1_token": 421
+        }
+      }
+    },
+    {
+      "id": "en_cache:112",
+      "document": "en_cache",
+      "category": "English",
+      "position": 112,
+      "target": 24235,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.41188624372324784,
+          "top1_token": 24235
+        },
+        "v2": {
+          "kl_v4_to_model": 0.045148169415651716,
+          "top1_matches_v4": true,
+          "nll": 0.43442978783766634,
+          "top1_token": 24235
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.013508423984913679,
+          "top1_matches_v4": true,
+          "nll": 0.39907744264838163,
+          "top1_token": 24235
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0088899620906927,
+          "top1_matches_v4": true,
+          "nll": 0.4464032788501264,
+          "top1_token": 24235
+        }
+      }
+    },
+    {
+      "id": "en_cache:113",
+      "document": "en_cache",
+      "category": "English",
+      "position": 113,
+      "target": 1325,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.032637189133953,
+          "top1_token": 1325
+        },
+        "v2": {
+          "kl_v4_to_model": 0.03989062663830334,
+          "top1_matches_v4": true,
+          "nll": 0.9804806293244024,
+          "top1_token": 1325
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.022128783009648163,
+          "top1_matches_v4": true,
+          "nll": 1.205812224872902,
+          "top1_token": 1325
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.015201737817746535,
+          "top1_matches_v4": true,
+          "nll": 1.1234644604985213,
+          "top1_token": 1325
+        }
+      }
+    },
+    {
+      "id": "en_cache:126",
+      "document": "en_cache",
+      "category": "English",
+      "position": 126,
+      "target": 4687,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.434684576591164,
+          "top1_token": 5576
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06951625875141192,
+          "top1_matches_v4": false,
+          "nll": 2.979346961202295,
+          "top1_token": 5313
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03709352871662661,
+          "top1_matches_v4": true,
+          "nll": 2.8697043996961638,
+          "top1_token": 5576
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.03627474802285122,
+          "top1_matches_v4": true,
+          "nll": 2.6401245402542317,
+          "top1_token": 5576
+        }
+      }
+    },
+    {
+      "id": "en_cache:134",
+      "document": "en_cache",
+      "category": "English",
+      "position": 134,
+      "target": 795,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.29434925733646466,
+          "top1_token": 795
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06909859191069319,
+          "top1_matches_v4": true,
+          "nll": 0.2180013203076802,
+          "top1_token": 795
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00894879030125147,
+          "top1_matches_v4": true,
+          "nll": 0.2810356293736566,
+          "top1_token": 795
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0108088064963539,
+          "top1_matches_v4": true,
+          "nll": 0.26569259508047216,
+          "top1_token": 795
+        }
+      }
+    },
+    {
+      "id": "en_cache:142",
+      "document": "en_cache",
+      "category": "English",
+      "position": 142,
+      "target": 357,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.7352490515207728,
+          "top1_token": 357
+        },
+        "v2": {
+          "kl_v4_to_model": 0.12770320472812943,
+          "top1_matches_v4": true,
+          "nll": 0.46363666389961355,
+          "top1_token": 357
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03614690059979481,
+          "top1_matches_v4": true,
+          "nll": 0.632507188283061,
+          "top1_token": 357
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.031189082634833807,
+          "top1_matches_v4": true,
+          "nll": 0.6985179256892393,
+          "top1_token": 357
+        }
+      }
+    },
+    {
+      "id": "en_cache:145",
+      "document": "en_cache",
+      "category": "English",
+      "position": 145,
+      "target": 874,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.07819386640826748,
+          "top1_token": 874
+        },
+        "v2": {
+          "kl_v4_to_model": 0.004742240514054919,
+          "top1_matches_v4": true,
+          "nll": 0.07663743188917613,
+          "top1_token": 874
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0007007031507507105,
+          "top1_matches_v4": true,
+          "nll": 0.07472167305578895,
+          "top1_token": 874
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0014299155919067913,
+          "top1_matches_v4": true,
+          "nll": 0.0840202331937189,
+          "top1_token": 874
+        }
+      }
+    },
+    {
+      "id": "en_cache:156",
+      "document": "en_cache",
+      "category": "English",
+      "position": 156,
+      "target": 1473,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 3.087600807897249,
+          "top1_token": 357
+        },
+        "v2": {
+          "kl_v4_to_model": 0.12911508274329647,
+          "top1_matches_v4": true,
+          "nll": 3.4450184785453075,
+          "top1_token": 357
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03422068654647706,
+          "top1_matches_v4": true,
+          "nll": 3.3848727218516337,
+          "top1_token": 357
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.027758203581352118,
+          "top1_matches_v4": true,
+          "nll": 3.337818341129225,
+          "top1_token": 357
+        }
+      }
+    },
+    {
+      "id": "en_cache:158",
+      "document": "en_cache",
+      "category": "English",
+      "position": 158,
+      "target": 4687,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.11988567122995772,
+          "top1_token": 4687
+        },
+        "v2": {
+          "kl_v4_to_model": 0.013236397000896826,
+          "top1_matches_v4": true,
+          "nll": 0.07375027858239544,
+          "top1_token": 4687
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0008317736894707222,
+          "top1_matches_v4": true,
+          "nll": 0.12749153943140681,
+          "top1_token": 4687
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0038928486301881018,
+          "top1_matches_v4": true,
+          "nll": 0.1483135627466113,
+          "top1_token": 4687
+        }
+      }
+    },
+    {
+      "id": "en_cache:172",
+      "document": "en_cache",
+      "category": "English",
+      "position": 172,
+      "target": 369,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.159418372776231,
+          "top1_token": 318
+        },
+        "v2": {
+          "kl_v4_to_model": 0.09901166402463384,
+          "top1_matches_v4": true,
+          "nll": 1.8941458272792304,
+          "top1_token": 318
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.022764896679842855,
+          "top1_matches_v4": true,
+          "nll": 2.1935856767734254,
+          "top1_token": 318
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.04977000806786188,
+          "top1_matches_v4": true,
+          "nll": 2.2620571293285088,
+          "top1_token": 318
+        }
+      }
+    },
+    {
+      "id": "en_cache:197",
+      "document": "en_cache",
+      "category": "English",
+      "position": 197,
+      "target": 4238,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.10798099791270152,
+          "top1_token": 4238
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0031073267169895776,
+          "top1_matches_v4": true,
+          "nll": 0.10119247352133524,
+          "top1_token": 4238
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0008565919831837507,
+          "top1_matches_v4": true,
+          "nll": 0.1084132236556008,
+          "top1_token": 4238
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.004278158904407577,
+          "top1_matches_v4": true,
+          "nll": 0.13572575983636356,
+          "top1_token": 4238
+        }
+      }
+    },
+    {
+      "id": "en_cache:220",
+      "document": "en_cache",
+      "category": "English",
+      "position": 220,
+      "target": 19720,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.9169314487387347,
+          "top1_token": 19720
+        },
+        "v2": {
+          "kl_v4_to_model": 0.14095610672171247,
+          "top1_matches_v4": true,
+          "nll": 0.7016420758423492,
+          "top1_token": 19720
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03777255012653476,
+          "top1_matches_v4": true,
+          "nll": 0.992658663526783,
+          "top1_token": 19720
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.020584841778811935,
+          "top1_matches_v4": true,
+          "nll": 1.0836705469590167,
+          "top1_token": 19720
+        }
+      }
+    },
+    {
+      "id": "en_river:34",
+      "document": "en_river",
+      "category": "English",
+      "position": 34,
+      "target": 279,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.22314868503508534,
+          "top1_token": 279
+        },
+        "v2": {
+          "kl_v4_to_model": 0.040546152015291645,
+          "top1_matches_v4": true,
+          "nll": 0.31392143759621266,
+          "top1_token": 279
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.007560254022117114,
+          "top1_matches_v4": true,
+          "nll": 0.2605204177033701,
+          "top1_token": 279
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.016409640986546684,
+          "top1_matches_v4": true,
+          "nll": 0.30412169447258486,
+          "top1_token": 279
+        }
+      }
+    },
+    {
+      "id": "en_river:35",
+      "document": "en_river",
+      "category": "English",
+      "position": 35,
+      "target": 8129,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 4.5475874348654175,
+          "top1_token": 2235
+        },
+        "v2": {
+          "kl_v4_to_model": 0.17509332586644852,
+          "top1_matches_v4": false,
+          "nll": 5.921319465585731,
+          "top1_token": 3555
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0677299289828447,
+          "top1_matches_v4": true,
+          "nll": 5.541891954450393,
+          "top1_token": 2235
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.09564611164761096,
+          "top1_matches_v4": false,
+          "nll": 5.460167212448123,
+          "top1_token": 3555
+        }
+      }
+    },
+    {
+      "id": "en_river:45",
+      "document": "en_river",
+      "category": "English",
+      "position": 45,
+      "target": 1056,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0018295750697134392,
+          "top1_token": 1056
+        },
+        "v2": {
+          "kl_v4_to_model": 0.00036299875587401346,
+          "top1_matches_v4": true,
+          "nll": 0.001997713694013587,
+          "top1_token": 1056
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 9.582897921985226e-05,
+          "top1_matches_v4": true,
+          "nll": 0.001443097740692596,
+          "top1_token": 1056
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0005390386337858687,
+          "top1_matches_v4": true,
+          "nll": 0.0009246913676500047,
+          "top1_token": 1056
+        }
+      }
+    },
+    {
+      "id": "en_river:50",
+      "document": "en_river",
+      "category": "English",
+      "position": 50,
+      "target": 4439,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 3.1745107118508207,
+          "top1_token": 6426
+        },
+        "v2": {
+          "kl_v4_to_model": 0.11054808697322217,
+          "top1_matches_v4": true,
+          "nll": 4.071203116912552,
+          "top1_token": 6426
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.04572943416146348,
+          "top1_matches_v4": false,
+          "nll": 3.2651409837336716,
+          "top1_token": 59144
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0484993205815278,
+          "top1_matches_v4": true,
+          "nll": 3.2204292123814477,
+          "top1_token": 6426
+        }
+      }
+    },
+    {
+      "id": "en_river:54",
+      "document": "en_river",
+      "category": "English",
+      "position": 54,
+      "target": 1716,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 5.563707717746405,
+          "top1_token": 12771
+        },
+        "v2": {
+          "kl_v4_to_model": 0.1196286086065559,
+          "top1_matches_v4": true,
+          "nll": 5.50711096875351,
+          "top1_token": 12771
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.06081263638036248,
+          "top1_matches_v4": true,
+          "nll": 5.222149398832997,
+          "top1_token": 12771
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.03157962876833605,
+          "top1_matches_v4": true,
+          "nll": 5.219156507103845,
+          "top1_token": 12771
+        }
+      }
+    },
+    {
+      "id": "en_river:87",
+      "document": "en_river",
+      "category": "English",
+      "position": 87,
+      "target": 5122,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.5488587009838023,
+          "top1_token": 5122
+        },
+        "v2": {
+          "kl_v4_to_model": 0.05040409182252353,
+          "top1_matches_v4": true,
+          "nll": 0.5173393638900997,
+          "top1_token": 5122
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.015556410196482106,
+          "top1_matches_v4": true,
+          "nll": 0.47788192142257085,
+          "top1_token": 5122
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.025775317400300667,
+          "top1_matches_v4": true,
+          "nll": 0.4415918220156684,
+          "top1_token": 5122
+        }
+      }
+    },
+    {
+      "id": "en_river:91",
+      "document": "en_river",
+      "category": "English",
+      "position": 91,
+      "target": 1179,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.8662943658275806,
+          "top1_token": 7410
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06427331925423903,
+          "top1_matches_v4": true,
+          "nll": 2.4451523353030824,
+          "top1_token": 7410
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.03800178953580468,
+          "top1_matches_v4": true,
+          "nll": 2.5270559378685844,
+          "top1_token": 7410
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.05260538944570158,
+          "top1_matches_v4": true,
+          "nll": 2.389232558644329,
+          "top1_token": 7410
+        }
+      }
+    },
+    {
+      "id": "en_river:114",
+      "document": "en_river",
+      "category": "English",
+      "position": 114,
+      "target": 22980,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 6.154601199117062,
+          "top1_token": 34773
+        },
+        "v2": {
+          "kl_v4_to_model": 0.10693752574751808,
+          "top1_matches_v4": true,
+          "nll": 6.451882185927129,
+          "top1_token": 34773
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.030428086946954373,
+          "top1_matches_v4": true,
+          "nll": 6.360063449393621,
+          "top1_token": 34773
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.06490915945801808,
+          "top1_matches_v4": true,
+          "nll": 5.707485894685492,
+          "top1_token": 34773
+        }
+      }
+    },
+    {
+      "id": "en_river:119",
+      "document": "en_river",
+      "category": "English",
+      "position": 119,
+      "target": 321,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.823205994707063,
+          "top1_token": 321
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04029055212942489,
+          "top1_matches_v4": false,
+          "nll": 1.063897360264152,
+          "top1_token": 13
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.018612701689026658,
+          "top1_matches_v4": true,
+          "nll": 0.7535205730404942,
+          "top1_token": 321
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.012342209401501537,
+          "top1_matches_v4": true,
+          "nll": 0.8469438169654862,
+          "top1_token": 321
+        }
+      }
+    },
+    {
+      "id": "en_river:123",
+      "document": "en_river",
+      "category": "English",
+      "position": 123,
+      "target": 314,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.7182759975067519,
+          "top1_token": 11
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06226977570020293,
+          "top1_matches_v4": false,
+          "nll": 2.1109069740488717,
+          "top1_token": 13
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.013423742164238153,
+          "top1_matches_v4": true,
+          "nll": 1.810013965971225,
+          "top1_token": 11
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.011748332375617707,
+          "top1_matches_v4": false,
+          "nll": 1.7963268554315557,
+          "top1_token": 13
+        }
+      }
+    },
+    {
+      "id": "en_river:161",
+      "document": "en_river",
+      "category": "English",
+      "position": 161,
+      "target": 11,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.6265920501438607,
+          "top1_token": 314
+        },
+        "v2": {
+          "kl_v4_to_model": 0.031015475359539746,
+          "top1_matches_v4": true,
+          "nll": 1.6087387139788474,
+          "top1_token": 314
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.004046630536729268,
+          "top1_matches_v4": true,
+          "nll": 1.6400531049947369,
+          "top1_token": 314
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.004065624784284067,
+          "top1_matches_v4": true,
+          "nll": 1.6543718653079684,
+          "top1_token": 314
+        }
+      }
+    },
+    {
+      "id": "en_river:162",
+      "document": "en_river",
+      "category": "English",
+      "position": 162,
+      "target": 694,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.36843691557922487,
+          "top1_token": 694
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04776829738135172,
+          "top1_matches_v4": true,
+          "nll": 0.30009738496187555,
+          "top1_token": 694
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0023843433863600127,
+          "top1_matches_v4": true,
+          "nll": 0.3887924100382373,
+          "top1_token": 694
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.004272852481446696,
+          "top1_matches_v4": true,
+          "nll": 0.36176809289529865,
+          "top1_token": 694
+        }
+      }
+    },
+    {
+      "id": "en_river:176",
+      "document": "en_river",
+      "category": "English",
+      "position": 176,
+      "target": 11,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.09475806782916261,
+          "top1_token": 11
+        },
+        "v2": {
+          "kl_v4_to_model": 0.018472535272939343,
+          "top1_matches_v4": true,
+          "nll": 0.0677235440115716,
+          "top1_token": 11
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00261519672396847,
+          "top1_matches_v4": true,
+          "nll": 0.0761862319680375,
+          "top1_token": 11
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.002261456844886627,
+          "top1_matches_v4": true,
+          "nll": 0.10840497706370306,
+          "top1_token": 11
+        }
+      }
+    },
+    {
+      "id": "en_river:187",
+      "document": "en_river",
+      "category": "English",
+      "position": 187,
+      "target": 22188,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.668868220136013,
+          "top1_token": 11988
+        },
+        "v2": {
+          "kl_v4_to_model": 0.11586605376459586,
+          "top1_matches_v4": true,
+          "nll": 2.3767581191750007,
+          "top1_token": 11988
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.020687495107439564,
+          "top1_matches_v4": true,
+          "nll": 2.5733199293691396,
+          "top1_token": 11988
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.022919361275155772,
+          "top1_matches_v4": true,
+          "nll": 2.3627933828041314,
+          "top1_token": 11988
+        }
+      }
+    },
+    {
+      "id": "en_river:190",
+      "document": "en_river",
+      "category": "English",
+      "position": 190,
+      "target": 321,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.09419920369753122,
+          "top1_token": 321
+        },
+        "v2": {
+          "kl_v4_to_model": 0.005456073060781923,
+          "top1_matches_v4": true,
+          "nll": 0.10729697728108505,
+          "top1_token": 321
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.022774417056519995,
+          "top1_matches_v4": true,
+          "nll": 0.1580338334532074,
+          "top1_token": 321
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.04205022794095646,
+          "top1_matches_v4": true,
+          "nll": 0.19970851509317755,
+          "top1_token": 321
+        }
+      }
+    },
+    {
+      "id": "en_river:192",
+      "document": "en_river",
+      "category": "English",
+      "position": 192,
+      "target": 9376,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.9750500358634848,
+          "top1_token": 9376
+        },
+        "v2": {
+          "kl_v4_to_model": 0.2542809104784813,
+          "top1_matches_v4": true,
+          "nll": 1.7404990913426315,
+          "top1_token": 9376
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.06976349056440564,
+          "top1_matches_v4": true,
+          "nll": 1.902307892717519,
+          "top1_token": 9376
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.062489466695129336,
+          "top1_matches_v4": true,
+          "nll": 2.2979441415602024,
+          "top1_token": 9376
+        }
+      }
+    },
+    {
+      "id": "code_python:35",
+      "document": "code_python",
+      "category": "Code",
+      "position": 35,
+      "target": 198,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.041674385469550074,
+          "top1_token": 198
+        },
+        "v2": {
+          "kl_v4_to_model": 0.003313469616464457,
+          "top1_matches_v4": true,
+          "nll": 0.04261152013392344,
+          "top1_token": 198
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.001762815001763582,
+          "top1_matches_v4": true,
+          "nll": 0.04562768263470432,
+          "top1_token": 198
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0022907607428752125,
+          "top1_matches_v4": true,
+          "nll": 0.044720653803864335,
+          "top1_token": 198
+        }
+      }
+    },
+    {
+      "id": "code_python:43",
+      "document": "code_python",
+      "category": "Code",
+      "position": 43,
+      "target": 6951,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.344891273383823,
+          "top1_token": 6951
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06932131500140948,
+          "top1_matches_v4": true,
+          "nll": 1.2647098037480042,
+          "top1_token": 6951
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.015776661899417403,
+          "top1_matches_v4": true,
+          "nll": 1.3345294518740412,
+          "top1_token": 6951
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.02578278685821082,
+          "top1_matches_v4": true,
+          "nll": 1.4155732700522057,
+          "top1_token": 6951
+        }
+      }
+    },
+    {
+      "id": "code_python:47",
+      "document": "code_python",
+      "category": "Code",
+      "position": 47,
+      "target": 2388,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.00414248993888402,
+          "top1_token": 2388
+        },
+        "v2": {
+          "kl_v4_to_model": 0.007735521028224696,
+          "top1_matches_v4": true,
+          "nll": 0.014459102193164272,
+          "top1_token": 2388
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0020799961699971585,
+          "top1_matches_v4": true,
+          "nll": 0.005178895170679419,
+          "top1_token": 2388
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0007731211425364558,
+          "top1_matches_v4": true,
+          "nll": 0.00570811956739817,
+          "top1_token": 2388
+        }
+      }
+    },
+    {
+      "id": "code_python:53",
+      "document": "code_python",
+      "category": "Code",
+      "position": 53,
+      "target": 313,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0248129765317259,
+          "top1_token": 313
+        },
+        "v2": {
+          "kl_v4_to_model": 0.001947843480254419,
+          "top1_matches_v4": true,
+          "nll": 0.01682800056610747,
+          "top1_token": 313
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.008574968799682609,
+          "top1_matches_v4": true,
+          "nll": 0.009464740736511806,
+          "top1_token": 313
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.004311967386961426,
+          "top1_matches_v4": true,
+          "nll": 0.012936741071296727,
+          "top1_token": 313
+        }
+      }
+    },
+    {
+      "id": "code_python:76",
+      "document": "code_python",
+      "category": "Code",
+      "position": 76,
+      "target": 4618,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.001323386622584873,
+          "top1_token": 4618
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0014444141370965732,
+          "top1_matches_v4": true,
+          "nll": 0.0031186407214893993,
+          "top1_token": 4618
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0002684840775034662,
+          "top1_matches_v4": true,
+          "nll": 0.0012422385216825109,
+          "top1_token": 4618
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00017278564934413478,
+          "top1_matches_v4": true,
+          "nll": 0.0013673997219478956,
+          "top1_token": 4618
+        }
+      }
+    },
+    {
+      "id": "code_python:79",
+      "document": "code_python",
+      "category": "Code",
+      "position": 79,
+      "target": 11,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0020163364892213337,
+          "top1_token": 11
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0009006629584479455,
+          "top1_matches_v4": true,
+          "nll": 0.0006748855522909363,
+          "top1_token": 11
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00021140446993112133,
+          "top1_matches_v4": true,
+          "nll": 0.0012400480642023898,
+          "top1_token": 11
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00018876661951085035,
+          "top1_matches_v4": true,
+          "nll": 0.001281581122752392,
+          "top1_token": 11
+        }
+      }
+    },
+    {
+      "id": "code_python:135",
+      "document": "code_python",
+      "category": "Code",
+      "position": 135,
+      "target": 198,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0005545297291168756,
+          "top1_token": 198
+        },
+        "v2": {
+          "kl_v4_to_model": 0.00013236641916802497,
+          "top1_matches_v4": true,
+          "nll": 0.00026742749020558325,
+          "top1_token": 198
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 6.076343688220524e-06,
+          "top1_matches_v4": true,
+          "nll": 0.0005756539135521566,
+          "top1_token": 198
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 1.9948493467841648e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0004403286295285608,
+          "top1_token": 198
+        }
+      }
+    },
+    {
+      "id": "code_python:162",
+      "document": "code_python",
+      "category": "Code",
+      "position": 162,
+      "target": 32,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.28042639424675747,
+          "top1_token": 32
+        },
+        "v2": {
+          "kl_v4_to_model": 0.047258945593016154,
+          "top1_matches_v4": true,
+          "nll": 0.44872898469237316,
+          "top1_token": 32
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.044456806141162236,
+          "top1_matches_v4": true,
+          "nll": 0.37570428594802596,
+          "top1_token": 32
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.02293570649716734,
+          "top1_matches_v4": true,
+          "nll": 0.36423277895995326,
+          "top1_token": 32
+        }
+      }
+    },
+    {
+      "id": "code_python:166",
+      "document": "code_python",
+      "category": "Code",
+      "position": 166,
+      "target": 504,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.05458401323128335,
+          "top1_token": 504
+        },
+        "v2": {
+          "kl_v4_to_model": 0.004724276229487014,
+          "top1_matches_v4": true,
+          "nll": 0.07684659235486706,
+          "top1_token": 504
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0005453650918578712,
+          "top1_matches_v4": true,
+          "nll": 0.059236065546782166,
+          "top1_token": 504
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0002628007498591222,
+          "top1_matches_v4": true,
+          "nll": 0.05149201637660472,
+          "top1_token": 504
+        }
+      }
+    },
+    {
+      "id": "code_python:167",
+      "document": "code_python",
+      "category": "Code",
+      "position": 167,
+      "target": 359,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.00012521902874748736,
+          "top1_token": 359
+        },
+        "v2": {
+          "kl_v4_to_model": 4.115582171121512e-05,
+          "top1_matches_v4": true,
+          "nll": 0.00021932252828644715,
+          "top1_token": 359
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 1.6349899893239656e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0001564955651129443,
+          "top1_token": 359
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 1.1950959925504503e-05,
+          "top1_matches_v4": true,
+          "nll": 0.00014446866715809117,
+          "top1_token": 359
+        }
+      }
+    },
+    {
+      "id": "code_python:175",
+      "document": "code_python",
+      "category": "Code",
+      "position": 175,
+      "target": 2429,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.004592110249722132,
+          "top1_token": 2429
+        },
+        "v2": {
+          "kl_v4_to_model": 0.002936702464682356,
+          "top1_matches_v4": true,
+          "nll": 0.011823101065217367,
+          "top1_token": 2429
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00017817782508520438,
+          "top1_matches_v4": true,
+          "nll": 0.005897190707920587,
+          "top1_token": 2429
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 1.88914104889147e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0046750209708490515,
+          "top1_token": 2429
+        }
+      }
+    },
+    {
+      "id": "code_python:186",
+      "document": "code_python",
+      "category": "Code",
+      "position": 186,
+      "target": 359,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 6.454670629312554e-05,
+          "top1_token": 359
+        },
+        "v2": {
+          "kl_v4_to_model": 5.695780579549462e-05,
+          "top1_matches_v4": true,
+          "nll": 9.905619198442502e-05,
+          "top1_token": 359
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 4.9191766739135825e-06,
+          "top1_matches_v4": true,
+          "nll": 7.109745210590369e-05,
+          "top1_token": 359
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 4.985510310793428e-06,
+          "top1_matches_v4": true,
+          "nll": 5.9532715172545966e-05,
+          "top1_token": 359
+        }
+      }
+    },
+    {
+      "id": "code_python:217",
+      "document": "code_python",
+      "category": "Code",
+      "position": 217,
+      "target": 23548,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0005131805240077544,
+          "top1_token": 23548
+        },
+        "v2": {
+          "kl_v4_to_model": 0.00015845584292498694,
+          "top1_matches_v4": true,
+          "nll": 0.0002708839802516965,
+          "top1_token": 23548
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00012769993392926858,
+          "top1_matches_v4": true,
+          "nll": 0.0002965393431418664,
+          "top1_token": 23548
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 6.579228797643618e-05,
+          "top1_matches_v4": true,
+          "nll": 0.00045092622464155746,
+          "top1_token": 23548
+        }
+      }
+    },
+    {
+      "id": "code_python:224",
+      "document": "code_python",
+      "category": "Code",
+      "position": 224,
+      "target": 837,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0017812531356990607,
+          "top1_token": 837
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0011619835103346282,
+          "top1_matches_v4": true,
+          "nll": 0.0005585351759749553,
+          "top1_token": 837
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 8.791504410496007e-05,
+          "top1_matches_v4": true,
+          "nll": 0.001925623793768744,
+          "top1_token": 837
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0001184763074924503,
+          "top1_matches_v4": true,
+          "nll": 0.0024514006474120453,
+          "top1_token": 837
+        }
+      }
+    },
+    {
+      "id": "code_python:248",
+      "document": "code_python",
+      "category": "Code",
+      "position": 248,
+      "target": 32,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.45179488617240643,
+          "top1_token": 32
+        },
+        "v2": {
+          "kl_v4_to_model": 0.08326970234300336,
+          "top1_matches_v4": true,
+          "nll": 0.7212235892916593,
+          "top1_token": 32
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.004202275064712846,
+          "top1_matches_v4": true,
+          "nll": 0.49783422653452797,
+          "top1_token": 32
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.009476649096118657,
+          "top1_matches_v4": true,
+          "nll": 0.5563257910535896,
+          "top1_token": 32
+        }
+      }
+    },
+    {
+      "id": "code_python:298",
+      "document": "code_python",
+      "category": "Code",
+      "position": 298,
+      "target": 279,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.1084574893357588,
+          "top1_token": 279
+        },
+        "v2": {
+          "kl_v4_to_model": 0.19488018939270935,
+          "top1_matches_v4": false,
+          "nll": 1.5939467567906156,
+          "top1_token": 87244
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.05930724249831129,
+          "top1_matches_v4": true,
+          "nll": 1.1292839996079362,
+          "top1_token": 279
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.03316527087420162,
+          "top1_matches_v4": true,
+          "nll": 1.215994906604093,
+          "top1_token": 279
+        }
+      }
+    },
+    {
+      "id": "code_sql:56",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 56,
+      "target": 75965,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.6161419017374529,
+          "top1_token": 75965
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0016018106041959797,
+          "top1_matches_v4": true,
+          "nll": 0.5812819431515028,
+          "top1_token": 75965
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0025488961905646367,
+          "top1_matches_v4": true,
+          "nll": 0.6779711113537573,
+          "top1_token": 75965
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0003903237933283587,
+          "top1_matches_v4": true,
+          "nll": 0.6109302371930824,
+          "top1_token": 75965
+        }
+      }
+    },
+    {
+      "id": "code_sql:58",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 58,
+      "target": 38021,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.04322250967464937,
+          "top1_token": 38021
+        },
+        "v2": {
+          "kl_v4_to_model": 0.03489866897393384,
+          "top1_matches_v4": true,
+          "nll": 0.01626245390294317,
+          "top1_token": 38021
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.007915190223663186,
+          "top1_matches_v4": true,
+          "nll": 0.05288705107979974,
+          "top1_token": 38021
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0009122957390922221,
+          "top1_matches_v4": true,
+          "nll": 0.03563560125585681,
+          "top1_token": 38021
+        }
+      }
+    },
+    {
+      "id": "code_sql:80",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 80,
+      "target": 779,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 5.1461585873306785e-05,
+          "top1_token": 779
+        },
+        "v2": {
+          "kl_v4_to_model": 5.359154977183848e-05,
+          "top1_matches_v4": true,
+          "nll": 8.888580969501321e-05,
+          "top1_token": 779
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 2.8035928102401215e-05,
+          "top1_matches_v4": true,
+          "nll": 4.335143175181328e-05,
+          "top1_token": 779
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 1.2326303990871635e-05,
+          "top1_matches_v4": true,
+          "nll": 4.609063970954446e-05,
+          "top1_token": 779
+        }
+      }
+    },
+    {
+      "id": "code_sql:81",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 81,
+      "target": 2518,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.27707436999187823,
+          "top1_token": 2518
+        },
+        "v2": {
+          "kl_v4_to_model": 0.009469879697720998,
+          "top1_matches_v4": true,
+          "nll": 0.2305068454969405,
+          "top1_token": 2518
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.010361553439164917,
+          "top1_matches_v4": true,
+          "nll": 0.20686929696631706,
+          "top1_token": 2518
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0034590744012616866,
+          "top1_matches_v4": true,
+          "nll": 0.2385906218887271,
+          "top1_token": 2518
+        }
+      }
+    },
+    {
+      "id": "code_sql:110",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 110,
+      "target": 23241,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.2922565134599204,
+          "top1_token": 7057
+        },
+        "v2": {
+          "kl_v4_to_model": 0.16040243899666856,
+          "top1_matches_v4": false,
+          "nll": 0.7104466195983707,
+          "top1_token": 23241
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.053863823492081624,
+          "top1_matches_v4": true,
+          "nll": 1.3687487683825552,
+          "top1_token": 7057
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.03870784930770404,
+          "top1_matches_v4": true,
+          "nll": 1.3823608550685733,
+          "top1_token": 7057
+        }
+      }
+    },
+    {
+      "id": "code_sql:112",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 112,
+      "target": 13638,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0036444503460735154,
+          "top1_token": 13638
+        },
+        "v2": {
+          "kl_v4_to_model": 0.003807650388032305,
+          "top1_matches_v4": true,
+          "nll": 0.010201110367274387,
+          "top1_token": 13638
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.000873453032202304,
+          "top1_matches_v4": true,
+          "nll": 0.005083493704983504,
+          "top1_token": 13638
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0005285779187745988,
+          "top1_matches_v4": true,
+          "nll": 0.004357917047514,
+          "top1_token": 13638
+        }
+      }
+    },
+    {
+      "id": "code_sql:172",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 172,
+      "target": 30737,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.00011136339355059445,
+          "top1_token": 30737
+        },
+        "v2": {
+          "kl_v4_to_model": 8.622875432005567e-06,
+          "top1_matches_v4": true,
+          "nll": 0.00010853798468519084,
+          "top1_token": 30737
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 5.352172641376163e-05,
+          "top1_matches_v4": true,
+          "nll": 0.00025503256925387015,
+          "top1_token": 30737
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 9.649733578008104e-06,
+          "top1_matches_v4": true,
+          "nll": 9.038770135807043e-05,
+          "top1_token": 30737
+        }
+      }
+    },
+    {
+      "id": "code_sql:173",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 173,
+      "target": 816,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 7.088116172710564e-06,
+          "top1_token": 816
+        },
+        "v2": {
+          "kl_v4_to_model": 4.451111213093347e-06,
+          "top1_matches_v4": true,
+          "nll": 8.861643956301613e-06,
+          "top1_token": 816
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 1.3511722694961654e-06,
+          "top1_matches_v4": true,
+          "nll": 4.7629792980012545e-06,
+          "top1_token": 816
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 4.3608008066649825e-07,
+          "top1_matches_v4": true,
+          "nll": 6.323529385907022e-06,
+          "top1_token": 816
+        }
+      }
+    },
+    {
+      "id": "code_sql:180",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 180,
+      "target": 7466,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.6988027598968105e-05,
+          "top1_token": 7466
+        },
+        "v2": {
+          "kl_v4_to_model": 1.2616709828344865e-05,
+          "top1_matches_v4": true,
+          "nll": 1.128408584858741e-05,
+          "top1_token": 7466
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 1.965076172034449e-06,
+          "top1_matches_v4": true,
+          "nll": 1.3909563358197708e-05,
+          "top1_token": 7466
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 4.7850486662923035e-06,
+          "top1_matches_v4": true,
+          "nll": 1.2682077739529839e-05,
+          "top1_token": 7466
+        }
+      }
+    },
+    {
+      "id": "code_sql:188",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 188,
+      "target": 816,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.7208517522464792e-05,
+          "top1_token": 816
+        },
+        "v2": {
+          "kl_v4_to_model": 4.741927079825691e-06,
+          "top1_matches_v4": true,
+          "nll": 9.821074039201575e-06,
+          "top1_token": 816
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 1.189983250348546e-06,
+          "top1_matches_v4": true,
+          "nll": 2.1507508858071493e-05,
+          "top1_token": 816
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 3.6952352771146175e-07,
+          "top1_matches_v4": true,
+          "nll": 1.668629096334088e-05,
+          "top1_token": 816
+        }
+      }
+    },
+    {
+      "id": "code_sql:216",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 216,
+      "target": 4973,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.03513295336680961,
+          "top1_token": 4973
+        },
+        "v2": {
+          "kl_v4_to_model": 0.00390783459886801,
+          "top1_matches_v4": true,
+          "nll": 0.0395056583129996,
+          "top1_token": 4973
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0027879525237084826,
+          "top1_matches_v4": true,
+          "nll": 0.037611397559520934,
+          "top1_token": 4973
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0046313633069581224,
+          "top1_matches_v4": true,
+          "nll": 0.05041828210986722,
+          "top1_token": 4973
+        }
+      }
+    },
+    {
+      "id": "code_sql:217",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 217,
+      "target": 1669,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.812323567555672,
+          "top1_token": 8677
+        },
+        "v2": {
+          "kl_v4_to_model": 0.06337696577989509,
+          "top1_matches_v4": true,
+          "nll": 2.7597297431586187,
+          "top1_token": 8677
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.008488110378590338,
+          "top1_matches_v4": true,
+          "nll": 2.6491026663496444,
+          "top1_token": 8677
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.014068824299147142,
+          "top1_matches_v4": true,
+          "nll": 3.081478862003992,
+          "top1_token": 8677
+        }
+      }
+    },
+    {
+      "id": "code_sql:222",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 222,
+      "target": 198,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 1.5555294606128658,
+          "top1_token": 271
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04461418430420307,
+          "top1_matches_v4": true,
+          "nll": 1.1610764478595899,
+          "top1_token": 271
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.01240645755845543,
+          "top1_matches_v4": true,
+          "nll": 1.4805245022291615,
+          "top1_token": 271
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.011093020206768157,
+          "top1_matches_v4": true,
+          "nll": 1.421275851139022,
+          "top1_token": 271
+        }
+      }
+    },
+    {
+      "id": "code_sql:224",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 224,
+      "target": 23241,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 4.595235003652419,
+          "top1_token": 7057
+        },
+        "v2": {
+          "kl_v4_to_model": 0.30113900158234586,
+          "top1_matches_v4": true,
+          "nll": 4.603381498773241,
+          "top1_token": 7057
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0901326201939442,
+          "top1_matches_v4": true,
+          "nll": 4.86779211888708,
+          "top1_token": 7057
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.09288563690624374,
+          "top1_matches_v4": true,
+          "nll": 4.670805284430591,
+          "top1_token": 7057
+        }
+      }
+    },
+    {
+      "id": "code_sql:228",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 228,
+      "target": 8,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.013872149371213798,
+          "top1_token": 8
+        },
+        "v2": {
+          "kl_v4_to_model": 0.017536146066250667,
+          "top1_matches_v4": true,
+          "nll": 0.04800800132427844,
+          "top1_token": 8
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00014419278561149325,
+          "top1_matches_v4": true,
+          "nll": 0.013547040141297019,
+          "top1_token": 8
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00020265408217909963,
+          "top1_matches_v4": true,
+          "nll": 0.012855201211066834,
+          "top1_token": 8
+        }
+      }
+    },
+    {
+      "id": "code_sql:237",
+      "document": "code_sql",
+      "category": "Code",
+      "position": 237,
+      "target": 14159,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.09040266788493719,
+          "top1_token": 14159
+        },
+        "v2": {
+          "kl_v4_to_model": 0.02928614472372331,
+          "top1_matches_v4": true,
+          "nll": 0.04995875413375757,
+          "top1_token": 14159
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.005550185266426464,
+          "top1_matches_v4": true,
+          "nll": 0.07146706231453234,
+          "top1_token": 14159
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.004468908399914332,
+          "top1_matches_v4": true,
+          "nll": 0.10882941705985837,
+          "top1_token": 14159
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:33",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 33,
+      "target": 29128,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.6837649234196059,
+          "top1_token": 29128
+        },
+        "v2": {
+          "kl_v4_to_model": 0.07822141105994915,
+          "top1_matches_v4": true,
+          "nll": 0.5171404657212512,
+          "top1_token": 29128
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.02779413558937566,
+          "top1_matches_v4": true,
+          "nll": 0.5255132567667975,
+          "top1_token": 29128
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.024734139922549706,
+          "top1_matches_v4": true,
+          "nll": 0.6367023295789148,
+          "top1_token": 29128
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:34",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 34,
+      "target": 30,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.02756883144166821,
+          "top1_token": 30
+        },
+        "v2": {
+          "kl_v4_to_model": 0.017474013077360077,
+          "top1_matches_v4": true,
+          "nll": 0.056890936905324575,
+          "top1_token": 30
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0013310906428149127,
+          "top1_matches_v4": true,
+          "nll": 0.030551968589615112,
+          "top1_token": 30
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00218918810861518,
+          "top1_matches_v4": true,
+          "nll": 0.029014204757461835,
+          "top1_token": 30
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:59",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 59,
+      "target": 3147,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0024125185008857975,
+          "top1_token": 3147
+        },
+        "v2": {
+          "kl_v4_to_model": 0.00024150859530031615,
+          "top1_matches_v4": true,
+          "nll": 0.0016672383238589769,
+          "top1_token": 3147
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00016323860162089856,
+          "top1_matches_v4": true,
+          "nll": 0.002141149982634779,
+          "top1_token": 3147
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0002490981591089327,
+          "top1_matches_v4": true,
+          "nll": 0.0036051873539554176,
+          "top1_token": 3147
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:66",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 66,
+      "target": 198,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.202853230190576,
+          "top1_token": 198
+        },
+        "v2": {
+          "kl_v4_to_model": 0.12472260667608849,
+          "top1_matches_v4": true,
+          "nll": 0.5304583758525514,
+          "top1_token": 198
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.006475615691276558,
+          "top1_matches_v4": true,
+          "nll": 0.2540632089962265,
+          "top1_token": 198
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.005531871416911887,
+          "top1_matches_v4": true,
+          "nll": 0.2541024762768491,
+          "top1_token": 198
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:83",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 83,
+      "target": 5084,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.2047635598131743,
+          "top1_token": 5084
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0338584790886704,
+          "top1_matches_v4": true,
+          "nll": 0.28758125537520457,
+          "top1_token": 5084
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.01338936587167591,
+          "top1_matches_v4": true,
+          "nll": 0.27183128175356036,
+          "top1_token": 5084
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0070463099318599275,
+          "top1_matches_v4": true,
+          "nll": 0.2594553584819274,
+          "top1_token": 5084
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:86",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 86,
+      "target": 22470,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.1424677630015766,
+          "top1_token": 22470
+        },
+        "v2": {
+          "kl_v4_to_model": 0.01865882446794609,
+          "top1_matches_v4": true,
+          "nll": 0.17945156961118375,
+          "top1_token": 22470
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.007869460740030488,
+          "top1_matches_v4": true,
+          "nll": 0.11226779693288307,
+          "top1_token": 22470
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00730465528109932,
+          "top1_matches_v4": true,
+          "nll": 0.17504427477224843,
+          "top1_token": 22470
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:94",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 94,
+      "target": 1288,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.2842649086486679,
+          "top1_token": 1288
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04758043623518193,
+          "top1_matches_v4": true,
+          "nll": 0.49026559382024393,
+          "top1_token": 1288
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.012004146657651017,
+          "top1_matches_v4": true,
+          "nll": 0.37961426113406893,
+          "top1_token": 1288
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.009071625319242169,
+          "top1_matches_v4": true,
+          "nll": 0.36327456831241517,
+          "top1_token": 1288
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:161",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 161,
+      "target": 357,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 5.798400802536058,
+          "top1_token": 653
+        },
+        "v2": {
+          "kl_v4_to_model": 0.15330067251728108,
+          "top1_matches_v4": true,
+          "nll": 6.416281667600192,
+          "top1_token": 653
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.006771347163715337,
+          "top1_matches_v4": true,
+          "nll": 5.725953090186939,
+          "top1_token": 653
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.02016599616013336,
+          "top1_matches_v4": true,
+          "nll": 6.123292675750224,
+          "top1_token": 653
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:183",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 183,
+      "target": 55079,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.025267993411096458,
+          "top1_token": 55079
+        },
+        "v2": {
+          "kl_v4_to_model": 0.005688342816631044,
+          "top1_matches_v4": true,
+          "nll": 0.03861904295351691,
+          "top1_token": 55079
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0032579277876173115,
+          "top1_matches_v4": true,
+          "nll": 0.017415781505446114,
+          "top1_token": 55079
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0014578446428024213,
+          "top1_matches_v4": true,
+          "nll": 0.019164046216497088,
+          "top1_token": 55079
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:189",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 189,
+      "target": 3147,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0008212068597128166,
+          "top1_token": 3147
+        },
+        "v2": {
+          "kl_v4_to_model": 4.3065964322847325e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0008722004191555617,
+          "top1_token": 3147
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 1.926508050745688e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0007113982887497874,
+          "top1_token": 3147
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 7.039580027761586e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0011756522580709022,
+          "top1_token": 3147
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:190",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 190,
+      "target": 41,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.000862720096221002,
+          "top1_token": 41
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0005371330988893075,
+          "top1_matches_v4": true,
+          "nll": 0.0007345915360332631,
+          "top1_token": 41
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 7.650511525856239e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0006101184897389027,
+          "top1_token": 41
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00040760324599618683,
+          "top1_matches_v4": true,
+          "nll": 0.000343718988281256,
+          "top1_token": 41
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:199",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 199,
+      "target": 13132,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.17810108137463976,
+          "top1_token": 13132
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04490953429056298,
+          "top1_matches_v4": true,
+          "nll": 0.15235491631954676,
+          "top1_token": 13132
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.008581143129718001,
+          "top1_matches_v4": true,
+          "nll": 0.1401340130577607,
+          "top1_token": 13132
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.003117732725049973,
+          "top1_matches_v4": true,
+          "nll": 0.1511093281897769,
+          "top1_token": 13132
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:202",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 202,
+      "target": 1288,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.028645917011822997,
+          "top1_token": 1288
+        },
+        "v2": {
+          "kl_v4_to_model": 0.015185903307390836,
+          "top1_matches_v4": true,
+          "nll": 0.06918042667710246,
+          "top1_token": 1288
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.00040371655392938926,
+          "top1_matches_v4": true,
+          "nll": 0.024737280474505838,
+          "top1_token": 1288
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0003553033544964649,
+          "top1_matches_v4": true,
+          "nll": 0.0327002138250066,
+          "top1_token": 1288
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:219",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 219,
+      "target": 5453,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.9065049391741166,
+          "top1_token": 5453
+        },
+        "v2": {
+          "kl_v4_to_model": 0.12159118106031173,
+          "top1_matches_v4": true,
+          "nll": 0.6503416346554489,
+          "top1_token": 5453
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0456764080545078,
+          "top1_matches_v4": false,
+          "nll": 1.3111843305407143,
+          "top1_token": 547
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.026793074132316425,
+          "top1_matches_v4": false,
+          "nll": 1.1432187481344067,
+          "top1_token": 547
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:228",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 228,
+      "target": 2129,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.9834057464932078,
+          "top1_token": 16
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0720781641149253,
+          "top1_matches_v4": true,
+          "nll": 1.1264636775801504,
+          "top1_token": 16
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.02413603972341514,
+          "top1_matches_v4": false,
+          "nll": 0.7746409171667943,
+          "top1_token": 2129
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.007614948634836184,
+          "top1_matches_v4": false,
+          "nll": 1.012450085626598,
+          "top1_token": 2129
+        }
+      }
+    },
+    {
+      "id": "tool_inventory:259",
+      "document": "tool_inventory",
+      "category": "Tool_JSON",
+      "position": 259,
+      "target": 220,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.07542249546022202,
+          "top1_token": 220
+        },
+        "v2": {
+          "kl_v4_to_model": 0.017541866793446652,
+          "top1_matches_v4": true,
+          "nll": 0.12084249670829063,
+          "top1_token": 220
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.011963795580120774,
+          "top1_matches_v4": true,
+          "nll": 0.07641482561584023,
+          "top1_token": 220
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.01783823418060965,
+          "top1_matches_v4": true,
+          "nll": 0.04211907913685083,
+          "top1_token": 220
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:66",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 66,
+      "target": 3147,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.023661417394162727,
+          "top1_token": 3147
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0050937576498976764,
+          "top1_matches_v4": true,
+          "nll": 0.01649624406591587,
+          "top1_token": 3147
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0006813287433181368,
+          "top1_matches_v4": true,
+          "nll": 0.02631789052554061,
+          "top1_token": 3147
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0010671619300030447,
+          "top1_matches_v4": true,
+          "nll": 0.029303200546002155,
+          "top1_token": 3147
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:71",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 71,
+      "target": 15,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.00018116995674247643,
+          "top1_token": 15
+        },
+        "v2": {
+          "kl_v4_to_model": 8.121391026947909e-05,
+          "top1_matches_v4": true,
+          "nll": 9.080485629403555e-05,
+          "top1_token": 15
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 6.662420267136839e-06,
+          "top1_matches_v4": true,
+          "nll": 0.00015015242687395762,
+          "top1_token": 15
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 9.003413401975421e-06,
+          "top1_matches_v4": true,
+          "nll": 0.00017194754347779777,
+          "top1_token": 15
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:140",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 140,
+      "target": 16,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0009349279389983341,
+          "top1_token": 16
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0620189016611493,
+          "top1_matches_v4": true,
+          "nll": 0.06613213408301288,
+          "top1_token": 16
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.003944679506744913,
+          "top1_matches_v4": true,
+          "nll": 0.006597230692077183,
+          "top1_token": 16
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00021265807152990663,
+          "top1_matches_v4": true,
+          "nll": 0.00047926229708334875,
+          "top1_token": 16
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:158",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 158,
+      "target": 2388,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0009052281270421021,
+          "top1_token": 2388
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0004597238010381733,
+          "top1_matches_v4": true,
+          "nll": 0.0005841578313527815,
+          "top1_token": 2388
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 6.896726449335465e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0007090795788103528,
+          "top1_token": 2388
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 3.052885887777706e-05,
+          "top1_matches_v4": true,
+          "nll": 0.0009383740799324304,
+          "top1_token": 2388
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:170",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 170,
+      "target": 51,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.14332858958153008,
+          "top1_token": 51
+        },
+        "v2": {
+          "kl_v4_to_model": 0.7423916788665081,
+          "top1_matches_v4": true,
+          "nll": 0.0022947237885808714,
+          "top1_token": 51
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.29974010883727326,
+          "top1_matches_v4": true,
+          "nll": 0.6464500552849136,
+          "top1_token": 51
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.34631240167452515,
+          "top1_matches_v4": true,
+          "nll": 0.6757434624296911,
+          "top1_token": 51
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:245",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 245,
+      "target": 220,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.0021788272264752985,
+          "top1_token": 220
+        },
+        "v2": {
+          "kl_v4_to_model": 0.0006457537715720568,
+          "top1_matches_v4": true,
+          "nll": 0.00394916256866558,
+          "top1_token": 220
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 3.4253950460919034e-05,
+          "top1_matches_v4": true,
+          "nll": 0.002180495519530188,
+          "top1_token": 220
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.001873789180955801,
+          "top1_matches_v4": true,
+          "nll": 0.005909910769372802,
+          "top1_token": 220
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:250",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 250,
+      "target": 15,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 8.173551595377192e-05,
+          "top1_token": 15
+        },
+        "v2": {
+          "kl_v4_to_model": 4.039788587759732e-05,
+          "top1_matches_v4": true,
+          "nll": 3.0529532229230955e-05,
+          "top1_token": 15
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 1.894028363914248e-05,
+          "top1_matches_v4": true,
+          "nll": 4.1904178541543994e-05,
+          "top1_token": 15
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 9.109447461270423e-06,
+          "top1_matches_v4": true,
+          "nll": 5.701620399923549e-05,
+          "top1_token": 15
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:263",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 263,
+      "target": 6765,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 11.120703336266871,
+          "top1_token": 328
+        },
+        "v2": {
+          "kl_v4_to_model": 0.04952075401635833,
+          "top1_matches_v4": true,
+          "nll": 11.549492936475477,
+          "top1_token": 328
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.012030906785230864,
+          "top1_matches_v4": true,
+          "nll": 11.342688942372991,
+          "top1_token": 328
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0026954684436796507,
+          "top1_matches_v4": true,
+          "nll": 10.983318618682315,
+          "top1_token": 328
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:277",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 277,
+      "target": 2129,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.003670531969492414,
+          "top1_token": 2129
+        },
+        "v2": {
+          "kl_v4_to_model": 0.00022213539388262147,
+          "top1_matches_v4": true,
+          "nll": 0.004082754183271118,
+          "top1_token": 2129
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.0006276379776490612,
+          "top1_matches_v4": true,
+          "nll": 0.00420577513048269,
+          "top1_token": 2129
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00033433797269977124,
+          "top1_matches_v4": true,
+          "nll": 0.004828257302682867,
+          "top1_token": 2129
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:316",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 316,
+      "target": 25,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.009278549268748817,
+          "top1_token": 25
+        },
+        "v2": {
+          "kl_v4_to_model": 0.020381853755974396,
+          "top1_matches_v4": true,
+          "nll": 0.00040884640762933234,
+          "top1_token": 25
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.022801680416430957,
+          "top1_matches_v4": true,
+          "nll": 0.00035339409485803683,
+          "top1_token": 25
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.015993131649603823,
+          "top1_matches_v4": true,
+          "nll": 0.0006924289173430216,
+          "top1_token": 25
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:326",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 326,
+      "target": 12,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.9797604052835268,
+          "top1_token": 12
+        },
+        "v2": {
+          "kl_v4_to_model": 1.1511895509741878,
+          "top1_matches_v4": true,
+          "nll": 0.39772944722052905,
+          "top1_token": 12
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 1.2475987434954872,
+          "top1_matches_v4": true,
+          "nll": 0.34450970484663046,
+          "top1_token": 12
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 1.4274323172134156,
+          "top1_matches_v4": false,
+          "nll": 1.2144772545833775,
+          "top1_token": 198
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:339",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 339,
+      "target": 15,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 5.535081971537228e-05,
+          "top1_token": 15
+        },
+        "v2": {
+          "kl_v4_to_model": 9.186175575237165e-05,
+          "top1_matches_v4": true,
+          "nll": 0.00019211275284866541,
+          "top1_token": 15
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 5.6223606974183344e-05,
+          "top1_matches_v4": true,
+          "nll": 2.2909107866316116e-05,
+          "top1_token": 15
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.00021227937885495214,
+          "top1_matches_v4": true,
+          "nll": 0.0003125948472054641,
+          "top1_token": 15
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:377",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 377,
+      "target": 8934,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.741112681820217,
+          "top1_token": 2129
+        },
+        "v2": {
+          "kl_v4_to_model": 0.03572998161318911,
+          "top1_matches_v4": true,
+          "nll": 1.9031848024223752,
+          "top1_token": 2129
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.003209252384213094,
+          "top1_matches_v4": true,
+          "nll": 3.0596062288489625,
+          "top1_token": 2129
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0036738779960823766,
+          "top1_matches_v4": true,
+          "nll": 3.0648676638915253,
+          "top1_token": 2129
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:384",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 384,
+      "target": 13145,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.272835256252473,
+          "top1_token": 31877
+        },
+        "v2": {
+          "kl_v4_to_model": 0.03732207566147838,
+          "top1_matches_v4": true,
+          "nll": 2.862305381142904,
+          "top1_token": 31877
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.010066930257094216,
+          "top1_matches_v4": true,
+          "nll": 2.5157760511871308,
+          "top1_token": 31877
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.0045464891754020504,
+          "top1_matches_v4": true,
+          "nll": 2.2267167700532995,
+          "top1_token": 31877
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:398",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 398,
+      "target": 25,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 0.30937020302643864,
+          "top1_token": 25
+        },
+        "v2": {
+          "kl_v4_to_model": 1.1636497340110996,
+          "top1_matches_v4": true,
+          "nll": 0.0019686097234393354,
+          "top1_token": 25
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.9189312653046028,
+          "top1_matches_v4": true,
+          "nll": 0.0044046919518752215,
+          "top1_token": 25
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.11900495379608336,
+          "top1_matches_v4": true,
+          "nll": 0.11280111497640241,
+          "top1_token": 25
+        }
+      }
+    },
+    {
+      "id": "tool_calendar:402",
+      "document": "tool_calendar",
+      "category": "Tool_JSON",
+      "position": 402,
+      "target": 440,
+      "models": {
+        "v4": {
+          "kl_v4_to_model": 0.0,
+          "top1_matches_v4": true,
+          "nll": 2.7635031779237456,
+          "top1_token": 1484
+        },
+        "v2": {
+          "kl_v4_to_model": 0.05752898942270435,
+          "top1_matches_v4": true,
+          "nll": 3.6705139601804317,
+          "top1_token": 1484
+        },
+        "v4-lite": {
+          "kl_v4_to_model": 0.008467578334047085,
+          "top1_matches_v4": true,
+          "nll": 2.6839863807203965,
+          "top1_token": 1484
+        },
+        "v4-lite-iq3ple": {
+          "kl_v4_to_model": 0.013247060896425905,
+          "top1_matches_v4": true,
+          "nll": 2.7616908900344828,
+          "top1_token": 1484
+        }
+      }
+    }
+  ]
+}

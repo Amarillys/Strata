@@ -1,0 +1,690 @@
+{
+  "created_utc": "2026-10-09T08:59:54.509580+00:00",
+  "method": "Decode first, middle and last flattened rows of each of the 32 changed-type gate/up tensors using tools/kt_quants.py; compare reconstructed FP32 values at matching coordinates. This is sampling, not a complete tensor comparison.",
+  "source_inventory": "expert-identity.json",
+  "decoder": "tools/kt_quants.py",
+  "tensors_sampled": 32,
+  "tensors_with_value_differences": 32,
+  "sampled_values_per_model": 245760,
+  "different_values": 245616,
+  "elapsed_seconds": 0.156,
+  "limitations": [
+    "No pre-quantization BF16 reference was compared.",
+    "Differences between two quantizations do not measure either one's error relative to BF16.",
+    "Original imatrix files and publisher per-tensor calibration logs were not inspected."
+  ],
+  "tensors": [
+    {
+      "tensor": "blk.0.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7678,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.040951818227767944,
+        "v4_value": -0.041041433811187744
+      }
+    },
+    {
+      "tensor": "blk.0.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7675,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.01177089661359787,
+        "v4_value": -0.006966887507587671
+      }
+    },
+    {
+      "tensor": "blk.1.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7674,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.0057703354395926,
+        "v4_value": 0.003557248041033745
+      }
+    },
+    {
+      "tensor": "blk.1.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7676,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.006561274640262127,
+        "v4_value": -0.0032658593263477087
+      }
+    },
+    {
+      "tensor": "blk.2.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7674,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.0010453197173774242,
+        "v4_value": -0.0029865324031561613
+      }
+    },
+    {
+      "tensor": "blk.2.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7677,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.02482871152460575,
+        "v4_value": 0.024034179747104645
+      }
+    },
+    {
+      "tensor": "blk.3.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7674,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.009275500662624836,
+        "v4_value": 0.0010123200481757522
+      }
+    },
+    {
+      "tensor": "blk.3.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7676,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.014036704786121845,
+        "v4_value": 0.01498775277286768
+      }
+    },
+    {
+      "tensor": "blk.38.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7674,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.0242052860558033,
+        "v4_value": 0.02445470169186592
+      }
+    },
+    {
+      "tensor": "blk.38.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7680,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.01796664483845234,
+        "v4_value": 0.015957031399011612
+      }
+    },
+    {
+      "tensor": "blk.39.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7678,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.012135779485106468,
+        "v4_value": -0.011602150276303291
+      }
+    },
+    {
+      "tensor": "blk.39.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7672,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.0226114634424448,
+        "v4_value": -0.022658497095108032
+      }
+    },
+    {
+      "tensor": "blk.4.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7668,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.00412621907889843,
+        "v4_value": -0.00435721967369318
+      }
+    },
+    {
+      "tensor": "blk.4.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7675,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.010618415661156178,
+        "v4_value": -0.013179855421185493
+      }
+    },
+    {
+      "tensor": "blk.40.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7673,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.0013311271322891116,
+        "v4_value": -0.004990921821445227
+      }
+    },
+    {
+      "tensor": "blk.40.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7674,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.0024769704323261976,
+        "v4_value": 0.0013009542599320412
+      }
+    },
+    {
+      "tensor": "blk.41.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7674,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.030679132789373398,
+        "v4_value": 0.02703288570046425
+      }
+    },
+    {
+      "tensor": "blk.41.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7672,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.02524680271744728,
+        "v4_value": -0.026213722303509712
+      }
+    },
+    {
+      "tensor": "blk.42.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7677,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.0019820271991193295,
+        "v4_value": -0.006093504838645458
+      }
+    },
+    {
+      "tensor": "blk.42.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7680,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.0034588081762194633,
+        "v4_value": 0.0032634753733873367
+      }
+    },
+    {
+      "tensor": "blk.43.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7678,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.009589523077011108,
+        "v4_value": 0.0058897314593195915
+      }
+    },
+    {
+      "tensor": "blk.43.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7680,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.0003873330424539745,
+        "v4_value": -0.0003973529383074492
+      }
+    },
+    {
+      "tensor": "blk.44.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7673,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.006569258403033018,
+        "v4_value": 0.006405430845916271
+      }
+    },
+    {
+      "tensor": "blk.44.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7675,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.007549196481704712,
+        "v4_value": -0.006718513090163469
+      }
+    },
+    {
+      "tensor": "blk.45.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7679,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.015532299876213074,
+        "v4_value": 0.015067650005221367
+      }
+    },
+    {
+      "tensor": "blk.45.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7673,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.010637372732162476,
+        "v4_value": -0.011824152432382107
+      }
+    },
+    {
+      "tensor": "blk.46.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7677,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.027659939602017403,
+        "v4_value": 0.028341731056571007
+      }
+    },
+    {
+      "tensor": "blk.46.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7678,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.018825430423021317,
+        "v4_value": 0.016279952600598335
+      }
+    },
+    {
+      "tensor": "blk.47.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7674,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.013832421973347664,
+        "v4_value": -0.01396316010504961
+      }
+    },
+    {
+      "tensor": "blk.47.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7676,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.022329336032271385,
+        "v4_value": 0.023518025875091553
+      }
+    },
+    {
+      "tensor": "blk.5.ffn_gate_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7675,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": -0.007362795993685722,
+        "v4_value": -0.002394163515418768
+      }
+    },
+    {
+      "tensor": "blk.5.ffn_up_exps.weight",
+      "shape": [
+        2560,
+        640,
+        512
+      ],
+      "sample_flat_rows": [
+        0,
+        163840,
+        327679
+      ],
+      "compared_values": 7680,
+      "different_values": 7677,
+      "first_difference_example": {
+        "flat_row": 0,
+        "column": 0,
+        "v2_value": 0.016497308388352394,
+        "v4_value": 0.017054053023457527
+      }
+    }
+  ]
+}

@@ -1,0 +1,3278 @@
+{
+  "method": "GGUF header and pack-index accounting only. Does not load or modify a model.\n\nCandidate tensors below describe possible representations, not generated weights.\nGPU totals are weight payloads, excluding KV, workspaces, graphs, CUDA and reserve.\n",
+  "model_files": {
+    "v2": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "bytes": 47976497984
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "bytes": 29886154016
+      }
+    ],
+    "v4": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "bytes": 47599263712
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "bytes": 30265076064
+      }
+    ]
+  },
+  "assumptions": "native paths, stage trim, streamed token embedding, mmap/resident experts, MTP off; extra Q8/HC copies off",
+  "checks": [
+    "Both split-19 baselines match previous independent inventory",
+    "387 upgrades leave canonical sizes, kinds and GPU weight payloads unchanged"
+  ],
+  "variants": {
+    "v2": {
+      "tensor_payload_bytes": 77851627264,
+      "expert_bytes": 47689236480,
+      "splits": {
+        "18": [
+          {
+            "layers": [
+              0,
+              18
+            ],
+            "canonical_bytes": 703400192,
+            "native_dense_bytes": 551892992,
+            "head_bytes": 0,
+            "expert_bytes": 17883463680,
+            "weight_payload_bytes": 19138756864
+          },
+          {
+            "layers": [
+              18,
+              48
+            ],
+            "canonical_bytes": 992167168,
+            "native_dense_bytes": 916523008,
+            "head_bytes": 521472000,
+            "expert_bytes": 29805772800,
+            "weight_payload_bytes": 32235934976
+          }
+        ],
+        "19": [
+          {
+            "layers": [
+              0,
+              19
+            ],
+            "canonical_bytes": 730521728,
+            "native_dense_bytes": 583103488,
+            "head_bytes": 0,
+            "expert_bytes": 18876989440,
+            "weight_payload_bytes": 20190614656
+          },
+          {
+            "layers": [
+              19,
+              48
+            ],
+            "canonical_bytes": 962424192,
+            "native_dense_bytes": 885312512,
+            "head_bytes": 521472000,
+            "expert_bytes": 28812247040,
+            "weight_payload_bytes": 31181455744
+          }
+        ],
+        "20": [
+          {
+            "layers": [
+              0,
+              20
+            ],
+            "canonical_bytes": 760266880,
+            "native_dense_bytes": 611840000,
+            "head_bytes": 0,
+            "expert_bytes": 19870515200,
+            "weight_payload_bytes": 21242622080
+          },
+          {
+            "layers": [
+              20,
+              48
+            ],
+            "canonical_bytes": 930057600,
+            "native_dense_bytes": 856576000,
+            "head_bytes": 521472000,
+            "expert_bytes": 27818721280,
+            "weight_payload_bytes": 30126826880
+          }
+        ],
+        "21": [
+          {
+            "layers": [
+              0,
+              21
+            ],
+            "canonical_bytes": 787388416,
+            "native_dense_bytes": 643050496,
+            "head_bytes": 0,
+            "expert_bytes": 20864040960,
+            "weight_payload_bytes": 22294479872
+          },
+          {
+            "layers": [
+              21,
+              48
+            ],
+            "canonical_bytes": 900314624,
+            "native_dense_bytes": 825365504,
+            "head_bytes": 521472000,
+            "expert_bytes": 26825195520,
+            "weight_payload_bytes": 29072347648
+          }
+        ],
+        "22": [
+          {
+            "layers": [
+              0,
+              22
+            ],
+            "canonical_bytes": 814509952,
+            "native_dense_bytes": 674260992,
+            "head_bytes": 0,
+            "expert_bytes": 21857566720,
+            "weight_payload_bytes": 23346337664
+          },
+          {
+            "layers": [
+              22,
+              48
+            ],
+            "canonical_bytes": 870571648,
+            "native_dense_bytes": 794155008,
+            "head_bytes": 521472000,
+            "expert_bytes": 25831669760,
+            "weight_payload_bytes": 28017868416
+          }
+        ]
+      }
+    },
+    "v4": {
+      "tensor_payload_bytes": 77853316608,
+      "expert_bytes": 50625249280,
+      "splits": {
+        "18": [
+          {
+            "layers": [
+              0,
+              18
+            ],
+            "canonical_bytes": 650971392,
+            "native_dense_bytes": 1191403520,
+            "head_bytes": 0,
+            "expert_bytes": 18984468480,
+            "weight_payload_bytes": 20826843392
+          },
+          {
+            "layers": [
+              18,
+              48
+            ],
+            "canonical_bytes": 939738368,
+            "native_dense_bytes": 1955962880,
+            "head_bytes": 675430400,
+            "expert_bytes": 31640780800,
+            "weight_payload_bytes": 35211912448
+          }
+        ],
+        "19": [
+          {
+            "layers": [
+              0,
+              19
+            ],
+            "canonical_bytes": 678092928,
+            "native_dense_bytes": 1257902080,
+            "head_bytes": 0,
+            "expert_bytes": 19977994240,
+            "weight_payload_bytes": 21913989248
+          },
+          {
+            "layers": [
+              19,
+              48
+            ],
+            "canonical_bytes": 909995392,
+            "native_dense_bytes": 1889464320,
+            "head_bytes": 675430400,
+            "expert_bytes": 30647255040,
+            "weight_payload_bytes": 34122145152
+          }
+        ],
+        "20": [
+          {
+            "layers": [
+              0,
+              20
+            ],
+            "canonical_bytes": 707838080,
+            "native_dense_bytes": 1316044800,
+            "head_bytes": 0,
+            "expert_bytes": 20971520000,
+            "weight_payload_bytes": 22995402880
+          },
+          {
+            "layers": [
+              20,
+              48
+            ],
+            "canonical_bytes": 877628800,
+            "native_dense_bytes": 1831321600,
+            "head_bytes": 675430400,
+            "expert_bytes": 29653729280,
+            "weight_payload_bytes": 33038110080
+          }
+        ],
+        "21": [
+          {
+            "layers": [
+              0,
+              21
+            ],
+            "canonical_bytes": 734959616,
+            "native_dense_bytes": 1382543360,
+            "head_bytes": 0,
+            "expert_bytes": 21965045760,
+            "weight_payload_bytes": 24082548736
+          },
+          {
+            "layers": [
+              21,
+              48
+            ],
+            "canonical_bytes": 847885824,
+            "native_dense_bytes": 1764823040,
+            "head_bytes": 675430400,
+            "expert_bytes": 28660203520,
+            "weight_payload_bytes": 31948342784
+          }
+        ],
+        "22": [
+          {
+            "layers": [
+              0,
+              22
+            ],
+            "canonical_bytes": 762081152,
+            "native_dense_bytes": 1449041920,
+            "head_bytes": 0,
+            "expert_bytes": 22958571520,
+            "weight_payload_bytes": 25169694592
+          },
+          {
+            "layers": [
+              22,
+              48
+            ],
+            "canonical_bytes": 818142848,
+            "native_dense_bytes": 1698324480,
+            "head_bytes": 675430400,
+            "expert_bytes": 27666677760,
+            "weight_payload_bytes": 30858575488
+          }
+        ]
+      }
+    },
+    "v2_plus_387": {
+      "tensor_payload_bytes": 78245420544,
+      "expert_bytes": 47689236480,
+      "splits": {
+        "18": [
+          {
+            "layers": [
+              0,
+              18
+            ],
+            "canonical_bytes": 703400192,
+            "native_dense_bytes": 551892992,
+            "head_bytes": 0,
+            "expert_bytes": 17883463680,
+            "weight_payload_bytes": 19138756864
+          },
+          {
+            "layers": [
+              18,
+              48
+            ],
+            "canonical_bytes": 992167168,
+            "native_dense_bytes": 916523008,
+            "head_bytes": 521472000,
+            "expert_bytes": 29805772800,
+            "weight_payload_bytes": 32235934976
+          }
+        ],
+        "19": [
+          {
+            "layers": [
+              0,
+              19
+            ],
+            "canonical_bytes": 730521728,
+            "native_dense_bytes": 583103488,
+            "head_bytes": 0,
+            "expert_bytes": 18876989440,
+            "weight_payload_bytes": 20190614656
+          },
+          {
+            "layers": [
+              19,
+              48
+            ],
+            "canonical_bytes": 962424192,
+            "native_dense_bytes": 885312512,
+            "head_bytes": 521472000,
+            "expert_bytes": 28812247040,
+            "weight_payload_bytes": 31181455744
+          }
+        ],
+        "20": [
+          {
+            "layers": [
+              0,
+              20
+            ],
+            "canonical_bytes": 760266880,
+            "native_dense_bytes": 611840000,
+            "head_bytes": 0,
+            "expert_bytes": 19870515200,
+            "weight_payload_bytes": 21242622080
+          },
+          {
+            "layers": [
+              20,
+              48
+            ],
+            "canonical_bytes": 930057600,
+            "native_dense_bytes": 856576000,
+            "head_bytes": 521472000,
+            "expert_bytes": 27818721280,
+            "weight_payload_bytes": 30126826880
+          }
+        ],
+        "21": [
+          {
+            "layers": [
+              0,
+              21
+            ],
+            "canonical_bytes": 787388416,
+            "native_dense_bytes": 643050496,
+            "head_bytes": 0,
+            "expert_bytes": 20864040960,
+            "weight_payload_bytes": 22294479872
+          },
+          {
+            "layers": [
+              21,
+              48
+            ],
+            "canonical_bytes": 900314624,
+            "native_dense_bytes": 825365504,
+            "head_bytes": 521472000,
+            "expert_bytes": 26825195520,
+            "weight_payload_bytes": 29072347648
+          }
+        ],
+        "22": [
+          {
+            "layers": [
+              0,
+              22
+            ],
+            "canonical_bytes": 814509952,
+            "native_dense_bytes": 674260992,
+            "head_bytes": 0,
+            "expert_bytes": 21857566720,
+            "weight_payload_bytes": 23346337664
+          },
+          {
+            "layers": [
+              22,
+              48
+            ],
+            "canonical_bytes": 870571648,
+            "native_dense_bytes": 794155008,
+            "head_bytes": 521472000,
+            "expert_bytes": 25831669760,
+            "weight_payload_bytes": 28017868416
+          }
+        ]
+      }
+    },
+    "v2_plus_387_v4_ple": {
+      "tensor_payload_bytes": 73125395968,
+      "expert_bytes": 47689236480,
+      "splits": {
+        "18": [
+          {
+            "layers": [
+              0,
+              18
+            ],
+            "canonical_bytes": 703400192,
+            "native_dense_bytes": 551892992,
+            "head_bytes": 0,
+            "expert_bytes": 17883463680,
+            "weight_payload_bytes": 19138756864
+          },
+          {
+            "layers": [
+              18,
+              48
+            ],
+            "canonical_bytes": 992167168,
+            "native_dense_bytes": 916523008,
+            "head_bytes": 521472000,
+            "expert_bytes": 29805772800,
+            "weight_payload_bytes": 32235934976
+          }
+        ],
+        "19": [
+          {
+            "layers": [
+              0,
+              19
+            ],
+            "canonical_bytes": 730521728,
+            "native_dense_bytes": 583103488,
+            "head_bytes": 0,
+            "expert_bytes": 18876989440,
+            "weight_payload_bytes": 20190614656
+          },
+          {
+            "layers": [
+              19,
+              48
+            ],
+            "canonical_bytes": 962424192,
+            "native_dense_bytes": 885312512,
+            "head_bytes": 521472000,
+            "expert_bytes": 28812247040,
+            "weight_payload_bytes": 31181455744
+          }
+        ],
+        "20": [
+          {
+            "layers": [
+              0,
+              20
+            ],
+            "canonical_bytes": 760266880,
+            "native_dense_bytes": 611840000,
+            "head_bytes": 0,
+            "expert_bytes": 19870515200,
+            "weight_payload_bytes": 21242622080
+          },
+          {
+            "layers": [
+              20,
+              48
+            ],
+            "canonical_bytes": 930057600,
+            "native_dense_bytes": 856576000,
+            "head_bytes": 521472000,
+            "expert_bytes": 27818721280,
+            "weight_payload_bytes": 30126826880
+          }
+        ],
+        "21": [
+          {
+            "layers": [
+              0,
+              21
+            ],
+            "canonical_bytes": 787388416,
+            "native_dense_bytes": 643050496,
+            "head_bytes": 0,
+            "expert_bytes": 20864040960,
+            "weight_payload_bytes": 22294479872
+          },
+          {
+            "layers": [
+              21,
+              48
+            ],
+            "canonical_bytes": 900314624,
+            "native_dense_bytes": 825365504,
+            "head_bytes": 521472000,
+            "expert_bytes": 26825195520,
+            "weight_payload_bytes": 29072347648
+          }
+        ],
+        "22": [
+          {
+            "layers": [
+              0,
+              22
+            ],
+            "canonical_bytes": 814509952,
+            "native_dense_bytes": 674260992,
+            "head_bytes": 0,
+            "expert_bytes": 21857566720,
+            "weight_payload_bytes": 23346337664
+          },
+          {
+            "layers": [
+              22,
+              48
+            ],
+            "canonical_bytes": 870571648,
+            "native_dense_bytes": 794155008,
+            "head_bytes": 521472000,
+            "expert_bytes": 25831669760,
+            "weight_payload_bytes": 28017868416
+          }
+        ]
+      }
+    },
+    "v4_iq3_experts": {
+      "tensor_payload_bytes": 74917303808,
+      "expert_bytes": 47689236480,
+      "splits": {
+        "18": [
+          {
+            "layers": [
+              0,
+              18
+            ],
+            "canonical_bytes": 650971392,
+            "native_dense_bytes": 1191403520,
+            "head_bytes": 0,
+            "expert_bytes": 17883463680,
+            "weight_payload_bytes": 19725838592
+          },
+          {
+            "layers": [
+              18,
+              48
+            ],
+            "canonical_bytes": 939738368,
+            "native_dense_bytes": 1955962880,
+            "head_bytes": 675430400,
+            "expert_bytes": 29805772800,
+            "weight_payload_bytes": 33376904448
+          }
+        ],
+        "19": [
+          {
+            "layers": [
+              0,
+              19
+            ],
+            "canonical_bytes": 678092928,
+            "native_dense_bytes": 1257902080,
+            "head_bytes": 0,
+            "expert_bytes": 18876989440,
+            "weight_payload_bytes": 20812984448
+          },
+          {
+            "layers": [
+              19,
+              48
+            ],
+            "canonical_bytes": 909995392,
+            "native_dense_bytes": 1889464320,
+            "head_bytes": 675430400,
+            "expert_bytes": 28812247040,
+            "weight_payload_bytes": 32287137152
+          }
+        ],
+        "20": [
+          {
+            "layers": [
+              0,
+              20
+            ],
+            "canonical_bytes": 707838080,
+            "native_dense_bytes": 1316044800,
+            "head_bytes": 0,
+            "expert_bytes": 19870515200,
+            "weight_payload_bytes": 21894398080
+          },
+          {
+            "layers": [
+              20,
+              48
+            ],
+            "canonical_bytes": 877628800,
+            "native_dense_bytes": 1831321600,
+            "head_bytes": 675430400,
+            "expert_bytes": 27818721280,
+            "weight_payload_bytes": 31203102080
+          }
+        ],
+        "21": [
+          {
+            "layers": [
+              0,
+              21
+            ],
+            "canonical_bytes": 734959616,
+            "native_dense_bytes": 1382543360,
+            "head_bytes": 0,
+            "expert_bytes": 20864040960,
+            "weight_payload_bytes": 22981543936
+          },
+          {
+            "layers": [
+              21,
+              48
+            ],
+            "canonical_bytes": 847885824,
+            "native_dense_bytes": 1764823040,
+            "head_bytes": 675430400,
+            "expert_bytes": 26825195520,
+            "weight_payload_bytes": 30113334784
+          }
+        ],
+        "22": [
+          {
+            "layers": [
+              0,
+              22
+            ],
+            "canonical_bytes": 762081152,
+            "native_dense_bytes": 1449041920,
+            "head_bytes": 0,
+            "expert_bytes": 21857566720,
+            "weight_payload_bytes": 24068689792
+          },
+          {
+            "layers": [
+              22,
+              48
+            ],
+            "canonical_bytes": 818142848,
+            "native_dense_bytes": 1698324480,
+            "head_bytes": 675430400,
+            "expert_bytes": 25831669760,
+            "weight_payload_bytes": 29023567488
+          }
+        ]
+      }
+    },
+    "v4_iq3_experts_q6_gdn": {
+      "tensor_payload_bytes": 74414478848,
+      "expert_bytes": 47689236480,
+      "splits": {
+        "18": [
+          {
+            "layers": [
+              0,
+              18
+            ],
+            "canonical_bytes": 650971392,
+            "native_dense_bytes": 995860480,
+            "head_bytes": 0,
+            "expert_bytes": 17883463680,
+            "weight_payload_bytes": 19530295552
+          },
+          {
+            "layers": [
+              18,
+              48
+            ],
+            "canonical_bytes": 939738368,
+            "native_dense_bytes": 1648680960,
+            "head_bytes": 675430400,
+            "expert_bytes": 29805772800,
+            "weight_payload_bytes": 33069622528
+          }
+        ],
+        "19": [
+          {
+            "layers": [
+              0,
+              19
+            ],
+            "canonical_bytes": 678092928,
+            "native_dense_bytes": 1048391680,
+            "head_bytes": 0,
+            "expert_bytes": 18876989440,
+            "weight_payload_bytes": 20603474048
+          },
+          {
+            "layers": [
+              19,
+              48
+            ],
+            "canonical_bytes": 909995392,
+            "native_dense_bytes": 1596149760,
+            "head_bytes": 675430400,
+            "expert_bytes": 28812247040,
+            "weight_payload_bytes": 31993822592
+          }
+        ],
+        "20": [
+          {
+            "layers": [
+              0,
+              20
+            ],
+            "canonical_bytes": 707838080,
+            "native_dense_bytes": 1106534400,
+            "head_bytes": 0,
+            "expert_bytes": 19870515200,
+            "weight_payload_bytes": 21684887680
+          },
+          {
+            "layers": [
+              20,
+              48
+            ],
+            "canonical_bytes": 877628800,
+            "native_dense_bytes": 1538007040,
+            "head_bytes": 675430400,
+            "expert_bytes": 27818721280,
+            "weight_payload_bytes": 30909787520
+          }
+        ],
+        "21": [
+          {
+            "layers": [
+              0,
+              21
+            ],
+            "canonical_bytes": 734959616,
+            "native_dense_bytes": 1159065600,
+            "head_bytes": 0,
+            "expert_bytes": 20864040960,
+            "weight_payload_bytes": 22758066176
+          },
+          {
+            "layers": [
+              21,
+              48
+            ],
+            "canonical_bytes": 847885824,
+            "native_dense_bytes": 1485475840,
+            "head_bytes": 675430400,
+            "expert_bytes": 26825195520,
+            "weight_payload_bytes": 29833987584
+          }
+        ],
+        "22": [
+          {
+            "layers": [
+              0,
+              22
+            ],
+            "canonical_bytes": 762081152,
+            "native_dense_bytes": 1211596800,
+            "head_bytes": 0,
+            "expert_bytes": 21857566720,
+            "weight_payload_bytes": 23831244672
+          },
+          {
+            "layers": [
+              22,
+              48
+            ],
+            "canonical_bytes": 818142848,
+            "native_dense_bytes": 1432944640,
+            "head_bytes": 675430400,
+            "expert_bytes": 25831669760,
+            "weight_payload_bytes": 28758187648
+          }
+        ]
+      }
+    },
+    "v4_iq3_experts_q6_gdn_qsa": {
+      "tensor_payload_bytes": 74277344768,
+      "expert_bytes": 47689236480,
+      "splits": {
+        "18": [
+          {
+            "layers": [
+              0,
+              18
+            ],
+            "canonical_bytes": 650971392,
+            "native_dense_bytes": 950149120,
+            "head_bytes": 0,
+            "expert_bytes": 17883463680,
+            "weight_payload_bytes": 19484584192
+          },
+          {
+            "layers": [
+              18,
+              48
+            ],
+            "canonical_bytes": 939738368,
+            "native_dense_bytes": 1557258240,
+            "head_bytes": 675430400,
+            "expert_bytes": 29805772800,
+            "weight_payload_bytes": 32978199808
+          }
+        ],
+        "19": [
+          {
+            "layers": [
+              0,
+              19
+            ],
+            "canonical_bytes": 678092928,
+            "native_dense_bytes": 1002680320,
+            "head_bytes": 0,
+            "expert_bytes": 18876989440,
+            "weight_payload_bytes": 20557762688
+          },
+          {
+            "layers": [
+              19,
+              48
+            ],
+            "canonical_bytes": 909995392,
+            "native_dense_bytes": 1504727040,
+            "head_bytes": 675430400,
+            "expert_bytes": 28812247040,
+            "weight_payload_bytes": 31902399872
+          }
+        ],
+        "20": [
+          {
+            "layers": [
+              0,
+              20
+            ],
+            "canonical_bytes": 707838080,
+            "native_dense_bytes": 1049395200,
+            "head_bytes": 0,
+            "expert_bytes": 19870515200,
+            "weight_payload_bytes": 21627748480
+          },
+          {
+            "layers": [
+              20,
+              48
+            ],
+            "canonical_bytes": 877628800,
+            "native_dense_bytes": 1458012160,
+            "head_bytes": 675430400,
+            "expert_bytes": 27818721280,
+            "weight_payload_bytes": 30829792640
+          }
+        ],
+        "21": [
+          {
+            "layers": [
+              0,
+              21
+            ],
+            "canonical_bytes": 734959616,
+            "native_dense_bytes": 1101926400,
+            "head_bytes": 0,
+            "expert_bytes": 20864040960,
+            "weight_payload_bytes": 22700926976
+          },
+          {
+            "layers": [
+              21,
+              48
+            ],
+            "canonical_bytes": 847885824,
+            "native_dense_bytes": 1405480960,
+            "head_bytes": 675430400,
+            "expert_bytes": 26825195520,
+            "weight_payload_bytes": 29753992704
+          }
+        ],
+        "22": [
+          {
+            "layers": [
+              0,
+              22
+            ],
+            "canonical_bytes": 762081152,
+            "native_dense_bytes": 1154457600,
+            "head_bytes": 0,
+            "expert_bytes": 21857566720,
+            "weight_payload_bytes": 23774105472
+          },
+          {
+            "layers": [
+              22,
+              48
+            ],
+            "canonical_bytes": 818142848,
+            "native_dense_bytes": 1352949760,
+            "head_bytes": 675430400,
+            "expert_bytes": 25831669760,
+            "weight_payload_bytes": 28678192768
+          }
+        ]
+      }
+    }
+  },
+  "promoted_expert_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47
+  ],
+  "expert_saving_per_layer_mib": 175.0,
+  "upgrades_387": [
+    {
+      "tensor": "output_hc_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "output_hc_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.0.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.0.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.0.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.0.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.1.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.1.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.1.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.1.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.ple_value.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 13107200
+    },
+    {
+      "tensor": "blk.10.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.10.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.10.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.10.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.10.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.10.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.10.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.10.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.11.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.11.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.11.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.12.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.12.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.12.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.12.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.12.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.12.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.12.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.12.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.13.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.13.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.13.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.13.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.14.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.14.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.14.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.14.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.15.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.15.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.15.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.16.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.16.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.16.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.16.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.16.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.16.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.16.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.16.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.17.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.17.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.17.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.17.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.18.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.18.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.18.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.18.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.19.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.19.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.19.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.2.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.2.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.2.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.2.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.2.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.2.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.2.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.2.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.20.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.20.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.20.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.20.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.21.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.21.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.21.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.21.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.22.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.22.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.22.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.22.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.23.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.23.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.23.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.24.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.24.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.24.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.24.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.24.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.24.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.24.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.24.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.25.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.25.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.25.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.25.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.26.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.26.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.26.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.26.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.27.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.27.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.27.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.28.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.28.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.28.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.28.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.28.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.28.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.28.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.28.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.29.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.29.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.29.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.29.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.3.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.3.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.3.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.30.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.30.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.30.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.30.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.30.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.30.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.30.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.30.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.31.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.31.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.31.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.32.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.32.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.32.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.32.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.32.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.32.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.32.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.32.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.33.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.33.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.33.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.33.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.34.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.34.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.34.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.34.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.35.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.35.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.35.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.36.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.36.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.36.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.36.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.36.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.36.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.36.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.36.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.37.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.37.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.37.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.37.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.38.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.38.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.38.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.38.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.39.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.39.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.39.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.4.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.4.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.4.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.4.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.4.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.4.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.4.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.4.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.40.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.40.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.40.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.40.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.41.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.41.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.41.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.41.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.42.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.42.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.42.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.42.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.43.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.43.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.43.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.44.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.44.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.44.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.44.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.44.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.44.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.44.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.44.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.45.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.45.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.45.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.45.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.46.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.46.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.46.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.46.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.47.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.47.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.47.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.5.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.5.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.5.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.5.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.5.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.5.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.5.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.5.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.6.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.6.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.6.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.6.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.7.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.7.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.7.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.8.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.8.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.8.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.8.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.8.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.8.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.8.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.8.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.9.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.9.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.9.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.9.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    }
+  ],
+  "upgrades_by_role": {
+    "output_hc_down.weight": 1,
+    "output_hc_up.weight": 1,
+    "hc_attn_inject.weight": 48,
+    "hc_attn_down.weight": 48,
+    "hc_attn_up.weight": 48,
+    "ssm_alpha.weight": 36,
+    "ssm_beta.weight": 36,
+    "hc_ffn_inject.weight": 48,
+    "hc_ffn_down.weight": 48,
+    "hc_ffn_up.weight": 48,
+    "ple_value.weight": 1,
+    "indexer.q_proj.weight": 12,
+    "indexer.k_proj.weight": 12
+  },
+  "not_measured": [
+    "candidate quality",
+    "candidate speed",
+    "successful full GPU residency",
+    "peak runtime allocation"
+  ]
+}

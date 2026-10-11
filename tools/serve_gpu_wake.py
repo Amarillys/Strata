@@ -2,6 +2,7 @@
 
 The wake process sees only --wake-device; engine/vision visibility comes from their
 config. The retained CUDA probe starts after engine READY, outside cache sizing.
+Clock locks expire after 120 idle seconds, including a start with no requests.
 """
 from __future__ import annotations
 
@@ -28,11 +29,34 @@ def run_server(server_args, module_dir, wake_device):
     lock = threading.RLock()
     timer = None
     active = 0
+    stopping = False
 
-    def relax():
-        with lock:
-            if not active:
-                power._relax_sync()
+    # These helpers run under lock, including callbacks racing with cancellation.
+    def cancel_idle():
+        nonlocal timer
+        if timer is not None:
+            timer.cancel()
+            timer = None
+
+    def schedule_idle():
+        nonlocal timer
+        cancel_idle()
+        if active or stopping:
+            return
+
+        def relax():
+            nonlocal timer
+            with lock:
+                # Timer.cancel() cannot stop a callback already waiting for lock.
+                # An obsolete callback must not shorten a newer idle interval.
+                if timer is pending and not active:
+                    timer = None
+                    power._relax_sync()
+
+        pending = threading.Timer(120.0, relax)
+        pending.daemon = True
+        timer = pending
+        pending.start()
 
     def initialize():
         with lock:
@@ -45,39 +69,52 @@ def run_server(server_args, module_dir, wake_device):
 
     class AwakeEngine(base):
         def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            if self.alive():
-                initialize()
+            with lock:
+                cancel_idle()
+                # Apply on reload too; no retained Torch allocation on first load.
+                power._boost_sync()
+            try:
+                super().__init__(*args, **kwargs)
+                if self.alive():
+                    initialize()
+            finally:
+                with lock:
+                    # READY (or a lazy/failed start) may never get a generation.
+                    schedule_idle()
+
+        def close(self):
+            super().close()
+            with lock:
+                cancel_idle()
+                if not active:
+                    # /unload may be followed by Windows process termination,
+                    # which does not execute run_server's finally block.
+                    power._relax_sync()
 
         def generate(self, *args, **kwargs):
-            nonlocal timer, active
+            nonlocal active
             with lock:
-                if timer:
-                    timer.cancel()
-                initialize()
-                power._boost_sync()
+                cancel_idle()
                 active += 1
             try:
+                with lock:
+                    initialize()
+                    power._boost_sync()
                 yield from super().generate(*args, **kwargs)
             finally:
                 with lock:
                     active -= 1
-                    if not active:
-                        timer = threading.Timer(120.0, relax)
-                        timer.daemon = True
-                        timer.start()
+                    schedule_idle()
 
     original_argv = sys.argv
     try:
-        # No retained Torch allocation during model loading/cache budgeting.
-        power._boost_sync()
         server.StrataEngine = AwakeEngine
         sys.argv = ["serve.server", *server_args]
         return server.main()
     finally:
         with lock:
-            if timer:
-                timer.cancel()
+            stopping = True
+            cancel_idle()
             power.shutdown()
         server.StrataEngine = base
         sys.argv = original_argv

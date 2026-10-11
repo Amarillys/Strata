@@ -1,0 +1,121 @@
+{
+  "checked_at": "2026-10-09T21:51:31.559928+08:00",
+  "bundle": "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\strata-v4-lite-patch-20261009",
+  "default_ple": "original v4 IQ3_KT",
+  "bundle_files": [
+    {
+      "filename": "AI_PROMPT.zh-CN.md",
+      "bytes": 4589
+    },
+    {
+      "filename": "gguf_reader.py",
+      "bytes": 6607
+    },
+    {
+      "filename": "LICENSE-ik_kt.txt",
+      "bytes": 1383
+    },
+    {
+      "filename": "LICENSE-Strata.txt",
+      "bytes": 1114
+    },
+    {
+      "filename": "manifest.json",
+      "bytes": 33971
+    },
+    {
+      "filename": "README.zh-CN.md",
+      "bytes": 6235
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "bytes": 676
+    },
+    {
+      "filename": "v2-experts-iq3kt.gguf",
+      "bytes": 10527705568
+    },
+    {
+      "filename": "v4_lite_patch.py",
+      "bytes": 25899
+    }
+  ],
+  "bundle_bytes": 10527786042,
+  "unit_tests": {
+    "command": "python -B -m unittest discover -s tools -p test_v4_lite_patch.py -v",
+    "passed": 7
+  },
+  "weight_and_index_checks": {
+    "replacement_payloads_compared_to_original_v2": 32,
+    "replacement_payloads_byte_identical": true,
+    "reused_experts_with_complete_prior_identity_evidence": 112,
+    "expert_index_entries_verified": 144,
+    "expert_bytes": 47689236480,
+    "expert_types": [
+      154
+    ],
+    "v4_dense_payloads_match": true,
+    "v4_native_dense_sources_explicit": true,
+    "iq3_ple_uses_original_v4": true,
+    "recipient_machine_settings_and_private_key_preserved": true,
+    "manifest_sha256": "c70cf512e0fbc5248730f903700d9668be8235703c2c883ae815b1b020e70000"
+  },
+  "recipient_iq3_application": {
+    "python_without_site_packages": true,
+    "original_v2_shards_accessed": false,
+    "optional_iq4_ple_accessed": false,
+    "opened_ggufs": [
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\strata-v4-lite-patch-20261009\\v2-experts-iq3kt.gguf"
+    ],
+    "apply_completed": true,
+    "ple": "iq3"
+  },
+  "recipient_iq4_application_before_optional_file_separated": {
+    "python_without_site_packages": true,
+    "original_v2_shards_accessed": false,
+    "opened_ggufs": [
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\strata-v4-lite-patch-20261009\\v2-experts-iq3kt.gguf",
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\strata-v4-lite-patch-20261009\\v2-ple-iq4kt.gguf"
+    ],
+    "apply_completed": true,
+    "ple": "iq4"
+  },
+  "final_default_verification": {
+    "completed": true,
+    "default_ple": "iq3",
+    "optional_ple_absent_from_bundle": true,
+    "original_v2_accessed": false,
+    "optional_iq4_ple_accessed": false,
+    "python_without_site_packages": true,
+    "opened_ggufs": [
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\strata-v4-lite-patch-20261009\\v2-experts-iq3kt.gguf"
+    ],
+    "manifest_sha256": "c70cf512e0fbc5248730f903700d9668be8235703c2c883ae815b1b020e70000",
+    "script_sha256": "18e723dd8adc083f684f9009494531edf39bd0109df22e039f0d2440c2e4f088"
+  },
+  "production_config_files_unchanged": true,
+  "preset_catalog_unchanged": true,
+  "final_live_check": [
+    {
+      "preset": "v4-lite",
+      "launcher_pid": 26188,
+      "port": 8080,
+      "health": {
+        "status": "ok",
+        "loaded": true,
+        "model": "qwen3.8-flash-next-v4-lite-iq3kt",
+        "max_context": 307200
+      }
+    }
+  ],
+  "candidate_loaded_on_gpu": false,
+  "new_generation_benchmark_run": false,
+  "optional_iq4_ple_not_in_shared_bundle": true,
+  "sensitive_value_scan": "passed"
+}

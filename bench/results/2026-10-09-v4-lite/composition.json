@@ -1,0 +1,4310 @@
+{
+  "created": "2026-10-09T17:53:14.325425+08:00",
+  "name": "v4-lite",
+  "pack": "B:\\llama.cpp\\Strata\\pack\\iq3kt-v4-lite",
+  "config": "B:\\llama.cpp\\Strata\\strata-iq3kt-v4-lite-k8v8-pf2048-vision-igpu.json",
+  "method": "Byte-preserving source selection; no requantization or new calibration.",
+  "sources": {
+    "v2": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "bytes": 47976497984,
+        "mtime_ns": 1790583438182469700,
+        "header_sha256": "d5555d441374da0f3853cbeb44d07b28bdbb344875595f6c733736b5a10b00f1",
+        "full_file_sha256": null
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "bytes": 29886154016,
+        "mtime_ns": 1790583381643024100,
+        "header_sha256": "0a17c4467acbba511977f06ed2fbc018abf4efdc8378a3ffc8181ec60e9c1d98",
+        "full_file_sha256": null
+      }
+    ],
+    "v4": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "bytes": 47599263712,
+        "mtime_ns": 1791445618809062700,
+        "header_sha256": "b7ab3c9ed22de35bc651500eb3a6a3d6a9a9f2698a28909dda934ed29a59d213",
+        "full_file_sha256": null
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "bytes": 30265076064,
+        "mtime_ns": 1791448526079372800,
+        "header_sha256": "2fd1c21a59f0a64c9ee8fcf1a67423437465ed2b3bc765abddf09637e0bd48cc",
+        "full_file_sha256": null
+      }
+    ]
+  },
+  "dense_source": "v4",
+  "native_dense_sources": [
+    "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+    "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf"
+  ],
+  "head_tokenizer_embedding_source": "v4",
+  "ple_projection_source": "v4",
+  "expert_source": "v2",
+  "expert_count": 144,
+  "expert_bytes": 47689236480,
+  "expert_saving_vs_v4_bytes": 2936012800,
+  "ple_table": {
+    "source": "v2",
+    "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+    "type": "IQ4_KT",
+    "shape": [
+      160,
+      320001536
+    ],
+    "offset": 2101768096,
+    "bytes": 26880129024,
+    "increase_vs_v4_bytes": 5120024576
+  },
+  "copied_v4_files": [
+    {
+      "file": "compat-bf16.json",
+      "bytes": 40816,
+      "v4_sha256": "78c028b680f16567bb6e18b9af466daf70c4a373f0e1cdf3858aa5f354f14678",
+      "hybrid_sha256": "78c028b680f16567bb6e18b9af466daf70c4a373f0e1cdf3858aa5f354f14678"
+    },
+    {
+      "file": "conversions.json",
+      "bytes": 184396,
+      "v4_sha256": "dabdae6315f6e8b14803dfb0624757a00262ee76105181395718ae30ed0efc66",
+      "hybrid_sha256": "dabdae6315f6e8b14803dfb0624757a00262ee76105181395718ae30ed0efc66"
+    },
+    {
+      "file": "dense.bin",
+      "bytes": 1485606400,
+      "v4_sha256": "5b897f416728fcba4a24c8937a7fad71299d026c6c86dc6c77c922dad22cf7b0",
+      "hybrid_sha256": "5b897f416728fcba4a24c8937a7fad71299d026c6c86dc6c77c922dad22cf7b0"
+    },
+    {
+      "file": "index.txt",
+      "bytes": 93576,
+      "v4_sha256": "040b62d1cb839770c3feb084de53d385144a3f39ef8723b499c62ec6012244f3",
+      "hybrid_sha256": "040b62d1cb839770c3feb084de53d385144a3f39ef8723b499c62ec6012244f3"
+    },
+    {
+      "file": "tokenizer/chat_template.jinja",
+      "bytes": 8952,
+      "v4_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "hybrid_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041"
+    },
+    {
+      "file": "tokenizer/merges.txt",
+      "bytes": 3600844,
+      "v4_sha256": "080cf95432173729d160346b7882bd2a644b07f7a3813a3eb73f4e66787bfde9",
+      "hybrid_sha256": "080cf95432173729d160346b7882bd2a644b07f7a3813a3eb73f4e66787bfde9"
+    },
+    {
+      "file": "tokenizer/token_type.json",
+      "bytes": 744960,
+      "v4_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b",
+      "hybrid_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b"
+    },
+    {
+      "file": "tokenizer/tokenizer.json",
+      "bytes": 554,
+      "v4_sha256": "87be2ac47d8bc7393b7435df6ccd276740019a393941a2585d5edce59f450c54",
+      "hybrid_sha256": "87be2ac47d8bc7393b7435df6ccd276740019a393941a2585d5edce59f450c54"
+    },
+    {
+      "file": "tokenizer/vision-vocab.gguf",
+      "bytes": 10945248,
+      "v4_sha256": "71486b4985c7d6cb06d02ae2236026fd4fa82a91894342836cee77726ae4783c",
+      "hybrid_sha256": "71486b4985c7d6cb06d02ae2236026fd4fa82a91894342836cee77726ae4783c"
+    },
+    {
+      "file": "tokenizer/vocab.json",
+      "bytes": 5737005,
+      "v4_sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4",
+      "hybrid_sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4"
+    }
+  ],
+  "native_experts_sha256": "b763d19497e8008842645a1a11c2ebf930c05a7c32ff5a3e40abea2c361d565a",
+  "expert_tensors": [
+    {
+      "tensor": "blk.0.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 46918464,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.0.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 375909184,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.0.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 704899904,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.1.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 1083956864,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.1.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 1412947584,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.1.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 1741938304,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.2.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 39382336832,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.2.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 39711327552,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.2.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 40040318272,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.3.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 2780232192,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.3.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 3109222912,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.3.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 3438213632,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.4.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 14209105600,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.4.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 14538096320,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.4.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 14867087040,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.5.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 23538576896,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.5.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 23867567616,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.5.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 24196558336,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.6.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 24575615296,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.6.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 24904606016,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.6.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 25233596736,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.7.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 25583454080,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.7.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 25912444800,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.7.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 26241435520,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.8.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 26647754944,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.8.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 26976745664,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.8.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 27305736384,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.9.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 27684793344,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.9.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 28013784064,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.9.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 29018205184,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.10.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 29017764288,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.10.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 29346755008,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.10.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 29675745728,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.11.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 30025603072,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.11.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 30354593792,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.11.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 30683584512,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.12.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 31089903936,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.12.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 31418894656,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.12.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 31747885376,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.13.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 32126942336,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.13.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 32455933056,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.13.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 32784923776,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.14.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 33163980736,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.14.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 33492971456,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.14.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 33821962176,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.15.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 34171819520,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.15.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 34500810240,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.15.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 34829800960,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.16.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 35236120384,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.16.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 35565111104,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.16.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 35894101824,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.17.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 36273158784,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.17.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 36602149504,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.17.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 36931140224,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.18.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 37310197184,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.18.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 37639187904,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.18.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 37968178624,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.19.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 38318035968,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.19.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 38647026688,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.19.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 38976017408,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.20.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 40419375232,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.20.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 40748365952,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.20.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 41077356672,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.21.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 41456413632,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.21.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 41785404352,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.21.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 42114395072,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.22.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 42493452032,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.22.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 42822442752,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.22.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 43151433472,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.23.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 43501290816,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.23.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 43830281536,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.23.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 44159272256,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.24.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 44565591680,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.24.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 44894582400,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.24.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 45223573120,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.25.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 45602630080,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.25.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 45931620800,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.25.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 46260611520,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.26.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 46639668480,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.26.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 46968659200,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.26.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 47297649920,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.27.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+      "offset": 47647507264,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.27.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 44864,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.27.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 329035584,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.28.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 735355008,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.28.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 1064345728,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.28.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 1393336448,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.29.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 1772393408,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.29.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 2101384128,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.29.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 2430374848,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.30.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 3844533056,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.30.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 4173523776,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.30.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 4502514496,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.31.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 4852371840,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.31.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 5181362560,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.31.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 5510353280,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.32.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 5916672704,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.32.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 6245663424,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.32.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 6574654144,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.33.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 6953711104,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.33.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 7282701824,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.33.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 7611692544,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.34.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 7990749504,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.34.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 8319740224,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.34.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 8648730944,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.35.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 8998588288,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.35.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 9327579008,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.35.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 9656569728,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.36.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 10062889152,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.36.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 10391879872,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.36.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 10720870592,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.37.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 11099927552,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.37.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 11428918272,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.37.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 11757908992,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.38.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 12136965952,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.38.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 12465956672,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.38.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 12794947392,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.39.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 13144804736,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.39.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 13473795456,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.39.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 13802786176,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.40.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 15246144000,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.40.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 15575134720,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.40.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 15904125440,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.41.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 16283182400,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.41.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 16612173120,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.41.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 16941163840,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.42.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 17320220800,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.42.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 17649211520,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.42.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 17978202240,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.43.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 18328059584,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.43.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 18657050304,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.43.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 18986041024,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.44.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 19392360448,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.44.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 19721351168,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.44.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 20050341888,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.45.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 20429398848,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.45.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 20758389568,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.45.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 21087380288,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.46.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 21466437248,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.46.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 21795427968,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.46.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 22124418688,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.47.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 22474276032,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.47.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 22803266752,
+      "bytes": 328990720,
+      "type": "IQ3_KT",
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.47.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+      "offset": 23132257472,
+      "bytes": 335544320,
+      "type": "IQ3_KT",
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    }
+  ],
+  "included_v4_upgrades": [
+    {
+      "tensor": "output_hc_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "output_hc_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.0.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.0.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.0.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.0.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.0.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.1.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.1.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.1.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.1.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.1.ple_value.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 13107200
+    },
+    {
+      "tensor": "blk.10.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.10.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.10.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.10.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.10.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.10.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.10.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.10.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.11.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.11.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.11.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.11.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.12.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.12.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.12.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.12.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.12.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.12.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.12.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.12.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.13.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.13.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.13.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.13.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.13.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.14.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.14.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.14.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.14.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.14.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.15.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.15.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.15.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.15.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.16.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.16.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.16.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.16.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.16.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.16.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.16.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.16.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.17.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.17.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.17.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.17.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.17.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.18.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.18.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.18.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.18.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.18.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.19.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.19.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.19.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.19.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.2.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.2.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.2.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.2.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.2.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.2.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.2.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.2.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.20.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.20.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.20.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.20.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.20.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.21.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.21.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.21.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.21.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.21.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.22.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.22.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.22.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.22.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.22.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.23.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.23.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.23.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.23.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.24.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.24.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.24.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.24.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.24.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.24.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.24.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.24.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.25.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.25.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.25.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.25.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.25.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.26.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.26.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.26.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.26.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.26.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.27.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.27.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.27.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.27.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.28.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.28.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.28.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.28.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.28.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.28.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.28.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.28.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.29.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.29.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.29.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.29.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.29.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.3.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.3.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.3.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.3.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.30.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.30.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.30.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.30.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.30.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.30.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.30.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.30.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.31.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.31.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.31.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.31.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.32.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.32.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.32.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.32.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.32.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.32.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.32.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.32.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.33.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.33.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.33.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.33.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.33.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.34.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.34.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.34.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.34.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.34.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.35.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.35.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.35.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.35.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.36.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.36.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.36.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.36.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.36.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.36.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.36.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.36.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.37.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.37.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.37.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.37.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.37.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.38.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.38.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.38.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.38.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.38.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.39.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.39.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.39.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.39.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.4.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.4.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.4.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.4.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.4.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.4.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.4.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.4.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.40.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.40.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.40.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.40.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.40.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.41.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.41.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.41.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.41.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.41.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.42.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.42.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.42.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.42.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.42.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.43.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.43.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.43.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.43.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.44.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.44.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.44.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.44.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.44.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.44.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.44.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.44.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.45.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.45.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.45.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.45.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.45.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.46.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.46.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.46.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.46.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.46.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.47.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.47.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.47.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.47.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.5.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.5.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.5.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.5.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.5.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.5.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.5.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.5.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.6.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.6.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.6.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.6.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.6.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.7.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.7.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.7.indexer.q_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 2621440
+    },
+    {
+      "tensor": "blk.7.indexer.k_proj.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "BF16",
+      "runtime_bytes_both": 655360
+    },
+    {
+      "tensor": "blk.8.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.8.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.8.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.8.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.8.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.8.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.8.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.8.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.hc_attn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.9.hc_attn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.hc_attn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.ssm_alpha.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.9.ssm_beta.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 245760
+    },
+    {
+      "tensor": "blk.9.hc_ffn_inject.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 81920
+    },
+    {
+      "tensor": "blk.9.hc_ffn_down.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    },
+    {
+      "tensor": "blk.9.hc_ffn_up.weight",
+      "v2_type": "IQ4_KT",
+      "v4_type": "Q8_0",
+      "runtime_bytes_both": 6553600
+    }
+  ],
+  "full_expert_comparison_evidence": "bench\\results\\2026-10-09-iqkt-lite-analysis\\expert-identity.json",
+  "full_expert_comparison_sha256": "81be9d03349dda750dfecb6fdabbd746601e009bbc51f05c3f418a37ef75555d",
+  "gpu_weight_payload_splits": {
+    "18": [
+      {
+        "layers": [
+          0,
+          18
+        ],
+        "canonical_bytes": 650971392,
+        "native_dense_bytes": 1191403520,
+        "head_bytes": 0,
+        "expert_bytes": 17883463680,
+        "weight_payload_bytes": 19725838592
+      },
+      {
+        "layers": [
+          18,
+          48
+        ],
+        "canonical_bytes": 939738368,
+        "native_dense_bytes": 1955962880,
+        "head_bytes": 675430400,
+        "expert_bytes": 29805772800,
+        "weight_payload_bytes": 33376904448
+      }
+    ],
+    "19": [
+      {
+        "layers": [
+          0,
+          19
+        ],
+        "canonical_bytes": 678092928,
+        "native_dense_bytes": 1257902080,
+        "head_bytes": 0,
+        "expert_bytes": 18876989440,
+        "weight_payload_bytes": 20812984448
+      },
+      {
+        "layers": [
+          19,
+          48
+        ],
+        "canonical_bytes": 909995392,
+        "native_dense_bytes": 1889464320,
+        "head_bytes": 675430400,
+        "expert_bytes": 28812247040,
+        "weight_payload_bytes": 32287137152
+      }
+    ],
+    "20": [
+      {
+        "layers": [
+          0,
+          20
+        ],
+        "canonical_bytes": 707838080,
+        "native_dense_bytes": 1316044800,
+        "head_bytes": 0,
+        "expert_bytes": 19870515200,
+        "weight_payload_bytes": 21894398080
+      },
+      {
+        "layers": [
+          20,
+          48
+        ],
+        "canonical_bytes": 877628800,
+        "native_dense_bytes": 1831321600,
+        "head_bytes": 675430400,
+        "expert_bytes": 27818721280,
+        "weight_payload_bytes": 31203102080
+      }
+    ],
+    "21": [
+      {
+        "layers": [
+          0,
+          21
+        ],
+        "canonical_bytes": 734959616,
+        "native_dense_bytes": 1382543360,
+        "head_bytes": 0,
+        "expert_bytes": 20864040960,
+        "weight_payload_bytes": 22981543936
+      },
+      {
+        "layers": [
+          21,
+          48
+        ],
+        "canonical_bytes": 847885824,
+        "native_dense_bytes": 1764823040,
+        "head_bytes": 675430400,
+        "expert_bytes": 26825195520,
+        "weight_payload_bytes": 30113334784
+      }
+    ],
+    "22": [
+      {
+        "layers": [
+          0,
+          22
+        ],
+        "canonical_bytes": 762081152,
+        "native_dense_bytes": 1449041920,
+        "head_bytes": 0,
+        "expert_bytes": 21857566720,
+        "weight_payload_bytes": 24068689792
+      },
+      {
+        "layers": [
+          22,
+          48
+        ],
+        "canonical_bytes": 818142848,
+        "native_dense_bytes": 1698324480,
+        "head_bytes": 675430400,
+        "expert_bytes": 25831669760,
+        "weight_payload_bytes": 29023567488
+      }
+    ]
+  },
+  "limitations": [
+    "No full GGUF checksums; headers, tensor extents and prior file stats checked.",
+    "No inference/quality/residency results are implied by this composition manifest.",
+    "The hybrid references original GGUFs; originals must remain at their paths."
+  ]
+}

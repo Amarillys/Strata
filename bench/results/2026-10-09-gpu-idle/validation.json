@@ -1,0 +1,1316 @@
+{
+  "date": "2026-10-09",
+  "timezone": "Asia/Shanghai",
+  "restart": {
+    "pid": 23744,
+    "preset": "v4",
+    "port": 8080,
+    "ready_at": 1791482915.0450025,
+    "health": {
+      "status": "ok",
+      "loaded": true,
+      "max_context": 262144,
+      "images": true
+    }
+  },
+  "idle_timeout_s": 120,
+  "samples": [
+    {
+      "at": "2026-10-09T02:09:14.544774+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.14,
+          "utilization_pct": 13.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.94,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:19.636004+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.03,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.0,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:24.729487+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 27.13,
+          "utilization_pct": 13.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.69,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:29.825248+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.22,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.01,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:34.903625+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 27.38,
+          "utilization_pct": 13.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.17,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:39.992719+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 27.91,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.15,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:45.074615+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 27.51,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.98,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:50.151044+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.92,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.94,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:09:55.246406+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 25.36,
+          "utilization_pct": 13.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.45,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:00.339045+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 25.87,
+          "utilization_pct": 13.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.26,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:05.417494+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 27.46,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.65,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:10.497173+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.07,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.16,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:15.591464+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 25.59,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.03,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:20.682265+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 27.24,
+          "utilization_pct": 13.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.22,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:25.771000+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 27.07,
+          "utilization_pct": 14.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.01,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:30.859216+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 25.99,
+          "utilization_pct": 13.0,
+          "vram_mib": 20999.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.98,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:35.936536+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1350.0,
+          "memory_mhz": 6800.0,
+          "power_w": 60.12,
+          "utilization_pct": 10.0,
+          "vram_mib": 20998.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 300.0,
+          "memory_mhz": 810.0,
+          "power_w": 21.78,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:41.027820+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P8",
+          "graphics_mhz": 405.0,
+          "memory_mhz": 405.0,
+          "power_w": 22.83,
+          "utilization_pct": 29.0,
+          "vram_mib": 20998.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.18,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:46.124076+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P8",
+          "graphics_mhz": 405.0,
+          "memory_mhz": 405.0,
+          "power_w": 21.38,
+          "utilization_pct": 28.0,
+          "vram_mib": 20998.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.27,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:51.213656+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P8",
+          "graphics_mhz": 405.0,
+          "memory_mhz": 405.0,
+          "power_w": 22.0,
+          "utilization_pct": 28.0,
+          "vram_mib": 20998.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.12,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:53.217271+08:00",
+      "stage": "idle_after_startup",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P8",
+          "graphics_mhz": 405.0,
+          "memory_mhz": 405.0,
+          "power_w": 22.06,
+          "utilization_pct": 29.0,
+          "vram_mib": 20998.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.22,
+          "utilization_pct": 0.0,
+          "vram_mib": 30787.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:53.380391+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 28.12,
+          "utilization_pct": 29.0,
+          "vram_mib": 21006.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.22,
+          "utilization_pct": 0.0,
+          "vram_mib": 30795.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:53.966570+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 85.2,
+          "utilization_pct": 29.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 77.71,
+          "utilization_pct": 31.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:54.549423+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 102.69,
+          "utilization_pct": 64.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 81.5,
+          "utilization_pct": 23.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:55.145406+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 99.98,
+          "utilization_pct": 64.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 85.78,
+          "utilization_pct": 31.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:55.738485+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 100.72,
+          "utilization_pct": 74.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 82.66,
+          "utilization_pct": 27.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:56.324272+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 95.55,
+          "utilization_pct": 78.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 79.16,
+          "utilization_pct": 27.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:56.911972+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 97.94,
+          "utilization_pct": 78.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 78.81,
+          "utilization_pct": 31.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:57.495822+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 102.3,
+          "utilization_pct": 77.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 79.73,
+          "utilization_pct": 24.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:58.092216+08:00",
+      "stage": "generation",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 97.5,
+          "utilization_pct": 77.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 78.78,
+          "utilization_pct": 24.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:10:58.672998+08:00",
+      "stage": "idle_after_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 62.56,
+          "utilization_pct": 71.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 73.47,
+          "utilization_pct": 0.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:11:03.759631+08:00",
+      "stage": "idle_after_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 25.79,
+          "utilization_pct": 13.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.61,
+          "utilization_pct": 0.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:11:08.834320+08:00",
+      "stage": "idle_after_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.12,
+          "utilization_pct": 14.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.86,
+          "utilization_pct": 0.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:11:13.923740+08:00",
+      "stage": "idle_after_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 28.47,
+          "utilization_pct": 14.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.88,
+          "utilization_pct": 0.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:11:19.007695+08:00",
+      "stage": "idle_after_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 29.07,
+          "utilization_pct": 14.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.87,
+          "utilization_pct": 0.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:11:24.095943+08:00",
+      "stage": "idle_after_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.26,
+          "utilization_pct": 14.0,
+          "vram_mib": 21014.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 44.61,
+          "utilization_pct": 0.0,
+          "vram_mib": 30807.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:11:29.184277+08:00",
+      "stage": "idle_after_request",
+      "status": {
+        "busy": true,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P2",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 6800.0,
+          "power_w": 104.65,
+          "utilization_pct": 52.0,
+          "vram_mib": 21024.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2790.0,
+          "memory_mhz": 11251.0,
+          "power_w": 121.07,
+          "utilization_pct": 9.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:13:38.084915+08:00",
+      "stage": "idle_after_live_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 1500.0,
+          "memory_mhz": 810.0,
+          "power_w": 30.3,
+          "utilization_pct": 21.0,
+          "vram_mib": 21025.0
+        },
+        {
+          "index": 1,
+          "pstate": "P2",
+          "graphics_mhz": 2100.0,
+          "memory_mhz": 11251.0,
+          "power_w": 45.14,
+          "utilization_pct": 0.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:13:43.190429+08:00",
+      "stage": "idle_after_live_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 660.0,
+          "memory_mhz": 810.0,
+          "power_w": 34.7,
+          "utilization_pct": 22.0,
+          "vram_mib": 21025.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.14,
+          "utilization_pct": 0.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:13:48.284388+08:00",
+      "stage": "idle_after_live_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 675.0,
+          "memory_mhz": 810.0,
+          "power_w": 26.36,
+          "utilization_pct": 40.0,
+          "vram_mib": 21025.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.14,
+          "utilization_pct": 0.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:13:53.361178+08:00",
+      "stage": "idle_after_live_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P5",
+          "graphics_mhz": 675.0,
+          "memory_mhz": 810.0,
+          "power_w": 28.24,
+          "utilization_pct": 32.0,
+          "vram_mib": 21025.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.14,
+          "utilization_pct": 0.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:13:58.453279+08:00",
+      "stage": "idle_after_live_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P8",
+          "graphics_mhz": 600.0,
+          "memory_mhz": 405.0,
+          "power_w": 24.49,
+          "utilization_pct": 28.0,
+          "vram_mib": 21026.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.06,
+          "utilization_pct": 0.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:14:03.544445+08:00",
+      "stage": "idle_after_live_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P8",
+          "graphics_mhz": 540.0,
+          "memory_mhz": 405.0,
+          "power_w": 25.36,
+          "utilization_pct": 24.0,
+          "vram_mib": 21026.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.53,
+          "utilization_pct": 0.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-09T02:14:08.633053+08:00",
+      "stage": "idle_after_live_request",
+      "status": {
+        "busy": false,
+        "queued": 0
+      },
+      "gpus": [
+        {
+          "index": 0,
+          "pstate": "P8",
+          "graphics_mhz": 540.0,
+          "memory_mhz": 405.0,
+          "power_w": 23.33,
+          "utilization_pct": 22.0,
+          "vram_mib": 21026.0
+        },
+        {
+          "index": 1,
+          "pstate": "P8",
+          "graphics_mhz": 210.0,
+          "memory_mhz": 405.0,
+          "power_w": 4.03,
+          "utilization_pct": 0.0,
+          "vram_mib": 30843.0
+        }
+      ]
+    }
+  ],
+  "startup_without_generation_passed": true,
+  "request": {
+    "wall_s": 5.364590644836426,
+    "usage": {
+      "prompt_tokens": 32,
+      "completion_tokens": 128,
+      "total_tokens": 160,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "finish_reason": "length",
+    "content_chars": 128
+  },
+  "real_traffic_during_post_request_observation": true,
+  "power_events": [
+    "boost",
+    "relax",
+    "boost",
+    "boost",
+    "relax"
+  ],
+  "request_then_idle_passed": true,
+  "additional_requests_after_test": 1,
+  "final_health": {
+    "status": "ok",
+    "loaded": true,
+    "max_context": 262144,
+    "images": true
+  },
+  "environment": {
+    "gpu_0": "RTX 2080 Ti 22 GiB",
+    "gpu_1": "RTX 4080 SUPER 32 GiB over USB4",
+    "driver": "610.88",
+    "layer_split": [
+      22,
+      26
+    ],
+    "kv": "K8V8",
+    "context": 262144,
+    "mtp": false
+  },
+  "initial_observation": [
+    {
+      "index": 0,
+      "pstate": "P5",
+      "graphics_mhz": 1500,
+      "memory_mhz": 810,
+      "power_w": 27.66,
+      "vram_mib": 20999
+    },
+    {
+      "index": 1,
+      "pstate": "P2",
+      "graphics_mhz": 2100,
+      "memory_mhz": 11251,
+      "power_w": 45.16,
+      "vram_mib": 30787
+    }
+  ],
+  "tests": {
+    "wake_lifecycle": 10,
+    "preset_switch": 6,
+    "passed": true
+  }
+}

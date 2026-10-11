@@ -1,0 +1,5478 @@
+{
+  "created_utc": "2026-10-09T08:48:41.958714+00:00",
+  "method": "Read-only, complete payload comparison of v2/v4 routed experts and routers.\n\nUnlike the earlier five-window probe, every byte of every same-type tensor in\nscope is compared. Different-type tensors are inventoried, not requantized.\nThe GGUFs are opened read-only; this script does not contact the live service.\n",
+  "model_directory": "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next",
+  "files": {
+    "v2": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "bytes": 47976497984,
+        "mtime_ns": 1790583438182469700,
+        "metadata": {
+          "general.architecture": "qwen4exp",
+          "general.name": "Qwen3.8 Flash Next Uncensored",
+          "general.file_type": 153,
+          "general.quantization_version": 2,
+          "quantize.imatrix.file": "qwen4exp-agentic-v3.imatrix",
+          "quantize.imatrix.dataset": "calibration-qwen4exp-v3.txt",
+          "quantize.imatrix.entries_count": 818,
+          "quantize.imatrix.chunks_count": 2800
+        }
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "bytes": 29886154016,
+        "mtime_ns": 1790583381643024100,
+        "metadata": {}
+      }
+    ],
+    "v4": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "bytes": 47599263712,
+        "mtime_ns": 1791445618809062700,
+        "metadata": {
+          "general.architecture": "qwen4exp",
+          "general.name": "Qwen3.8 Flash Next Uncensored",
+          "general.file_type": 152,
+          "general.quantization_version": 2,
+          "quantize.imatrix.file": "qwen4exp-agentic-v3.imatrix",
+          "quantize.imatrix.dataset": "calibration-qwen4exp-v3.txt",
+          "quantize.imatrix.entries_count": 818,
+          "quantize.imatrix.chunks_count": 2800
+        }
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "bytes": 30265076064,
+        "mtime_ns": 1791448526079372800,
+        "metadata": {}
+      }
+    ]
+  },
+  "counts": {
+    "expert.different_type": 32,
+    "expert.equal": 112,
+    "router.equal": 48
+  },
+  "read_bytes": 74826383360,
+  "elapsed_seconds": 76.079,
+  "file_sizes_and_mtimes_unchanged": true,
+  "equal_expert_bytes_per_model": 37161533440,
+  "tensors": [
+    {
+      "tensor": "blk.0.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 46918464,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 86736992,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.0.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 375909184,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 507478112,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.0.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 704899904,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "527e1ac30ba15aec30497fc399ee55bc9037900ba8b7929098044538df49205b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 928219232,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "527e1ac30ba15aec30497fc399ee55bc9037900ba8b7929098044538df49205b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.0.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 1040444224,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "c367d894cf8ce1f3681d71f4b6fbb4c419cbae8c41fb2593232b40bd49bd7455"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 1263763552,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "c367d894cf8ce1f3681d71f4b6fbb4c419cbae8c41fb2593232b40bd49bd7455"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.1.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 1083956864,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 1350036448,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.1.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 1412947584,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 1770777568,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.1.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 1741938304,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "8d2146e8f88473bb75398b984d6537203165d98d5fb38fa559cc4038ec681094"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 2191518688,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "8d2146e8f88473bb75398b984d6537203165d98d5fb38fa559cc4038ec681094"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.1.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 2077482624,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8a9a3697015e8f9158539be07d9d250c9c54c70a0d3b943bfb93bd157208781d"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 2527063008,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8a9a3697015e8f9158539be07d9d250c9c54c70a0d3b943bfb93bd157208781d"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.10.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 29017764288,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bdf7576ed101089634ee2679a2e9f1d6e0fecf32f10e65e4d27415a5f22e77e5"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 24408461152,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bdf7576ed101089634ee2679a2e9f1d6e0fecf32f10e65e4d27415a5f22e77e5"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.10.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 29346755008,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "376a43c5a0abf43f0b6940cb263f934fad2c38768c56bd2d517e391a1e499a8c"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 24737451872,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "376a43c5a0abf43f0b6940cb263f934fad2c38768c56bd2d517e391a1e499a8c"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.10.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 29675745728,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "365d83e978f3624ed860648c2243c7a0b3796e21ac10b391a59cd858e35c6cab"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 25066442592,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "365d83e978f3624ed860648c2243c7a0b3796e21ac10b391a59cd858e35c6cab"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.10.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 30011290048,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "54d25f01e50dab4f9ee9443c7e4f72e70561d5ef3273a5ba8d9c0e27ba8eb824"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 25401986912,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "54d25f01e50dab4f9ee9443c7e4f72e70561d5ef3273a5ba8d9c0e27ba8eb824"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.11.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 30025603072,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ff7675c01296bee997b0066e7adcd9fc30a651310f11af1e368319d1d63dafdf"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 25426557792,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ff7675c01296bee997b0066e7adcd9fc30a651310f11af1e368319d1d63dafdf"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.11.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 30354593792,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "095ce3d152754db2af9680285b161c1195f77b66b81d73ae949500c734b0d511"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 25755548512,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "095ce3d152754db2af9680285b161c1195f77b66b81d73ae949500c734b0d511"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.11.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 30683584512,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "68cfe49499b5343f8afbe46ac82673cff9da333023f4502a9fa3b40b4e7866f5"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 26084539232,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "68cfe49499b5343f8afbe46ac82673cff9da333023f4502a9fa3b40b4e7866f5"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.11.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 31019128832,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3109af1ffb739f1232cf7cd129966f2b48050a4eaddca47525dd029e4ebabf79"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 26420083552,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3109af1ffb739f1232cf7cd129966f2b48050a4eaddca47525dd029e4ebabf79"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.12.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 31089903936,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "490f09c2a9f8d682234cb93b7803c068287078b4e4e6623d7a434cb0f594351b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 26562556640,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "490f09c2a9f8d682234cb93b7803c068287078b4e4e6623d7a434cb0f594351b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.12.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 31418894656,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "94b831793fc39125718ea9f9fe2bbd2a40037035b13f2c3440516ba743a03622"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 26891547360,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "94b831793fc39125718ea9f9fe2bbd2a40037035b13f2c3440516ba743a03622"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.12.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 31747885376,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ad77dea14e54bc53c955b92e7ef559a36b0d4cf6b68a8e770a2d97bae3a88efd"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 27220538080,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ad77dea14e54bc53c955b92e7ef559a36b0d4cf6b68a8e770a2d97bae3a88efd"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.12.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 32083429696,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "07420ccb970584be352fb60ca9464df0e6d60162fe9e18b47bade68ab4778dd9"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 27556082400,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "07420ccb970584be352fb60ca9464df0e6d60162fe9e18b47bade68ab4778dd9"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.13.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 32126942336,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d1c978366c6d5259d4e29b662d700e137bd319bee7258eb58fa72ac15d0ec2e6"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 27642355296,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d1c978366c6d5259d4e29b662d700e137bd319bee7258eb58fa72ac15d0ec2e6"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.13.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 32455933056,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e8302b153390cae9dd5e4ba3a279d78437c571f4e6e2ddfae54f8e5a00a2de1c"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 27971346016,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e8302b153390cae9dd5e4ba3a279d78437c571f4e6e2ddfae54f8e5a00a2de1c"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.13.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 32784923776,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "13ea1e5180137dab33bd3793059dd5f39275e759a9bcfa2a5defe6f2fa912249"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 28300336736,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "13ea1e5180137dab33bd3793059dd5f39275e759a9bcfa2a5defe6f2fa912249"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.13.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 33120468096,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3318fe2bb45892fb1d7666b56ee17b878ddf5cd5cf2cda1e33b0b3f8f489d9e3"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 28635881056,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3318fe2bb45892fb1d7666b56ee17b878ddf5cd5cf2cda1e33b0b3f8f489d9e3"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.14.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 33163980736,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0cc2a7f6c32926815c24d1525c75bc24e56f65e110ac2b5c5f58a0e9f3e7d001"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 28722153952,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0cc2a7f6c32926815c24d1525c75bc24e56f65e110ac2b5c5f58a0e9f3e7d001"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.14.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 33492971456,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "2cbf906a9d44839ea9f01095e29088f24a954c2e45bf0414502af8ade2323949"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 29051144672,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "2cbf906a9d44839ea9f01095e29088f24a954c2e45bf0414502af8ade2323949"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.14.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 33821962176,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0ce60da0d6363c3512e88e2939b522c9573212f9845fcf7aea14aefad63cc775"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 29380135392,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0ce60da0d6363c3512e88e2939b522c9573212f9845fcf7aea14aefad63cc775"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.14.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 34157506496,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "deaa130f8595b72ddbb80a97b238eb49b9a08b812b325fbf88699e1a8837c2d2"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 29715679712,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "deaa130f8595b72ddbb80a97b238eb49b9a08b812b325fbf88699e1a8837c2d2"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.15.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 34171819520,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "3d0429144cb5cd2cef8de5d9202db336c5cb1fda8c8ef37be96333f3c6e02838"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 29740250592,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "3d0429144cb5cd2cef8de5d9202db336c5cb1fda8c8ef37be96333f3c6e02838"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.15.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 34500810240,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ff6ea50836179cd5c71548579a7b74942989d09f1d9b747df3ea636b329f95f5"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 30069241312,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ff6ea50836179cd5c71548579a7b74942989d09f1d9b747df3ea636b329f95f5"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.15.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 34829800960,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "a956849809195af576216d166d92cc9baee1059410aca50536034129cafbdfa1"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 30398232032,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "a956849809195af576216d166d92cc9baee1059410aca50536034129cafbdfa1"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.15.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 35165345280,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "edc5f198f82a38b1637a4ffaf070e8c500283cf09d9776ab5610f195667a676d"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 30733776352,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "edc5f198f82a38b1637a4ffaf070e8c500283cf09d9776ab5610f195667a676d"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.16.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 35236120384,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b4b20f3b9397da005a16db52605339b84ef6f53541179b7165b044e3c65792d3"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 30876249440,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b4b20f3b9397da005a16db52605339b84ef6f53541179b7165b044e3c65792d3"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.16.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 35565111104,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "329b6be5d0cbd9aadedbaf7ec42c08950b0f1ab080f64f033f439f0811589fc0"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 31205240160,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "329b6be5d0cbd9aadedbaf7ec42c08950b0f1ab080f64f033f439f0811589fc0"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.16.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 35894101824,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "aeb15d8fae2b89a695a792722cc70bff3840f999fcff3dfbdbac373e7f1dc0db"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 31534230880,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "aeb15d8fae2b89a695a792722cc70bff3840f999fcff3dfbdbac373e7f1dc0db"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.16.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 36229646144,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "c2fbf232fa97ea0cf23ed42c086bcccbb7a93c353ecc5c18fdcd041aa52b0717"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 31869775200,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "c2fbf232fa97ea0cf23ed42c086bcccbb7a93c353ecc5c18fdcd041aa52b0717"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.17.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 36273158784,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "dc56f1aa163f7e6e3a23bb38a9ca160bddef0fe90f218e2e3f6e06ad9d9ff5b0"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 31956048096,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "dc56f1aa163f7e6e3a23bb38a9ca160bddef0fe90f218e2e3f6e06ad9d9ff5b0"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.17.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 36602149504,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4f6304265db90898c195a0ec67cc8d60b218999a06c15b1e735ded6975f6c116"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 32285038816,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4f6304265db90898c195a0ec67cc8d60b218999a06c15b1e735ded6975f6c116"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.17.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 36931140224,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "70ab7b1c36973c9e7e4b28d387314847cc4480a68a7d71d60c9b61617eda155c"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 32614029536,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "70ab7b1c36973c9e7e4b28d387314847cc4480a68a7d71d60c9b61617eda155c"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.17.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 37266684544,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3cc2c69b95c4272493855fe5a72b67714c6d4e7e3319cb65efe6bf036a1a222c"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 32949573856,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3cc2c69b95c4272493855fe5a72b67714c6d4e7e3319cb65efe6bf036a1a222c"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.18.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 37310197184,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "3535d68832f6a4729e7e3fdb8f4bac2398afaa0d49fc74ad93ff87a1bdfbcfe7"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 33035846752,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "3535d68832f6a4729e7e3fdb8f4bac2398afaa0d49fc74ad93ff87a1bdfbcfe7"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.18.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 37639187904,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "08084622b5619ed995c669faa8b90bda663db6933cae73e8c2f16a777d6a816b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 33364837472,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "08084622b5619ed995c669faa8b90bda663db6933cae73e8c2f16a777d6a816b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.18.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 37968178624,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d50e6ba3e4936dbf6a3a2f3faff909622683138f5d3918ac3e27511112b30b70"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 33693828192,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d50e6ba3e4936dbf6a3a2f3faff909622683138f5d3918ac3e27511112b30b70"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.18.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 38303722944,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8205da910e2b49109516c6cfcbd33e541f7a44256cdb020b7751d3f5f2f81d7b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 34029372512,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8205da910e2b49109516c6cfcbd33e541f7a44256cdb020b7751d3f5f2f81d7b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.19.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 38318035968,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6d3069155fd2ec9869d4fb97f69725275556536491fd8eb86b5f4f5dc79be750"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 34053943392,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6d3069155fd2ec9869d4fb97f69725275556536491fd8eb86b5f4f5dc79be750"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.19.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 38647026688,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6da1c2abc04397e2672e5b28fea8817dc917e1bcfb973a0ccd15bc0f2f300089"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 34382934112,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6da1c2abc04397e2672e5b28fea8817dc917e1bcfb973a0ccd15bc0f2f300089"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.19.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 38976017408,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "f9776020f8e51a421b0885c24183dfd64ef0fa726a5449fba393b018bf8f2bb8"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 34711924832,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "f9776020f8e51a421b0885c24183dfd64ef0fa726a5449fba393b018bf8f2bb8"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.19.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 39311561728,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3baee2f57cbc7258bed5aff9f45ac171f2ae40d17ea1fca01d8b9c004682fc46"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 35047469152,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "3baee2f57cbc7258bed5aff9f45ac171f2ae40d17ea1fca01d8b9c004682fc46"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.2.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 39382336832,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 35189942240,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.2.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 39711327552,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 35610683360,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.2.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 40040318272,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "76c79015e2441b968229fd645a22406ff5210a068408fe443e59d807fdeedb85"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 36031424480,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "76c79015e2441b968229fd645a22406ff5210a068408fe443e59d807fdeedb85"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.2.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 40375862592,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "328a0ad6a00c2519e8c4aa20175a41208d8a64844cae4c8658112514721ce773"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 36366968800,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "328a0ad6a00c2519e8c4aa20175a41208d8a64844cae4c8658112514721ce773"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.20.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 40419375232,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "fd635fe0b55e3aa95c4e7329389e20402d1c144c3acb9db86aa5efd468dc117f"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 36453241696,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "fd635fe0b55e3aa95c4e7329389e20402d1c144c3acb9db86aa5efd468dc117f"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.20.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 40748365952,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bd348ba4c25d5df0f20219d7cd38452d60736649f11f22a1cbbe0a1aff8249d8"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 36782232416,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bd348ba4c25d5df0f20219d7cd38452d60736649f11f22a1cbbe0a1aff8249d8"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.20.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 41077356672,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "836bbb30b1e9a08017e18efa866764b4b8f7d867f88f4eb043b480f74cc9aaab"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 37111223136,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "836bbb30b1e9a08017e18efa866764b4b8f7d867f88f4eb043b480f74cc9aaab"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.20.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 41412900992,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "7866e7247ccd27084c273a906c502dd2ac5a6b449ea758798d636e45f9343e52"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 37446767456,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "7866e7247ccd27084c273a906c502dd2ac5a6b449ea758798d636e45f9343e52"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.21.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 41456413632,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "fb6de4a6253d713842566695d870b7347b6aa74b53351f7d71b452ada099f5a0"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 37533040352,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "fb6de4a6253d713842566695d870b7347b6aa74b53351f7d71b452ada099f5a0"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.21.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 41785404352,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "35649b4a8901791cc6ee7a7984f4632ec7ef2e7832dbe9ffdfe06f47282c113b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 37862031072,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "35649b4a8901791cc6ee7a7984f4632ec7ef2e7832dbe9ffdfe06f47282c113b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.21.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 42114395072,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "569947587aa8899b9c60a7337548c99b98b10046898d996effec030626af2243"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 38191021792,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "569947587aa8899b9c60a7337548c99b98b10046898d996effec030626af2243"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.21.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 42449939392,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f627d357faffb16f7acfa000f2d4b2f9c03bf1395f7f48567d636a31b7cfe12d"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 38526566112,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f627d357faffb16f7acfa000f2d4b2f9c03bf1395f7f48567d636a31b7cfe12d"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.22.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 42493452032,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ae99ea31e150eea092da01d84193a99edf5d4350f1d59ceb0c3cd6ba46deec48"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 38612839008,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ae99ea31e150eea092da01d84193a99edf5d4350f1d59ceb0c3cd6ba46deec48"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.22.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 42822442752,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ef6277a73813eec5a13ba25b8aa7ea3fe31b60acad151e696856014a7e531497"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 38941829728,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ef6277a73813eec5a13ba25b8aa7ea3fe31b60acad151e696856014a7e531497"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.22.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 43151433472,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "3b1b732430f5bf7a92d42dd685ca8552882f5579c54032cdd241a5b70a9254a6"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 39270820448,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "3b1b732430f5bf7a92d42dd685ca8552882f5579c54032cdd241a5b70a9254a6"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.22.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 43486977792,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "29c953059493e5fbd3a6cfe5dccf915aa54156dce065426d63ae5ce4546c71da"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 39606364768,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "29c953059493e5fbd3a6cfe5dccf915aa54156dce065426d63ae5ce4546c71da"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.23.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 43501290816,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "792cbd46caa66578535246a884fad0d1940d15f2d7916727c3635578d84e6259"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 39630935648,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "792cbd46caa66578535246a884fad0d1940d15f2d7916727c3635578d84e6259"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.23.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 43830281536,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c958616aa823368b2cb58094cede8b408e2c0779160cb17feecc1fe9b033b77e"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 39959926368,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c958616aa823368b2cb58094cede8b408e2c0779160cb17feecc1fe9b033b77e"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.23.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 44159272256,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "8936df9051b9ab3f1cd327433006fedf69b063bd5645ca64fa3973380b3ea635"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 40288917088,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "8936df9051b9ab3f1cd327433006fedf69b063bd5645ca64fa3973380b3ea635"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.23.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 44494816576,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "ca6bba0e86872e947fafc7511eff7fa965dfd5bf7899edc0255b7c2e542ec337"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 40624461408,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "ca6bba0e86872e947fafc7511eff7fa965dfd5bf7899edc0255b7c2e542ec337"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.24.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 44565591680,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "74307ec8e85a287d9fd99f945bcb577d2693c266f5167de375713b5438b53d0c"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 40766934496,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "74307ec8e85a287d9fd99f945bcb577d2693c266f5167de375713b5438b53d0c"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.24.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 44894582400,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "1dcc316ce9404fd6660fb5be560f98c7990727c0e07c85edea38ac2ef96b9d9c"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 41095925216,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "1dcc316ce9404fd6660fb5be560f98c7990727c0e07c85edea38ac2ef96b9d9c"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.24.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 45223573120,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b921a2c788a64cfc6953e0b907d6ee2975c753c60e6968367186c437dac9b9ef"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 41424915936,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b921a2c788a64cfc6953e0b907d6ee2975c753c60e6968367186c437dac9b9ef"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.24.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 45559117440,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "11d6f121b5440343ee5fc3566628305006486971699290d213507fcc88a35eb8"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 41760460256,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "11d6f121b5440343ee5fc3566628305006486971699290d213507fcc88a35eb8"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.25.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 45602630080,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "aabe7ffb77427a0293e3f4093b14ec362ef2ab3d8a9a56561054c2c9715733f5"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 41846733152,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "aabe7ffb77427a0293e3f4093b14ec362ef2ab3d8a9a56561054c2c9715733f5"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.25.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 45931620800,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "8a712a9fb1d2eed3571b76119f38f8967ad31cbb3610758aa08eb0f5e298fa79"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 42175723872,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "8a712a9fb1d2eed3571b76119f38f8967ad31cbb3610758aa08eb0f5e298fa79"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.25.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 46260611520,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "245446b09341a5e41a99bbbf9012ecc1887ceff0d5728b352f94f704f813f51d"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 42504714592,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "245446b09341a5e41a99bbbf9012ecc1887ceff0d5728b352f94f704f813f51d"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.25.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 46596155840,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "bb6c2fa232774323ace584c9808e8d785f33b2fc5ae85410cdb67a89f3619428"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 42840258912,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "bb6c2fa232774323ace584c9808e8d785f33b2fc5ae85410cdb67a89f3619428"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.26.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 46639668480,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6f2a432666bf1a2aad812feabe75f49c6bd0168fe1ba9e3e028d87efd6419379"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 42926531808,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6f2a432666bf1a2aad812feabe75f49c6bd0168fe1ba9e3e028d87efd6419379"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.26.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 46968659200,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bf30dfa8fbdaa1737270c285018d73167af0a79db673a460e93e2b18b55dfac9"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 43255522528,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bf30dfa8fbdaa1737270c285018d73167af0a79db673a460e93e2b18b55dfac9"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.26.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 47297649920,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e1f1c4751a88f4a93057a2cd46329e743b0d333cefa881042a7bfe1439322530"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 43584513248,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e1f1c4751a88f4a93057a2cd46329e743b0d333cefa881042a7bfe1439322530"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.26.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 47633194240,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f7446624811b28156c1f4ddbd8c9588955e3817c96fc278c3eced096e54e69c4"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 43920057568,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f7446624811b28156c1f4ddbd8c9588955e3817c96fc278c3eced096e54e69c4"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.27.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "offset": 47647507264,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "dee9921a2c12fb6a80750c248a3455db42746c2b073dd5c33cb89e1e55f79abc"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 43944628448,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "dee9921a2c12fb6a80750c248a3455db42746c2b073dd5c33cb89e1e55f79abc"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.27.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 44864,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b171abfa23f1a6fc3168cde300710b08f3b229afe16d214cc5d2f5cc5e789aec"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 44273619168,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b171abfa23f1a6fc3168cde300710b08f3b229afe16d214cc5d2f5cc5e789aec"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.27.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 329035584,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "86bb4eba1b129da9cb4861a9d0a62f84faab6b6cda4d78a85cbbcfd6c635ddb6"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 44602609888,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "86bb4eba1b129da9cb4861a9d0a62f84faab6b6cda4d78a85cbbcfd6c635ddb6"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.27.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 664579904,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "eabc0ea858ee7d48a8705a93ddeb6881a252c73a7f7a0c4178c8cb8337926def"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 44938154208,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "eabc0ea858ee7d48a8705a93ddeb6881a252c73a7f7a0c4178c8cb8337926def"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.28.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 735355008,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9a54eb51aef8b1bab45d994aa0d0109bf6603a19caf0c17586f12528d729a5ab"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 45080627296,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9a54eb51aef8b1bab45d994aa0d0109bf6603a19caf0c17586f12528d729a5ab"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.28.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 1064345728,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9841eb5dc628a2fff80a44a267d7073f27525dbce0b76655fa60c31ff60813e6"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 45409618016,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9841eb5dc628a2fff80a44a267d7073f27525dbce0b76655fa60c31ff60813e6"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.28.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 1393336448,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c979ffa1fd47b444275aabda43b0d9f63b4581a23d25b7838ad46c80a15ae8dc"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 45738608736,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c979ffa1fd47b444275aabda43b0d9f63b4581a23d25b7838ad46c80a15ae8dc"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.28.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 1728880768,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "2ccde72d6959b9bbca76f7e0dbb7ef201be0fb63356148ad8d1a4253a06a303f"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 46074153056,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "2ccde72d6959b9bbca76f7e0dbb7ef201be0fb63356148ad8d1a4253a06a303f"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.29.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 1772393408,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "07e89099aaf1eb9b5eec50011ab73af0612ba2ba0440fd9390f1f383933daca9"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 46160425952,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "07e89099aaf1eb9b5eec50011ab73af0612ba2ba0440fd9390f1f383933daca9"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.29.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 2101384128,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d349d25e4f5e31ee49b5c3be6e4d508c4a785eb42d8ffb60d8763ad25e898897"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 46489416672,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d349d25e4f5e31ee49b5c3be6e4d508c4a785eb42d8ffb60d8763ad25e898897"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.29.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 2430374848,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "f90b2db993169c8a4fa2bc6bc28784377951d1d898b90c5c7be142bf05d83d10"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 46818407392,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "f90b2db993169c8a4fa2bc6bc28784377951d1d898b90c5c7be142bf05d83d10"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.29.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 2765919168,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "9c8bb9e21b311d4c3bb4ca3e9083eca659237e6823cc53fcf40332b888dacad4"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 47153951712,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "9c8bb9e21b311d4c3bb4ca3e9083eca659237e6823cc53fcf40332b888dacad4"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.3.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 2780232192,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "offset": 47178522592,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.3.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 3109222912,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 40032,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.3.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 3438213632,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "47355d7b8c1bfdad875a165068f8208578602ae9825cd9118a53c337ade9c412"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 420781152,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "47355d7b8c1bfdad875a165068f8208578602ae9825cd9118a53c337ade9c412"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.3.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 3773757952,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "880c73a68a24fa98a5628552e8c3dd558ab21b58635ae24c48cfde7be11ae0cb"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 756325472,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "880c73a68a24fa98a5628552e8c3dd558ab21b58635ae24c48cfde7be11ae0cb"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.30.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 3844533056,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "75cb25ffa6df89676a6fdd7c0c26e47ff20264f67a032baa9ba979ca89c08831"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 898798560,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "75cb25ffa6df89676a6fdd7c0c26e47ff20264f67a032baa9ba979ca89c08831"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.30.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 4173523776,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bc372822427b4d300dc1cb8a21ffc3cb2ab795573d2c15c46e7d82f028f788c7"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 1227789280,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bc372822427b4d300dc1cb8a21ffc3cb2ab795573d2c15c46e7d82f028f788c7"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.30.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 4502514496,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6c176efb075bf3776579762ab515fbb26063ba4bea902f6802d87ed26d1a4bfd"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 1556780000,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6c176efb075bf3776579762ab515fbb26063ba4bea902f6802d87ed26d1a4bfd"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.30.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 4838058816,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "19170ad4bb2d0ba78cfa3c3664eacab25f8aa3288d8d1c36a4014bf4a7c3b0cf"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 1892324320,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "19170ad4bb2d0ba78cfa3c3664eacab25f8aa3288d8d1c36a4014bf4a7c3b0cf"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.31.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 4852371840,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0dcef693650ad96f7921bc8ed857e5a26325083f3cce63a5de4a76049c1d307b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 1916895200,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0dcef693650ad96f7921bc8ed857e5a26325083f3cce63a5de4a76049c1d307b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.31.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 5181362560,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9197ef39f1433d0d11e2e770521cab97bc38e5d117f78155ba387e5d028a3fbe"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 2245885920,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9197ef39f1433d0d11e2e770521cab97bc38e5d117f78155ba387e5d028a3fbe"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.31.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 5510353280,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ce3b87b4478d865fa8c1b9ad5a4447a5cdb89224c858717a72fcd0a5cce2e7a5"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 2574876640,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ce3b87b4478d865fa8c1b9ad5a4447a5cdb89224c858717a72fcd0a5cce2e7a5"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.31.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 5845897600,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "6f2c6ef01102b0d1b454303d764763fff9d7a4059e715270b50665e65bae8693"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 2910420960,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "6f2c6ef01102b0d1b454303d764763fff9d7a4059e715270b50665e65bae8693"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.32.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 5916672704,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "77c5fb1d4c1daeefa24ffe00e630ba2eda854c0ad15f7a291823dfd4f25856ec"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 3052894048,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "77c5fb1d4c1daeefa24ffe00e630ba2eda854c0ad15f7a291823dfd4f25856ec"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.32.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 6245663424,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ea4104a34bb85eeb4dc939323a83a7c1b057824b9049db1072adb96488e953f1"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 3381884768,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "ea4104a34bb85eeb4dc939323a83a7c1b057824b9049db1072adb96488e953f1"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.32.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 6574654144,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "7b18fd15ae3f8e7484a01911c7864b5e1be7963125263bdcd2af189db3e646c6"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 3710875488,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "7b18fd15ae3f8e7484a01911c7864b5e1be7963125263bdcd2af189db3e646c6"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.32.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 6910198464,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "315f83c46ab2d985c284a16096af9685c878a3a8883eb52f2291fff02105181b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 4046419808,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "315f83c46ab2d985c284a16096af9685c878a3a8883eb52f2291fff02105181b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.33.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 6953711104,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4c915782290bf75118c8c4377b9d02544c80727d90748572a1817e08abb1ca5b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 4132692704,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4c915782290bf75118c8c4377b9d02544c80727d90748572a1817e08abb1ca5b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.33.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 7282701824,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c63f2215c54c8029db87f72c92ce6750214b189e64e79b9fd1a37d9f934c51f9"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 4461683424,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c63f2215c54c8029db87f72c92ce6750214b189e64e79b9fd1a37d9f934c51f9"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.33.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 7611692544,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "168e51ae6eb89b39ec52c9a8131c883544dd9a1edff69ef6d8bda78e7b6a261e"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 4790674144,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "168e51ae6eb89b39ec52c9a8131c883544dd9a1edff69ef6d8bda78e7b6a261e"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.33.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 7947236864,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "870b9a3d349215b4ec842a2e75a34068b239efa4614d5a67fcf34946f14f2a0f"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 5126218464,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "870b9a3d349215b4ec842a2e75a34068b239efa4614d5a67fcf34946f14f2a0f"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.34.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 7990749504,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "7832f66407f2a2c60ee3637b0900e320410f3fe5f0cac970e08b31c3a09d0682"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 5212491360,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "7832f66407f2a2c60ee3637b0900e320410f3fe5f0cac970e08b31c3a09d0682"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.34.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 8319740224,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bfcf582152326bf4b6efa3b63fb0f0236174e86aa0613b122115ffb8902fcae1"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 5541482080,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bfcf582152326bf4b6efa3b63fb0f0236174e86aa0613b122115ffb8902fcae1"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.34.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 8648730944,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "492e8062aa3ee2e6ad4cefa85d725ab40786d3173d60b88d0058470653ada3bc"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 5870472800,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "492e8062aa3ee2e6ad4cefa85d725ab40786d3173d60b88d0058470653ada3bc"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.34.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 8984275264,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "9b8980e4cf70a10c249b9b1c17c28ce7415e0bb1343fc8a2fdcfc909df04219b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 6206017120,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "9b8980e4cf70a10c249b9b1c17c28ce7415e0bb1343fc8a2fdcfc909df04219b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.35.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 8998588288,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "a6218fda5cbf709d8543bdc6090ef51496800a42017bdd9970a19e04f2e9909a"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 6230588000,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "a6218fda5cbf709d8543bdc6090ef51496800a42017bdd9970a19e04f2e9909a"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.35.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 9327579008,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "85af4f54471d404a0132de74304e197784ca31409c46412655374cf5902a7bee"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 6559578720,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "85af4f54471d404a0132de74304e197784ca31409c46412655374cf5902a7bee"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.35.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 9656569728,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0bebe932a3ed7d918f0831324750597810a43b8bd508ab0ed987f477f6ac4cbd"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 6888569440,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "0bebe932a3ed7d918f0831324750597810a43b8bd508ab0ed987f477f6ac4cbd"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.35.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 9992114048,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f0501f22b8a80105d48d423715b60ef1af8f9d60e3f7f58765c7725364b02ec4"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 7224113760,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f0501f22b8a80105d48d423715b60ef1af8f9d60e3f7f58765c7725364b02ec4"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.36.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 10062889152,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "87e231f62eb544b9f0d7d4df8ce07b5034968fc74d8f0e70e8d0aa2fbfd87166"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 7366586848,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "87e231f62eb544b9f0d7d4df8ce07b5034968fc74d8f0e70e8d0aa2fbfd87166"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.36.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 10391879872,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "462e2580ec3c8e814946918e2713f6fe9a99b2c673af6beedbbd6e2fc2af1c5e"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 7695577568,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "462e2580ec3c8e814946918e2713f6fe9a99b2c673af6beedbbd6e2fc2af1c5e"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.36.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 10720870592,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c8c6701e7a6f257693623a211eb3cdb81437a6d5b278ef4c2ddfcac697ff4bda"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 8024568288,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "c8c6701e7a6f257693623a211eb3cdb81437a6d5b278ef4c2ddfcac697ff4bda"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.36.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 11056414912,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8d09fd32489aeabe98674fa0531da75b223d8caaf9d5da56658cf133119726ae"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 8360112608,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8d09fd32489aeabe98674fa0531da75b223d8caaf9d5da56658cf133119726ae"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.37.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 11099927552,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d05d1bfea0f8ed16e704ea786ef892ab7929b5224ec3702513a43fcf791ba0ce"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 8446385504,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "d05d1bfea0f8ed16e704ea786ef892ab7929b5224ec3702513a43fcf791ba0ce"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.37.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 11428918272,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9c4d3ec45ec1475c25f9c896664b00aacc8d9b12dad0694c86b43e72127889b6"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 8775376224,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "9c4d3ec45ec1475c25f9c896664b00aacc8d9b12dad0694c86b43e72127889b6"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.37.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 11757908992,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e7b13f3ca433852cef0a1949faebe49493a0df28c23fdaea61a66e5bad6c8ef7"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 9104366944,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e7b13f3ca433852cef0a1949faebe49493a0df28c23fdaea61a66e5bad6c8ef7"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.37.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 12093453312,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f389d67631ee333924b449b88b0637adfd20b513c84e25e7a25ff823eec4f861"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 9439911264,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "f389d67631ee333924b449b88b0637adfd20b513c84e25e7a25ff823eec4f861"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.38.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 12136965952,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 9526184160,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.38.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 12465956672,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 9946925280,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.38.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 12794947392,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4854a364ce1ca2f61831a6159f25a4e003612d4b04dc4d74899091a03f4ccc72"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 10367666400,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4854a364ce1ca2f61831a6159f25a4e003612d4b04dc4d74899091a03f4ccc72"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.38.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 13130491712,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "73fae9404d3306a32fb2ec9918547de872000f305965ea3e623873170fe53480"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 10703210720,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "73fae9404d3306a32fb2ec9918547de872000f305965ea3e623873170fe53480"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.39.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 13144804736,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 10727781600,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.39.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 13473795456,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 11148522720,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.39.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 13802786176,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "528ab3830f42d807ac16ca692b091372e9ecaf018c0dc170c66f0ad83be5bbb3"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 11569263840,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "528ab3830f42d807ac16ca692b091372e9ecaf018c0dc170c66f0ad83be5bbb3"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.39.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 14138330496,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "389bd10f8b685d8673478fe95648d62391498aedd68e197d71e454087fa82e64"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 11904808160,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "389bd10f8b685d8673478fe95648d62391498aedd68e197d71e454087fa82e64"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.4.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 14209105600,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 12047281248,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.4.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 14538096320,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 12468022368,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.4.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 14867087040,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "2e28d270342bb6de6cdd030d7f7f64c0e5c82f7cbf0d0cc3d0ede913277583c0"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 12888763488,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "2e28d270342bb6de6cdd030d7f7f64c0e5c82f7cbf0d0cc3d0ede913277583c0"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.4.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 15202631360,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "967c080ede08952579636fe925b024b93bd808478eeecea558cea087ace7792c"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 13224307808,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "967c080ede08952579636fe925b024b93bd808478eeecea558cea087ace7792c"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.40.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 15246144000,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 13310580704,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.40.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 15575134720,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 13731321824,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.40.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 15904125440,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b6cbcda4de3c5e36d4b15a89c87b30b0cd1420e24b941159cdeea905014ee75b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 14152062944,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b6cbcda4de3c5e36d4b15a89c87b30b0cd1420e24b941159cdeea905014ee75b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.40.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 16239669760,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8a253cdb2bcd4b9ba26bc92397857b925a532949dcf276b5f726b684e41a5e26"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 14487607264,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "8a253cdb2bcd4b9ba26bc92397857b925a532949dcf276b5f726b684e41a5e26"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.41.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 16283182400,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 14573880160,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.41.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 16612173120,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 14994621280,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.41.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 16941163840,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b62620aa09e12aa20060c8fc103c6109b77b97201158e8b89818eb65723cd137"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 15415362400,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "b62620aa09e12aa20060c8fc103c6109b77b97201158e8b89818eb65723cd137"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.41.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 17276708160,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "28a66e4c454dcd68c319779f85bc4f7cf9f100134d5b2616cb85a33d9438c7b4"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 15750906720,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "28a66e4c454dcd68c319779f85bc4f7cf9f100134d5b2616cb85a33d9438c7b4"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.42.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 17320220800,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 15837179616,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.42.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 17649211520,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 16257920736,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.42.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 17978202240,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "a0a55b0310d47d7a45bb19e5534c3062fe0cb2398ca670ba2d0336e25d334d9a"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 16678661856,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "a0a55b0310d47d7a45bb19e5534c3062fe0cb2398ca670ba2d0336e25d334d9a"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.42.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 18313746560,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "9863d053c3550b1c2d67958654e28e5d84defb0ed9b5108b923323416f30e8c5"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 17014206176,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "9863d053c3550b1c2d67958654e28e5d84defb0ed9b5108b923323416f30e8c5"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.43.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 18328059584,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 17038777056,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.43.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 18657050304,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 17459518176,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.43.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 18986041024,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6060342b7b9fdd4303d94d6f9042d7bf73ba82041788ba9438d9d50b236ecfeb"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 17880259296,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6060342b7b9fdd4303d94d6f9042d7bf73ba82041788ba9438d9d50b236ecfeb"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.43.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 19321585344,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "52333fbc1174f2deeb2ed764c264c16aeb2961f72346cdaedfe4a252ed7f42a0"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 18215803616,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "52333fbc1174f2deeb2ed764c264c16aeb2961f72346cdaedfe4a252ed7f42a0"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.44.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 19392360448,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 18358276704,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.44.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 19721351168,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 18779017824,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.44.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 20050341888,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "35b27e3a9db938f3abfb8a21d773dad8bfb222b053635bbe1bc7f99e5db48f06"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 19199758944,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "35b27e3a9db938f3abfb8a21d773dad8bfb222b053635bbe1bc7f99e5db48f06"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.44.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 20385886208,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "05e6e0281f4e82523ae1c9303d196651ef9685c449681c8264faca6ac3dbab27"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 19535303264,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "05e6e0281f4e82523ae1c9303d196651ef9685c449681c8264faca6ac3dbab27"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.45.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 20429398848,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 19621576160,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.45.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 20758389568,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 20042317280,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.45.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 21087380288,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "5aea064ebc2ebf9c91031b290ef492e384f118a1912375dd9d9a543d5f257c8d"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 20463058400,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "5aea064ebc2ebf9c91031b290ef492e384f118a1912375dd9d9a543d5f257c8d"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.45.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 21422924608,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "716e86907b98006efcd8f5fe429a1a534486a2805233f0ed0898a2fe21443e12"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 20798602720,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "716e86907b98006efcd8f5fe429a1a534486a2805233f0ed0898a2fe21443e12"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.46.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 21466437248,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 20884875616,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.46.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 21795427968,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 21305616736,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.46.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 22124418688,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4bf4785e0438b33bcca61ccafc6f018a071f375c6f252a59678f83b2991b76fd"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 21726357856,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4bf4785e0438b33bcca61ccafc6f018a071f375c6f252a59678f83b2991b76fd"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.46.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 22459963008,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "6647c66ac7ade9cd0b2997660c35a70c1f7de9ff94060e5686ca9c4decb2064e"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 22061902176,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "6647c66ac7ade9cd0b2997660c35a70c1f7de9ff94060e5686ca9c4decb2064e"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.47.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 22474276032,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 22086473056,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.47.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 22803266752,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 22507214176,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.47.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 23132257472,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4e51e974646f81e99437065a2c17bc4bd013c75f744cbf0d623e0e97f943f29b"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 22927955296,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4e51e974646f81e99437065a2c17bc4bd013c75f744cbf0d623e0e97f943f29b"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.47.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 23467801792,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "418104d20e8c36a0ad9f0ac27f922b663e3bedc4c998fe4471547734e8e0d454"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 23263499616,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "418104d20e8c36a0ad9f0ac27f922b663e3bedc4c998fe4471547734e8e0d454"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.5.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 23538576896,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 23405972704,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.5.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 23867567616,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 23826713824,
+        "bytes": 420741120,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ4_KT"
+      },
+      "result": "different_type"
+    },
+    {
+      "tensor": "blk.5.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 24196558336,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "de16bfff188b8fca9f390b5a6e3f77e18b94b8dbea4d10ec391c9ee6df5e124a"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 24247454944,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "de16bfff188b8fca9f390b5a6e3f77e18b94b8dbea4d10ec391c9ee6df5e124a"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.5.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 24532102656,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "dab49e8b36d29fb1e4415d611ba79264dcfa8edc468ce642d3e613a9e7f077f1"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 24582999264,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "dab49e8b36d29fb1e4415d611ba79264dcfa8edc468ce642d3e613a9e7f077f1"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.6.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 24575615296,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "5b817e1bbdd9d7257c35643e9e9e7d32cd903b0b5e569cd5f070fdbd04f5353e"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 24669272160,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "5b817e1bbdd9d7257c35643e9e9e7d32cd903b0b5e569cd5f070fdbd04f5353e"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.6.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 24904606016,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "959066d61ada72aa06e56d70bd3dc8b0f83d6c6561a4ce736f1c858ce4082f27"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 24998262880,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "959066d61ada72aa06e56d70bd3dc8b0f83d6c6561a4ce736f1c858ce4082f27"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.6.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 25233596736,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "eaaa51b5ca2108cce386d2751b2a6967b1ded9c7235de7877528b4a7e5131d03"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 25327253600,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "eaaa51b5ca2108cce386d2751b2a6967b1ded9c7235de7877528b4a7e5131d03"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.6.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 25569141056,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "0c6b90fe5c130d66e44249c2a8e224a0932869d1174f177ffcf15abe615c0971"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 25662797920,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "0c6b90fe5c130d66e44249c2a8e224a0932869d1174f177ffcf15abe615c0971"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.7.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 25583454080,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bb30e6a7bb8754c2c3fe783ba0561e45ee46ccb4c273137ff6b7acf2c60b8d08"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 25687368800,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bb30e6a7bb8754c2c3fe783ba0561e45ee46ccb4c273137ff6b7acf2c60b8d08"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.7.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 25912444800,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e3c10d71bd579c421520c4fad00bf839f248b087169cce5cfb24b93a3aca9111"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 26016359520,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "e3c10d71bd579c421520c4fad00bf839f248b087169cce5cfb24b93a3aca9111"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.7.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 26241435520,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6bfc5d43b28dd89d4786ec219767be5638972b6bba44d9c48c42c8e2a48429c6"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 26345350240,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "6bfc5d43b28dd89d4786ec219767be5638972b6bba44d9c48c42c8e2a48429c6"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.7.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 26576979840,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "7c00e53df09bb569ccd5b6b24474ffc5b45cbcfa2944ead1833b6065ecfe70c7"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 26680894560,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "7c00e53df09bb569ccd5b6b24474ffc5b45cbcfa2944ead1833b6065ecfe70c7"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.8.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 26647754944,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "5c96782a399b26c969f8f0ed09a9bdf9007aa02bc86096a5e59002ec94bd8372"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 26823367648,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "5c96782a399b26c969f8f0ed09a9bdf9007aa02bc86096a5e59002ec94bd8372"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.8.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 26976745664,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4098b2cbb4601e48c945ed42f17231b565eb3a4b05317438adfa661cd82a5d53"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 27152358368,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "4098b2cbb4601e48c945ed42f17231b565eb3a4b05317438adfa661cd82a5d53"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.8.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 27305736384,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "46ebda11db7007bc4df00a490c4c069455832ef3a5e708d0f8f27a77acbe4a53"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 27481349088,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "46ebda11db7007bc4df00a490c4c069455832ef3a5e708d0f8f27a77acbe4a53"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.8.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 27641280704,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "89fb654d54b48e15775205a83a0376758be1f3d74dba4f430aae1c08323679c4"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 27816893408,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "89fb654d54b48e15775205a83a0376758be1f3d74dba4f430aae1c08323679c4"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.9.ffn_gate_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 27684793344,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "226d8b169160f303d427d0a6b59e77fd8640aed5facfa7fe4d54e0959e47b153"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 27903166304,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "226d8b169160f303d427d0a6b59e77fd8640aed5facfa7fe4d54e0959e47b153"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.9.ffn_up_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 28013784064,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "29a222cc764abf31590752dca91975d1a8005676313284cc9db67765026dd5b7"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 28232157024,
+        "bytes": 328990720,
+        "shape": [
+          2560,
+          640,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "29a222cc764abf31590752dca91975d1a8005676313284cc9db67765026dd5b7"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.9.ffn_down_exps.weight",
+      "group": "expert",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 29018205184,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bacb597196ec482af757378625e130ff8dd8ca7512bb96000b29638c50afe3ee"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 29236578144,
+        "bytes": 335544320,
+        "shape": [
+          640,
+          2560,
+          512
+        ],
+        "type": "IQ3_KT",
+        "payload_sha256": "bacb597196ec482af757378625e130ff8dd8ca7512bb96000b29638c50afe3ee"
+      },
+      "result": "equal"
+    },
+    {
+      "tensor": "blk.9.ffn_gate_inp.weight",
+      "group": "router",
+      "v2": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "offset": 29353749504,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "aae1df9912ca2d567b1da8fcb9ac4a28768b6b2d82c1fd83bc41be23f7a43557"
+      },
+      "v4": {
+        "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "offset": 29572122464,
+        "bytes": 5242880,
+        "shape": [
+          2560,
+          512
+        ],
+        "type": "F32",
+        "payload_sha256": "aae1df9912ca2d567b1da8fcb9ac4a28768b6b2d82c1fd83bc41be23f7a43557"
+      },
+      "result": "equal"
+    }
+  ],
+  "not_measured": [
+    "whole-GGUF checksums",
+    "original imatrix checksums",
+    "high-precision source identity",
+    "candidate model quality"
+  ]
+}

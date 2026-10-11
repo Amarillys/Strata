@@ -59,6 +59,7 @@ from serve.frontend import (ChatTemplate, Event, OutputParser, anthropic_to_mess
                             tool_choice_of, unmark_think_literals)
 from serve.mcp import McpCancelled, hub_from_config  # noqa: E402
 from serve import runconfig  # noqa: E402
+from serve import conversation_pool  # noqa: E402
 from serve.winjob import contain  # noqa: E402
 from serve.structured import StructuredOutputError, prepare_format, validated_json  # noqa: E402
 from serve import responses as responses_api  # noqa: E402
@@ -612,6 +613,8 @@ class StrataEngine:
         self.can_stop = False            # the engine honours a STOP line mid-request (READY <ctx> stop)
         self.last = {}
         self.info = {}                   # INFO key=value facts (engine 0.1.8+): kv, expert slots, ... (Monitor tab)
+        self.pool_state = {}
+        self.pool_input_router = None    # previous named input lengths belong to this engine lifetime
         self.prefill_tok_s_mean = None
         self.progress = None             # (read, total) prompt tokens while a prompt is read, from PP lines
         self.progress_ms = 0             # PP's own milliseconds since the prompt started (its third field)
@@ -698,6 +701,7 @@ class StrataEngine:
         if self.info.get("engine"):
             self.info["version"] = str(self.info["engine"])
         self.ended = False                              # READY: alive from here (restart() set it True, #344)
+        self.pool_state = {}
         # the engine's stdout on a thread, so a request can wait with a timeout (heartbeats, cancel checks)
         self.lines: queue.Queue = queue.Queue()
         # --batch: concurrent requests in the engine's batch slots (see generate_batched).  The engine says how many
@@ -986,6 +990,20 @@ class StrataEngine:
         on = sampling.get("experimental_speed_projection")
         return f" cvec={int(on)}" if isinstance(on, bool) else ""
 
+    def pool_request_key(self, request: dict, prompt_tokens: int) -> str:
+        info = getattr(self, "info", {}) or {}
+        if not info.get("conversation_pool_tokens"):
+            return ""
+        key, source = conversation_pool.identity(request)
+        if getattr(self, "pool_input_router", None) is None:
+            self.pool_input_router = conversation_pool.InputRouter(info.get("conversation_cache_slots", 4) - 1)
+        routed, previous = self.pool_input_router.route(key, prompt_tokens)
+        detail = (f" reason=short_input original_channel={key[:16]} previous_input={previous}"
+                  if key and not routed else "")
+        print(f"[strata] conversation pool: channel={routed[:16] or 'anon'} id_source={source}"
+              f" input={prompt_tokens}{detail}", flush=True)
+        return f" pool_id={routed or 'anon'}"
+
     def _send(self, text: str):
         btrace("send>", text[:60])
         try:
@@ -1037,6 +1055,8 @@ class StrataEngine:
                     self._send("STOP")
                     stopped = True
                 yield None
+            elif line.startswith("POOL "):
+                self.pool_state = conversation_pool.state_line(line)
             elif line.startswith("DONE"):
                 self._parse_done(line)
                 self._last_done = line
@@ -1480,8 +1500,11 @@ class StrataEngine:
         self.progress, self.progress_ms, self.reused = None, 0, 0
         self.prefill_tok_s_mean = None
         # an image request takes the same sampling keys as text (#75: it used to decode greedily whatever was asked)
-        head = f"GENI {int(max_new)}{self.sampling_keys(sampling or {})} {embeddings}" if embeddings else \
-            f"GEN {int(max_new)}{self.sampling_keys(sampling or {})}"
+        # Service.run supplies the original API input count: an internal continuation
+        # must stay in the same channel even after its generated tokens pass the short-input limit.
+        input_tokens = (sampling or {}).get("_strata_pool_input_tokens", len(ids))
+        keys = self.sampling_keys(sampling or {}) + self.pool_request_key(sampling or {}, input_tokens)
+        head = f"GENI {int(max_new)}{keys} {embeddings}" if embeddings else f"GEN {int(max_new)}{keys}"
         try:
             self.proc.stdin.write(f"{head} {','.join(str(int(t)) for t in ids)}\n")
             self.proc.stdin.flush()
@@ -1547,6 +1570,8 @@ class StrataEngine:
                     if cancel.is_set():                   # lines reset the 10 s wait, so without this a long prompt
                         return                            # would send no keep-alives at all)
                     yield None
+                elif line.startswith("POOL "):
+                    self.pool_state = conversation_pool.state_line(line)
                 elif line.startswith("RESUME "):          # the reused tokens: the first chunk starts after them
                     try:
                         read_to = self.reused = int(line.split()[1])
@@ -1582,6 +1607,8 @@ class StrataEngine:
                                            f"within {allow:.0f} s") from None
                     if line is None or line.startswith("ERR"):
                         break
+                    if line.startswith("POOL "):
+                        self.pool_state = conversation_pool.state_line(line)
                     if line.startswith("DONE"):
                         self._parse_done(line)
                         break
@@ -3107,7 +3134,12 @@ class Service:
                   **dict(getattr(self.engine, "info", {}) or {})}
         tel = self.telemetry.snapshot() if getattr(self, "telemetry", None) else {"now": {}, "history": {}, "static": {}}
         parked = self.conv_log.poll(getattr(self.engine, "log_path", None), getattr(self.engine, "log_start", None))
-        return {"engine": engine, "live": live, "requests": hist[::-1][:None if all_requests else 12],
+        pool = {}
+        if engine.get("conversation_pool_tokens"):
+            pool["conversation_pool"] = {"budget_tokens": engine["conversation_pool_tokens"],
+                "named_slots": max(0, engine.get("conversation_cache_slots", 4) - 1), "anonymous_slots": 1,
+                **dict(getattr(self.engine, "pool_state", {}) or {})}
+        return {"engine": engine, "live": live, "requests": hist[::-1][:None if all_requests else 12], **pool,
                 "conversation_cache": conversation_cache_view(engine, hist, totals, parked),
                 "requests_kept": len(hist), "totals": totals, "hardware": tel["now"],
                 "hardware_static":
@@ -3482,6 +3514,9 @@ class Service:
                     # (parallel requests do not hold the fifo: one of them starts it, the others wait for that)
                     with (self.fifo if par else contextlib.nullcontext()):
                         self.ensure_loaded()
+                    if (getattr(self.engine, "info", {}) or {}).get("conversation_pool_tokens"):
+                        # Replace any client-supplied value, and preserve this count across generation legs.
+                        sampling = {**(sampling or {}), "_strata_pool_input_tokens": len(ids)}
                     with self.status_lock:
                         st.update(busy=True, phase="reading the prompt", prompt_tokens=len(ids),
                                   generated=0, started=time.time(), first_token=None, tool=None, tail="",
@@ -4641,6 +4676,11 @@ def make_handler(svc: Service):
                 req = json.loads(self._body() or b"{}")
                 if not isinstance(req, dict):
                     raise ValueError("send a JSON object")
+                if (getattr(svc.engine, "info", {}) or {}).get("conversation_pool_tokens"):
+                    # Overwrite the private field: only the HTTP headers, never a client-supplied substitute.
+                    req["_strata_pool_headers"] = {name: self.headers[name] for name in
+                        ("x-conversation-id", "x-session-id", "x-thread-id", "x-codex-turn-metadata")
+                        if self.headers.get(name)}
                 if path.startswith("/v1/responses/"):        # retrieve/delete/cancel/compact: nothing is stored
                     self._json(404, responses_error_body("this server keeps no responses (stateless); send the "
                                                          "whole conversation to POST /v1/responses", code="not_found"))

@@ -1,0 +1,25 @@
+{
+  "model": "v2dense-v4experts-iq3ple",
+  "requests": 136,
+  "reference_reused": true,
+  "files_and_sha256_valid": true,
+  "finite_logits": true,
+  "all_cached_tokens_zero": true,
+  "repeat_logits_byte_identical": true,
+  "primary_cache": [
+    [
+      "9482",
+      "18.14"
+    ]
+  ],
+  "second_cache": [
+    [
+      "13966",
+      "26.85"
+    ]
+  ],
+  "ram_expert_gib": "2.16",
+  "ple_runtime_lines": [
+    "strata generate: PLE on, table 320001536 rows of B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf"
+  ]
+}

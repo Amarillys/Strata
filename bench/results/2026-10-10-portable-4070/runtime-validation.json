@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "name": "extracted-check",
+      "exit_code": 0
+    },
+    {
+      "name": "extracted-engine-help",
+      "exit_code": 2,
+      "note": "expected usage return code; required flags present"
+    },
+    {
+      "name": "extracted-configure",
+      "exit_code": 0
+    }
+  ],
+  "embedded_python_only": true,
+  "path_limited_to_bundle_and_windows": true,
+  "all_archive_member_hashes_passed": true,
+  "archive_members_checked": 1456,
+  "pe_files_audited": 88,
+  "dense_and_tokenizer_match_v4": true,
+  "native_expert_offsets_match_new_gguf": true,
+  "explicit_separate_iq4_ple": true,
+  "single_gpu_config": true,
+  "expert_bin_not_required": true,
+  "configured_model_bytes": 80048351808,
+  "gpu_inference_on_target_tested": false,
+  "production_service_restarted": false,
+  "launcher_and_report_tests": 7,
+  "tests_passed_on_development_and_embedded_python": true
+}

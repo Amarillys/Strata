@@ -9,6 +9,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <deque>
+#include <string>
 #include <utility>
 #include <vector>
 
@@ -146,6 +147,8 @@ inline bool conversation_checkpoints_merge(ConversationCheckpointSplit&& split, 
 }
 
 struct SavedConversation {
+    // Runtime routing only. Session files deliberately do not persist client identity.
+    std::string owner;
     // Runtime compatibility only; NOT a model/weights identity or disk schema.
     std::array<int64_t, 18> geometry{};
     // The session's layer carve the image was captured from ([0, n_layers) on one GPU); restore requires the same.
@@ -166,6 +169,7 @@ struct SavedConversation {
     size_t bytes() const {
         size_t n = live.bytes() + checkpoints.capacity() * sizeof(ConversationCheckpoint) +
                    kv.capacity() * sizeof(ConversationKv);
+        if (!owner.empty()) n += owner.capacity() + 1;
         for (const auto& s : stage_images) n += s.bytes();
         for (const auto& c : checkpoints) n += c.bytes();
         for (const auto& k : kv) n += k.bytes();
@@ -231,13 +235,14 @@ public:
     }
 
     template<class Token>
-    Match best(const std::vector<Token>& prompt, const std::vector<ConversationImageKey>& images, bool cvec) const {
+    Match best(const std::vector<Token>& prompt, const std::vector<ConversationImageKey>& images, bool cvec,
+               const std::string* owner = nullptr) const {
         Match best;
         // Ties prefer the most recently parked branch. The caller prefers its
         // already-active state when that offers the same prefix length.
         for (size_t i = entries_.size(); i-- > 0;) {
             const auto& e = entries_[i];
-            if (e.cvec != cvec) continue;
+            if (e.cvec != cvec || (owner && e.owner != *owner)) continue;
             auto consider = [&](const ConversationCheckpoint& c, bool live) {
                 const int64_t n = conversation_prefix(c, prompt, images);
                 if (n > best.tokens) best = {i, n, live};
@@ -253,6 +258,21 @@ public:
         bytes_ -= out.bytes();
         entries_.erase(entries_.begin() + (std::ptrdiff_t) index);
         return out;
+    }
+
+    bool has_owner(const std::string& owner) const {
+        return std::any_of(entries_.begin(), entries_.end(), [&](const SavedConversation& e) { return e.owner == owner; });
+    }
+    size_t erase_owner(const std::string& owner, bool eviction = false) {
+        size_t n = 0;
+        for (auto it = entries_.begin(); it != entries_.end();) {
+            if (it->owner != owner) { ++it; continue; }
+            bytes_ -= it->bytes();
+            it = entries_.erase(it);
+            ++n;
+        }
+        if (eviction) evictions_ += n;
+        return n;
     }
 
     // Reserve before allocating a snapshot. held is an incoming image removed
@@ -320,10 +340,11 @@ public:
     }
     size_t superseded() const { return superseded_; }
 
-    bool put(SavedConversation&& image, size_t held = 0) {
+    bool put(SavedConversation&& image, size_t held = 0, bool replace_owner = false) {
         const size_t n = image.bytes();
         if (!enabled() || held > budget_ || n > budget_ - held) return false;   // make_room's refusal, first
-        drop_superseded(image.live.ids, image.live.imgs, image.checkpoints, image.cvec);
+        if (replace_owner) erase_owner(image.owner);
+        else drop_superseded(image.live.ids, image.live.imgs, image.checkpoints, image.cvec);
         if (!make_room(n, held)) return false;
         entries_.push_back(std::move(image));
         bytes_ += n;

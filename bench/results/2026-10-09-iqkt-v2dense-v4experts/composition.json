@@ -1,0 +1,2086 @@
+{
+  "name": "v2dense-v4experts-iq3ple",
+  "method": "Source selection only; no requantization or calibration.",
+  "sources": {
+    "v2": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+        "bytes": 47976497984,
+        "mtime_ns": 1790583438182469700,
+        "header_sha256": "d5555d441374da0f3853cbeb44d07b28bdbb344875595f6c733736b5a10b00f1",
+        "full_file_sha256": null
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+        "bytes": 29886154016,
+        "mtime_ns": 1790583381643024100,
+        "header_sha256": "0a17c4467acbba511977f06ed2fbc018abf4efdc8378a3ffc8181ec60e9c1d98",
+        "full_file_sha256": null
+      }
+    ],
+    "v4": [
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+        "bytes": 47599263712,
+        "mtime_ns": 1791445618809062700,
+        "header_sha256": "b7ab3c9ed22de35bc651500eb3a6a3d6a9a9f2698a28909dda934ed29a59d213",
+        "full_file_sha256": null
+      },
+      {
+        "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+        "bytes": 30265076064,
+        "mtime_ns": 1791448526079372800,
+        "header_sha256": "2fd1c21a59f0a64c9ee8fcf1a67423437465ed2b3bc765abddf09637e0bd48cc",
+        "full_file_sha256": null
+      }
+    ]
+  },
+  "dense_source": "v2, including all 387 small projections",
+  "head_embedding_source": "v2",
+  "ple_projection_source": "v2",
+  "ple_table_source": "v4",
+  "ple_type": "IQ3_KT",
+  "expert_source": "v4",
+  "expert_bytes": 50625249280,
+  "expert_tensors": [
+    {
+      "tensor": "blk.0.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 86736992,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.0.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 507478112,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.0.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 928219232,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.1.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 1350036448,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.1.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 1770777568,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.1.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 2191518688,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.2.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 35189942240,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.2.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 35610683360,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.2.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 36031424480,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.3.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 47178522592,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.3.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 40032,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.3.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 420781152,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.4.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 12047281248,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.4.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 12468022368,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.4.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 12888763488,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.5.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 23405972704,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.5.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 23826713824,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.5.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 24247454944,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.6.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 24669272160,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.6.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 24998262880,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.6.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 25327253600,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.7.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 25687368800,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.7.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 26016359520,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.7.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 26345350240,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.8.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 26823367648,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.8.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 27152358368,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.8.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 27481349088,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.9.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 27903166304,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.9.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 28232157024,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.9.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 29236578144,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.10.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 24408461152,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.10.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 24737451872,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.10.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 25066442592,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.11.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 25426557792,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.11.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 25755548512,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.11.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 26084539232,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.12.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 26562556640,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.12.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 26891547360,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.12.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 27220538080,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.13.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 27642355296,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.13.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 27971346016,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.13.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 28300336736,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.14.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 28722153952,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.14.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 29051144672,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.14.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 29380135392,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.15.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 29740250592,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.15.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 30069241312,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.15.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 30398232032,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.16.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 30876249440,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.16.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 31205240160,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.16.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 31534230880,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.17.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 31956048096,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.17.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 32285038816,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.17.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 32614029536,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.18.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 33035846752,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.18.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 33364837472,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.18.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 33693828192,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.19.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 34053943392,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.19.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 34382934112,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.19.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 34711924832,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.20.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 36453241696,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.20.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 36782232416,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.20.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 37111223136,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.21.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 37533040352,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.21.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 37862031072,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.21.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 38191021792,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.22.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 38612839008,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.22.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 38941829728,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.22.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 39270820448,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.23.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 39630935648,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.23.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 39959926368,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.23.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 40288917088,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.24.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 40766934496,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.24.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 41095925216,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.24.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 41424915936,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.25.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 41846733152,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.25.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 42175723872,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.25.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 42504714592,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.26.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 42926531808,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.26.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 43255522528,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.26.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 43584513248,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.27.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 43944628448,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.27.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 44273619168,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.27.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 44602609888,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.28.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 45080627296,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.28.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 45409618016,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.28.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 45738608736,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.29.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 46160425952,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.29.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 46489416672,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.29.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 46818407392,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.30.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 898798560,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.30.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 1227789280,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.30.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 1556780000,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.31.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 1916895200,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.31.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 2245885920,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.31.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 2574876640,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.32.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 3052894048,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.32.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 3381884768,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.32.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 3710875488,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.33.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 4132692704,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.33.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 4461683424,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.33.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 4790674144,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.34.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 5212491360,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.34.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 5541482080,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.34.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 5870472800,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.35.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 6230588000,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.35.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 6559578720,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.35.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 6888569440,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.36.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 7366586848,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.36.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 7695577568,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.36.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 8024568288,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.37.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 8446385504,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.37.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 8775376224,
+      "bytes": 328990720,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.37.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 9104366944,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.38.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 9526184160,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.38.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 9946925280,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.38.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 10367666400,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.39.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 10727781600,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.39.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 11148522720,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.39.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 11569263840,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.40.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 13310580704,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.40.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 13731321824,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.40.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 14152062944,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.41.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 14573880160,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.41.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 14994621280,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.41.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 15415362400,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.42.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 15837179616,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.42.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 16257920736,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.42.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 16678661856,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.43.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 17038777056,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.43.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 17459518176,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.43.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 17880259296,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.44.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 18358276704,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.44.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 18779017824,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.44.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 19199758944,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.45.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 19621576160,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.45.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 20042317280,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.45.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 20463058400,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.46.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 20884875616,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.46.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 21305616736,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.46.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 21726357856,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.47.ffn_gate_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 22086473056,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.47.ffn_up_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ4_KT",
+      "offset": 22507214176,
+      "bytes": 420741120,
+      "shape": [
+        2560,
+        640,
+        512
+      ]
+    },
+    {
+      "tensor": "blk.47.ffn_down_exps.weight",
+      "file": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+      "type": "IQ3_KT",
+      "offset": 22927955296,
+      "bytes": 335544320,
+      "shape": [
+        640,
+        2560,
+        512
+      ]
+    }
+  ],
+  "copied_files": [
+    {
+      "file": "compat-bf16.json",
+      "bytes": 44469,
+      "source_v2_sha256": "f86a300c6867717deeeda120b5a1998504fe87da7554cc74d7493a14f4f4c6dc"
+    },
+    {
+      "file": "conversions.json",
+      "bytes": 196092,
+      "source_v2_sha256": "b9c2e8861bedf5c11f7bc63d09c5973cdbd95705427474725b1fe58a6ef43e2a"
+    },
+    {
+      "file": "dense.bin",
+      "bytes": 1538035200,
+      "source_v2_sha256": "5ede0a238aa980a68df3521358a49b25e5268c8338f6ee746d3a9229afe0890c"
+    },
+    {
+      "file": "index.txt",
+      "bytes": 93705,
+      "source_v2_sha256": "676c9a6d63865bc40f92ba86ae52edb15d56d58e524f080b3eebdf55f3bc66f1"
+    },
+    {
+      "file": "tokenizer/chat_template.jinja",
+      "bytes": 8952,
+      "source_v2_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041"
+    },
+    {
+      "file": "tokenizer/merges.txt",
+      "bytes": 3600844,
+      "source_v2_sha256": "080cf95432173729d160346b7882bd2a644b07f7a3813a3eb73f4e66787bfde9"
+    },
+    {
+      "file": "tokenizer/token_type.json",
+      "bytes": 744960,
+      "source_v2_sha256": "5088c8c298fc06af8382ddb3b76c888703ac2634e82263b97eedcc2ad202738b"
+    },
+    {
+      "file": "tokenizer/tokenizer.json",
+      "bytes": 554,
+      "source_v2_sha256": "87be2ac47d8bc7393b7435df6ccd276740019a393941a2585d5edce59f450c54"
+    },
+    {
+      "file": "tokenizer/vision-vocab.gguf",
+      "bytes": 10945312,
+      "source_v2_sha256": "e4549ba3d5b6d24eb1f03b50edddb29fbd6a1916a816c3720c9046ada2987a97"
+    },
+    {
+      "file": "tokenizer/vocab.json",
+      "bytes": 5737005,
+      "source_v2_sha256": "4ba64f0332abcfb0b600b7df1537d1e836e68009d5fb7cdb77339738dc6365c4"
+    }
+  ],
+  "expert_index_sha256": "b6060f06be25bc724996a0463d2d913f1b19cd33ee4cf02c7e266424c0558014",
+  "v4_inventory": {
+    "tensor_payload_bytes": 77853316608,
+    "expert_bytes": 50625249280,
+    "splits": {
+      "18": [
+        {
+          "layers": [
+            0,
+            18
+          ],
+          "canonical_bytes": 650971392,
+          "native_dense_bytes": 1191403520,
+          "head_bytes": 0,
+          "expert_bytes": 18984468480,
+          "weight_payload_bytes": 20826843392
+        },
+        {
+          "layers": [
+            18,
+            48
+          ],
+          "canonical_bytes": 939738368,
+          "native_dense_bytes": 1955962880,
+          "head_bytes": 675430400,
+          "expert_bytes": 31640780800,
+          "weight_payload_bytes": 35211912448
+        }
+      ],
+      "19": [
+        {
+          "layers": [
+            0,
+            19
+          ],
+          "canonical_bytes": 678092928,
+          "native_dense_bytes": 1257902080,
+          "head_bytes": 0,
+          "expert_bytes": 19977994240,
+          "weight_payload_bytes": 21913989248
+        },
+        {
+          "layers": [
+            19,
+            48
+          ],
+          "canonical_bytes": 909995392,
+          "native_dense_bytes": 1889464320,
+          "head_bytes": 675430400,
+          "expert_bytes": 30647255040,
+          "weight_payload_bytes": 34122145152
+        }
+      ],
+      "20": [
+        {
+          "layers": [
+            0,
+            20
+          ],
+          "canonical_bytes": 707838080,
+          "native_dense_bytes": 1316044800,
+          "head_bytes": 0,
+          "expert_bytes": 20971520000,
+          "weight_payload_bytes": 22995402880
+        },
+        {
+          "layers": [
+            20,
+            48
+          ],
+          "canonical_bytes": 877628800,
+          "native_dense_bytes": 1831321600,
+          "head_bytes": 675430400,
+          "expert_bytes": 29653729280,
+          "weight_payload_bytes": 33038110080
+        }
+      ],
+      "21": [
+        {
+          "layers": [
+            0,
+            21
+          ],
+          "canonical_bytes": 734959616,
+          "native_dense_bytes": 1382543360,
+          "head_bytes": 0,
+          "expert_bytes": 21965045760,
+          "weight_payload_bytes": 24082548736
+        },
+        {
+          "layers": [
+            21,
+            48
+          ],
+          "canonical_bytes": 847885824,
+          "native_dense_bytes": 1764823040,
+          "head_bytes": 675430400,
+          "expert_bytes": 28660203520,
+          "weight_payload_bytes": 31948342784
+        }
+      ],
+      "22": [
+        {
+          "layers": [
+            0,
+            22
+          ],
+          "canonical_bytes": 762081152,
+          "native_dense_bytes": 1449041920,
+          "head_bytes": 0,
+          "expert_bytes": 22958571520,
+          "weight_payload_bytes": 25169694592
+        },
+        {
+          "layers": [
+            22,
+            48
+          ],
+          "canonical_bytes": 818142848,
+          "native_dense_bytes": 1698324480,
+          "head_bytes": 675430400,
+          "expert_bytes": 27666677760,
+          "weight_payload_bytes": 30858575488
+        }
+      ]
+    }
+  },
+  "candidate_inventory": {
+    "tensor_payload_bytes": 75667615488,
+    "expert_bytes": 50625249280,
+    "splits": {
+      "18": [
+        {
+          "layers": [
+            0,
+            18
+          ],
+          "canonical_bytes": 703400192,
+          "native_dense_bytes": 551892992,
+          "head_bytes": 0,
+          "expert_bytes": 18984468480,
+          "weight_payload_bytes": 20239761664
+        },
+        {
+          "layers": [
+            18,
+            48
+          ],
+          "canonical_bytes": 992167168,
+          "native_dense_bytes": 916523008,
+          "head_bytes": 521472000,
+          "expert_bytes": 31640780800,
+          "weight_payload_bytes": 34070942976
+        }
+      ],
+      "19": [
+        {
+          "layers": [
+            0,
+            19
+          ],
+          "canonical_bytes": 730521728,
+          "native_dense_bytes": 583103488,
+          "head_bytes": 0,
+          "expert_bytes": 19977994240,
+          "weight_payload_bytes": 21291619456
+        },
+        {
+          "layers": [
+            19,
+            48
+          ],
+          "canonical_bytes": 962424192,
+          "native_dense_bytes": 885312512,
+          "head_bytes": 521472000,
+          "expert_bytes": 30647255040,
+          "weight_payload_bytes": 33016463744
+        }
+      ],
+      "20": [
+        {
+          "layers": [
+            0,
+            20
+          ],
+          "canonical_bytes": 760266880,
+          "native_dense_bytes": 611840000,
+          "head_bytes": 0,
+          "expert_bytes": 20971520000,
+          "weight_payload_bytes": 22343626880
+        },
+        {
+          "layers": [
+            20,
+            48
+          ],
+          "canonical_bytes": 930057600,
+          "native_dense_bytes": 856576000,
+          "head_bytes": 521472000,
+          "expert_bytes": 29653729280,
+          "weight_payload_bytes": 31961834880
+        }
+      ],
+      "21": [
+        {
+          "layers": [
+            0,
+            21
+          ],
+          "canonical_bytes": 787388416,
+          "native_dense_bytes": 643050496,
+          "head_bytes": 0,
+          "expert_bytes": 21965045760,
+          "weight_payload_bytes": 23395484672
+        },
+        {
+          "layers": [
+            21,
+            48
+          ],
+          "canonical_bytes": 900314624,
+          "native_dense_bytes": 825365504,
+          "head_bytes": 521472000,
+          "expert_bytes": 28660203520,
+          "weight_payload_bytes": 30907355648
+        }
+      ],
+      "22": [
+        {
+          "layers": [
+            0,
+            22
+          ],
+          "canonical_bytes": 814509952,
+          "native_dense_bytes": 674260992,
+          "head_bytes": 0,
+          "expert_bytes": 22958571520,
+          "weight_payload_bytes": 24447342464
+        },
+        {
+          "layers": [
+            22,
+            48
+          ],
+          "canonical_bytes": 870571648,
+          "native_dense_bytes": 794155008,
+          "head_bytes": 521472000,
+          "expert_bytes": 27666677760,
+          "weight_payload_bytes": 29852876416
+        }
+      ]
+    }
+  },
+  "gpu_weight_saving_bytes_split19": [
+    622369792,
+    1105681408
+  ],
+  "logical_gguf_payload_saving_bytes": 2185701120,
+  "note": "GPU weight savings exclude KV, workspaces and graphs; automatic expert caching can consume the freed space."
+}

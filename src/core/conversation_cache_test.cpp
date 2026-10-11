@@ -1,4 +1,5 @@
 #include "strata/core/conversation_cache.hpp"
+#include "strata/program/conversation_pool.hpp"
 
 #include <cstdio>
 #include <cstdlib>
@@ -355,6 +356,54 @@ int main() {
         p2.checkpoints.back().gdn.resize(64, 1);
         check(tiny.put(std::move(p2)), "a pinned one fits an empty cache");
         check(!tiny.put(image({7,8,9})) && tiny.size() == 1, "nothing else fits beside it: parking is refused, the pin stays");
+    }
+    {   // Named contexts do not collapse just because their token prefixes happen to match.
+        ConversationCache cache(1 << 20, 4);
+        auto a = image({1,2,3}), b = image({1,2,3});
+        a.owner = "a"; b.owner = "b";
+        check(cache.put(std::move(a), 0, true) && cache.put(std::move(b), 0, true), "two named images fit");
+        const std::string ka = "a", kb = "b", missing = "c";
+        const auto ma = cache.best(std::vector<int>{1,2,3,4}, {}, true, &ka);
+        const auto mb = cache.best(std::vector<int>{1,2,3,4}, {}, true, &kb);
+        check(ma.tokens == 3 && mb.tokens == 3 && ma.index != mb.index, "matching stays within each owner");
+        check(cache.best(std::vector<int>{1,2,3,4}, {}, true, &missing).tokens == 0,
+              "another ID cannot mount identical content from an unrelated channel");
+        check(cache.best(std::vector<int>{1,2,9}, {}, true, &ka).tokens == 0,
+              "an ID never bypasses exact token validation");
+        auto next = image({1,2,3,4,5}); next.owner = ka;
+        check(cache.put(std::move(next), 0, true) && cache.size() == 2 && cache.has_owner(kb),
+              "a later turn replaces only its own channel");
+        check(cache.erase_owner(ka, true) == 1 && cache.evictions() == 1 && cache.has_owner(kb),
+              "a logical eviction drops exactly its own saved state");
+        check(cache.put(image({8,9}), 0, true) && cache.has_owner(""), "anonymous has a real independent owner");
+    }
+    {
+        strata::program::ConversationPool pool(524288, 4);
+        check(pool.update("a", 65000).admitted && pool.update("b", 10000).admitted &&
+              pool.update("c", 10000).admitted && pool.update("", 9000).admitted, "3+1 contexts fit");
+        check(pool.tokens() == 94000 && pool.named() == 3 && pool.contains(""), "active and parked tokens count once");
+        pool.update("a", 65020); // returning to a makes b the oldest named channel
+        const auto fourth = pool.update("d", 10000);
+        check(fourth.evicted == std::vector<std::string>{"b"} && pool.contains("") && pool.named() == 3,
+              "a fourth named conversation evicts the oldest named one, never the anonymous slot");
+        pool.update("", 1500);
+        check(pool.entries().size() == 4 && pool.tokens() == 86520,
+              "unrelated requests without IDs replace one anonymous channel");
+        pool.forget("c");
+        check(!pool.contains("c") && pool.tokens() == 76520, "byte-pressure losses can be reconciled");
+    }
+    {
+        strata::program::ConversationPool pool(524288, 4);
+        pool.update("a", 200000); pool.update("b", 200000); pool.update("c", 120000); pool.update("", 1000);
+        check(pool.tokens() == 521000, "a nearly full 512K pool");
+        const auto grow = pool.update("c", 123289, false);
+        check(grow.evicted == std::vector<std::string>{"a"} && pool.tokens() == 324289,
+              "generation growth evicts before retaining more than 512K total tokens");
+        const auto count = pool.entries().size();
+        check(!pool.update("oversized", 524289).admitted && pool.entries().size() == count &&
+              pool.tokens() == 324289, "an oversized single admission does not destroy existing contexts");
+        strata::program::ConversationPool disabled(0, 4);
+        check(disabled.update("x", 1000000).admitted && disabled.entries().empty(), "disabled pool adds no policy");
     }
     std::printf("conversation_cache_test: %d checks passed\n", checks);
 }

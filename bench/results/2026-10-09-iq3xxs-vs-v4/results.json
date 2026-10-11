@@ -1,0 +1,2270 @@
+{
+  "summary": {
+    "v4": {
+      "short": {
+        "runs": 3,
+        "prompt_tokens": 3305,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 508.2035274399151,
+          "min": 506.67647825353754,
+          "max": 508.4850070003231
+        },
+        "decode_tok_s": {
+          "median": 42.4952690813718,
+          "min": 41.912932431768695,
+          "max": 42.56026600166251
+        },
+        "ttft_s": {
+          "median": 6.55930249998346,
+          "min": 6.556283600046299,
+          "max": 6.559905100031756
+        },
+        "client_total_s": {
+          "median": 12.562278000055812,
+          "min": 12.556982100009918,
+          "max": 12.64520269993227
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 26.348342895507812,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375
+          }
+        ]
+      },
+      "medium": {
+        "runs": 3,
+        "prompt_tokens": 9769,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 740.502107273885,
+          "min": 734.0642165297826,
+          "max": 747.2767884462396
+        },
+        "decode_tok_s": {
+          "median": 42.145467715913206,
+          "min": 40.38109659915452,
+          "max": 42.53692903311566
+        },
+        "ttft_s": {
+          "median": 13.247131900046952,
+          "min": 13.146917799953371,
+          "max": 13.366907199961133
+        },
+        "client_total_s": {
+          "median": 19.422939299955033,
+          "min": 19.243041699985042,
+          "max": 19.467877299990505
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 27.170501708984375,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375
+          }
+        ]
+      },
+      "long32k": {
+        "runs": 3,
+        "prompt_tokens": 32768,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 908.4532618429115,
+          "min": 903.8575585805509,
+          "max": 913.9465544315307
+        },
+        "decode_tok_s": {
+          "median": 41.15490965211241,
+          "min": 40.04317154432122,
+          "max": 41.33098693876234
+        },
+        "ttft_s": {
+          "median": 36.14667200006079,
+          "min": 35.94047789997421,
+          "max": 36.33183779998217
+        },
+        "client_total_s": {
+          "median": 42.50484629999846,
+          "min": 42.142288099974394,
+          "max": 42.520806599990465
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 27.27444839477539,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375
+          }
+        ]
+      },
+      "long128k": {
+        "runs": 1,
+        "prompt_tokens": 128000,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 900.7576216057975,
+          "min": 900.7576216057975,
+          "max": 900.7576216057975
+        },
+        "decode_tok_s": {
+          "median": 39.173080748573085,
+          "min": 39.173080748573085,
+          "max": 39.173080748573085
+        },
+        "ttft_s": {
+          "median": 142.26935640000738,
+          "min": 142.26935640000738,
+          "max": 142.26935640000738
+        },
+        "client_total_s": {
+          "median": 148.7848313000286,
+          "min": 148.7848313000286,
+          "max": 148.7848313000286
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 27.284061431884766,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375
+          }
+        ]
+      }
+    },
+    "iq3_xxs": {
+      "short": {
+        "runs": 3,
+        "prompt_tokens": 3305,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 1028.5696501929542,
+          "min": 1021.164838560173,
+          "max": 1037.5137341076754
+        },
+        "decode_tok_s": {
+          "median": 65.90634091084623,
+          "min": 65.76581205364025,
+          "max": 65.97768098760342
+        },
+        "ttft_s": {
+          "median": 3.26694200001657,
+          "min": 3.216533500002697,
+          "max": 3.28962010005489
+        },
+        "client_total_s": {
+          "median": 7.1330853999825194,
+          "min": 7.096267999964766,
+          "max": 7.160782600054517
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 20.321533203125,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375
+          }
+        ]
+      },
+      "medium": {
+        "runs": 3,
+        "prompt_tokens": 9769,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 1320.866966832975,
+          "min": 1307.6418541769847,
+          "max": 1327.5983909545555
+        },
+        "decode_tok_s": {
+          "median": 64.7478375233952,
+          "min": 64.71510187572677,
+          "max": 65.06048592050422
+        },
+        "ttft_s": {
+          "median": 7.457842699950561,
+          "min": 7.435502799926326,
+          "max": 7.540549000026658
+        },
+        "client_total_s": {
+          "median": 11.379262499976903,
+          "min": 11.378002199926414,
+          "max": 11.481027300003916
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 20.520061492919922,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375
+          }
+        ]
+      },
+      "long32k": {
+        "runs": 3,
+        "prompt_tokens": 32768,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 1490.2267538633657,
+          "min": 1486.2321239857217,
+          "max": 1504.9279409198211
+        },
+        "decode_tok_s": {
+          "median": 63.97121295417062,
+          "min": 63.94085470939381,
+          "max": 63.97920675780371
+        },
+        "ttft_s": {
+          "median": 22.103984399931505,
+          "min": 21.857173800002784,
+          "max": 22.122352699982002
+        },
+        "client_total_s": {
+          "median": 26.09192059992347,
+          "min": 25.844779000035487,
+          "max": 26.11281359998975
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 21.149272918701172,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.703125,
+            "min_free_mib": 3020.296875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375
+          }
+        ]
+      },
+      "long128k": {
+        "runs": 1,
+        "prompt_tokens": 128000,
+        "output_tokens_per_run": 256,
+        "prefill_tok_s": {
+          "median": 1366.9955999829126,
+          "min": 1366.9955999829126,
+          "max": 1366.9955999829126
+        },
+        "decode_tok_s": {
+          "median": 63.25517036890613,
+          "min": 63.25517036890613,
+          "max": 63.25517036890613
+        },
+        "ttft_s": {
+          "median": 93.81637200003024,
+          "min": 93.81637200003024,
+          "max": 93.81637200003024
+        },
+        "client_total_s": {
+          "median": 97.84853499999736,
+          "min": 97.84853499999736,
+          "max": 97.84853499999736
+        },
+        "all_uncached": true,
+        "same_output_within_model": true,
+        "ram_peak_gib": 21.141685485839844,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.703125,
+            "min_free_mib": 3020.296875
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375
+          }
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "short": {
+      "decode_gain_percent": 55.09100738871868,
+      "prefill_gain_percent": 102.39325283206777,
+      "ttft_reduction_percent": 50.193759168374875
+    },
+    "medium": {
+      "decode_gain_percent": 53.62941979867468,
+      "prefill_gain_percent": 78.37450479319624,
+      "ttft_reduction_percent": 43.7022084763561
+    },
+    "long32k": {
+      "decode_gain_percent": 55.440051976610505,
+      "prefill_gain_percent": 64.04000254677425,
+      "ttft_reduction_percent": 38.84918534161505
+    },
+    "long128k": {
+      "decode_gain_percent": 61.47611870228067,
+      "prefill_gain_percent": 51.7606476141655,
+      "ttft_reduction_percent": 34.05721767922092
+    }
+  },
+  "memory": {
+    "v4": {
+      "sample_count": 723,
+      "system_ram_peak_gib": 27.284061431884766,
+      "gpu_combined_peak_gib": 51.422576904296875,
+      "gpu_peak_used_mib": [
+        21371.078125,
+        31285.640625
+      ],
+      "pcie_links_under_load": [
+        [
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ]
+        ]
+      ]
+    },
+    "iq3_xxs": {
+      "sample_count": 452,
+      "system_ram_peak_gib": 21.149272918701172,
+      "gpu_combined_peak_gib": 48.571624755859375,
+      "gpu_peak_used_mib": [
+        19507.703125,
+        30229.640625
+      ],
+      "pcie_links_under_load": [
+        [
+          [
+            3,
+            8
+          ]
+        ],
+        [
+          [
+            4,
+            4
+          ]
+        ]
+      ]
+    }
+  },
+  "requests": [
+    {
+      "model": "v4",
+      "case": "short",
+      "phase": "warmup",
+      "repetition": 0,
+      "label": "v4-short-warmup-0",
+      "ttft_s": 7.750335899996571,
+      "first_delta_kind": "content",
+      "client_total_s": 13.960092600085773,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531450.2598534,
+        "duration_s": 14.0,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 7687.3,
+        "decode_ms": 6247.2,
+        "decode_tok_s": 41.0,
+        "hit_rate": 0.945,
+        "pcie_share": 0.023,
+        "ram_blobs": 4326,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 429.9298843547149,
+      "decode_tok_s": 40.97835830452043,
+      "output_sha256": "95e5485bf1825b5fcb27044d707179ddf8d1c31e533ea997cba634530e3a0f1a",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 27,
+        "ram_peak_gib": 25.786563873291016,
+        "ram_min_available_gib": 37.975799560546875,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 40,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 107.681
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 52,
+            "median_graphics_mhz": 2550,
+            "median_power_w": 92.198
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4",
+      "case": "short",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "v4-short-measured-1",
+      "ttft_s": 6.556283600046299,
+      "first_delta_kind": "content",
+      "client_total_s": 12.562278000055812,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531464.255775,
+        "duration_s": 12.5,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 6503.3,
+        "decode_ms": 6024.2,
+        "decode_tok_s": 42.5,
+        "hit_rate": 0.945,
+        "pcie_share": 0.023,
+        "ram_blobs": 4326,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 508.2035274399151,
+      "decode_tok_s": 42.4952690813718,
+      "output_sha256": "95e5485bf1825b5fcb27044d707179ddf8d1c31e533ea997cba634530e3a0f1a",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 25,
+        "ram_peak_gib": 26.059833526611328,
+        "ram_min_available_gib": 37.70252990722656,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 41,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 110.412
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 54,
+            "median_graphics_mhz": 2355,
+            "median_power_w": 96.562
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4",
+      "case": "short",
+      "phase": "measured",
+      "repetition": 2,
+      "label": "v4-short-measured-2",
+      "ttft_s": 6.55930249998346,
+      "first_delta_kind": "content",
+      "client_total_s": 12.64520269993227,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531476.823905,
+        "duration_s": 12.6,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 6522.9,
+        "decode_ms": 6107.9,
+        "decode_tok_s": 41.9,
+        "hit_rate": 0.945,
+        "pcie_share": 0.023,
+        "ram_blobs": 4326,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 506.67647825353754,
+      "decode_tok_s": 41.912932431768695,
+      "output_sha256": "95e5485bf1825b5fcb27044d707179ddf8d1c31e533ea997cba634530e3a0f1a",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 25,
+        "ram_peak_gib": 26.348342895507812,
+        "ram_min_available_gib": 37.41402053833008,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 43,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 110.562
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 55,
+            "median_graphics_mhz": 2415,
+            "median_power_w": 97.193
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4",
+      "case": "short",
+      "phase": "measured",
+      "repetition": 3,
+      "label": "v4-short-measured-3",
+      "ttft_s": 6.559905100031756,
+      "first_delta_kind": "content",
+      "client_total_s": 12.556982100009918,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531489.485014,
+        "duration_s": 12.6,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 6499.7,
+        "decode_ms": 6015.0,
+        "decode_tok_s": 42.6,
+        "hit_rate": 0.945,
+        "pcie_share": 0.023,
+        "ram_blobs": 4326,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 508.4850070003231,
+      "decode_tok_s": 42.56026600166251,
+      "output_sha256": "95e5485bf1825b5fcb27044d707179ddf8d1c31e533ea997cba634530e3a0f1a",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 24,
+        "ram_peak_gib": 26.315258026123047,
+        "ram_min_available_gib": 37.447105407714844,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 44,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 113.56800000000001
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 56,
+            "median_graphics_mhz": 2392.5,
+            "median_power_w": 97.3565
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4",
+      "case": "medium",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "v4-medium-measured-1",
+      "ttft_s": 13.146917799953371,
+      "first_delta_kind": "content",
+      "client_total_s": 19.467877299990505,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 9769,
+        "completion_tokens": 256,
+        "total_tokens": 10025,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531502.071856,
+        "duration_s": 19.5,
+        "finish": "length",
+        "prompt_tokens": 9769,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 9769,
+        "prompt_read": 9769,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 13072.8,
+        "decode_ms": 6339.6,
+        "decode_tok_s": 40.4,
+        "hit_rate": 0.944,
+        "pcie_share": 0.026,
+        "ram_blobs": 4512,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 747.2767884462396,
+      "decode_tok_s": 40.38109659915452,
+      "output_sha256": "31b7abf6e6c0295160a61e7c69a42f0f45b40538238f3e9b786f8359ae195d5f",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 38,
+        "ram_peak_gib": 26.379798889160156,
+        "ram_min_available_gib": 37.382564544677734,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 46,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 115.977
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 58,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 111.19
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4",
+      "case": "medium",
+      "phase": "measured",
+      "repetition": 2,
+      "label": "v4-medium-measured-2",
+      "ttft_s": 13.247131900046952,
+      "first_delta_kind": "content",
+      "client_total_s": 19.243041699985042,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 9769,
+        "completion_tokens": 256,
+        "total_tokens": 10025,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531521.547139,
+        "duration_s": 19.2,
+        "finish": "length",
+        "prompt_tokens": 9769,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 9769,
+        "prompt_read": 9769,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 13192.4,
+        "decode_ms": 6018.3,
+        "decode_tok_s": 42.5,
+        "hit_rate": 0.944,
+        "pcie_share": 0.026,
+        "ram_blobs": 4512,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 740.502107273885,
+      "decode_tok_s": 42.53692903311566,
+      "output_sha256": "31b7abf6e6c0295160a61e7c69a42f0f45b40538238f3e9b786f8359ae195d5f",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 37,
+        "ram_peak_gib": 26.670719146728516,
+        "ram_min_available_gib": 37.091644287109375,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 47,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 122.171
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 59,
+            "median_graphics_mhz": 2790,
+            "median_power_w": 114.809
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4",
+      "case": "medium",
+      "phase": "measured",
+      "repetition": 3,
+      "label": "v4-medium-measured-3",
+      "ttft_s": 13.366907199961133,
+      "first_delta_kind": "content",
+      "client_total_s": 19.422939299955033,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 9769,
+        "completion_tokens": 256,
+        "total_tokens": 10025,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531540.8075821,
+        "duration_s": 19.4,
+        "finish": "length",
+        "prompt_tokens": 9769,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 9769,
+        "prompt_read": 9769,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 13308.1,
+        "decode_ms": 6074.2,
+        "decode_tok_s": 42.1,
+        "hit_rate": 0.944,
+        "pcie_share": 0.026,
+        "ram_blobs": 4512,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 734.0642165297826,
+      "decode_tok_s": 42.145467715913206,
+      "output_sha256": "31b7abf6e6c0295160a61e7c69a42f0f45b40538238f3e9b786f8359ae195d5f",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 38,
+        "ram_peak_gib": 27.170501708984375,
+        "ram_min_available_gib": 36.591861724853516,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 48,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 122.4485
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 60,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 112.9805
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4",
+      "case": "long32k",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "v4-long32k-measured-1",
+      "ttft_s": 36.14667200006079,
+      "first_delta_kind": "content",
+      "client_total_s": 42.520806599990465,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 32768,
+        "completion_tokens": 256,
+        "total_tokens": 33024,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531560.2610898,
+        "duration_s": 42.5,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 36070.1,
+        "decode_ms": 6393.1,
+        "decode_tok_s": 40.0,
+        "hit_rate": 0.943,
+        "pcie_share": 0.026,
+        "ram_blobs": 4605,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 908.4532618429115,
+      "decode_tok_s": 40.04317154432122,
+      "output_sha256": "c919f75c600c8bb0c3a8ccd9a1924d7c0620da639ebe9a219307012185648b59",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 83,
+        "ram_peak_gib": 26.754268646240234,
+        "ram_min_available_gib": 37.008094787597656,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 50,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 127.084
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 61,
+            "median_graphics_mhz": 2790,
+            "median_power_w": 126.872
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "v4",
+      "case": "long32k",
+      "phase": "measured",
+      "repetition": 2,
+      "label": "v4-long32k-measured-2",
+      "ttft_s": 35.94047789997421,
+      "first_delta_kind": "content",
+      "client_total_s": 42.142288099974394,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 32768,
+        "completion_tokens": 256,
+        "total_tokens": 33024,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531602.8121407,
+        "duration_s": 42.1,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 35853.3,
+        "decode_ms": 6220.4,
+        "decode_tok_s": 41.2,
+        "hit_rate": 0.943,
+        "pcie_share": 0.026,
+        "ram_blobs": 4605,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 913.9465544315307,
+      "decode_tok_s": 41.15490965211241,
+      "output_sha256": "c919f75c600c8bb0c3a8ccd9a1924d7c0620da639ebe9a219307012185648b59",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 82,
+        "ram_peak_gib": 26.991546630859375,
+        "ram_min_available_gib": 36.770816802978516,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 51,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 131.1375
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 63,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 127.53049999999999
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "v4",
+      "case": "long32k",
+      "phase": "measured",
+      "repetition": 3,
+      "label": "v4-long32k-measured-3",
+      "ttft_s": 36.33183779998217,
+      "first_delta_kind": "content",
+      "client_total_s": 42.50484629999846,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 32768,
+        "completion_tokens": 256,
+        "total_tokens": 33024,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531644.9771855,
+        "duration_s": 42.5,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 36253.5,
+        "decode_ms": 6193.9,
+        "decode_tok_s": 41.3,
+        "hit_rate": 0.943,
+        "pcie_share": 0.026,
+        "ram_blobs": 4605,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 903.8575585805509,
+      "decode_tok_s": 41.33098693876234,
+      "output_sha256": "c919f75c600c8bb0c3a8ccd9a1924d7c0620da639ebe9a219307012185648b59",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 82,
+        "ram_peak_gib": 27.27444839477539,
+        "ram_min_available_gib": 36.4879150390625,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 52,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 125.7475
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 61,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 125.146
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "v4",
+      "case": "long128k",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "v4-long128k-measured-1",
+      "ttft_s": 142.26935640000738,
+      "first_delta_kind": "content",
+      "client_total_s": 148.7848313000286,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 128000,
+        "completion_tokens": 256,
+        "total_tokens": 128256,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531687.548904,
+        "duration_s": 148.7,
+        "finish": "length",
+        "prompt_tokens": 128000,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 128000,
+        "prompt_read": 128000,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 142102.6,
+        "decode_ms": 6535.1,
+        "decode_tok_s": 39.2,
+        "hit_rate": 0.945,
+        "pcie_share": 0.025,
+        "ram_blobs": 4448,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 900.7576216057975,
+      "decode_tok_s": 39.173080748573085,
+      "output_sha256": "70e45d01e41037031d33bd268d620a9507c6793ec8e8f7a217d564d6e1a9c48d",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 289,
+        "ram_peak_gib": 27.284061431884766,
+        "ram_min_available_gib": 36.478302001953125,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 55,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 135.424
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 63,
+            "median_graphics_mhz": 2790,
+            "median_power_w": 128.721
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "v4",
+      "case": "long128k-followup",
+      "phase": "followup",
+      "repetition": 1,
+      "label": "v4-long128k-followup-followup-1",
+      "ttft_s": 0.5755358999595046,
+      "first_delta_kind": "content",
+      "client_total_s": 1.3668765999609604,
+      "finish": "stop",
+      "usage": {
+        "prompt_tokens": 128287,
+        "completion_tokens": 31,
+        "total_tokens": 128318,
+        "prompt_tokens_details": {
+          "cached_tokens": 128255
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531836.3647203,
+        "duration_s": 1.3,
+        "finish": "stop",
+        "prompt_tokens": 128287,
+        "reused": 128255,
+        "output_tokens": 31,
+        "prompt_total": 128287,
+        "prompt_read": 32,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 31,
+        "prompt_ms": 444.9,
+        "decode_ms": 815.0,
+        "decode_tok_s": 38.0,
+        "hit_rate": 0.925,
+        "pcie_share": 0.04,
+        "ram_blobs": 761,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 71.92627556754327,
+      "decode_tok_s": 38.03680981595092,
+      "output_sha256": "d61c026a2d9d46c56ab34cc74a59d389cf4da06421e8d3ad4b7bac3e01868083",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 3,
+        "ram_peak_gib": 27.34130859375,
+        "ram_min_available_gib": 36.42105484008789,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 52,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 112.301
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 53,
+            "median_graphics_mhz": 2100,
+            "median_power_w": 91.92
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "short",
+      "phase": "warmup",
+      "repetition": 0,
+      "label": "iq3_xxs-short-warmup-0",
+      "ttft_s": 3.574329899973236,
+      "first_delta_kind": "content",
+      "client_total_s": 7.494923199992627,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531943.3370223,
+        "duration_s": 7.5,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 3513.3,
+        "decode_ms": 3947.5,
+        "decode_tok_s": 64.9,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 940.7110124384482,
+      "decode_tok_s": 64.85117162761242,
+      "output_sha256": "760397d76e94c7cb08b66612295dec0f97430a17f578142d9b18d4f62b395ed9",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 14,
+        "ram_peak_gib": 19.769012451171875,
+        "ram_min_available_gib": 43.993350982666016,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 43,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 115.633
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 64,
+            "median_graphics_mhz": 2805.0,
+            "median_power_w": 134.9105
+          }
+        ]
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "short",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "iq3_xxs-short-measured-1",
+      "ttft_s": 3.26694200001657,
+      "first_delta_kind": "content",
+      "client_total_s": 7.1330853999825194,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531950.8263865,
+        "duration_s": 7.1,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 3236.5,
+        "decode_ms": 3880.1,
+        "decode_tok_s": 66.0,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1021.164838560173,
+      "decode_tok_s": 65.97768098760342,
+      "output_sha256": "760397d76e94c7cb08b66612295dec0f97430a17f578142d9b18d4f62b395ed9",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 14,
+        "ram_peak_gib": 20.071823120117188,
+        "ram_min_available_gib": 43.6905403137207,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 45,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 116.09450000000001
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 66,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 140.828
+          }
+        ]
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "short",
+      "phase": "measured",
+      "repetition": 2,
+      "label": "iq3_xxs-short-measured-2",
+      "ttft_s": 3.216533500002697,
+      "first_delta_kind": "content",
+      "client_total_s": 7.096267999964766,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531957.9855585,
+        "duration_s": 7.1,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 3185.5,
+        "decode_ms": 3892.6,
+        "decode_tok_s": 65.8,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1037.5137341076754,
+      "decode_tok_s": 65.76581205364025,
+      "output_sha256": "760397d76e94c7cb08b66612295dec0f97430a17f578142d9b18d4f62b395ed9",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 14,
+        "ram_peak_gib": 20.314266204833984,
+        "ram_min_available_gib": 43.448097229003906,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 46,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 115.024
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 67,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 143.03300000000002
+          }
+        ]
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "short",
+      "phase": "measured",
+      "repetition": 3,
+      "label": "iq3_xxs-short-measured-3",
+      "ttft_s": 3.28962010005489,
+      "first_delta_kind": "content",
+      "client_total_s": 7.160782600054517,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531965.120268,
+        "duration_s": 7.1,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 3213.2,
+        "decode_ms": 3884.3,
+        "decode_tok_s": 65.9,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1028.5696501929542,
+      "decode_tok_s": 65.90634091084623,
+      "output_sha256": "760397d76e94c7cb08b66612295dec0f97430a17f578142d9b18d4f62b395ed9",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 14,
+        "ram_peak_gib": 20.321533203125,
+        "ram_min_available_gib": 43.44083023071289,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 47,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 115.33850000000001
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 62,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 139.517
+          }
+        ]
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "medium",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "iq3_xxs-medium-measured-1",
+      "ttft_s": 7.435502799926326,
+      "first_delta_kind": "content",
+      "client_total_s": 11.378002199926414,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 9769,
+        "completion_tokens": 256,
+        "total_tokens": 10025,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531972.2993307,
+        "duration_s": 11.4,
+        "finish": "length",
+        "prompt_tokens": 9769,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 9769,
+        "prompt_read": 9769,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 7358.4,
+        "decode_ms": 3955.8,
+        "decode_tok_s": 64.7,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1327.5983909545555,
+      "decode_tok_s": 64.71510187572677,
+      "output_sha256": "c5cb71e3b9a765c6471903b9d5680820c7ae467cad319b81fc5839dd59679d43",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 22,
+        "ram_peak_gib": 20.345096588134766,
+        "ram_min_available_gib": 43.417266845703125,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 49,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 140.4565
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 69,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 143.754
+          }
+        ]
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "medium",
+      "phase": "measured",
+      "repetition": 2,
+      "label": "iq3_xxs-medium-measured-2",
+      "ttft_s": 7.457842699950561,
+      "first_delta_kind": "content",
+      "client_total_s": 11.379262499976903,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 9769,
+        "completion_tokens": 256,
+        "total_tokens": 10025,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531983.704076,
+        "duration_s": 11.4,
+        "finish": "length",
+        "prompt_tokens": 9769,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 9769,
+        "prompt_read": 9769,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 7395.9,
+        "decode_ms": 3934.8,
+        "decode_tok_s": 65.1,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1320.866966832975,
+      "decode_tok_s": 65.06048592050422,
+      "output_sha256": "c5cb71e3b9a765c6471903b9d5680820c7ae467cad319b81fc5839dd59679d43",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 22,
+        "ram_peak_gib": 20.429317474365234,
+        "ram_min_available_gib": 43.333045959472656,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 50,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 147.2425
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 68,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 144.00349999999997
+          }
+        ]
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "medium",
+      "phase": "measured",
+      "repetition": 3,
+      "label": "iq3_xxs-medium-measured-3",
+      "ttft_s": 7.540549000026658,
+      "first_delta_kind": "content",
+      "client_total_s": 11.481027300003916,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 9769,
+        "completion_tokens": 256,
+        "total_tokens": 10025,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791531995.0904071,
+        "duration_s": 11.5,
+        "finish": "length",
+        "prompt_tokens": 9769,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 9769,
+        "prompt_read": 9769,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 7470.7,
+        "decode_ms": 3953.8,
+        "decode_tok_s": 64.7,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1307.6418541769847,
+      "decode_tok_s": 64.7478375233952,
+      "output_sha256": "c5cb71e3b9a765c6471903b9d5680820c7ae467cad319b81fc5839dd59679d43",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 23,
+        "ram_peak_gib": 20.520061492919922,
+        "ram_min_available_gib": 43.24230194091797,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 51,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 149.898
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 70,
+            "median_graphics_mhz": 2790,
+            "median_power_w": 144.689
+          }
+        ]
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "long32k",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "iq3_xxs-long32k-measured-1",
+      "ttft_s": 21.857173800002784,
+      "first_delta_kind": "content",
+      "client_total_s": 25.844779000035487,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 32768,
+        "completion_tokens": 256,
+        "total_tokens": 33024,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791532006.6172428,
+        "duration_s": 25.8,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 21773.8,
+        "decode_ms": 4001.3,
+        "decode_tok_s": 64.0,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1504.9279409198211,
+      "decode_tok_s": 63.97920675780371,
+      "output_sha256": "0a030ff6cdb4354502c4a2c5b301f91afe873b0817072bc10c116a98deba26f7",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 50,
+        "ram_peak_gib": 20.56226348876953,
+        "ram_min_available_gib": 43.20009994506836,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.703125,
+            "min_free_mib": 3020.296875,
+            "max_temperature_c": 53,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 152.97449999999998
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 70,
+            "median_graphics_mhz": 2790.0,
+            "median_power_w": 145.6605
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "long32k",
+      "phase": "measured",
+      "repetition": 2,
+      "label": "iq3_xxs-long32k-measured-2",
+      "ttft_s": 22.103984399931505,
+      "first_delta_kind": "content",
+      "client_total_s": 26.09192059992347,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 32768,
+        "completion_tokens": 256,
+        "total_tokens": 33024,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791532032.4632747,
+        "duration_s": 26.1,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 21988.6,
+        "decode_ms": 4001.8,
+        "decode_tok_s": 64.0,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1490.2267538633657,
+      "decode_tok_s": 63.97121295417062,
+      "output_sha256": "0a030ff6cdb4354502c4a2c5b301f91afe873b0817072bc10c116a98deba26f7",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 51,
+        "ram_peak_gib": 20.84945297241211,
+        "ram_min_available_gib": 42.91291046142578,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.703125,
+            "min_free_mib": 3020.296875,
+            "max_temperature_c": 54,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 155.73
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 71,
+            "median_graphics_mhz": 2790,
+            "median_power_w": 145.351
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "long32k",
+      "phase": "measured",
+      "repetition": 3,
+      "label": "iq3_xxs-long32k-measured-3",
+      "ttft_s": 22.122352699982002,
+      "first_delta_kind": "content",
+      "client_total_s": 26.11281359998975,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 32768,
+        "completion_tokens": 256,
+        "total_tokens": 33024,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791532058.5865254,
+        "duration_s": 26.1,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 22047.7,
+        "decode_ms": 4003.7,
+        "decode_tok_s": 63.9,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1486.2321239857217,
+      "decode_tok_s": 63.94085470939381,
+      "output_sha256": "0a030ff6cdb4354502c4a2c5b301f91afe873b0817072bc10c116a98deba26f7",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 51,
+        "ram_peak_gib": 21.149272918701172,
+        "ram_min_available_gib": 42.61309051513672,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 55,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 153.732
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 70,
+            "median_graphics_mhz": 2790,
+            "median_power_w": 145.239
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "long128k",
+      "phase": "measured",
+      "repetition": 1,
+      "label": "iq3_xxs-long128k-measured-1",
+      "ttft_s": 93.81637200003024,
+      "first_delta_kind": "content",
+      "client_total_s": 97.84853499999736,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 128000,
+        "completion_tokens": 256,
+        "total_tokens": 128256,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791532084.7835393,
+        "duration_s": 97.8,
+        "finish": "length",
+        "prompt_tokens": 128000,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 128000,
+        "prompt_read": 128000,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 93636.0,
+        "decode_ms": 4047.1,
+        "decode_tok_s": 63.3,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 1366.9955999829126,
+      "decode_tok_s": 63.25517036890613,
+      "output_sha256": "8e65954d2153b3e240bae0be5359146d3e8b0fdb0837d16c900897437bb79ee0",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 191,
+        "ram_peak_gib": 21.141685485839844,
+        "ram_min_available_gib": 42.62067794799805,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.703125,
+            "min_free_mib": 3020.296875,
+            "max_temperature_c": 59,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 164.576
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 69,
+            "median_graphics_mhz": 2790,
+            "median_power_w": 141.881
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "case": "long128k-followup",
+      "phase": "followup",
+      "repetition": 1,
+      "label": "iq3_xxs-long128k-followup-followup-1",
+      "ttft_s": 0.47943589999340475,
+      "first_delta_kind": "content",
+      "client_total_s": 0.9554623999865726,
+      "finish": "stop",
+      "usage": {
+        "prompt_tokens": 128287,
+        "completion_tokens": 31,
+        "total_tokens": 128318,
+        "prompt_tokens_details": {
+          "cached_tokens": 128255
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791532182.6662714,
+        "duration_s": 0.9,
+        "finish": "stop",
+        "prompt_tokens": 128287,
+        "reused": 128255,
+        "output_tokens": 31,
+        "prompt_total": 128287,
+        "prompt_read": 32,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 31,
+        "prompt_ms": 330.8,
+        "decode_ms": 490.2,
+        "decode_tok_s": 63.2,
+        "hit_rate": null,
+        "pcie_share": null,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 96.73518742442563,
+      "decode_tok_s": 63.23949408404733,
+      "output_sha256": "d61c026a2d9d46c56ab34cc74a59d389cf4da06421e8d3ad4b7bac3e01868083",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 2,
+        "ram_peak_gib": 21.207439422607422,
+        "ram_min_available_gib": 42.55492401123047,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 19507.078125,
+            "min_free_mib": 3020.921875,
+            "max_temperature_c": 56,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 94.613
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 30229.640625,
+            "min_free_mib": 2530.359375,
+            "max_temperature_c": 58,
+            "median_graphics_mhz": 2805.0,
+            "median_power_w": 139.96550000000002
+          }
+        ]
+      },
+      "retrieval_codes": {
+        "amber-orchid-7391": true,
+        "cobalt-sparrow-5826": true,
+        "jade-harbor-4168": true
+      }
+    },
+    {
+      "model": "v4-restored",
+      "case": "short",
+      "phase": "warmup",
+      "repetition": 0,
+      "label": "v4-restored-short-warmup-0",
+      "ttft_s": 7.286470500053838,
+      "first_delta_kind": "content",
+      "client_total_s": 13.470599199994467,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791532304.941084,
+        "duration_s": 13.5,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 7226.6,
+        "decode_ms": 6215.4,
+        "decode_tok_s": 41.2,
+        "hit_rate": 0.945,
+        "pcie_share": 0.023,
+        "ram_blobs": 4326,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 457.33816732626684,
+      "decode_tok_s": 41.18801686134441,
+      "output_sha256": "95e5485bf1825b5fcb27044d707179ddf8d1c31e533ea997cba634530e3a0f1a",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 27,
+        "ram_peak_gib": 25.788585662841797,
+        "ram_min_available_gib": 37.973777770996094,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 43,
+            "median_graphics_mhz": 1500,
+            "median_power_w": 107.674
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 55,
+            "median_graphics_mhz": 2550,
+            "median_power_w": 96.279
+          }
+        ]
+      }
+    },
+    {
+      "model": "v4-restored",
+      "case": "short",
+      "phase": "restored_check",
+      "repetition": 1,
+      "label": "v4-restored-short-restored_check-1",
+      "ttft_s": 6.56447240000125,
+      "first_delta_kind": "content",
+      "client_total_s": 12.572361300000921,
+      "finish": "length",
+      "usage": {
+        "prompt_tokens": 3305,
+        "completion_tokens": 256,
+        "total_tokens": 3561,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timing": {
+        "projection": null,
+        "time": 1791532318.4188025,
+        "duration_s": 12.6,
+        "finish": "length",
+        "prompt_tokens": 3305,
+        "reused": 0,
+        "output_tokens": 256,
+        "prompt_total": 3305,
+        "prompt_read": 3305,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 256,
+        "prompt_ms": 6532.3,
+        "decode_ms": 6025.9,
+        "decode_tok_s": 42.5,
+        "hit_rate": 0.945,
+        "pcie_share": 0.023,
+        "ram_blobs": 4326,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 0,
+        "drafts_accepted": 0
+      },
+      "prefill_tok_s": 505.94736922676543,
+      "decode_tok_s": 42.48328050581656,
+      "output_sha256": "95e5485bf1825b5fcb27044d707179ddf8d1c31e533ea997cba634530e3a0f1a",
+      "reasoning_characters": 0,
+      "memory": {
+        "sample_count": 24,
+        "ram_peak_gib": 26.05902099609375,
+        "ram_min_available_gib": 37.70334243774414,
+        "gpus": [
+          {
+            "index": 0,
+            "peak_used_mib": 21371.078125,
+            "min_free_mib": 1156.921875,
+            "max_temperature_c": 45,
+            "median_graphics_mhz": 1500.0,
+            "median_power_w": 111.589
+          },
+          {
+            "index": 1,
+            "peak_used_mib": 31285.640625,
+            "min_free_mib": 1474.359375,
+            "max_temperature_c": 55,
+            "median_graphics_mhz": 2385.0,
+            "median_power_w": 98.0365
+          }
+        ]
+      }
+    }
+  ]
+}

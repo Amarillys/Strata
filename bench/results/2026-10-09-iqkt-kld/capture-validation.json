@@ -1,0 +1,86 @@
+{
+  "v4": {
+    "requests": 136,
+    "files_and_sha256_valid": true,
+    "all_cached_tokens_zero": true,
+    "primary_cache": [
+      [
+        "9178",
+        "17.56"
+      ]
+    ],
+    "second_cache": [
+      [
+        "13436",
+        "25.83"
+      ]
+    ],
+    "ple_runtime_lines": [
+      "strata generate: PLE on, table 320001536 rows of B:/models/llm/Qwen/Qwen3.8-Flash-Next/Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf"
+    ],
+    "repeat_logits_byte_identical": true
+  },
+  "v2": {
+    "requests": 136,
+    "files_and_sha256_valid": true,
+    "all_cached_tokens_zero": true,
+    "primary_cache": [
+      [
+        "9728",
+        "17.58"
+      ]
+    ],
+    "second_cache": [
+      [
+        "14848",
+        "26.83"
+      ]
+    ],
+    "ple_runtime_lines": [
+      "strata generate: PLE on, table 320001536 rows of B:/models/llm/Qwen/Qwen3.8-Flash-Next/Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf"
+    ],
+    "repeat_logits_byte_identical": true
+  },
+  "v4-lite": {
+    "requests": 136,
+    "files_and_sha256_valid": true,
+    "all_cached_tokens_zero": true,
+    "primary_cache": [
+      [
+        "9720",
+        "17.57"
+      ]
+    ],
+    "second_cache": [
+      [
+        "14292",
+        "25.83"
+      ]
+    ],
+    "ple_runtime_lines": [
+      "strata generate: PLE on, table 320001536 rows of B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf"
+    ],
+    "repeat_logits_byte_identical": true
+  },
+  "v4-lite-iq3ple": {
+    "requests": 136,
+    "files_and_sha256_valid": true,
+    "all_cached_tokens_zero": true,
+    "primary_cache": [
+      [
+        "9720",
+        "17.57"
+      ]
+    ],
+    "second_cache": [
+      [
+        "14292",
+        "25.83"
+      ]
+    ],
+    "ple_runtime_lines": [
+      "strata generate: PLE on, table 320001536 rows of B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf"
+    ],
+    "repeat_logits_byte_identical": true
+  }
+}

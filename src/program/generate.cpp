@@ -60,6 +60,7 @@
 #include "strata/core/native_dense.hpp"
 #include "strata/program/logits_selection.hpp"
 #include "strata/program/conv_cache.hpp"
+#include "strata/program/conversation_pool.hpp"
 #include "strata/program/message_boundary.hpp"
 #include "strata/spec/draft_policy.hpp"
 #include "strata/spec/draft_source.hpp"
@@ -589,6 +590,7 @@ struct Options {
     /// the PLE history (~118 MB of host RAM); the KV cache itself is positional and stays where it is.
     int prompt_cache = 6;
     int64_t conversation_cache_mib = 0; // opt-in host RAM for independent conversations
+    int64_t conversation_pool_tokens = 0; // opt-in: stable-ID channels, including one anonymous channel
     int conversation_cache_slots = 4;
     int64_t conversation_cache_min_free_mib = 2560;
     /// --serve SAVE: disk space a session file must leave free where it is written (MiB; 0 = no check)
@@ -733,6 +735,8 @@ void usage() {
                  "                       of RAM each; 0 = read every prompt from the start)\n"
                  "  --conversation-cache-mib N  --serve: RAM budget for parked conversations (default 0 = off)\n"
                  "  --conversation-cache-slots N  --serve: at most N parked conversations (default 4)\n"
+                 "  --conversation-pool-tokens N  opt-in ID-routed pool: N total tokens, cache-slots minus one named\n"
+                 "                       channels plus one anonymous channel; two turn/root states, no periodic checkpoints\n"
                  "  --conversation-cache-min-free-mib N  --serve: physical RAM floor when parking or restoring a\n"
                  "                       session file (default 2560)\n"
                  "  --session-min-free-mib N  --serve: disk space a SAVE must leave free (default 4096; 0 = no check)\n"
@@ -1814,7 +1818,8 @@ int main(int argc, char** argv) {
         else if (a == "--vision") o.vision = true;
         else if (a == "--prompt-cache") o.prompt_cache = std::max(0, std::atoi(next("--prompt-cache")));
         else if (a == "--conversation-cache-mib" || a == "--conversation-cache-slots" ||
-                 a == "--conversation-cache-min-free-mib" || a == "--session-min-free-mib") {
+                 a == "--conversation-cache-min-free-mib" || a == "--session-min-free-mib" ||
+                 a == "--conversation-pool-tokens") {
             const std::string value = next(a.c_str());
             int64_t number = 0;
             const auto result = std::from_chars(value.data(), value.data() + value.size(), number);
@@ -1824,6 +1829,7 @@ int main(int argc, char** argv) {
                 return 2;
             }
             if (a == "--conversation-cache-mib") o.conversation_cache_mib = number;
+            else if (a == "--conversation-pool-tokens") o.conversation_pool_tokens = number;
             else if (a == "--conversation-cache-min-free-mib") o.conversation_cache_min_free_mib = number;
             else if (a == "--session-min-free-mib") o.session_min_free_mib = number;
             else o.conversation_cache_slots = (int) number;
@@ -1965,6 +1971,19 @@ int main(int argc, char** argv) {
         if (hc == "last") strata::kernels::cpu::set_host_core(strata::kernels::cpu::HostCore::Last);
     }
     strata::core::set_peer_portable(o.peer_device >= 1);   // multi-GPU: the Portable flag on mapped host buffers only with a peer device (before any allocation)
+    if (o.conversation_pool_tokens > 0) {
+        if (!o.serve || o.conversation_cache_mib <= 0 || o.conversation_cache_slots < 2 ||
+            o.prompt_cache <= 0 || o.batch > 0 || o.conversation_pool_tokens < o.max_context) {
+            std::fprintf(stderr, "--conversation-pool-tokens needs --serve, a positive conversation-cache-mib, "
+                                 "at least 2 cache slots, prompt-cache > 0, no --batch, and a pool >= max-context\n");
+            return 2;
+        }
+        // Whole contexts are parked by identity. Only the system root and latest turn boundary are needed
+        // for a client that re-renders the answer; periodic recurrent-state snapshots are not the storage pool.
+        o.prompt_cache = 2;
+        o.prompt_cache_every = 0;
+        o.prompt_cache_tail = false;
+    }
     if (o.serve && o.conversation_cache_mib > 0 && (o.prompt_cache == 0 || o.conversation_cache_slots == 0))
         std::fprintf(stderr, "strata serve: warning: conversation caching is disabled by %s\n",
                      o.prompt_cache == 0 ? "--prompt-cache 0" : "--conversation-cache-slots 0");
@@ -6967,6 +6986,39 @@ int main(int argc, char** argv) {
         strata::core::ConversationCache conversations(
             o.prompt_cache > 0 ? (size_t) o.conversation_cache_mib * 1024 * 1024 : 0,
             (size_t) o.conversation_cache_slots);
+        strata::program::ConversationPool conversation_pool(o.conversation_pool_tokens, (size_t) o.conversation_cache_slots);
+        std::string live_owner;
+        auto pool_reconcile = [&] {
+            if (!conversation_pool.enabled()) return;
+            std::vector<std::string> missing;
+            for (const auto& e : conversation_pool.entries())
+                if (e.key != live_owner && !conversations.has_owner(e.key)) missing.push_back(e.key);
+            for (const auto& key : missing) conversation_pool.forget(key);
+        };
+        auto pool_update = [&](const std::string& key, int64_t tokens, bool touch = false) {
+            if (!conversation_pool.enabled()) return true;
+            auto change = conversation_pool.update(key, tokens, touch);
+            for (const auto& victim : change.evicted) {
+                conversations.erase_owner(victim, true);
+                if (victim == live_owner) conversations.take_reuse();
+                std::fprintf(stderr, "strata serve: conversation pool: evicted channel=%s (slot/token limit)\n",
+                             victim.empty() ? "anon" : victim.c_str());
+            }
+            return change.admitted;
+        };
+        auto pool_report = [&] {
+            if (!conversation_pool.enabled()) return;
+            std::string channels;
+            for (const auto& e : conversation_pool.entries()) {
+                if (!channels.empty()) channels += ',';
+                channels += (e.key.empty() ? "anon" : e.key) + ":" + std::to_string(e.tokens);
+            }
+            std::printf("POOL tokens=%lld budget=%lld named=%zu anonymous=%d evictions=%zu active=%s channels=%s\n",
+                        (long long) conversation_pool.tokens(), (long long) o.conversation_pool_tokens,
+                        conversation_pool.named(), conversation_pool.contains("") ? 1 : 0, conversation_pool.evictions(),
+                        live_owner.empty() ? "anon" : live_owner.c_str(), channels.empty() ? "-" : channels.c_str());
+            std::fflush(stdout);
+        };
         // Disk sessions: what a session file is bound to.  The model fingerprint samples every model input this
         // engine loaded, by role (conversation_file.hpp), once; the config fingerprint covers the RESOLVED settings
         // that change what the saved bytes mean - the rope (K is cached post-RoPE), the loaded control vector, the
@@ -7045,9 +7097,11 @@ int main(int argc, char** argv) {
         // addresses change: all parked images live in ordinary host vectors.
         auto park_current_body = [&](size_t held) -> bool {
             if (!conversations.enabled() || !live_ok || live.empty()) return true;
+            if (conversation_pool.enabled() && !conversation_pool.contains(live_owner)) return true;
             // #342: before make_room evicts oldest-first, the copies of this conversation a turn back go (they hold
             // nothing the outgoing chain does not, apart from the tail this conversation rewrote)
-            if (const size_t dropped = conversations.drop_superseded(live, live_imgs, checks, cvec_cached))
+            if (const size_t dropped = conversation_pool.enabled() ? conversations.erase_owner(live_owner) :
+                    conversations.drop_superseded(live, live_imgs, checks, cvec_cached))
                 std::fprintf(stderr, "strata serve: conversation cache: dropped %zu superseded cop%s of this "
                              "conversation; parked=%zu\n", dropped, dropped == 1 ? "y" : "ies", conversations.size());
             // A layer split parks one image per stage: the first stage's (with the draft layer's K/V) and one per
@@ -7109,6 +7163,7 @@ int main(int argc, char** argv) {
                 err.clear();
             }
             estimate += stage_estimate;
+            if (conversation_pool.enabled() && !live_owner.empty()) estimate += live_owner.capacity() + 1;
             // A park carrying its own retained K/V replaces memory the cache
             // already held, so capacity is make_room's call - it runs next either
             // way, and put()'s accounting still bounds the budget. The with-reuse
@@ -7171,8 +7226,9 @@ int main(int argc, char** argv) {
                     std::fprintf(stderr, "strata serve: conversation cache: skip parking (physical RAM floor after capture, or telemetry unavailable)\n");
                     return true;
                 }
+                if (conversation_pool.enabled()) image.owner = live_owner;
                 const size_t snapshot_bytes = image.bytes();
-                const bool stored = conversations.put(std::move(image), held);
+                const bool stored = conversations.put(std::move(image), held, conversation_pool.enabled());
                 std::fprintf(stderr, "strata serve: conversation cache: %s %zu tokens in %.1f ms; parked=%zu bytes=%zu evictions=%zu snapshot_bytes=%zu reused_kv_bytes=%zu\n",
                              stored ? "parked" : "skipped", live.size(),
                              std::chrono::duration<double, std::milli>(Clock::now() - t0).count(),
@@ -8043,7 +8099,7 @@ int main(int argc, char** argv) {
                         "expert_slots_primary=%lld expert_cache_primary_mib=%lld spec=%d "
                         "mtp_max=%d lookup=%d vram_free_mib=%lld cvec=%s arena_mib=%lld pool_workers=%d pcie_frac=%.2f "
                         "spec_min_p=%.2f conversation_cache_mib=%lld conversation_cache_slots=%d "
-                        "conversation_cache_min_free_mib=%lld tail_role_token=%lld vram_elastic=%d%s engine=" STRATA_VERSION "\n",
+                        "conversation_cache_min_free_mib=%lld tail_role_token=%lld vram_elastic=%d%s%s engine=" STRATA_VERSION "\n",
                         (long long) o.max_context, o.kv.c_str(),
                         (long long) (g.n_qsa_layers() > 0 && ss.qsa_states[ss.qsa_primary()].kv_mode == 1
                                          ? ss.qsa_states[ss.qsa_primary()].n_slots * 4 : 0),
@@ -8057,7 +8113,9 @@ int main(int argc, char** argv) {
                         (long long) o.conversation_cache_min_free_mib, (long long) o.tail_role_token, xcache.segmented() ? 1 : 0,
                         o.batch > 0 ? (" batch_slots=" + std::to_string(o.batch) +
                                        " slot_cache=" + std::to_string(o.prompt_cache > 0 ? 1 : 0) +
-                                       " batch_groups=" + std::to_string(o.batch_groups)).c_str() : "");
+                                       " batch_groups=" + std::to_string(o.batch_groups)).c_str() : "",
+                        o.conversation_pool_tokens > 0 ? (" conversation_pool_tokens=" +
+                            std::to_string(o.conversation_pool_tokens)).c_str() : "");
         }
         // issue #29: a request whose heartbeat (tokens, prompt chunks, verify windows) stops for this long is stuck on
         // a flag nobody will raise - end the engine with where it was, so the server starts it again instead of the
@@ -8737,6 +8795,7 @@ int main(int argc, char** argv) {
                 };
                 strata::core::progress_at(save ? "saving a session" : "restoring a session");
                 if (path.empty()) { refuse("missing path"); continue; }
+                if (conversation_pool.enabled()) { refuse("session files do not carry conversation-pool identity"); continue; }
                 if (!stages.empty() || multi_gpu) { refuse("session files do not support --layer-split"); continue; }
                 if (o.peer_device >= 1) { refuse("session files do not support --peer-device"); continue; }
                 if (o.batch > 0) { refuse("session files do not support --batch (parallel requests)"); continue; }
@@ -8928,6 +8987,8 @@ int main(int argc, char** argv) {
             // parked after it.  It still resumes from a checkpoint it matches, and still saves the system-prompt root
             // when that reaches --prompt-cache-root.  Absent = checkpointed as before.
             int req_ckpt = 1;
+            std::string req_owner;
+            bool req_owner_valid = true;
             // pin=N: the first N prompt tokens are a shared read-only prefix (a long document that many short queries
             // follow).  The prompt is read in two parts at N, the checkpoint there is PINNED (retention never evicts it,
             // a parked conversation holding it stays parked) and a later request that resumes from it does not park the
@@ -8950,6 +9011,13 @@ int main(int argc, char** argv) {
                     const float fv = std::strtof(tok.c_str() + eq + 1, nullptr);
                     if (key == "cvec") req_cvec = std::atoi(tok.c_str() + eq + 1);
                     else if (key == "ckpt") req_ckpt = std::atoi(tok.c_str() + eq + 1) != 0;
+                    else if (key == "pool_id" && conversation_pool.enabled()) {
+                        req_owner = tok.substr(eq + 1);
+                        if (req_owner == "anon") req_owner.clear();
+                        else if (req_owner.size() != 64 || !std::all_of(req_owner.begin(), req_owner.end(),
+                                    [](char c) { return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f'); }))
+                            req_owner_valid = false;
+                    }
                     else if (key == "pin") req_pin = std::max<long long>(0, std::atoll(tok.c_str() + eq + 1));
                     else if (key == "temperature") req_temperature = fv;
                     else if (key == "top_p") req_top_p = fv;
@@ -9078,6 +9146,9 @@ int main(int argc, char** argv) {
             bool bad = false;
             for (int64_t t : ids) bad = bad || t < 0 || t >= n_vocab;
             if (bad) { std::printf("ERR a token id is outside the vocabulary\n"); continue; }
+            if (!req_owner_valid) { std::printf("ERR pool_id must be anon or a 64-digit lowercase hash\n"); continue; }
+            pool_reconcile();
+            if (!pool_update(req_owner, n, true)) { std::printf("ERR prompt exceeds the conversation pool\n"); continue; }
             std::array<int64_t, 3> remote_before{};
             std::array<int64_t, 3> launches_before{};
             std::array<uint64_t, 3> compact_before{}, full_before{};
@@ -9123,7 +9194,8 @@ int main(int argc, char** argv) {
             }
             int64_t resume = 0;
             bool from_live = false;
-            if (o.prompt_cache > 0 && want_cvec == cvec_cached) {
+            if (o.prompt_cache > 0 && want_cvec == cvec_cached &&
+                (!conversation_pool.enabled() || live_owner == req_owner)) {
                 if (live_ok && starts_with(live, live_imgs)) { resume = (int64_t) live.size(); from_live = true; }
                 for (const ConvCheckpoint& c : checks)
                     if ((int64_t) c.ids.size() > resume && starts_with(c.ids, c.imgs)) {
@@ -9153,7 +9225,8 @@ int main(int argc, char** argv) {
                             slot_ck = &c;
                         }
                 }
-            const auto parked = conversations.best(ids, req_imgs, want_cvec);
+            const auto parked = conversations.best(ids, req_imgs, want_cvec,
+                                                   conversation_pool.enabled() ? &req_owner : nullptr);
             std::optional<strata::core::SavedConversation> incoming;
             if (parked.tokens > std::max(resume, slot_tokens)) incoming.emplace(conversations.take(parked.index));
             if (incoming) slot_source = -1;
@@ -9191,7 +9264,9 @@ int main(int argc, char** argv) {
                 resume == req_pin && live_ok)
                 for (const ConvCheckpoint& c : checks)
                     if ((int64_t) c.ids.size() == resume && c.pinned) pin_sibling = true;
-            if ((!from_live || incoming || slot_source >= 0) && !pin_sibling && !park_current(incoming ? incoming->bytes() : 0)) {
+            if ((!from_live || incoming || slot_source >= 0) && !pin_sibling &&
+                (!conversation_pool.enabled() || live_owner != req_owner) &&
+                !park_current(incoming ? incoming->bytes() : 0)) {
                 std::printf("ERR %s\n", err.c_str());
                 return 1;
             }
@@ -9295,6 +9370,13 @@ int main(int argc, char** argv) {
                              (long long) resume, from_live ? "live" : "checkpoint",
                              std::chrono::duration<double, std::milli>(Clock::now() - t0).count(),
                              conversations.size(), conversations.bytes());
+            }
+            if (conversation_pool.enabled()) {
+                live_owner = req_owner;
+                // An unmatched old version of this ID is replaced, not kept as another branch.
+                conversations.erase_owner(req_owner);
+                pool_reconcile();
+                pool_report();
             }
             if (want_cvec != cvec_cached) {
                 live_ok = false;
@@ -10468,6 +10550,7 @@ int main(int argc, char** argv) {
                     while (a < A.T - 1 && A.tok[a + 1] == outp[(size_t) a]) ++a;
                     if (!V1(A).pl_commit_async(a + 1, err)) return die(err);
                     for (int i = 0; i <= a; ++i) consumed.push_back(A.tok[i]);
+                    if (!pool_update(req_owner, (int64_t) consumed.size())) return die("conversation pool limit");
                     draft_offered += A.T - 1;
                     draft_accepted += a;
                     ++rounds;
@@ -10722,6 +10805,10 @@ int main(int argc, char** argv) {
                 }
                 // the window's first a + 1 tokens are in the session now (the last output is not: it is next x)
                 for (int i = 0; i <= a; ++i) consumed.push_back(window[(size_t) i]);
+                if (!pool_update(req_owner, (int64_t) consumed.size())) {
+                    std::printf("ERR conversation pool limit\n");
+                    return 1;
+                }
                 draft_offered += T - 1;
                 draft_accepted += a;
                 first_window = false;
@@ -10802,6 +10889,10 @@ int main(int argc, char** argv) {
                 live.swap(consumed);
                 live_imgs = imgs_below(req_imgs, (int64_t) live.size());
                 live_ok = o.prompt_cache > 0 && req_ckpt;   // ckpt=0: nothing to continue or park (#830)
+            }
+            if (conversation_pool.enabled()) {
+                pool_update(req_owner, cancelled ? pp_reached : (int64_t) live.size());
+                pool_report();
             }
             static const bool state_hash = std::getenv("STRATA_STATE_HASH") != nullptr;
             if (state_hash && !cancelled && o.prompt_cache > 0) {   // every finished request, ckpt=0 too (parity gates)

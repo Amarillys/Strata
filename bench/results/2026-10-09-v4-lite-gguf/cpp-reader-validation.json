@@ -1,0 +1,8 @@
+{
+  "cpp_loader_passed": true,
+  "architecture_passed": true,
+  "shards": 2,
+  "tensors_in_bounds": 1224,
+  "iq3kt_expert_tensors": 144,
+  "separate_iq4kt_ple": true
+}

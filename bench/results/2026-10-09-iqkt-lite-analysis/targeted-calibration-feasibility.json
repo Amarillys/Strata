@@ -1,0 +1,75 @@
+{
+  "created_utc": "2026-10-09T09:19:35.092512+00:00",
+  "scope": "Feasibility and static payload accounting only; no model loading, calibration, quantization or service change.",
+  "ik_source_revision": "c68d4e3c85ba45f713187f0932b42bf6b34e79b8",
+  "tensor_pattern": "^blk\\.([0-5]|3[89]|4[0-7])\\.ffn_(gate|up)_exps\\.weight$",
+  "target_tensors": [
+    "blk.0.ffn_gate_exps.weight",
+    "blk.0.ffn_up_exps.weight",
+    "blk.1.ffn_gate_exps.weight",
+    "blk.1.ffn_up_exps.weight",
+    "blk.2.ffn_gate_exps.weight",
+    "blk.2.ffn_up_exps.weight",
+    "blk.3.ffn_gate_exps.weight",
+    "blk.3.ffn_up_exps.weight",
+    "blk.38.ffn_gate_exps.weight",
+    "blk.38.ffn_up_exps.weight",
+    "blk.39.ffn_gate_exps.weight",
+    "blk.39.ffn_up_exps.weight",
+    "blk.4.ffn_gate_exps.weight",
+    "blk.4.ffn_up_exps.weight",
+    "blk.40.ffn_gate_exps.weight",
+    "blk.40.ffn_up_exps.weight",
+    "blk.41.ffn_gate_exps.weight",
+    "blk.41.ffn_up_exps.weight",
+    "blk.42.ffn_gate_exps.weight",
+    "blk.42.ffn_up_exps.weight",
+    "blk.43.ffn_gate_exps.weight",
+    "blk.43.ffn_up_exps.weight",
+    "blk.44.ffn_gate_exps.weight",
+    "blk.44.ffn_up_exps.weight",
+    "blk.45.ffn_gate_exps.weight",
+    "blk.45.ffn_up_exps.weight",
+    "blk.46.ffn_gate_exps.weight",
+    "blk.46.ffn_up_exps.weight",
+    "blk.47.ffn_gate_exps.weight",
+    "blk.47.ffn_up_exps.weight",
+    "blk.5.ffn_gate_exps.weight",
+    "blk.5.ffn_up_exps.weight"
+  ],
+  "shape": [
+    2560,
+    640,
+    512
+  ],
+  "bf16_payload_bytes": 53687091200,
+  "iq3_kt_output_payload_bytes": 10527703040,
+  "saving_against_v4_bytes": 2936012800,
+  "model_directory_files": [
+    "mmproj-Qwen3.8-Flash-Next-Uncensored-F16.gguf",
+    "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+    "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+    "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00001-of-00002.gguf",
+    "Qwen3.8-Flash-Next-Uncensored-ik_llama-IQ3_KT_v2-00002-of-00002.gguf",
+    "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+    "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+    "Qwen3.8-Flash-Next-Uncensored-MTP-ik_llama-IQ4_KT.gguf"
+  ],
+  "missing_in_checked_locations": [
+    "Target BF16 weights in the current model directory",
+    "Original imatrix in current model directory/workspace",
+    "llama-imatrix.exe and llama-quantize.exe in ik_llama.cpp checkout"
+  ],
+  "source_references": {
+    "quantization": "ik_llama.cpp/src/llama-quantize.cpp",
+    "cli": "ik_llama.cpp/examples/quantize/quantize.cpp",
+    "collector": "ik_llama.cpp/examples/imatrix/imatrix.cpp"
+  },
+  "not_verified": [
+    "Selective collector implementation",
+    "KT imatrix/quantize executable readiness",
+    "End-to-end calibration and partial tensor artifact loading",
+    "New calibration coverage, quality, runtime and peak memory",
+    "High-precision source download availability"
+  ]
+}

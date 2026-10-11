@@ -1,0 +1,42 @@
+[
+  {
+    "id": "zh_measurement",
+    "category": "Chinese",
+    "text": "比较两种测量方法时，需要先明确测量对象和误差来源。假设研究人员用两支温度计记录同一杯水的温度，第一支显示二十三点四摄氏度，第二支显示二十三点六摄氏度。两次读数的差异可能来自仪器的校准，也可能来自放置位置、水温变化或读数时刻。仅凭一次结果，不能判断哪支温度计更准确。\n为了减少这些因素的影响，可以将两支温度计固定在相近的位置，等待读数稳定，并重复多次测量。记录时应保留原始数据，不要只挑选最接近期望的结果。平均值能够减小随机误差的影响，却不能自动消除系统偏差。如果一支温度计始终高出零点五摄氏度，增加重复次数仍然无法修正这个偏差。\n当参考仪器本身也有误差时，比较结果只能说明两种方法的一致程度。若要评价绝对准确度，还需要可追溯的标准。报告应同时说明样本数量、实验条件和不确定性，让读者知道结论适用于什么范围。"
+  },
+  {
+    "id": "zh_database",
+    "category": "Chinese",
+    "text": "订单系统需要同时维护商品库存和付款状态。用户提交订单后，系统首先检查商品是否仍有库存，然后在同一个事务中扣减库存并创建待付款记录。如果创建订单失败，库存扣减也应回滚，否则会出现商品没有售出、库存却减少的情况。\n并发请求会使这个流程更加复杂。两个用户可能在同一时刻看到最后一件商品，但数据库只能允许其中一个请求成功。常见做法是在更新语句中增加库存大于零的条件，并检查受影响的行数。更新成功后才能继续处理；更新失败时，应向用户返回库存不足，而不是继续生成有效订单。\n付款通知也可能重复到达。服务端可以为每次付款保存唯一标识，在事务中检查这笔付款是否已经处理。这样，即使网络重试导致同一个通知被发送三次，订单也只会更新一次。对于已经付款但暂时没有收到通知的订单，还需要定时查询支付平台，以便在网络恢复后完成状态同步。日志应该记录操作结果和必要的关联标识，避免保存银行卡信息或其他敏感内容。"
+  },
+  {
+    "id": "en_cache",
+    "category": "English",
+    "text": "A cache stores results that are expensive to compute or retrieve. Before using a cached result, the application must decide whether it still corresponds to the current input. A useful cache key includes every input that can change the answer. If a report depends on the account, date range, and selected currency, omitting the currency from the key can return a valid report with the wrong units.\nExpiration limits how long an entry may be reused, but it does not prove that the underlying data has stayed the same. Some applications accept a short delay before updates become visible. Others require an explicit invalidation step whenever the source changes. The appropriate policy depends on the consequences of serving stale data.\nMemory usage also matters. A cache with no size limit can grow until the process becomes unstable. An eviction policy selects entries to remove when the budget is reached. Least recently used is a common choice, although a frequently accessed large entry can still crowd out many smaller ones. Measurements should include both the hit rate and the cost of a miss. A higher hit rate is useful only when the saved work exceeds the overhead of maintaining the cache."
+  },
+  {
+    "id": "en_river",
+    "category": "English",
+    "text": "The survey team reached the river before sunrise. Overnight rain had raised the water level, and the wooden marker near the bank was almost submerged. Maya compared the new reading with the notes from the previous afternoon. The change was larger than expected, so she asked the team to check the marker before reporting it.\nOne person measured the distance from a fixed point on the bridge. Another checked the second gauge upstream. Both measurements supported the first reading. The team then inspected the instrument enclosure and found no sign that it had moved. With the independent checks complete, Maya entered the observations into the field notebook and recorded the time of each measurement.\nOn the way back, they passed a farmer repairing a fence. He said that the stream beside his field had risen quickly after midnight. His account helped explain the timing, but the team kept it separate from the instrument readings. Later that morning, they sent a report describing the rising water, the verification steps, and the remaining uncertainty. They recommended another measurement in two hours instead of assuming that the rate of increase would remain constant throughout the day."
+  },
+  {
+    "id": "code_python",
+    "category": "Code",
+    "text": "from collections import deque\n\ndef shortest_path(graph, start, goal):\n    \"\"\"Return one shortest path in an unweighted directed graph.\"\"\"\n    if start == goal:\n        return [start]\n    queue = deque([start])\n    parent = {start: None}\n    while queue:\n        node = queue.popleft()\n        for neighbor in graph.get(node, []):\n            if neighbor in parent:\n                continue\n            parent[neighbor] = node\n            if neighbor == goal:\n                path = [goal]\n                while parent[path[-1]] is not None:\n                    path.append(parent[path[-1]])\n                path.reverse()\n                return path\n            queue.append(neighbor)\n    return None\n\ngraph = {\n    'A': ['B', 'C'],\n    'B': ['D'],\n    'C': ['D', 'E'],\n    'D': ['F'],\n    'E': ['F'],\n    'F': [],\n}\nassert shortest_path(graph, 'A', 'F') == ['A', 'B', 'D', 'F']\nassert shortest_path(graph, 'F', 'A') is None\nassert shortest_path(graph, 'C', 'C') == ['C']\n\n# Nodes enter the queue at most once because parent also acts as the visited set.\n# For a graph with V vertices and E edges, the search takes O(V + E) time.\n"
+  },
+  {
+    "id": "code_sql",
+    "category": "Code",
+    "text": "-- Compute completed order totals for each customer, keeping customers without orders.\nCREATE TABLE customers (\n    customer_id INTEGER PRIMARY KEY,\n    display_name TEXT NOT NULL\n);\nCREATE TABLE orders (\n    order_id INTEGER PRIMARY KEY,\n    customer_id INTEGER NOT NULL REFERENCES customers(customer_id),\n    status TEXT NOT NULL,\n    amount_cents INTEGER NOT NULL CHECK (amount_cents >= 0),\n    created_at TEXT NOT NULL\n);\n\nSELECT\n    c.customer_id,\n    c.display_name,\n    COUNT(o.order_id) AS completed_orders,\n    COALESCE(SUM(o.amount_cents), 0) AS total_cents\nFROM customers AS c\nLEFT JOIN orders AS o\n    ON o.customer_id = c.customer_id\n    AND o.status = 'completed'\nGROUP BY c.customer_id, c.display_name\nORDER BY total_cents DESC, c.customer_id ASC;\n\n-- The status filter belongs in the join condition. Placing it in WHERE would\n-- remove the rows where the left join found no completed order.\n-- COUNT(o.order_id) counts matched orders, while COUNT(*) also counts the\n-- placeholder row produced for a customer without a matching order.\nCREATE INDEX orders_customer_status ON orders(customer_id, status);\n"
+  },
+  {
+    "id": "tool_inventory",
+    "category": "Tool_JSON",
+    "text": "System: Use the inventory tool to answer stock questions. Check the returned data before giving a quantity.\nUser: How many blue medium jackets are available in the north warehouse?\nAssistant tool call:\n{\"name\":\"get_inventory\",\"arguments\":{\"product\":\"jacket\",\"color\":\"blue\",\"size\":\"M\",\"warehouse\":\"north\"}}\nTool result:\n{\"warehouse\":\"north\",\"items\":[{\"sku\":\"J-BL-M\",\"on_hand\":27,\"reserved\":8,\"damaged\":2}],\"updated_at\":\"2026-10-09T08:00:00Z\"}\nAssistant: There are 17 available blue medium jackets: 27 on hand minus 8 reserved and 2 damaged.\nUser: Reserve three of them for order A104, then tell me the remaining available quantity.\nAssistant tool call:\n{\"name\":\"reserve_inventory\",\"arguments\":{\"sku\":\"J-BL-M\",\"warehouse\":\"north\",\"quantity\":3,\"order_id\":\"A104\"}}\nTool result:\n{\"status\":\"success\",\"reservation_id\":\"R702\",\"quantity\":3,\"available_after\":14}\nAssistant: Three jackets have been reserved for order A104. The north warehouse now has 14 available.\n"
+  },
+  {
+    "id": "tool_calendar",
+    "category": "Tool_JSON",
+    "text": "System: Calendar times use Asia/Shanghai. Never invent availability.\nUser: Find a free thirty-minute slot for Lin and Chen tomorrow afternoon.\nAssistant tool call:\n{\"name\":\"find_free_slots\",\"arguments\":{\"participants\":[\"Lin\",\"Chen\"],\"date\":\"2026-10-10\",\"start_time\":\"13:00\",\"end_time\":\"18:00\",\"duration_minutes\":30,\"timezone\":\"Asia/Shanghai\"}}\nTool result:\n{\"slots\":[{\"start\":\"2026-10-10T14:00:00+08:00\",\"end\":\"2026-10-10T14:30:00+08:00\"},{\"start\":\"2026-10-10T16:30:00+08:00\",\"end\":\"2026-10-10T17:00:00+08:00\"}]}\nAssistant: Both participants are free from 14:00 to 14:30 or from 16:30 to 17:00 tomorrow.\nUser: Book the earlier slot and name it Design Review.\nAssistant tool call:\n{\"name\":\"create_event\",\"arguments\":{\"title\":\"Design Review\",\"participants\":[\"Lin\",\"Chen\"],\"start\":\"2026-10-10T14:00:00+08:00\",\"end\":\"2026-10-10T14:30:00+08:00\",\"timezone\":\"Asia/Shanghai\"}}\nTool result:\n{\"status\":\"created\",\"event_id\":\"evt_204\",\"title\":\"Design Review\"}\nAssistant: Design Review is scheduled for tomorrow from 14:00 to 14:30, with Lin and Chen.\n"
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "baseline_completion": {
+    "completed_at": "2026-10-09T19:35:38.051536+08:00",
+    "requests_per_model": 136,
+    "restored": true
+  },
+  "ple_variant_completion": {
+    "completed_at": "2026-10-09T19:41:56.779100+08:00",
+    "requests": 136,
+    "restored": true
+  },
+  "loads": [
+    {
+      "model": "v4",
+      "load_seconds": 100.40656889998354,
+      "preset": "kld-v4",
+      "launcher_pid": 11188,
+      "port": 18080,
+      "health": {
+        "status": "ok",
+        "loaded": true,
+        "model": "kld-v4",
+        "max_context": 307200
+      }
+    },
+    {
+      "model": "v2",
+      "load_seconds": 100.4342433999991,
+      "preset": "kld-v2",
+      "launcher_pid": 24536,
+      "port": 18080,
+      "health": {
+        "status": "ok",
+        "loaded": true,
+        "model": "kld-v2",
+        "max_context": 307200
+      }
+    },
+    {
+      "model": "v4-lite",
+      "load_seconds": 67.34169390005991,
+      "preset": "kld-v4-lite",
+      "launcher_pid": 7972,
+      "port": 18080,
+      "health": {
+        "status": "ok",
+        "loaded": true,
+        "model": "kld-v4-lite",
+        "max_context": 307200
+      }
+    },
+    {
+      "model": "v4-lite-iq3ple",
+      "load_seconds": 66.84654800000135,
+      "preset": "kld-v4-lite-iq3ple",
+      "launcher_pid": 2580,
+      "port": 18080,
+      "health": {
+        "status": "ok",
+        "loaded": true,
+        "model": "kld-v4-lite-iq3ple",
+        "max_context": 307200
+      }
+    }
+  ],
+  "final_restore": {
+    "preset": "v4-lite",
+    "launcher_pid": 26644,
+    "port": 8080,
+    "health": {
+      "status": "ok",
+      "loaded": true,
+      "model": "qwen3.8-flash-next-v4-lite-iq3kt",
+      "max_context": 307200
+    },
+    "launcher_argv_preserved": true,
+    "launcher_cwd_preserved": true,
+    "production_files_unchanged": true,
+    "catalog_unchanged": true,
+    "warmup_completion_tokens": 2
+  },
+  "final_live_check": {
+    "preset": "v4-lite",
+    "launcher_pid": 26644,
+    "port": 8080,
+    "health": {
+      "status": "ok",
+      "loaded": true,
+      "model": "qwen3.8-flash-next-v4-lite-iq3kt",
+      "max_context": 307200
+    },
+    "binary_hash_matches": true,
+    "original_iq4_ple_matches": true
+  }
+}

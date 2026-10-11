@@ -1,0 +1,786 @@
+{
+  "manifest": {
+    "started": "2026-10-09T15:35:28.419805+08:00",
+    "commit": "546ceabf7702ed0f1fd96292b69cba1798ad0be6",
+    "git_status": " M AGENTS.md\n M README.md\n M docs/IQ_KT_MODEL_SWITCH.zh-CN.md\n M docs/IQ_KT_VISION.md\n M include/strata/core/conversation_cache.hpp\n M serve/server.py\n M src/core/conversation_cache_test.cpp\n M src/program/generate.cpp\n M tools/serve_gpu_wake.py\n M tools/test_serve_gpu_wake.py\n?? bench/results/2026-10-09-gpu-idle/\n?? bench/results/2026-10-09-iq3xxs-vs-v4/\n?? docs/CACHE_WORK_LOG_2026-10-09.zh-CN.md\n?? docs/CONVERSATION_POOL.zh-CN.md\n?? docs/IQ_KT_GPU_POWER.zh-CN.md\n?? include/strata/program/conversation_pool.hpp\n?? serve/conversation_pool.py\n?? serve/test_conversation_pool.py\n",
+    "binary": {
+      "path": "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+      "sha256": "2947bb7c8f50e86cd1ae1b36aedb63527d3802c59800f8b90fc5ac72ef8c52c6"
+    },
+    "os": "Windows-10-10.0.26100-SP0",
+    "ram_gib": 63.76236343383789,
+    "configs": {
+      "v4": {
+        "exe": "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+        "cwd": "B:\\llama.cpp\\Strata",
+        "tokenizer": "B:\\llama.cpp\\Strata\\pack\\iq3kt-v4\\tokenizer",
+        "model_name": "benchmark-v4",
+        "host": "127.0.0.1",
+        "gpu": [
+          0,
+          1
+        ],
+        "layer_split": "22",
+        "args": [
+          "--pack",
+          "pack/iq3kt-v4",
+          "--native",
+          "B:/models/llm/Qwen/Qwen3.8-Flash-Next/Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+          "--spec",
+          "3",
+          "--prefill",
+          "2048",
+          "--max-context",
+          "307200",
+          "--rope-scaling",
+          "yarn",
+          "--rope-scale",
+          "1.171875",
+          "--kv",
+          "int8",
+          "--kv-resident",
+          "20480",
+          "--expert-cache",
+          "auto",
+          "--expert-profile",
+          "data/expert-profile.bin",
+          "--resident-experts",
+          "--check-logits",
+          "--layer-split",
+          "22",
+          "--trim-stage-weights",
+          "--vram-reserve-mib",
+          "1024",
+          "--prompt-cache",
+          "2",
+          "--prompt-cache-every",
+          "0",
+          "--conversation-cache-mib",
+          "12288",
+          "--conversation-cache-slots",
+          "4",
+          "--suffix-draft",
+          "0",
+          "--lookup-chain",
+          "0",
+          "--adapt-every",
+          "0",
+          "--vram-reserve-later-mib",
+          "128",
+          "--vision",
+          "--pcie-frac",
+          "0.5",
+          "--conversation-pool-tokens",
+          "524288"
+        ],
+        "lib_dirs": [
+          "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin"
+        ],
+        "env": {
+          "CUDA_VISIBLE_DEVICES": "GPU-d14e7860-ce4a-f087-1b7d-44f55327c997,GPU-d04690c4-efd4-12e9-9f0d-473bb2fe64a9"
+        },
+        "vision": {
+          "exe": "B:/llama.cpp/Strata/build-vision-vulkan/bin/Release/strata-vision.exe",
+          "model": "B:\\llama.cpp\\Strata\\pack\\iq3kt-v4\\tokenizer\\vision-vocab.gguf",
+          "mmproj": "B:/models/llm/Qwen/Qwen3.8-Flash-Next/mmproj-Qwen3.8-Flash-Next-Uncensored-F16.gguf",
+          "gpu": true,
+          "device": "Intel(R) Iris(R) Xe Graphics",
+          "max_tokens": 768,
+          "env": {
+            "CUDA_VISIBLE_DEVICES": "-1"
+          }
+        },
+        "log": "B:\\llama.cpp\\Strata\\logs\\iq3xxs-vs-v4-2026-10-09-1535\\engine-v4.log",
+        "aliases": []
+      },
+      "iq3_xxs": {
+        "exe": "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+        "cwd": "B:\\llama.cpp\\Strata",
+        "tokenizer": "B:\\llama.cpp\\Strata\\pack\\iq3_xxs\\tokenizer",
+        "model_name": "benchmark-iq3_xxs",
+        "host": "127.0.0.1",
+        "gpu": [
+          0,
+          1
+        ],
+        "layer_split": "22",
+        "args": [
+          "--pack",
+          "B:\\llama.cpp\\Strata\\pack\\iq3_xxs",
+          "--native",
+          "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+          "--spec",
+          "3",
+          "--prefill",
+          "2048",
+          "--max-context",
+          "307200",
+          "--rope-scaling",
+          "yarn",
+          "--rope-scale",
+          "1.171875",
+          "--kv",
+          "int8",
+          "--kv-resident",
+          "20480",
+          "--expert-cache",
+          "auto",
+          "--expert-profile",
+          "data/expert-profile.bin",
+          "--resident-experts",
+          "--check-logits",
+          "--layer-split",
+          "22",
+          "--trim-stage-weights",
+          "--vram-reserve-mib",
+          "1024",
+          "--prompt-cache",
+          "2",
+          "--prompt-cache-every",
+          "0",
+          "--conversation-cache-mib",
+          "12288",
+          "--conversation-cache-slots",
+          "4",
+          "--suffix-draft",
+          "0",
+          "--lookup-chain",
+          "0",
+          "--adapt-every",
+          "0",
+          "--vram-reserve-later-mib",
+          "128",
+          "--vision",
+          "--pcie-frac",
+          "0.5",
+          "--conversation-pool-tokens",
+          "524288"
+        ],
+        "lib_dirs": [
+          "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.8/bin"
+        ],
+        "env": {
+          "CUDA_VISIBLE_DEVICES": "GPU-d14e7860-ce4a-f087-1b7d-44f55327c997,GPU-d04690c4-efd4-12e9-9f0d-473bb2fe64a9"
+        },
+        "vision": {
+          "exe": "B:/llama.cpp/Strata/build-vision-vulkan/bin/Release/strata-vision.exe",
+          "model": "B:\\llama.cpp\\Strata\\pack\\iq3kt-v4\\tokenizer\\vision-vocab.gguf",
+          "mmproj": "B:/models/llm/Qwen/Qwen3.8-Flash-Next/mmproj-Qwen3.8-Flash-Next-Uncensored-F16.gguf",
+          "gpu": true,
+          "device": "Intel(R) Iris(R) Xe Graphics",
+          "max_tokens": 768,
+          "env": {
+            "CUDA_VISIBLE_DEVICES": "-1"
+          }
+        },
+        "log": "B:\\llama.cpp\\Strata\\logs\\iq3xxs-vs-v4-2026-10-09-1535\\engine-iq3_xxs.log",
+        "aliases": []
+      }
+    },
+    "sampling": {
+      "temperature": 0,
+      "top_p": 1,
+      "top_k": 1,
+      "seed": 424242,
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "prompt_checks": {
+      "short": {
+        "prompt_tokens": 3305,
+        "render_sha256": "6f2cb271f42b20a05d398eeb1833a143b46248f8eeda01fc82ee46ada9a3f9e3",
+        "token_ids_sha256": "e8afa27fc60f37620ebd9a1cd345d364ece293fae482e0c94a7af476e2d86e40",
+        "identical_render_between_models": true
+      },
+      "medium": {
+        "prompt_tokens": 9769,
+        "render_sha256": "1c39e94e5025de0ee1e93eb41ca415c5630ccaab415329895e8c8349a4492ae4",
+        "token_ids_sha256": "f39ca3d9e7433a84fd094bc65783358530636d296cc5b8665056ccb171013d04",
+        "identical_render_between_models": true
+      },
+      "long32k": {
+        "prompt_tokens": 32768,
+        "render_sha256": "0148e10dfbe8e58269baf5701cd281947406a7b04933164c60079ee05c5364e4",
+        "token_ids_sha256": "e7ffeb5440bcba5b0e7cb123097d318c570933ec5d348f46c06eba75dd8f7abf",
+        "identical_render_between_models": true
+      },
+      "long128k": {
+        "prompt_tokens": 128000,
+        "render_sha256": "a909eadf95a907362b3a0b86e256af60cfb59a0297e4ac5f7504d95c37464b82",
+        "token_ids_sha256": "74d4af20342ae962086131cb6f6c2813d833231d5b79f784ba4eec8d1ee25c80",
+        "identical_render_between_models": true
+      }
+    },
+    "models": {
+      "v4": {
+        "files": [
+          {
+            "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+            "bytes": 47599263712,
+            "header_sha256": "b7ab3c9ed22de35bc651500eb3a6a3d6a9a9f2698a28909dda934ed29a59d213",
+            "full_file_sha256": null,
+            "tensor_types": {
+              "F32": 189,
+              "Q8_0": 324,
+              "IQ4_KT": 7,
+              "IQ3_KT": 64,
+              "F16": 1,
+              "BF16": 10
+            },
+            "expert_types": {
+              "IQ4_KT": 7,
+              "IQ3_KT": 63
+            },
+            "expert_bytes": 23822336000
+          },
+          {
+            "filename": "Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00002-of-00002.gguf",
+            "bytes": 30265076064,
+            "header_sha256": "2fd1c21a59f0a64c9ee8fcf1a67423437465ed2b3bc765abddf09637e0bd48cc",
+            "full_file_sha256": null,
+            "tensor_types": {
+              "IQ4_KT": 25,
+              "IQ3_KT": 49,
+              "F32": 199,
+              "Q8_0": 342,
+              "BF16": 14
+            },
+            "expert_types": {
+              "IQ4_KT": 25,
+              "IQ3_KT": 49
+            },
+            "expert_bytes": 26802913280
+          }
+        ],
+        "total_bytes": 77864339776
+      },
+      "iq3_xxs": {
+        "files": [
+          {
+            "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+            "bytes": 47039860096,
+            "header_sha256": "fb5725742740f3198e9d434a2d234ad1366a66fa4ceab4535602622ed757671f",
+            "full_file_sha256": null,
+            "tensor_types": {
+              "Q5_K": 15,
+              "BF16": 484,
+              "F32": 292,
+              "IQ3_S": 82,
+              "IQ4_XS": 67,
+              "IQ4_NL": 58,
+              "IQ2_XS": 20,
+              "Q6_K": 71,
+              "Q2_0": 38,
+              "IQ2_XXS": 18,
+              "F16": 1,
+              "Q4_K": 45,
+              "IQ2_S": 20,
+              "IQ3_XXS": 12
+            },
+            "expert_types": {
+              "IQ4_NL": 18,
+              "IQ2_XS": 20,
+              "Q2_0": 30,
+              "IQ2_XXS": 18,
+              "IQ3_S": 26,
+              "IQ2_S": 20,
+              "IQ3_XXS": 12
+            },
+            "expert_bytes": 42912972800
+          },
+          {
+            "filename": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00002-of-00002.gguf",
+            "bytes": 28800138432,
+            "header_sha256": "60a762da9127f76c0a895de009e7245566708ee638c2ae57f0c12b20ae948e4d",
+            "full_file_sha256": null,
+            "tensor_types": {
+              "IQ4_NL": 1
+            },
+            "expert_types": {},
+            "expert_bytes": 0
+          }
+        ],
+        "total_bytes": 75839998528
+      }
+    },
+    "production_config_sha256": "fc396415641ba20978e2037ce030d0a4bd6f9d91d6f97d2c43fa11fda40fce17",
+    "catalog_sha256": "ce2dc7d0e29bd9137dcfba067082fbc68a652b5e8ebd41f392ba6373b6db04e3",
+    "tokenizer_render_identical_for_all_benchmark_prompts": true,
+    "note": "GGUF tensor extents checked; header hashes only, no full model checksum."
+  },
+  "loads": [
+    {
+      "model": "v4",
+      "load_seconds": 114.55713549989741,
+      "health": {
+        "status": "ok",
+        "max_context": 307200,
+        "model": "benchmark-v4",
+        "images": true,
+        "api_key": true,
+        "loaded": true,
+        "service": "strata"
+      },
+      "engine": {
+        "model": "benchmark-v4",
+        "max_context": 307200,
+        "images": true,
+        "version": "0.1.41",
+        "context": 307200,
+        "kv": "int8",
+        "kv_resident": 20480,
+        "expert_slots": 22381,
+        "expert_cache_mib": 44029,
+        "expert_slots_primary": 9069,
+        "expert_cache_primary_mib": 17644,
+        "spec": 3,
+        "mtp_max": 0,
+        "lookup": 0,
+        "vram_free_mib": 818,
+        "cvec": 0,
+        "arena_mib": 4250,
+        "pool_workers": 13,
+        "pcie_frac": "0.50",
+        "spec_min_p": "0.00",
+        "conversation_cache_mib": 12288,
+        "conversation_cache_slots": 4,
+        "conversation_cache_min_free_mib": 2560,
+        "tail_role_token": -1,
+        "vram_elastic": 0,
+        "conversation_pool_tokens": 524288,
+        "engine": "0.1.41"
+      },
+      "hardware_static": {
+        "gpu_name": "NVIDIA GeForce RTX 2080 Ti + NVIDIA GeForce RTX 4080 SUPER",
+        "gpu_count": 2,
+        "gpu_note": null,
+        "cpu_name": "12th Gen Intel(R) Core(TM) i9-12900HK",
+        "cores": 14,
+        "threads": 20,
+        "psutil": true
+      },
+      "engine_processes": [
+        {
+          "pid": 27084,
+          "exe": "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+          "argv": [
+            "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+            "--serve",
+            "--pack",
+            "pack/iq3kt-v4",
+            "--native",
+            "B:/models/llm/Qwen/Qwen3.8-Flash-Next/Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+            "--spec",
+            "3",
+            "--prefill",
+            "2048",
+            "--max-context",
+            "307200",
+            "--rope-scaling",
+            "yarn",
+            "--rope-scale",
+            "1.171875",
+            "--kv",
+            "int8",
+            "--kv-resident",
+            "20480",
+            "--expert-cache",
+            "auto",
+            "--expert-profile",
+            "data/expert-profile.bin",
+            "--resident-experts",
+            "--check-logits",
+            "--layer-split",
+            "22",
+            "--trim-stage-weights",
+            "--vram-reserve-mib",
+            "1024",
+            "--prompt-cache",
+            "2",
+            "--prompt-cache-every",
+            "0",
+            "--conversation-cache-mib",
+            "12288",
+            "--conversation-cache-slots",
+            "4",
+            "--suffix-draft",
+            "0",
+            "--lookup-chain",
+            "0",
+            "--adapt-every",
+            "0",
+            "--vram-reserve-later-mib",
+            "128",
+            "--vision",
+            "--pcie-frac",
+            "0.5",
+            "--conversation-pool-tokens",
+            "524288"
+          ]
+        }
+      ],
+      "hardware_snapshot": {
+        "time": 1791531450.2533085,
+        "phase": "load-v4",
+        "gpus": [
+          {
+            "index": 0,
+            "memory_used_mib": 21345.078125,
+            "memory_free_mib": 1182.921875,
+            "gpu_util": 14,
+            "temperature_c": 34,
+            "power_w": 26.46,
+            "graphics_mhz": 1500,
+            "memory_mhz": 810,
+            "pcie_gen": 3,
+            "pcie_width": 8
+          },
+          {
+            "index": 1,
+            "memory_used_mib": 31229.640625,
+            "memory_free_mib": 1530.359375,
+            "gpu_util": 0,
+            "temperature_c": 42,
+            "power_w": 46.053,
+            "graphics_mhz": 2550,
+            "memory_mhz": 11251,
+            "pcie_gen": 4,
+            "pcie_width": 4
+          }
+        ],
+        "ram_used_gib": 22.011409759521484,
+        "ram_available_gib": 41.750953674316406,
+        "engine_process": {
+          "pid": 27084,
+          "rss_mib": 7455.58984375,
+          "private_mib": 65365.984375,
+          "cpu_times": {
+            "user": 20.53125,
+            "system": 30.390625,
+            "children_user": 0.0,
+            "children_system": 0.0
+          }
+        }
+      }
+    },
+    {
+      "model": "iq3_xxs",
+      "load_seconds": 99.46177819999866,
+      "health": {
+        "status": "ok",
+        "max_context": 307200,
+        "model": "benchmark-iq3_xxs",
+        "images": true,
+        "api_key": true,
+        "loaded": true,
+        "service": "strata"
+      },
+      "engine": {
+        "model": "benchmark-iq3_xxs",
+        "max_context": 307200,
+        "images": true,
+        "version": "0.1.41",
+        "context": 307200,
+        "kv": "int8",
+        "kv_resident": 20480,
+        "expert_slots": 24576,
+        "expert_cache_mib": 40925,
+        "expert_slots_primary": 11264,
+        "expert_cache_primary_mib": 16325,
+        "spec": 3,
+        "mtp_max": 0,
+        "lookup": 0,
+        "vram_free_mib": 2660,
+        "cvec": 0,
+        "arena_mib": 0,
+        "pool_workers": 13,
+        "pcie_frac": "0.50",
+        "spec_min_p": "0.00",
+        "conversation_cache_mib": 12288,
+        "conversation_cache_slots": 4,
+        "conversation_cache_min_free_mib": 2560,
+        "tail_role_token": -1,
+        "vram_elastic": 0,
+        "conversation_pool_tokens": 524288,
+        "engine": "0.1.41"
+      },
+      "hardware_static": {
+        "gpu_name": "NVIDIA GeForce RTX 2080 Ti + NVIDIA GeForce RTX 4080 SUPER",
+        "gpu_count": 2,
+        "gpu_note": null,
+        "cpu_name": "12th Gen Intel(R) Core(TM) i9-12900HK",
+        "cores": 14,
+        "threads": 20,
+        "psutil": true
+      },
+      "engine_processes": [
+        {
+          "pid": 13704,
+          "exe": "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+          "argv": [
+            "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+            "--serve",
+            "--pack",
+            "B:\\llama.cpp\\Strata\\pack\\iq3_xxs",
+            "--native",
+            "B:\\models\\llm\\Qwen\\Qwen3.8-Flash-Next\\Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+            "--spec",
+            "3",
+            "--prefill",
+            "2048",
+            "--max-context",
+            "307200",
+            "--rope-scaling",
+            "yarn",
+            "--rope-scale",
+            "1.171875",
+            "--kv",
+            "int8",
+            "--kv-resident",
+            "20480",
+            "--expert-cache",
+            "auto",
+            "--expert-profile",
+            "data/expert-profile.bin",
+            "--resident-experts",
+            "--check-logits",
+            "--layer-split",
+            "22",
+            "--trim-stage-weights",
+            "--vram-reserve-mib",
+            "1024",
+            "--prompt-cache",
+            "2",
+            "--prompt-cache-every",
+            "0",
+            "--conversation-cache-mib",
+            "12288",
+            "--conversation-cache-slots",
+            "4",
+            "--suffix-draft",
+            "0",
+            "--lookup-chain",
+            "0",
+            "--adapt-every",
+            "0",
+            "--vram-reserve-later-mib",
+            "128",
+            "--vision",
+            "--pcie-frac",
+            "0.5",
+            "--conversation-pool-tokens",
+            "524288"
+          ]
+        }
+      ],
+      "hardware_snapshot": {
+        "time": 1791531943.3189237,
+        "phase": "load-iq3_xxs",
+        "gpus": [
+          {
+            "index": 0,
+            "memory_used_mib": 19475.078125,
+            "memory_free_mib": 3052.921875,
+            "gpu_util": 14,
+            "temperature_c": 38,
+            "power_w": 29.011,
+            "graphics_mhz": 1500,
+            "memory_mhz": 810,
+            "pcie_gen": 3,
+            "pcie_width": 8
+          },
+          {
+            "index": 1,
+            "memory_used_mib": 30167.640625,
+            "memory_free_mib": 2592.359375,
+            "gpu_util": 0,
+            "temperature_c": 45,
+            "power_w": 47.984,
+            "graphics_mhz": 2550,
+            "memory_mhz": 11251,
+            "pcie_gen": 4,
+            "pcie_width": 4
+          }
+        ],
+        "ram_used_gib": 17.521896362304688,
+        "ram_available_gib": 46.2404670715332,
+        "engine_process": {
+          "pid": 13704,
+          "rss_mib": 3202.75,
+          "private_mib": 57770.36328125,
+          "cpu_times": {
+            "user": 16.03125,
+            "system": 26.921875,
+            "children_user": 0.0,
+            "children_system": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "restored": {
+    "health": {
+      "status": "ok",
+      "max_context": 307200,
+      "model": "qwen3.8-flash-next-v4-iq3kt",
+      "images": true,
+      "api_key": true,
+      "loaded": true,
+      "service": "strata"
+    },
+    "engine": {
+      "model": "qwen3.8-flash-next-v4-iq3kt",
+      "max_context": 307200,
+      "images": true,
+      "version": "0.1.41",
+      "context": 307200,
+      "kv": "int8",
+      "kv_resident": 20480,
+      "expert_slots": 22381,
+      "expert_cache_mib": 44029,
+      "expert_slots_primary": 9069,
+      "expert_cache_primary_mib": 17644,
+      "spec": 3,
+      "mtp_max": 0,
+      "lookup": 0,
+      "vram_free_mib": 818,
+      "cvec": 0,
+      "arena_mib": 4250,
+      "pool_workers": 13,
+      "pcie_frac": "0.50",
+      "spec_min_p": "0.00",
+      "conversation_cache_mib": 12288,
+      "conversation_cache_slots": 4,
+      "conversation_cache_min_free_mib": 2560,
+      "tail_role_token": -1,
+      "vram_elastic": 0,
+      "conversation_pool_tokens": 524288,
+      "engine": "0.1.41"
+    },
+    "hardware_static": {
+      "gpu_name": "NVIDIA GeForce RTX 2080 Ti + NVIDIA GeForce RTX 4080 SUPER",
+      "gpu_count": 2,
+      "gpu_note": null,
+      "cpu_name": "12th Gen Intel(R) Core(TM) i9-12900HK",
+      "cores": 14,
+      "threads": 20,
+      "psutil": true
+    },
+    "engine_processes": [
+      {
+        "pid": 15232,
+        "exe": "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+        "argv": [
+          "B:\\llama.cpp\\Strata\\build-kt\\pool-candidate\\strata.exe",
+          "--serve",
+          "--pack",
+          "pack/iq3kt-v4",
+          "--native",
+          "B:/models/llm/Qwen/Qwen3.8-Flash-Next/Qwen3.8-Flash-Next-Uncensored-ik_llama-v4-IQ3_KT-00001-of-00002.gguf",
+          "--spec",
+          "3",
+          "--prefill",
+          "2048",
+          "--max-context",
+          "307200",
+          "--rope-scaling",
+          "yarn",
+          "--rope-scale",
+          "1.171875",
+          "--kv",
+          "int8",
+          "--kv-resident",
+          "20480",
+          "--expert-cache",
+          "auto",
+          "--expert-profile",
+          "data/expert-profile.bin",
+          "--resident-experts",
+          "--check-logits",
+          "--layer-split",
+          "22",
+          "--trim-stage-weights",
+          "--vram-reserve-mib",
+          "1024",
+          "--prompt-cache",
+          "2",
+          "--prompt-cache-every",
+          "0",
+          "--conversation-cache-mib",
+          "12288",
+          "--conversation-cache-slots",
+          "4",
+          "--suffix-draft",
+          "0",
+          "--lookup-chain",
+          "0",
+          "--adapt-every",
+          "0",
+          "--vram-reserve-later-mib",
+          "128",
+          "--vision",
+          "--pcie-frac",
+          "0.5",
+          "--conversation-pool-tokens",
+          "524288"
+        ]
+      }
+    ],
+    "hardware_snapshot": {
+      "time": 1791532304.913007,
+      "phase": "restore-v4",
+      "gpus": [
+        {
+          "index": 0,
+          "memory_used_mib": 21345.078125,
+          "memory_free_mib": 1182.921875,
+          "gpu_util": 15,
+          "temperature_c": 38,
+          "power_w": 28.353,
+          "graphics_mhz": 1500,
+          "memory_mhz": 810,
+          "pcie_gen": 3,
+          "pcie_width": 8
+        },
+        {
+          "index": 1,
+          "memory_used_mib": 31229.640625,
+          "memory_free_mib": 1530.359375,
+          "gpu_util": 9,
+          "temperature_c": 44,
+          "power_w": 45.816,
+          "graphics_mhz": 2550,
+          "memory_mhz": 11251,
+          "pcie_gen": 4,
+          "pcie_width": 4
+        }
+      ],
+      "ram_used_gib": 22.07123565673828,
+      "ram_available_gib": 41.69112777709961,
+      "engine_process": {
+        "pid": 15232,
+        "rss_mib": 7454.11328125,
+        "private_mib": 65369.6015625,
+        "cpu_times": {
+          "user": 20.734375,
+          "system": 29.34375,
+          "children_user": 0.0,
+          "children_system": 0.0
+        }
+      }
+    },
+    "production_config_unchanged": true,
+    "catalog_unchanged": true,
+    "launcher_argv_preserved": true
+  },
+  "completion": {
+    "completed": "2026-10-09T15:52:11.007169+08:00",
+    "requests": 26,
+    "restored": true
+  },
+  "storage": "KIOXIA EXCERIA PLUS G3 NVMe SSD",
+  "os_caption": "Microsoft Windows Server 2025 Datacenter, build 26100",
+  "driver": "610.88",
+  "telemetry_interval_seconds": 0.5
+}

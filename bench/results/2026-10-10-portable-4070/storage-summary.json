@@ -1,0 +1,94 @@
+{
+  "created": "2026-10-10T00:34:02.401430+08:00",
+  "root": "B:\\llama.cpp\\Strata",
+  "size_method": "Logical file bytes; reparse points not followed; os.stat checked link counts",
+  "priority_cleanup_paths": [
+    "build-release-validation",
+    "logs\\v4-lite-share-20261009-01\\applied-pack-iq3",
+    "logs\\v4-lite-share-20261009-01\\applied-pack-iq4",
+    "logs\\v4-lite-gguf-20261009-01\\portable-pack",
+    "logs\\rt4070 extracted 20261010",
+    "dist\\candidate",
+    "dist\\release\\strata-0.1.41-iqkt.1-windows-x64-cuda13",
+    "dist\\portable-v4-lite-20261010\\Strata-v4-lite-4070TiS-Windows-20261010"
+  ],
+  "priority_cleanup_bytes": 13647926350,
+  "rebuildable_paths": [
+    "build-release-cuda13",
+    "build-release-vision",
+    "build-release-tools",
+    "build-conversation-pool-tests"
+  ],
+  "rebuildable_bytes": 3236687485,
+  "no_files_deleted": true,
+  "total": {
+    "bytes": 25897673246,
+    "files": 25926,
+    "hardlinked_files": 0
+  },
+  "paths": {
+    "build-release-validation": {
+      "bytes": 4490037175,
+      "files": 4543,
+      "hardlinked_files": 0
+    },
+    "logs\\v4-lite-share-20261009-01\\applied-pack-iq3": {
+      "bytes": 1485738746,
+      "files": 4,
+      "hardlinked_files": 0
+    },
+    "logs\\v4-lite-share-20261009-01\\applied-pack-iq4": {
+      "bytes": 1485738726,
+      "files": 4,
+      "hardlinked_files": 0
+    },
+    "logs\\v4-lite-gguf-20261009-01\\portable-pack": {
+      "bytes": 1496017231,
+      "files": 10,
+      "hardlinked_files": 0
+    },
+    "logs\\rt4070 extracted 20261010": {
+      "bytes": 2270453183,
+      "files": 1470,
+      "hardlinked_files": 0
+    },
+    "dist\\candidate": {
+      "bytes": 824156577,
+      "files": 1564,
+      "hardlinked_files": 0
+    },
+    "dist\\release\\strata-0.1.41-iqkt.1-windows-x64-cuda13": {
+      "bytes": 821351209,
+      "files": 1458,
+      "hardlinked_files": 0
+    },
+    "dist\\portable-v4-lite-20261010\\Strata-v4-lite-4070TiS-Windows-20261010": {
+      "bytes": 774433503,
+      "files": 1457,
+      "hardlinked_files": 0
+    },
+    "build-release-cuda13": {
+      "bytes": 745348662,
+      "files": 223,
+      "hardlinked_files": 0
+    },
+    "build-release-vision": {
+      "bytes": 510991316,
+      "files": 2179,
+      "hardlinked_files": 0
+    },
+    "build-release-tools": {
+      "bytes": 1325871964,
+      "files": 1924,
+      "hardlinked_files": 0
+    },
+    "build-conversation-pool-tests": {
+      "bytes": 654475543,
+      "files": 3910,
+      "hardlinked_files": 0
+    }
+  },
+  "active_preset": "v4-lite",
+  "active_engine": "build-kt/pool-candidate/strata.exe",
+  "active_vision_engine": "build-vision-vulkan/bin/Release/strata-vision.exe"
+}
