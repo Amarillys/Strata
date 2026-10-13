@@ -10440,6 +10440,40 @@ int main(int argc, char** argv) {
                             slot_ck = &c;
                         }
                 }
+            // #2228: a checkpoint or the live state whose TOKENS this prompt starts with, deeper than what is reused, but
+            // whose pictures differ (a picture is its grid and the hash of its embeddings: an image encoded again with
+            // other bits - another encoder start, a CPU encoder that is not bit-reproducible - no longer matches).  The
+            // reuse then falls back to a checkpoint before that picture; said once per request, so the log tells this
+            // apart from a client that rewrote its history.
+            if (o.prompt_cache > 0 && !req_imgs.empty()) {
+                int64_t deep = 0;
+                const std::vector<ImgKey>* deep_imgs = nullptr;
+                auto tokens_match = [&](const std::vector<int32_t>& pre) {
+                    const int64_t L = (int64_t) pre.size();
+                    if (L < 1 || L > n - 1) return false;
+                    for (int64_t i = 0; i < L; ++i)
+                        if ((int32_t) ids[(size_t) i] != pre[(size_t) i]) return false;
+                    return true;
+                };
+                auto consider = [&](const std::vector<int32_t>& pre, const std::vector<ImgKey>& pre_imgs) {
+                    if ((int64_t) pre.size() > std::max(deep, resume) && tokens_match(pre) &&
+                        imgs_below(req_imgs, (int64_t) pre.size()) != pre_imgs) {
+                        deep = (int64_t) pre.size();
+                        deep_imgs = &pre_imgs;
+                    }
+                };
+                if (live_ok) consider(live, live_imgs);
+                for (const ConvCheckpoint& c : checks) consider(c.ids, c.imgs);
+                if (deep_imgs != nullptr) {
+                    const std::vector<ImgKey> now = imgs_below(req_imgs, deep);
+                    size_t k = 0;
+                    while (k < now.size() && k < deep_imgs->size() && now[k] == (*deep_imgs)[k]) ++k;
+                    std::fprintf(stderr, "strata serve: conversation cache: the state at %lld tokens has this prompt's "
+                                         "tokens but picture %zu (at token %lld) is not the same as when it was saved "
+                                         "(its embeddings changed): it cannot be reused (#2228)\n", (long long) deep,
+                                 k + 1, (long long) (k < now.size() ? now[k].start : -1));
+                }
+            }
             const auto parked = conversations.best(ids, req_imgs, want_cvec);
             std::optional<strata::core::SavedConversation> incoming;
             if (parked.tokens > std::max(resume, slot_tokens)) incoming.emplace(conversations.take(parked.index));
