@@ -10186,6 +10186,10 @@ int main(int argc, char** argv) {
             // the missed experts and the draft-probability floor, for this request only
             double req_pcie_frac = o.pcie_frac, req_spec_min_p = o.spec_min_p;
             int req_aux_cpus = -1;   // aux_cpus=0|1: --aux-cpus for this request (-1 = the start-up value)
+            // #2228: img_keys=<hex>,<hex>,... (GENI): each picture's key from the server (its normalized bytes' hash),
+            // in prompt order.  With them the conversation cache matches a picture by its key and grid, not by its
+            // embedding floats, so a picture encoded again with other bits still matches.  Absent: the embeddings' hash.
+            std::vector<uint64_t> req_img_keys;
             if (endp != nullptr) {   // GENI takes the same keys (#75: image requests were always greedy); its
                                      // embedding file path is the first token without an =
                 for (;;) {
@@ -10214,6 +10218,18 @@ int main(int argc, char** argv) {
                     else if (key == "pcie_frac") req_pcie_frac = std::clamp((double) fv, 0.0, 1.0);
                     else if (key == "spec_min_p") req_spec_min_p = std::clamp((double) fv, 0.0, 1.0);
                     else if (key == "aux_cpus") req_aux_cpus = std::atoi(tok.c_str() + eq + 1) != 0 ? 1 : 0;
+                    else if (key == "img_keys") {
+                        req_img_keys.clear();
+                        const char* q = tok.c_str() + eq + 1;
+                        while (*q != '\0') {
+                            char* qe = nullptr;
+                            const unsigned long long v = std::strtoull(q, &qe, 16);
+                            if (qe == q) { req_img_keys.clear(); break; }
+                            req_img_keys.push_back((uint64_t) v);
+                            q = *qe == ',' ? qe + 1 : qe;
+                            if (*qe != ',' && *qe != '\0') { req_img_keys.clear(); break; }
+                        }
+                    }
                     // unknown keys are skipped: the ids start at the first token without '='
                 }
             }
@@ -10282,7 +10298,10 @@ int main(int argc, char** argv) {
                         {   // what the conversation cache compares: a picture is its grid and its embeddings
                             const int64_t grid[3] = {im.n, im.nx, im.ny};
                             uint64_t h = fnv1a(grid, sizeof grid);
-                            h = fnv1a(img_rows.data() + im.off, (size_t) im.n * (size_t) g.n_embd * sizeof(float), h);
+                            if (req_img_keys.size() == imgs.size())   // #2228: the server's key for picture k
+                                h = fnv1a(&req_img_keys[k - 1], sizeof(uint64_t), h);
+                            else
+                                h = fnv1a(img_rows.data() + im.off, (size_t) im.n * (size_t) g.n_embd * sizeof(float), h);
                             req_imgs.push_back({i, h});
                         }
                         for (int64_t j = 0; j < im.n && ve.empty(); ++j)
