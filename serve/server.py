@@ -469,32 +469,36 @@ def engine_crashed(rc: int | None) -> bool:
     return 0xC0000000 <= (rc & 0xFFFFFFFF) < 0xD0000000      # an NTSTATUS error code
 
 
-def cpu_isa_words() -> str:
-    """The CPU's model and which of AVX / AVX2 / FMA / F16C it reports (Linux: /proc/cpuinfo), for an illegal-instruction
-    exit.  "" where it cannot be read."""
+def cpu_isa_words() -> tuple:
+    """(text, missing): the CPU's model and which of AVX / AVX2 / FMA / F16C it reports (Linux: /proc/cpuinfo), and the
+    ones of those it lacks.  ("", []) where it cannot be read."""
     try:
         text = Path("/proc/cpuinfo").read_text(errors="replace")
     except OSError:
-        return ""
+        return "", []
     model = next((x.split(":", 1)[1].strip() for x in text.splitlines() if x.lower().startswith("model name")), "")
     flags = next((x.split(":", 1)[1].split() for x in text.splitlines() if x.lower().startswith("flags")), [])
     have = ", ".join(f"{f} {'yes' if f in flags else 'NO'}" for f in ("avx", "avx2", "fma", "f16c", "avx512f"))
-    return f"{model or 'this CPU'} ({have})"
+    missing = [f for f in ("avx", "avx2", "fma", "f16c") if f not in flags]
+    return f"{model or 'this CPU'} ({have})", missing
 
 
 def start_exit_note(rc: int | None) -> str:
     """The sentence the start error carries about how the engine process ended (the engine log is silent when the
-    system ends it): "" without a status, else a line, with the CPU's features after an illegal instruction."""
+    system ends it): "" without a status, else a line, with the CPU's AVX flags after an illegal instruction."""
     words = engine_exit_words(rc)
     if not words:
         return ""
     note = f"\nthe engine process ended: {words}"
     if rc is not None and ((rc < 0 and os.name != "nt" and -rc == int(getattr(signal, "SIGILL", 4))) or
                            (rc & 0xFFFFFFFF) == 0xC000001D):
-        isa = cpu_isa_words()
-        note += ("\n  An illegal instruction means this CPU lacks an instruction the engine was built to use"
-                 + (f": {isa}" if isa else "") + ".  Please report it with the CPU model "
-                 "(github.com/Niko1221/Strata/issues).")
+        isa, missing = cpu_isa_words()
+        note += "\n  An illegal instruction: the engine ran an instruction this CPU cannot execute"
+        if isa and missing:
+            note += f" ({', '.join(m.upper() for m in missing)} missing; {isa})"
+        elif isa:
+            note += f"; the CPU reports AVX, AVX2, FMA and F16C ({isa}), so this is a bug in the engine"
+        note += ".  Please report it with the CPU model (github.com/Niko1221/Strata/issues)."
     return note
 
 

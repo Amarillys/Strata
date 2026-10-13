@@ -2444,7 +2444,7 @@ class StartCrashReported(unittest.TestCase):
         text, said = self.run_fake("import os, signal\nos.kill(os.getpid(), signal.SIGILL)\n")
         self.assertIn("exited before it was ready", text)
         self.assertIn("the engine process ended: killed by signal 4 (SIGILL", text)
-        self.assertIn("illegal instruction means this CPU lacks an instruction", text)
+        self.assertIn("An illegal instruction: the engine ran an instruction this CPU cannot execute", text)
         self.assertIn("the engine itself wrote nothing", text)
         self.assertNotIn("starting it again", said)                        # not retried
         self.assertNotIn("GPU runtime", text + said)                       # and never called a GPU runtime start
