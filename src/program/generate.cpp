@@ -9063,6 +9063,31 @@ int main(int argc, char** argv) {
                                          "slots are written - leaves room; decode can be several times slower with the "
                                          "card this full\n", (long long) xcache.slots());
             }
+            // #2192: the same check on a layer split's later cards.  The line above reads CUDA0 alone: on 2x RTX 2080 Ti
+            // (WDDM, --batch 4) CUDA0 had 740 MiB free while CUDA1 started its window captures at 153 MiB and fell to
+            // 52, and the first batch window on it never finished (the host stuck in cudaGraphLaunch: a page-in while the
+            // other card's graph spins on a host flag).  Said, never changed.
+            for (const auto& stp : stages) {
+                const strata::core::OnDevice on(stp->dev);
+                size_t sf = 0, stot = 0;
+                if (cudaMemGetInfo(&sf, &stot) != cudaSuccess) { (void) cudaGetLastError(); continue; }
+                const int64_t sf_mib = (int64_t) (sf >> 20);
+                const int later_reserve = o.vram_reserve_later_mib >= 0 ? o.vram_reserve_later_mib : o.vram_reserve_mib;
+                if (sf_mib >= 512)
+                    std::fprintf(stderr, "strata serve: CUDA%d: %lld MiB of VRAM free with everything loaded\n", stp->dev,
+                                 (long long) sf_mib);
+                else
+                    std::fprintf(stderr, "strata serve: CUDA%d: %lld MiB of VRAM free with everything loaded - LOW: its window "
+                                         "graphs are captured on first use and need room too, and %s; add "
+                                         "--vram-reserve-later-mib %lld to the config's args (or lower --max-context)\n",
+                                 stp->dev, (long long) sf_mib,
+#ifdef _WIN32
+                                 "under WDDM a full card pages instead of failing, which can stall a request for good (#2192)",
+#else
+                                 "a full card can stall a request",
+#endif
+                                 (long long) (later_reserve + 768 - sf_mib));
+            }
         }
         // what the server's Monitor tab shows (servers before 0.1.8 skip unknown lines until READY)
         {
