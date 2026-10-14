@@ -171,3 +171,21 @@ v4-lite 的实际 HC tensor 格式和已有 pack 转换必须先核验，再决�
 - 启用 `STRATA_BUILD_CONVERSATION_TESTS` 后构建并执行 `conversation_validation_test`：1/1 通过，C++ 测试合计 6/6。首次构建命令尝试了未注册的测试目标，随后开启测试选项并完成验证；引擎自身编译成功。
 - HIP 工具链未找到，SYCL 引擎文档要求 Linux/oneAPI，本机未做这两个后端的构建及运行验证。相关 SYCL 修复按上游原提交同步。
 - 未运行真实模型、图片重新编码或长上下文集成测试，以上通过不能替代部署后的端到端验证。
+
+## 第二批：状态提交与 opencode 前缀缓存
+
+用户确认后，无冲突 cherry-pick 两个功能：
+
+- `6f3e3810` → `3ac6a327`：批量 GDN/QSA 状态提交；沿用上游默认开启，`STRATA_COMMIT_BATCH=0` 可回到逐层提交。
+- `d8a49433` → `3babe86f`：opencode `<env>` 移到首个 user 消息；`env_to_user` 默认关闭，未调整本机预设。
+
+验证：
+
+- `python -B -m unittest serve.test_env_to_user serve.test_frontend serve.test_effort_paths`：37/37 通过。
+- 在原独立目录重建 `strata`、`gdn_parity`、`qsa_parity`，CUDA 12.8 sm75/sm89 构建通过。
+- 分别在 CUDA_VISIBLE_DEVICES=0（2080 Ti）与 1（4080 SUPER）运行两个 parity 程序：4/4 通过，均为 0 failures。
+- 每张卡的 `gdn_commit_layers` 对逐层提交为 bitwise（n_keep 1–8，5 层）；QSA `append_steps_layers` 在 none、linear 2、yarn 2 三种缩放下均与逐层提交 bit-identical。
+- 日志：`build-upstream-fixes/python-second.log`、`build-second.log`、`gdn-gpu0.log`、`gdn-gpu1.log`、`qsa-gpu0.log`、`qsa-gpu1.log`。
+
+这证明测试形状的新旧 kernel 提交结果一致，不代表已完成真实 KT 双卡服务端到端或性能 A/B。
+HIP/SYCL 验证限制同上。未加载新模型、替换部署二进制或重启服务。
