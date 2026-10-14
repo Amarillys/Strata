@@ -189,3 +189,50 @@ v4-lite 的实际 HC tensor 格式和已有 pack 转换必须先核验，再决�
 
 这证明测试形状的新旧 kernel 提交结果一致，不代表已完成真实 KT 双卡服务端到端或性能 A/B。
 HIP/SYCL 验证限制同上。未加载新模型、替换部署二进制或重启服务。
+
+## 第三批：完整合并 v0.1.44.1
+
+用户授权合入剩余值得关注的改动，并接受 Mac、Intel、AMD 支持一并引入。
+从 `9d5057a3` 在独立工作树 `B:/llama.cpp/Strata-integrate-0.1.44.1` 合并上游 `296b59d2`，
+使用正式 merge 保留上游历史，包含新模型、量化格式、图片生成、setup 和各后端代码。
+没有为本机现有预设开启 MTP、adaptive、elastic vision 或 `env_to_user`。
+
+7 个冲突文件逐段处理：
+
+- 构建同时保留 KT 和新增 NVFP4 CPU 源文件及各自编译参数。
+- GGUF reader 同时包含 KT 行格式和上游模型结构/family 校验。
+- MTP 保留 KT expert stride/分组分支，同时补入上游 profiling stamps。
+- verifier 采用上游的 Metal 禁用批量提交保护；CUDA 仍沿用已验证的批量提交。
+- CPU expert 保留 KT 和 NVFP4 的 include 与分派。
+- GPU dequant 采用上游 scale/tail 参数签名，并保留 KT 的行感知提前分派。
+- prefill 按格式区分 KT down 行解码与 NVFP4 tail 参数，避免任一方覆盖另一方。
+
+跨后端兼容补充：
+
+- SYCL CPU library 注册 KT AVX2 源文件和精确浮点编译参数，避免共用 CPU expert 文件产生未解析符号。
+- Metal 添加 KT 入口占位函数，遵循上游未实现入口的报错机制，避免共享 host 引用导致链接失败。
+  这不是 Metal/SYCL KT GPU 实现。
+- 清理上游 `tools/check_isa_guard.py` 一处重复 CR，保留其代码逻辑。
+
+验证记录：
+
+- 完整 `serve` unittest：787 项通过，12 项平台或可选条件测试跳过。
+- 全部 `tools/test_setup_*.py`：583 项通过，2 项跳过；KT pack/vision vocab/GPU wake：28/28 通过。
+- Windows CUDA 12.8，sm75/sm89：引擎、`strata_kq` 动态库、KT/GDN/QSA parity 及会话测试目标构建成功。
+- 独立 IK oracle：32 组行数据、145 个真实 v4 张量片段通过，最大相对解码误差 1.73e-7。
+- KT AVX2：32 fixtures × 1–9 tokens，gate/up/down 及行范围与 scalar 完全一致。
+- 2080 Ti/4080 SUPER 分别通过 KT GPU parity：decode 最大相对误差 1.73e-7，GEMV 4.70e-7。
+- 两张卡的 GDN/QSA 自测共 4/4 通过：批量 GDN 提交逐位一致，QSA 的 none/linear/YaRN 批量追加逐位一致。
+- 会话 cache、split failure、memory、file、reclaim、snapshot validation：6/6 通过。
+- WSL GCC 编译并运行 model family、GGUF geometry、split rules 三项 CPU 测试：全部通过。
+- 真实 IQ3_KT v4 两份 GGUF 的 metadata/结构检查：1217 个 tensor 布局通过，模型维度与编译内核匹配。
+- Metal KT stubs 与 SYCL 使用的 KT AVX2 源文件在 WSL GCC 下独立编译成功，仅证明这些源文件的可编译性。
+- 新引擎 `--help` 启动通过。完整 PE ISA 扫描因构建未生成 linker MAP 而跳过，没有把它计为通过。
+- 独立 Vulkan `strata-vision` 构建成功，`--list-devices` 正常识别 2080 Ti、4080 SUPER、Intel Iris Xe 和 CPU；未加载 projector 做图片端到端测试。
+
+本机没有 HIP/oneAPI 工具链及 macOS/Metal SDK，未完成对应完整后端构建或设备运行。
+WSL 的 CMake 3.22 低于项目 3.24 要求，因此上述独立 CPU 测试直接由 GCC 编译。
+未加载完整模型、测量整机性能、切换部署二进制或重启服务；真实服务和长上下文仍需部署阶段验证。
+本次新增上游路径与原工作树的 ignored 本地文件无碰撞。
+
+构建和测试日志保存在独立工作树的 `build-integration/` 及根目录 `*-integration-tests.log`，未提交 Git。
