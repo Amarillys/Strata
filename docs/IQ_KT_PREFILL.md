@@ -113,3 +113,54 @@ Local artifacts under `build-kt/`:
 - `prefill-kt-summary.json` and `summarize-prefill-kt.py`: timing/output comparisons and profile parsing.
 - `prefill-kt-build.log`: sm75/sm89 build. The earlier binary is `Release/strata-pre-prefill-kt.exe` and its
   kernel source snapshot is `kt_kernels-pre-prefill.cu`; the rebuilt preset executable is `Release/strata.exe`.
+
+## Opt-in: the KT experts on llama.cpp's Q8_0 MMQ (`STRATA_PREFILL_KT_MMQ=1`), 2026-10-15
+
+This is the first step of the remaining work above, without a new MMQ tile loader: each MMQ group's 16 experts are
+decoded once to GGUF Q8_0 blocks (`kernels::kt_to_q8_0_group`: the int8 trellis codes as they are, the f16 block scale
+= row scale x block scale) where the other native formats are gathered, and the prompt path's existing Q8_0 MMQ
+computes gate/up and down with q8_1 activations, 16 experts a launch. The FP16 path writes 16 bits per weight and
+issues three expansions and two cuBLAS products per expert; this writes 8.5 bits per weight and issues one conversion
+per group. Unset or `0`: the FP16 path as before. The engine flag is an environment variable of the engine (the
+config's `"env"`).
+
+Kernel times (`kt_mmq_bench`, 16 IQ3_KT experts, gate/up 1280 x 2560 and down 2560 x 640, median of 25, ms):
+
+| GPU | Rows per expert | MMQ path (conversion + products) | FP16 path (expansion + cuBLAS) |
+| --- | ---: | ---: | ---: |
+| RTX 2080 Ti | 15 | 0.60 (0.29 + 0.31) | 1.52 (0.76 + 0.76) |
+| RTX 2080 Ti | 40 | 0.70 (0.28 + 0.41) | 1.55 (0.52 + 1.03) |
+| RTX 4080 SUPER | 15 | 0.28 (0.18 + 0.10) | 1.09 (0.61 + 0.48) |
+| RTX 4080 SUPER | 40 | 0.30 (0.18 + 0.11) | 1.07 (0.59 + 0.48) |
+
+The gate/up outputs of the two paths differ by 5.3e-3 relative L2 (the int8 activations). The first converter
+passed its group's blob pointers as a by-value kernel argument indexed at run time; the compiler copied the array to
+every thread's local memory and the conversion took 3.77 ms on the 2080 Ti, slower than the whole FP16 path.
+`__grid_constant__` brought it to 0.27 ms. `kt_parity` checks the conversion code for code against the scalar
+decoder and the f16 scale bit for bit, for every fixture width (both IQ3_KT and IQ4_KT), and the zeroed MMQ tail;
+37/37 cases passed on both cards.
+
+The same engine binary with the variable off and on, the v4-lite IQ3_KT pack on the 2080 Ti + 4080 SUPER split 19,
+K8V8, chunk 2048, one restart per arm, prompts with unique prefixes (`0 reused` in the engine's log):
+
+| Prompt | Off (FP16 path) | On (KT MMQ) |
+| --- | ---: | ---: |
+| 759 tokens (a 1024 x 1024 picture at 768 image tokens) | 3.08, 2.89 s | 2.15, 1.96 s |
+| 4.6K tokens | 7.34, 7.08 s | 4.67, 4.56 s |
+| 13.7K tokens | 16.24, 15.83 s (847-869 tok/s) | 10.54, 9.79 s (1,305-1,405 tok/s) |
+| decode, 3 x 512 tokens | 57.1-57.9 tok/s | 57.4-58.0 tok/s |
+
+A whole HTTP request with one new picture took about 2.7 s instead of about 3.5 s. The prompt path borrows 789 slots
+per card instead of 744 (the Q8_0 group buffers are larger); the 2080 Ti kept all 9,728 of its experts in both arms.
+
+Answers, temperature 0, thinking off, the same inputs in both arms: three numbers hidden at 10% / 50% / 90% of 4.7K,
+13.8K and 27.3K-token texts were read back correctly by both arms with identical answers; a numeric question about a
+3.9K-token text got the identical correct answer; a five-point summary of a 4.8K-token text differed in wording from
+its first bullet (character similarity 0.83) with the same content. Prompt reads in that run: 1.29x-1.54x faster.
+Picture answers read every number in both arms; both arms (and the production engine) sometimes omitted the colors.
+
+Not tested: chunk 4096, other cards, HIP, a pack whose layers mix KT with other formats, and long multi-turn quality.
+The output is not bit-identical to the FP16 path's. A tile loader that decodes KT inside MMQ (as IK's
+`load_tiles_iq3_kt` does) would also drop the Q8_0 round trip; this change does not attempt it.
+Local evidence: `build-kt/vision-opt-20261015/prefill-ab/` (`kt-mmq-run.log`, `kt-mmq-results.json`,
+`kt-mmq-timing.log`, `kt-mmq-quality.json`) and `kt_mmq_bench` in the build.

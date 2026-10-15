@@ -1541,6 +1541,9 @@ if(STRATA_NATIVE_EXPERTS)
     # the routed-expert products (MMQ) timed at the prompt path's shapes (16 experts a launch)
     add_executable(mmq_expert_bench src/prefill/mmq_expert_bench.cpp)
     target_link_libraries(mmq_expert_bench PRIVATE strata_mmq ggml-base CUDA::cudart)
+    # the KT prompt experts: the FP16 path (expansion + cuBLAS) against STRATA_PREFILL_KT_MMQ's Q8_0 conversion + MMQ
+    add_executable(kt_mmq_bench src/prefill/kt_mmq_bench.cpp)
+    target_link_libraries(kt_mmq_bench PRIVATE strata_mmq strata_kernels ggml-base CUDA::cudart CUDA::cublas)
   elseif(STRATA_PREFILL_MMQ)
     # Compile only the pinned GGML MMQ and activation-quantizer sources used by prefill. This uses
     # common.cuh's native HIP path without enabling a second GGML HIP backend.

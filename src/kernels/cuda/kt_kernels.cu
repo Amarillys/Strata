@@ -164,6 +164,102 @@ template<int TYPE, class T> __global__ void dq(const uint8_t* src, size_t rb, in
         }
     }
 }
+// One 32-value group's eight values at lane j (as dq): the signed codes, four per word, and the group's scale.
+template<int TYPE> __device__ __forceinline__ float codes8(const uint8_t* row, int cols, int group, int j,
+                                                          uint32_t& w0, uint32_t& w1) {
+    const int b = group / 8, ib = group % 8, nt = cols % 256 / 32;
+    const bool tail = b == cols / 256;
+    const uint8_t* p = row + 4 + b * (TYPE == kt::IQ3 ? 100 : 128);
+    const float scale = *reinterpret_cast<const float*>(row);
+    if constexpr (TYPE == kt::IQ3) {
+        const int ls = tail ? ((p[12 * nt + ib / 2] >> (4 * (ib & 1))) & 15)
+                            : ((p[ib % 4] >> (4 * (ib / 4))) & 15);
+        uint32_t seed = *reinterpret_cast<const uint16_t*>(p + (tail ? 0 : 4) + 8 * ib + 2 * j) + 4096;
+        uint32_t s0, s1;
+        if (tail) {
+            const uint32_t sb = p[8 * nt + 4 * ib + j];
+            s0 = __vcmpne4(((sb & 15u) * 0x00204081u) & 0x01010101u, 0);
+            s1 = __vcmpne4(((sb >> 4) * 0x00204081u) & 0x01010101u, 0);
+        } else {
+            const uint32_t mask = 0x01010101u << ib;
+            s0 = __vcmpne4(word(p + 68 + 8 * j) & mask, 0);
+            s1 = __vcmpne4(word(p + 72 + 8 * j) & mask, 0);
+        }
+        const uint32_t v0 = codes4<true>(seed), v1 = codes4<true>(seed);
+        w0 = __vsub4(v0 ^ s0, s0);
+        w1 = __vsub4(v1 ^ s1, s1);
+        return scale * ls * 1.01f;
+    } else {
+        const uint32_t sh = word(p + (tail ? 16 * ib : 4 * ib));
+        uint32_t w[2];
+#pragma unroll
+        for (int h = 0; h < 2; ++h) {
+            const int k = 2 * j + h;
+            const uint32_t lo = p[(tail ? 16 * ib + 4 : 32 + 8 * ib) + k];
+            const uint32_t hi = tail ? ((p[16 * ib + 12 + k / 2] >> (4 * (k & 1))) & 15)
+                                     : ((p[96 + 8 * (ib % 4) + k] >> (4 * (ib / 4))) & 15);
+            uint32_t seed = lo + (hi << 8) + (((sh >> (8 + 3 * k)) & 7) << 12) + ((sh & 1) << 15) + 4096;
+            w[h] = codes4<false>(seed);
+        }
+        w0 = w[0];
+        w1 = w[1];
+        return scale * (int((sh & 255) >> 1) - 64);
+    }
+}
+// kt_to_q8_0_group: a CTA converts kQ8Blocks consecutive Q8_0 blocks of one expert's gate/up or down region (four
+// lanes per block, eight values each, as dq) into shared memory, then stores them as 16-byte words: 64 blocks are 136
+// of them, so every CTA's output starts aligned.  The 2-byte stores straight to global memory this replaced (a block is
+// 34 bytes) were measured 1.3-5.5x slower than the FP16 expansion on the 4080 / 2080 Ti.  After the gate/up and down
+// CTAs, two more (expert n - 1 only) zero nz uint4 after each of its slots.
+constexpr int kQ8Blocks = 64;
+struct KtGroup { const uint8_t* blob[kKtQ8GroupMax]; };
+// (__grid_constant__: g.blob[q] is read from parameter space; a by-value struct indexed at run time is otherwise copied
+// to every thread's local memory.  An expert's blocks are below 2^31, so the block arithmetic is 32-bit.)
+template<int GU, int DT> __global__ void __launch_bounds__(4 * kQ8Blocks) to_q8_0(const __grid_constant__ KtGroup g,
+        int first, int n, int n_embd, int n_ff, size_t gu_row, size_t d_row, size_t up_off, size_t down_off,
+        uint8_t* gu_dst, size_t gu_stride, uint8_t* d_dst, size_t d_stride, int64_t nz) {
+    __shared__ uint4 sm[kQ8Blocks * 34 / 16];
+    const int q = first + (int)blockIdx.y;
+    const int gu_blocks = 2 * n_ff * (n_embd / 32), d_blocks = n_embd * (n_ff / 32);
+    const int gu_ctas = (gu_blocks + kQ8Blocks - 1) / kQ8Blocks, d_ctas = (d_blocks + kQ8Blocks - 1) / kQ8Blocks;
+    const int c = (int)blockIdx.x;
+    if (c >= gu_ctas + d_ctas) {
+        if (q != n - 1) return;
+        uint4* z = reinterpret_cast<uint4*>(c > gu_ctas + d_ctas ? d_dst + (size_t)n * d_stride
+                                                                 : gu_dst + (size_t)n * gu_stride);
+        for (int64_t k = threadIdx.x; k < nz; k += blockDim.x) z[k] = make_uint4(0, 0, 0, 0);
+        return;
+    }
+    const bool down = c >= gu_ctas;
+    const int cols = down ? n_ff : n_embd, bpr = cols / 32;
+    const int b0 = (down ? c - gu_ctas : c) * kQ8Blocks;
+    const int nb = min(kQ8Blocks, (down ? d_blocks : gu_blocks) - b0);
+    uint8_t* s = reinterpret_cast<uint8_t*>(sm);
+    const int b = threadIdx.x / 4, j = threadIdx.x % 4;
+    if (b < nb) {
+        const uint8_t* blob = g.blob[q];
+        const int blk = b0 + b, r = blk / bpr;
+        const int group = blk % bpr;
+        uint32_t w0, w1;
+        float d;
+        if (down) {
+            d = codes8<DT>(blob + down_off + (size_t)r * d_row, cols, group, j, w0, w1);
+        } else {
+            const uint8_t* row = r < n_ff ? blob + (size_t)r * gu_row : blob + up_off + (size_t)(r - n_ff) * gu_row;
+            d = codes8<GU>(row, cols, group, j, w0, w1);
+        }
+        uint16_t* qs = reinterpret_cast<uint16_t*>(s + b * 34 + 2 + 8 * j);
+        qs[0] = (uint16_t)w0; qs[1] = (uint16_t)(w0 >> 16); qs[2] = (uint16_t)w1; qs[3] = (uint16_t)(w1 >> 16);
+        if (j == 0) *reinterpret_cast<__half*>(s + b * 34) = __float2half(d);
+    }
+    __syncthreads();
+    uint8_t* dst = (down ? d_dst + q * d_stride : gu_dst + q * gu_stride) + (size_t)b0 * 34;
+    if (nb == kQ8Blocks) {
+        for (int k = threadIdx.x; k < kQ8Blocks * 34 / 16; k += blockDim.x) reinterpret_cast<uint4*>(dst)[k] = sm[k];
+    } else {
+        for (int k = threadIdx.x; k < nb * 34; k += blockDim.x) dst[k] = s[k];
+    }
+}
 template<int TYPE> __global__ void mv(const uint8_t* w, size_t rb, const Q8* x, float* y, int cols, int rows, int tokens) {
     const int r = blockIdx.x * 4 + threadIdx.y;
     if (r >= rows) return;
@@ -211,6 +307,31 @@ void kt_dequant_rows(int type, const void* src, int64_t cols, int64_t rows, void
     else throw std::invalid_argument("invalid KT dequantization destination");
 #undef DQ
 #undef DQ_IMPL
+    check();
+}
+void kt_to_q8_0_group(int gu_type, int d_type, int64_t n_embd, int64_t n_ff, size_t gu_row, size_t d_row,
+                      size_t up_off, size_t down_off, const uint8_t* const* blobs, int first, int n,
+                      void* gu_dst, size_t gu_stride, void* d_dst, size_t d_stride, size_t zero_bytes, void* stream) {
+    if (!kt::supported(gu_type) || !kt::supported(d_type) || n_embd <= 0 || n_ff <= 0 || n_embd > INT32_MAX ||
+        n_ff > INT32_MAX || gu_row != kt::row_bytes(gu_type, n_embd) || d_row != kt::row_bytes(d_type, n_ff))
+        throw std::invalid_argument("invalid KT expert layout for Q8_0");
+    if (first < 0 || n <= first || n > kKtQ8GroupMax) throw std::invalid_argument("invalid KT group");
+    if (((uintptr_t)gu_dst | (uintptr_t)d_dst | gu_stride | d_stride | zero_bytes) % 16 != 0)
+        throw std::invalid_argument("KT Q8_0 group buffers must be 16-byte aligned");
+    if (gu_stride < (size_t)(2 * n_ff) * (size_t)(n_embd / 32) * 34 || d_stride < (size_t)n_embd * (size_t)(n_ff / 32) * 34)
+        throw std::invalid_argument("KT Q8_0 group slots are too small");
+    KtGroup g{};
+    for (int q = first; q < n; ++q) g.blob[q] = blobs[q];
+    const int64_t nz = (int64_t)(zero_bytes / 16);
+    const int64_t ctas = (2 * n_ff * (n_embd / 32) + kQ8Blocks - 1) / kQ8Blocks +
+                         (n_embd * (n_ff / 32) + kQ8Blocks - 1) / kQ8Blocks + (nz > 0 ? 2 : 0);
+    const dim3 grid((unsigned)ctas, (unsigned)(n - first));
+    const auto s = (cudaStream_t)stream;
+#define TOQ8(GU,DT) to_q8_0<GU,DT><<<grid,4 * kQ8Blocks,0,s>>>(g,first,n,(int)n_embd,(int)n_ff,gu_row,d_row,up_off, \
+    down_off,(uint8_t*)gu_dst,gu_stride,(uint8_t*)d_dst,d_stride,nz)
+    if (gu_type == kt::IQ3) { if (d_type == kt::IQ3) TOQ8(kt::IQ3, kt::IQ3); else TOQ8(kt::IQ3, kt::IQ4); }
+    else { if (d_type == kt::IQ3) TOQ8(kt::IQ4, kt::IQ3); else TOQ8(kt::IQ4, kt::IQ4); }
+#undef TOQ8
     check();
 }
 void kt_mmvq(int type, const void* w, const void* x, float* y, int cols, int rows, int tokens, void* stream) {

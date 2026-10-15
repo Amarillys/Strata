@@ -42,6 +42,38 @@ float ref_dot(const float* w,const uint8_t* q,int n,int block_bytes,int offset) 
     }
     return (float)sum;
 }
+// The prompt path's KT MMQ conversion (kt_to_q8_0_group, STRATA_PREFILL_KT_MMQ): a two-expert group whose gate/up
+// rows cycle through the fixture's rows (n_ff 32, zero down rows), checked code for code against the scalar decoder and
+// scale for scale against its f16 rounding; then the zeroed MMQ tail after the last slot and the bytes after that.
+void q8_0_group(int type,const std::vector<uint8_t>& raw,int n,int nr,cudaStream_t stream) {
+    constexpr int FF=32; constexpr size_t ZERO=64,GUARD=64;
+    const size_t gr=strata::kt::row_bytes(type,n),dr=strata::kt::row_bytes(type,FF);
+    std::vector<uint8_t> blob(2*FF*gr+(size_t)n*dr,0);
+    for(int r=0;r<2*FF;++r) std::copy_n(raw.data()+(size_t)(r%nr)*gr,gr,blob.data()+(size_t)r*gr);
+    const size_t gs=((size_t)2*FF*(n/32)*34+15)&~size_t(15),ds=((size_t)n*(FF/32)*34+15)&~size_t(15);
+    Dev w(blob.size()),gu(2*gs+ZERO+GUARD),dn(2*ds+ZERO+GUARD);
+    ck(cudaMemcpy(w.p,blob.data(),blob.size(),cudaMemcpyHostToDevice));
+    ck(cudaMemset(gu.p,0x5a,2*gs+ZERO+GUARD));ck(cudaMemset(dn.p,0x5a,2*ds+ZERO+GUARD));
+    const uint8_t* blobs[2]={(const uint8_t*)w.p,(const uint8_t*)w.p};
+    strata::kernels::kt_to_q8_0_group(type,type,n,FF,gr,dr,FF*gr,2*FF*gr,blobs,0,2,gu.p,gs,dn.p,ds,ZERO,stream);
+    ck(cudaStreamSynchronize(stream));
+    std::vector<uint8_t> hg(2*gs+ZERO+GUARD),hd(2*ds+ZERO+GUARD);
+    ck(cudaMemcpy(hg.data(),gu.p,hg.size(),cudaMemcpyDeviceToHost));ck(cudaMemcpy(hd.data(),dn.p,hd.size(),cudaMemcpyDeviceToHost));
+    for(int e=0;e<2;++e) {
+        for(int r=0;r<2*FF;++r) for(int g=0;g<n/32;++g) {
+            const uint8_t* b=hg.data()+e*gs+((size_t)r*(n/32)+g)*34;
+            int8_t q[32];const float d=strata::kt::decode32(type,raw.data()+(size_t)(r%nr)*gr,n,g,q);
+            if(strata::kt::u16(b)!=__half_as_ushort(__float2half_rn(d))||std::memcmp(b+2,q,32)!=0) {
+                std::fprintf(stderr,"Q8_0 conversion type=%d width=%d expert=%d row=%d group=%d\n",type,n,e,r,g);
+                throw std::runtime_error("KT Q8_0 conversion mismatch");
+            }
+        }
+        for(int r=0;r<n;++r)   // zero down rows: a zero row scale, so a zero block scale
+            if((strata::kt::u16(hd.data()+e*ds+(size_t)r*34)&0x7fff)!=0) throw std::runtime_error("KT Q8_0 down scale");
+    }
+    for(size_t i=0;i<ZERO+GUARD;++i)
+        if(hg[2*gs+i]!=(i<ZERO?0:0x5a)||hd[2*ds+i]!=(i<ZERO?0:0x5a)) throw std::runtime_error("KT Q8_0 group tail");
+}
 void grouped(int type,const std::vector<uint8_t>& gu,const std::vector<float>& gu_ref,
              const std::vector<uint8_t>& dn,const std::vector<float>& dn_ref,cudaStream_t stream) {
     namespace k=strata::kernels; namespace cpu=k::cpu;
@@ -116,6 +148,7 @@ int main(int argc,char** argv) {
             if(n==64 && nr==64) grouped(type,raw,ref,down_raw.at(type),down_ref.at(type),stream);
             for(int r=0;r<nr;++r) strata::kt::dequantize_row(type,raw.data()+r*rb,n,got.data()+(size_t)r*n);
             require(error(got,ref),4e-7f,"CPU decode",type,n);
+            q8_0_group(type,raw,n,nr,stream);
             Dev w(raw.size()),out(ref.size()*4);
             ck(cudaMemcpy(w.p,raw.data(),raw.size(),cudaMemcpyHostToDevice));
             strata::kernels::kt_dequant_rows(type,w.p,n,nr,out.p,0,stream);

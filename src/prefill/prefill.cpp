@@ -1003,9 +1003,20 @@ constexpr int MMQ_GROUP = 16;                  // experts per MMQ launch (the ga
 // product: 640 values).  Those bytes meet zero activations, which is harmless only if they decode to finite numbers -
 // llama.cpp zero-pads after every tensor, and so does a group buffer: this many zeroed bytes follow its last expert.
 constexpr size_t MMQ_TAIL = 4096;
+// STRATA_PREFILL_KT_MMQ=1 (opt-in): a native pack's KT layers (IQ3_KT / IQ4_KT experts) take llama.cpp's Q8_0 MMQ - each
+// group's experts decoded to Q8_0 blocks as it is gathered (kernels::kt_to_q8_0_group), 16 experts a launch - instead
+// of one FP16 expansion and two cuBLAS products per expert.  The activations become q8_1 as on every MMQ layer, so the
+// rows round differently from the FP16 path.  Unset or 0: the FP16 path, as before.
+constexpr int kKtMmqType = 8;                  // GGML_TYPE_Q8_0: what a KT layer's MMQ products read
+static_assert(MMQ_GROUP <= strata::kernels::kKtQ8GroupMax, "a KT group converts at most kKtQ8GroupMax experts");
+bool kt_mmq_env() {
+    static const bool v = [] { const char* e = std::getenv("STRATA_PREFILL_KT_MMQ"); return e != nullptr && std::atoi(e) != 0; }();
+    return v;
+}
 struct MmqPlan {
     bool any = false, fallback = true;
     std::vector<char> layer;                   // per layer: MMQ
+    std::vector<char> kt;                      // per layer: a KT layer on MMQ (its experts become Q8_0 on the gather)
     std::vector<char> fo;                      // per layer: no MMQ here but the native fused kernels cover its formats
                                                // (gfx11: UD-Q4_K_XL's Q4_K / Q5_K and Q5_1 / Q8_0 experts, STRATA_PF_FUSED=1)
     size_t gu_max = 0, d_max = 0;
@@ -1018,18 +1029,22 @@ const MmqPlan& mmq_plan() {
         const bool on = mmq::built() && (env == nullptr || std::atoi(env) != 0);
         const int64_t layers = lay.native ? (int64_t) lay.fmt.size() : lay.n_layers;
         p.layer.assign((size_t) std::max<int64_t>(layers, 0), 0);
+        p.kt.assign(p.layer.size(), 0);
         p.fo.assign(p.layer.size(), 0);
         p.fallback = !on || layers <= 0;
         for (int64_t l = 0; on && l < layers; ++l) {
-            const int gt = lay.native ? lay.fmt[(size_t) l].gu_type : 42, dt = lay.native ? lay.fmt[(size_t) l].d_type : 42;
+            const int ft = lay.native ? lay.fmt[(size_t) l].gu_type : 42, fd = lay.native ? lay.fmt[(size_t) l].d_type : 42;
+            const bool kt_l = lay.native && kt_mmq_env() && strata::kt::supported(ft) && strata::kt::supported(fd);
+            const int gt = kt_l ? kKtMmqType : ft, dt = kt_l ? kKtMmqType : fd;
             // #420: a tile on every GPU for these shapes (gate+up: 1280 rows, down: N rows), else the FP16 path
             if (!mmq::fits(gt, 1280) || !mmq::fits(dt, N)) {
                 p.fallback = true;
                 // the fused path's buffers (Xq, H) exist for it; a chunk it does not take (a small one) keeps the FP16 path
-                if (on && lay.native && fused::native_supported(gt, dt)) { p.fo[(size_t) l] = 1; p.any = true; }
+                if (on && lay.native && fused::native_supported(ft, fd)) { p.fo[(size_t) l] = 1; p.any = true; }
                 continue;
             }
             p.layer[(size_t) l] = 1;
+            p.kt[(size_t) l] = kt_l ? 1 : 0;
             p.any = true;
             p.gu_max = std::max(p.gu_max, mmq::matrix_bytes(gt, 1280, N));
             p.d_max = std::max(p.d_max, mmq::matrix_bytes(dt, N, 640));
@@ -1630,6 +1645,7 @@ bool Prefill::bind_stage_helper(int64_t T) {
     const strata::kernels::cpu::ExpertLayout& lay = strata::kernels::cpu::expert_layout();
     for (int64_t l = stage_lb_; l < stage_le_; ++l) {
         if (!(mmq_plan().any && mmq_plan().layer[(size_t) l])) return false;   // the peer computes on MMQ only
+        if (mmq_plan().kt[(size_t) l]) return false;   // its gathers copy GGUF blocks; a KT layer's need the Q8_0 conversion
         if (lay.native && fused::native_supported(lay.fmt[(size_t) l].gu_type, lay.fmt[(size_t) l].d_type)) return false;
     }
     Impl& h = *helper_->impl_;
@@ -3030,13 +3046,17 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                     // (moe_fused_iq.hpp) where they cover its two formats, else MMQ (or the FP16 path: IQ1_M).
                     const strata::kernels::cpu::ExpertLayout& lay = strata::kernels::cpu::expert_layout();
                     const bool use_mmq = mmq_plan().any && mmq_plan().layer[(size_t) l];
-                    const int mmq_gt = lay.native ? lay.fmt[(size_t) l].gu_type : 42;
-                    const int mmq_dt = lay.native ? lay.fmt[(size_t) l].d_type : 42;
+                    const int fmt_gt = lay.native ? lay.fmt[(size_t) l].gu_type : 42;
+                    const int fmt_dt = lay.native ? lay.fmt[(size_t) l].d_type : 42;
+                    // STRATA_PREFILL_KT_MMQ: a KT layer's products read Q8_0 blocks (converted on the gather)
+                    const bool kt_mmq = use_mmq && mmq_plan().kt[(size_t) l];
+                    const int mmq_gt = kt_mmq ? kKtMmqType : fmt_gt;
+                    const int mmq_dt = kt_mmq ? kKtMmqType : fmt_dt;
                     // --peer-device: MMQ only, whether or not the peer took the prompt path (set_peer can decline), as
                     // fused_ring() sized the ring and the buffers for it
                     const bool no_peer = !core::peer_portable();
                     const bool fused_only = mmq_plan().any && mmq_plan().fo[(size_t) l];
-                    const bool fused_nat = (use_mmq || fused_only) && stream_all && no_peer && lay.native && fused::native_supported(mmq_gt, mmq_dt);
+                    const bool fused_nat = (use_mmq || fused_only) && stream_all && no_peer && lay.native && fused::native_supported(fmt_gt, fmt_dt);
                     const bool fused_l = (use_mmq && stream_all && no_peer && !lay.native && fused::enabled()) || fused_nat;
                     // #583 / #954: the fused layout's GU/H/Xq hold the grouping tables and the int8 rows, sized for
                     // stream_all_min() - 1 tokens of MMQ's rows, so a layer that takes MMQ or the FP16 path at the FULL
@@ -3289,7 +3309,8 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                             }
                         }
                         // multi-GPU: the rows of the experts the peer computes go last, as one block [rows_local, T*K)
-                        const bool pre_mmq = mmq_plan().any && mmq_plan().layer[(size_t) l];
+                        // (a KT layer stays local: the peer's gathers copy GGUF blocks, they do not convert to Q8_0)
+                        const bool pre_mmq = mmq_plan().any && mmq_plan().layer[(size_t) l] && !mmq_plan().kt[(size_t) l];
                         std::vector<char> on_peer;
                         int64_t rows_local = T * K, rows_peer = 0;
                         if (m.pp && pre_mmq) {
@@ -3847,9 +3868,13 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                                 pt.mark(kPfDequant, cs);
                             }
                             // NVFP4: each expert's scales go next to its group slot in the same launch
-                            if (!mmq::gather_native_group(gg, f.up_off, mmq_gub / 2, f.down_off, mmq_db, m.grp_gu, mmq_gub,
-                                                          m.grp_d, mmq_db, m.cs, f.tail_off,
-                                                          f.tail_off ? m.grp_tail : nullptr, zero)) {
+                            if (kt_mmq) {
+                                strata::kernels::kt_to_q8_0_group(f.gu_type, f.d_type, f.n_embd, f.n_ff, f.gu_row, f.d_row,
+                                                                  f.up_off, f.down_off, gg.blob, gg.first, gg.n, m.grp_gu,
+                                                                  mmq_gub, m.grp_d, mmq_db, zero, m.cs);
+                            } else if (!mmq::gather_native_group(gg, f.up_off, mmq_gub / 2, f.down_off, mmq_db, m.grp_gu, mmq_gub,
+                                                                 m.grp_d, mmq_db, m.cs, f.tail_off,
+                                                                 f.tail_off ? m.grp_tail : nullptr, zero)) {
                                 for (int i = gg.first; i < gg.n; ++i) {   // not 16-byte aligned: one at a time
                                     const uint8_t* b = gg.blob[i];
                                     mmq::gather_native(b, b + f.up_off, mmq_gub / 2, b + f.down_off, mmq_db,
@@ -3883,6 +3908,13 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                                     if (!last_of_group) return true;
                                     flush(MMQ_TAIL);
                                     gg = mmq::GatherGroup{};
+                                } else if (lay.native && kt_mmq) {
+                                    const auto& f = lay.fmt[(size_t) l];
+                                    const uint8_t* one[strata::kernels::kKtQ8GroupMax] = {};
+                                    one[q] = blob_dev;
+                                    strata::kernels::kt_to_q8_0_group(f.gu_type, f.d_type, f.n_embd, f.n_ff, f.gu_row, f.d_row,
+                                                                      f.up_off, f.down_off, one, (int) q, (int) q + 1, m.grp_gu,
+                                                                      mmq_gub, m.grp_d, mmq_db, last_of_group ? MMQ_TAIL : 0, m.cs);
                                 } else if (lay.native) {
                                     const auto& f = lay.fmt[(size_t) l];
                                     // NVFP4: this expert's scales go next to its group slot in the same launch
