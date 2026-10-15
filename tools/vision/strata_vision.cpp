@@ -8,6 +8,8 @@
 //                 [--device NAME] [--max-tokens N] [--min-tokens N] [--flash-attn on|off|auto]
 //   strata-vision --list-devices
 // Flash attention defaults to auto, and to off on the CPU when ggml is built with AVX-512 (see main).
+// MTMD_WEIGHTS_HOST=cpu|pinned in the environment (a build with -DSTRATA_VISION_WEIGHTS_HOST=ON) keeps the projector's
+// weights in RAM; a GPU then holds only the compute buffers (tools/vision/CMakeLists.txt).
 //
 // Resident: prints "READY <n_embd>", then per stdin line
 //   ENC <image path> <output path>   ->  "OK <n_tokens> <nx> <ny> <ms>"  or  "ERR <message>"
@@ -130,6 +132,23 @@ int main(int argc, char** argv) {
         }
         std::fprintf(stderr, "strata-vision: selected %s (%s)\n", ggml_backend_dev_name(selected),
                      ggml_backend_dev_description(selected));
+    }
+
+    // MTMD_WEIGHTS_HOST: a build without the patched clip.cpp would put the weights on the GPU anyway, taking ~1 GB the
+    // engine sized its expert cache without - so it refuses instead
+    if (const char* wh = std::getenv("MTMD_WEIGHTS_HOST")) {
+#ifdef STRATA_VISION_WEIGHTS_HOST
+        const char* why = std::strcmp(wh, "cpu") == 0 || std::strcmp(wh, "pinned") == 0 ? nullptr
+                        : "MTMD_WEIGHTS_HOST must be cpu or pinned";
+#else
+        const char* why = "MTMD_WEIGHTS_HOST needs a strata-vision built with -DSTRATA_VISION_WEIGHTS_HOST=ON";
+#endif
+        if (why != nullptr) {
+            std::fprintf(stderr, "strata-vision: %s\n", why);
+            std::printf("ERR %s\n", why);
+            std::fflush(stdout);
+            return 1;
+        }
     }
 
     const auto load_t0 = std::chrono::steady_clock::now();

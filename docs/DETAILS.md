@@ -1531,6 +1531,27 @@ took 1,339 MiB and started in 4.7 s (2.7 s the next time); a request with one pi
 5.0 s on a later cold start, and 2 / 5 / 10 pictures with the encoder running took 3.8 / 5.6 / 9.0 s (~0.45 s to encode
 each, the same as on a second card). Without the key nothing changes.
 
+**The encoder's weights in RAM (opt-in: build `strata-vision` with `-DSTRATA_VISION_WEIGHTS_HOST=ON`, then add
+`"MTMD_WEIGHTS_HOST": "cpu"` to the `"env"` of the `"vision"` section):** the projector's weights stay in RAM, and
+llama.cpp's scheduler copies each op's weights to the GPU while it runs, so the GPU keeps only the encoder's work
+buffers. For a card whose VRAM the expert cache needs. Measured on an RTX 2080 Ti 22 GB (PCIe 3.0 x8, Vulkan build,
+an F16-named mmproj with BF16 weights, a 1024x1024 chart, flash attention auto), encoder alone:
+
+| Weights | Image tokens | VRAM of the encoder | Time per picture |
+| --- | --- | --- | --- |
+| on the GPU (default) | 625 | 963 MiB | 0.22 s |
+| in RAM (`cpu`) | 625 | 113 MiB | 0.43-0.46 s |
+| in RAM (`cpu`) | 729 | 128 MiB | 0.47 s |
+
+The embeddings are the same bit for bit; the extra ~0.2 s is the 865 MiB of weights crossing PCIe for every picture.
+On a layer split of that 2080 Ti and an RTX 4080 SUPER (IQ3_KT, every expert of the 2080 Ti's layers in its cache),
+the engine kept all 9,728 of them with `--vram-reserve-mib` lowered from 960 to 840, and an HTTP request with one new
+picture (655 prompt tokens) took 3.6-4.0 s instead of 8.9 s with the encoder on the PC's Intel Iris Xe. `"pinned"`
+instead of `"cpu"` uses ggml-vulkan's pinned memory, which belongs to Vulkan device 0 (set `GGML_VK_VISIBLE_DEVICES`
+to the encoder's card), and was ~20 ms faster there. The build compiles a patched copy of mtmd's `clip.cpp` in the
+build folder (the llama.cpp checkout is not changed; `tools/vision/CMakeLists.txt`); the setup does not turn it on,
+and a `strata-vision` built without it refuses `MTMD_WEIGHTS_HOST` instead of putting the weights on the GPU.
+
 ### Sending a picture
 
 **Terminal chat:** type `/image <path to a picture>`, press Enter, then type your question.
