@@ -22,7 +22,7 @@ from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from serve.frontend import ChatTemplate, literal_tags, mark_think_literals, unmark_think_literals  # noqa: E402
-from serve.server import (CTX_SLACK, ByteTokenizer, EngineDied, EngineNonFinite, GpuBusy, MockEngine,  # noqa: E402
+from serve.server import (ANSWER_RESERVE_MIN, CTX_SLACK, ByteTokenizer, EngineDied, EngineNonFinite, GpuBusy, MockEngine,  # noqa: E402
                           PP_DONE_TAIL, Service,
                           StrataEngine, api_key_of, engine_args, key_matches, layer_split_value, prompt_progress,
                           prompt_tokens_seen,
@@ -137,14 +137,81 @@ class MaxTokens(unittest.TestCase):
                 self.assertEqual(self.engine.last_max_new, want)
                 self.assertEqual(ct, want)
 
-    def test_explicit_budget_over_the_context_is_rejected(self):
-        for api in ("openai", "anthropic"):
+    def responses(self, text="hi", **budget):
+        """-> (status, body, prompt tokens, completion tokens) for /v1/responses."""
+        s, b = self.post("/v1/responses", {"model": "m", "input": text, **budget})
+        u = b.get("usage", {}) if isinstance(b, dict) else {}
+        return s, b, u.get("input_tokens"), u.get("output_tokens")
+
+    def call_any(self, api, text="hi", **budget):
+        """The three dialects; `budget` is given in the chat/messages spelling (max_tokens)."""
+        if api == "responses":
+            if "max_tokens" in budget:
+                budget["max_output_tokens"] = budget.pop("max_tokens")
+            return self.responses(text, **budget)
+        return self.call(api, text, **budget)
+
+    def test_explicit_budget_over_the_context_is_shortened_to_the_room_left(self):
+        for api in ("openai", "anthropic", "responses"):
             with self.subTest(api=api):
-                s, b, _, _ = self.call(api, max_tokens=CTX)
-                self.assertEqual(s, 400)
-                self.assertIn("exceeds the context", b["error"]["message"])
-                self.assertIn("\"fit_max_tokens\": true", b["error"]["message"])     # #545: says how to get past it
-                self.assertRegex(b["error"]["message"], r"at most \d+ here")
+                s, b, pt, ct = self.call_any(api, max_tokens=CTX)
+                self.assertEqual(s, 200, b)
+                self.assertEqual(self.engine.last_max_new, CTX - CTX_SLACK - pt)
+                self.assertLessEqual(pt + ct, CTX - CTX_SLACK)
+
+    def test_budget_that_fits_exactly_or_less_is_untouched(self):
+        for api in ("openai", "anthropic", "responses"):
+            _, _, pt, _ = self.call_any(api, max_tokens=1)
+            room = CTX - CTX_SLACK - pt
+            for budget in (50, room):
+                with self.subTest(api=api, budget=budget):
+                    s, b, _, _ = self.call_any(api, max_tokens=budget)
+                    self.assertEqual(s, 200, b)
+                    self.assertEqual(self.engine.last_max_new, budget)
+            with self.subTest(api=api, budget="room + 1"):
+                s, b, _, _ = self.call_any(api, max_tokens=room + 1)
+                self.assertEqual(s, 200, b)
+                self.assertEqual(self.engine.last_max_new, room)
+
+    def test_a_prompt_that_alone_does_not_fit_is_still_a_400(self):
+        _, _, pt0, _ = self.call("openai", max_tokens=1)
+        overhead = pt0 - len("hi")
+        for api in ("openai", "anthropic", "responses"):
+            with self.subTest(api=api):
+                s, b, _, _ = self.call_any(api, text="y" * (CTX - overhead + 50), max_tokens=CTX)
+                self.assertEqual(s, 400, b)
+                self.assertIn("exceeds the context window", b["error"]["message"])
+                self.assertIn("no room to answer", b["error"]["message"])
+                self.assertIn("never truncated", b["error"]["message"])
+
+    def test_thinking_budget_follows_the_shortened_cap(self):
+        import contextlib
+        import io
+        for api in ("openai", "anthropic", "responses"):
+            with self.subTest(api=api):
+                out = io.StringIO()
+                with contextlib.redirect_stdout(out):
+                    s, b, pt, _ = self.call_any(api, max_tokens=CTX)
+                self.assertEqual(s, 200, b)
+                room = CTX - CTX_SLACK - pt
+                text = out.getvalue()
+                self.assertIn(f"shortened to {room}", text)
+                if api != "anthropic":
+                    cap = room - min(max(ANSWER_RESERVE_MIN, room // 4), room // 2)
+                    self.assertIn(f"thinking limited to {cap} of max_tokens {room}", text)
+
+    def test_strict_mode_keeps_the_llama_cpp_400(self):
+        self.svc.fit_max_tokens = False
+        try:
+            for api in ("openai", "anthropic", "responses"):
+                with self.subTest(api=api):
+                    s, b, _, _ = self.call_any(api, max_tokens=CTX)
+                    self.assertEqual(s, 400)
+                    self.assertIn("exceeds the context", b["error"]["message"])
+                    self.assertIn("\"fit_max_tokens\": true", b["error"]["message"])
+                    self.assertRegex(b["error"]["message"], r"at most \d+ here")
+        finally:
+            self.svc.fit_max_tokens = True
 
     def test_unset_budget_with_a_near_full_prompt(self):
         _, _, pt0, _ = self.call("openai", max_tokens=1)
@@ -3790,6 +3857,33 @@ class ThinkingBudget(unittest.TestCase):
         self.assertEqual(text, ThinkingEngine.ANSWER)
         self.assertEqual(evs[-2]["delta"]["stop_reason"], "end_turn")
 
+    def test_a_cap_that_the_thinking_would_eat_leaves_room_to_answer(self):
+        """0.1.45: max_tokens counts the thinking; a thinking that would fill it gets closed with a quarter left."""
+        self.engine.THOUGHT = "Let me think step by step about two plus two. " * 40
+        code, b = self.post("/v1/chat/completions", {"model": "m", "max_tokens": 1024,
+                                                     "messages": [{"role": "user", "content": "2+2?"}]})
+        self.assertEqual(code, 200, b)
+        msg = b["choices"][0]["message"]
+        self.assertEqual(msg["content"], ThinkingEngine.ANSWER)
+        self.assertEqual(b["choices"][0]["finish_reason"], "stop")
+        self.assertLess(len(msg["reasoning_content"]), 1024 - 256)
+        self.assertEqual(len(self.engine.prompts), 2)
+
+    def test_the_answer_room_has_its_limits(self):
+        self.engine.THOUGHT = "Let me think step by step about two plus two. " * 40
+        code, b = self.post("/v1/chat/completions", {"model": "m", "max_tokens": 300,
+                                                     "messages": [{"role": "user", "content": "2+2?"}]})
+        self.assertEqual(b["choices"][0]["finish_reason"], "length")
+        self.assertFalse(b["choices"][0]["message"]["content"])
+        self.svc.answer_room = False
+        code, b = self.post("/v1/chat/completions", {"model": "m", "max_tokens": 1024,
+                                                     "messages": [{"role": "user", "content": "2+2?"}]})
+        self.assertEqual(b["choices"][0]["finish_reason"], "length")
+        self.svc.answer_room = True
+        code, b = self.post("/v1/chat/completions", {"model": "m", "max_tokens": 1024, "reasoning_effort": "none",
+                                                     "messages": [{"role": "user", "content": "2+2?"}]})
+        self.assertEqual(len(self.engine.prompts), 3)
+
     def test_a_budget_the_thinking_stays_under(self):
         code, b = self.openai(reasoning_budget_tokens=10_000)
         self.assertEqual(b["choices"][0]["message"]["reasoning_content"], ThinkingEngine.THOUGHT)
@@ -5201,6 +5295,15 @@ class VisionArgs(unittest.TestCase):
         args = self.args_for({"device": "Vulkan0", "max_tokens": 768})
         self.assertEqual(args[args.index("--device") + 1], "Vulkan0")
         self.assertNotIn("--device", self.args_for({"gpu": True}))
+
+    def test_flash_attention_override(self):
+        self.assertNotIn("--flash-attn", self.args_for({"gpu": True}))
+        for value in ("auto", "on", "off"):
+            with self.subTest(value=value):
+                self.assertEqual(self.args_for({"flash_attn": value})[-2:], ["--flash-attn", value])
+        for value in (True, False, None, "disabled"):
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, "vision.flash_attn"):
+                self.args_for({"flash_attn": value})
 
 
 class VisionCacheEviction(unittest.TestCase):
