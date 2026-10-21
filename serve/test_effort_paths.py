@@ -145,6 +145,17 @@ class EffortPaths(unittest.TestCase):
             with self.subTest(path=path, shared="none"):
                 self.assertEqual(self.level(path, body), "none")
 
+    def test_false_overrides_config_and_shared_defaults(self):
+        for config, shared in (("high", {}), (None, {"reasoning_effort": "high"}),
+                               ("low", {"reasoning_effort": "high"})):
+            self.svc.config_effort, self.svc.shared = config, shared
+            for fields, want in (({"reasoning_effort": False}, "none"),
+                                 ({"reasoning_effort": "none"}, "none"),
+                                 ({"reasoning_effort": None}, "xhigh"),
+                                 ({"reasoning_effort": ""}, "xhigh"), ({}, "xhigh")):
+                with self.subTest(config=config, shared=shared, fields=fields):
+                    self.assertEqual(self.level("/v1/chat/completions", {"messages": MSG, **fields}), want)
+
     def test_the_web_apps_request_shape(self):
         # serve/web/app.js: {model, messages, stream, reasoning_effort: settings.thinking} with none / low / medium / high
         for given, want in (("none", "none"), ("low", "low"), ("medium", "medium"), ("high", "xhigh")):
