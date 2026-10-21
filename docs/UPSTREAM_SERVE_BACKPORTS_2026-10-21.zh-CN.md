@@ -55,16 +55,20 @@ python -m unittest serve.test_model_card_sampling serve.test_web_sampling serve.
 集成分支为 `integrate/upstream-serve-20261021`，工作树位于
 `B:\llama.cpp\Strata-integrate-serve-20261021`。
 
-主工作区已有文件的 Windows ACL 拒绝当前执行进程写入，包括 `.git/logs/HEAD`、服务分支 reflog
+初次集成时，主工作区已有文件的 Windows ACL 拒绝当前执行进程写入，包括 `.git/logs/HEAD`、服务分支 reflog
 和 `serve/server.py`。尝试切换分支时因 reflog 写入失败而停止，随后改用独立工作树完成集成。
 写权限检查仅打开文件、未写入内容；没有改 ACL、接管所有权或改全局 Git 配置。
-主工作区保留 `ebd2ec5d` 及原有未跟踪评审记录和 `recycler/`，尚未合入此批补丁。
+当时主工作区保留 `ebd2ec5d` 及原有未跟踪评审记录和 `recycler/`，未合入此批补丁。
 
-在具有主仓库写权限的终端中，可执行以下快进合并：
+同日权限环境更新后，已在主工作区执行以下快进合并，服务源码分支
+`feat/ik-support-with-vulkan-vision` 从 `ebd2ec5d` 前进到 `3631e17c`，没有冲突：
 
 ```powershell
 git -C B:/llama.cpp/Strata -c safe.directory=B:/llama.cpp/Strata merge --ff-only integrate/upstream-serve-20261021
 ```
+
+合入的源码和测试与下述 481 项回归的版本完全一致；此后的文档提交仅更新本节合入状态。
+原有未跟踪评审记录和 `recycler/` 保留，没有推送远端。
 
 这只更新源码。运行中的服务何时采用新代码，应另外按预设管理流程安排切换；不要启动集成工作树里的
 临时服务来替代当前部署。
