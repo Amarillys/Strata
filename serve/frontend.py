@@ -1088,6 +1088,7 @@ class OutputParser:
 
     def _reset_scan(self):
         self._call_end_checked = 0   # closing-tag search progress for the current wrapped call
+        self._next_call_checked = 0  # following-wrapper search progress for an omitted closer
         self.sp = 0                  # how much of self.buf (the call body) the scanner has consumed
         self.ss = "name"             # name -> between -> str|raw -> ... -> function_done -> done
         self.scall = None            # the ToolCall being streamed (its id is reused by the final event)
@@ -1108,6 +1109,18 @@ class OutputParser:
                 return -1
             self._call_end_checked = -1
         return call_end(self.buf)
+
+    def _unclosed_call_end(self) -> int:
+        # An omitted wrapper closer needs a following <tool_call> to confirm its boundary.
+        # Before that marker arrives, avoid walking the growing parameter body on every feed.
+        # A literal marker needs the full walk from then on; recovery can rewrite the buffer.
+        if not self.recover and self._next_call_checked >= 0:
+            start = max(0, self._next_call_checked - len(CALL_START) + 1)
+            if self.buf.find(CALL_START, start) < 0:
+                self._next_call_checked = len(self.buf)
+                return -1
+            self._next_call_checked = -1
+        return function_end(self.buf)
 
     def _scan(self) -> list[Event]:
         """Advance the streaming view of the call body in self.buf (see stream_tools)."""
@@ -1476,7 +1489,7 @@ class OutputParser:
                     if i >= 0:
                         drop = len(CALL_END)
                     # Only a following call opener confirms an omitted wrapper closer.
-                    f = function_end(self.buf)
+                    f = self._unclosed_call_end()
                     nxt = self.buf[f:].lstrip() if f >= 0 else ""
                     if re.match(r"<tool_call>\s*<function=\s*[^<>\s]+\s*>", nxt):
                         i, drop = f, 0
