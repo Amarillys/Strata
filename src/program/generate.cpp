@@ -9592,7 +9592,7 @@ int main(int argc, char** argv) {
                         "mtp_max=%d lookup=%d vram_free_mib=%lld cvec=%s arena_mib=%lld pool_workers=%d pcie_frac=%.2f "
                         "spec_min_p=%.2f conversation_cache_mib=%lld conversation_cache_slots=%d "
                         "conversation_cache_min_free_mib=%lld conversation_cache_min_tokens=%lld "
-                        "tail_role_token=%lld vram_elastic=%d%s engine=" STRATA_VERSION "\n",
+                        "request_tail_role=1 tail_role_token=%lld vram_elastic=%d%s engine=" STRATA_VERSION "\n",
                         (long long) o.max_context, o.kv.c_str(),
                         (long long) (g.n_qsa_layers() > 0 && ss.qsa_states[ss.qsa_primary()].kv_mode == 1
                                          ? ss.qsa_states[ss.qsa_primary()].n_slots * 4 : 0),
@@ -10655,6 +10655,9 @@ int main(int argc, char** argv) {
             // parked after it.  It still resumes from a checkpoint it matches, and still saves the system-prompt root
             // when that reaches --prompt-cache-root.  Absent = checkpointed as before.
             int req_ckpt = 1;
+            // Per-request override of --tail-role-token. Reinitialized on every GEN/GENI so a client's
+            // checkpoint policy never becomes the next client's default. -1 disables the tail-role cut.
+            int64_t req_tail_role_token = o.tail_role_token;
             // pin=N: the first N prompt tokens are a shared read-only prefix (a long document that many short queries
             // follow).  The prompt is read in two parts at N, the checkpoint there is PINNED (retention never evicts it,
             // a parked conversation holding it stays parked) and a later request that resumes from it does not park the
@@ -10683,6 +10686,7 @@ int main(int argc, char** argv) {
                     if (key == "logit_bias") { req_bias_text = tok.substr(eq + 1); req_bias_present = true; }
                     else if (key == "cvec") req_cvec = std::atoi(tok.c_str() + eq + 1);
                     else if (key == "ckpt") req_ckpt = std::atoi(tok.c_str() + eq + 1) != 0;
+                    else if (key == "tail_role") req_tail_role_token = std::max<int64_t>(-1, std::atoll(tok.c_str() + eq + 1));
                     else if (key == "pin") req_pin = std::max<long long>(0, std::atoll(tok.c_str() + eq + 1));
                     else if (key == "temperature") req_temperature = fv;
                     else if (key == "top_p") req_top_p = fv;
@@ -11710,10 +11714,10 @@ int main(int argc, char** argv) {
             // #458 (opt-in): a short turn of --tail-role-token's role right before the new assistant turn (the
             // server's trailing reasoning-effort turn) stays out of the checkpoint, so the next request - another
             // effort, or the next turn of the chat - finds the conversation without it
-            if (turn_at > 0 && o.tail_role_token >= 0)
+            if (turn_at > 0 && req_tail_role_token >= 0)
                 for (int64_t i = turn_at - 1; i > resume; --i)
                     if (ids[(size_t) i] == o.turn_token) {
-                        if (ids[(size_t) i + 1] == o.tail_role_token) turn_at = i;
+                        if (ids[(size_t) i + 1] == req_tail_role_token) turn_at = i;
                         break;
                     }
             // A prompt read from token 0 also stops at its FIRST turn boundary: the end of the system prompt (with

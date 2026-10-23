@@ -68,6 +68,7 @@ from serve.structured import StructuredOutputError, prepare_format, validated_js
 from serve import responses as responses_api  # noqa: E402
 from serve.responses import ResponsesError, error_body as responses_error_body  # noqa: E402
 from serve import images as images_api  # noqa: E402
+from serve.client_cache import ClientCachePolicy, TAIL_ROLE_KEY  # noqa: E402
 
 IM_END = "<|im_end|>"
 IMAGE_PAD = "<|image_pad|>"
@@ -1184,6 +1185,10 @@ class StrataEngine:
         # extends: no conversation checkpoint for it (#830).  It still reuses a cached prefix.  Absent = as before.
         if sampling.get("strata_checkpoint") is False:
             keys += " ckpt=0"
+        # Set only by the server's socket-peer policy, not by an HTTP JSON field.
+        tail_role = sampling.get(TAIL_ROLE_KEY)
+        if isinstance(tail_role, int) and not isinstance(tail_role, bool) and tail_role >= -1:
+            keys += f" tail_role={tail_role}"
         # #2228: the pictures' keys (hex, in prompt order): the engine matches a picture by them, not by its embeddings
         ik = sampling.get("strata_img_keys")
         if isinstance(ik, list) and ik and all(isinstance(k, str) and k and all(c in "0123456789abcdef" for c in k)
@@ -3049,6 +3054,7 @@ class Service:
         self.reasoning_close_retry = False            # #1053 (opt-in): close the thinking once when a reply ends inside it
         self.codex_compaction_cache = False           # #924 (opt-in): a Codex compaction is rendered with its conversation's tools
         self.codex_thread_titles = False              # #923 (opt-in): answer Codex's thread-title turns without the engine
+        self.client_cache_policy = ClientCachePolicy()
         self.sampling_defaults = dict(sampling_defaults or {})   # the run config's `sampling` block
         self.model_arch = None                        # the config's family ("qwen4exp", "qwen35moe"): None = no model-card defaults
         self.shared = {}                              # the web app's Chat settings for every client (POST /settings)
@@ -5528,6 +5534,7 @@ def make_handler(svc: Service):
                     return
                 if path in ("/v1/chat/completions", "/v1/messages", "/v1/responses"):
                     self.record = svc.begin_request(path, req)
+                    req = svc.client_cache_policy.request(req, self.client_address[0])
                 if path == "/v1/responses":
                     self._responses(req)
                 elif path.startswith("/slots/"):
@@ -6739,6 +6746,15 @@ def main() -> int:
         merges = (tpath / "merges.txt").read_text(encoding="utf-8").split("\n")
         types = json.loads((tpath / "token_type.json").read_text())
         tok = ST.Tokenizer(tokens, merges, types)
+    try:
+        client_cache_policy = ClientCachePolicy.from_config(cfg, tok)
+        if client_cache_policy.tail_user_ips:
+            if a.engine != "strata":
+                raise ValueError("cache_tail_user_ips requires the Strata engine")
+            policy_exe = os.path.abspath(os.path.join(cfg.get("cwd") or ".", cfg["exe"]))
+            client_cache_policy.check_engine(engine_binary(policy_exe, cfg), engine_args(cfg))
+    except (ValueError, OSError) as e:
+        ap.error(str(e))
     hub = hub_from_config(cfg, a.mcp_config)            # before the minutes of loading: a bad entry stops here
     if a.engine == "strata":
         if not cfg:
@@ -6814,6 +6830,10 @@ def main() -> int:
                   model_name=default_model_name(cfg), vision=vision,
                   sampling_defaults=sampling_defaults,
                   fit_max_tokens=a.fit_max_tokens or (not a.no_fit_max_tokens and cfg.get("fit_max_tokens") is not False))
+    svc.client_cache_policy = client_cache_policy
+    if client_cache_policy.tail_user_ips:
+        print("[strata] checkpoint before final user message for socket peers: " +
+              ", ".join(sorted(client_cache_policy.tail_user_ips)), flush=True)
     if a.engine == "strata":                            # the model card's sampling when nothing else is said (see MODEL_CARD_SAMPLING)
         svc.model_arch = cfg.get("arch") or "qwen4exp"
     svc.answer_room = cfg.get("answer_room") is not False
